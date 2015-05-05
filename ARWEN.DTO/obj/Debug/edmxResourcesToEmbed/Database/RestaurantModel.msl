@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RestaurantModelStoreContainer" CdmEntityContainer="RestaurantContext">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="RestaurantModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataHasChanged">
+      <EntityTypeMapping TypeName="RestaurantModel.DataHasChanged">
+        <MappingFragment StoreEntitySet="DataHasChanged">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GroupsLastChangedDate" ColumnName="GroupsLastChangedDate" />
+          <ScalarProperty Name="ProductsLastChangedDate" ColumnName="ProductsLastChangedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="RestaurantModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetail">
+      <EntityTypeMapping TypeName="RestaurantModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EditState" ColumnName="EditState" />
+          <ScalarProperty Name="EditAmount" ColumnName="EditAmount" />
+          <ScalarProperty Name="NotEditable" ColumnName="NotEditable" />
+          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHeader">
+      <EntityTypeMapping TypeName="RestaurantModel.OrderHeader">
+        <MappingFragment StoreEntitySet="OrderHeader">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="CreatorUserID" ColumnName="CreatorUserID" />
+          <ScalarProperty Name="CreationDatetime" ColumnName="CreationDatetime" />
+          <ScalarProperty Name="LastEditionDatetime" ColumnName="LastEditionDatetime" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="LockState" ColumnName="LockState" />
+          <ScalarProperty Name="LockKeeperUserID" ColumnName="LockKeeperUserID" />
+          <ScalarProperty Name="PrintState" ColumnName="PrintState" />
+          <ScalarProperty Name="CancelCause" ColumnName="CancelCause" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentModules">
+      <EntityTypeMapping TypeName="RestaurantModel.PaymentModules">
+        <MappingFragment StoreEntitySet="PaymentModules">
+          <ScalarProperty Name="PaymentModuleID" ColumnName="PaymentModuleID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="RestaurantModel.Payments">
+        <MappingFragment StoreEntitySet="Payments">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="PaymentModuleID" ColumnName="PaymentModuleID" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="RestaurantModel.Permissions">
+        <MappingFragment StoreEntitySet="Permissions">
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="RestaurantModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="RestaurantModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Cancel" ColumnName="Cancel" />
+          <ScalarProperty Name="Used" ColumnName="Used" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestaurantTables">
+      <EntityTypeMapping TypeName="RestaurantModel.RestaurantTables">
+        <MappingFragment StoreEntitySet="RestaurantTables">
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="RestaurantModel.Settings">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RestaurantName" ColumnName="RestaurantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="WebsiteURL" ColumnName="WebsiteURL" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="RestaurantModel.Suppliers">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RestaurantModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="RestaurantModel.Units">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RestaurantModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Cancel_Order" FunctionName="RestaurantModel.Store.Cancel_Order" />
+    <FunctionImportMapping FunctionImportName="Check_Out_Order" FunctionName="RestaurantModel.Store.Check_Out_Order" />
+    <FunctionImportMapping FunctionImportName="Check_User" FunctionName="RestaurantModel.Store.Check_User">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Check_User_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+          <ScalarProperty Name="Today" ColumnName="Today" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Create_Group" FunctionName="RestaurantModel.Store.Create_Group" />
+    <FunctionImportMapping FunctionImportName="Create_Product" FunctionName="RestaurantModel.Store.Create_Product" />
+    <FunctionImportMapping FunctionImportName="Create_Table" FunctionName="RestaurantModel.Store.Create_Table" />
+    <FunctionImportMapping FunctionImportName="Create_Unit" FunctionName="RestaurantModel.Store.Create_Unit" />
+    <FunctionImportMapping FunctionImportName="Create_User" FunctionName="RestaurantModel.Store.Create_User" />
+    <FunctionImportMapping FunctionImportName="Delete_Group" FunctionName="RestaurantModel.Store.Delete_Group" />
+    <FunctionImportMapping FunctionImportName="Delete_Product" FunctionName="RestaurantModel.Store.Delete_Product" />
+    <FunctionImportMapping FunctionImportName="Delete_Table" FunctionName="RestaurantModel.Store.Delete_Table" />
+    <FunctionImportMapping FunctionImportName="Delete_Unit" FunctionName="RestaurantModel.Store.Delete_Unit" />
+    <FunctionImportMapping FunctionImportName="Delete_User" FunctionName="RestaurantModel.Store.Delete_User" />
+    <FunctionImportMapping FunctionImportName="Get_All_Groups" FunctionName="RestaurantModel.Store.Get_All_Groups">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Groups_Result">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_All_Products" FunctionName="RestaurantModel.Store.Get_All_Products">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Products_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_All_Products_By_GroupID" FunctionName="RestaurantModel.Store.Get_All_Products_By_GroupID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Products_By_GroupID_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_All_Tables" FunctionName="RestaurantModel.Store.Get_All_Tables">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Tables_Result">
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_All_Units" FunctionName="RestaurantModel.Store.Get_All_Units">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Units_Result">
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_All_Users" FunctionName="RestaurantModel.Store.Get_All_Users">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_All_Users_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Available_Products" FunctionName="RestaurantModel.Store.Get_Available_Products">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Available_Products_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Last_OrderNo" FunctionName="RestaurantModel.Store.Get_Last_OrderNo" />
+    <FunctionImportMapping FunctionImportName="Get_Order_Detail" FunctionName="RestaurantModel.Store.Get_Order_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Order_Detail_Result">
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EditState" ColumnName="EditState" />
+          <ScalarProperty Name="EditAmount" ColumnName="EditAmount" />
+          <ScalarProperty Name="NotEditable" ColumnName="NotEditable" />
+          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Order_Detail_For_Auto_Print" FunctionName="RestaurantModel.Store.Get_Order_Detail_For_Auto_Print">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Order_Detail_For_Auto_Print_Result">
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EditState" ColumnName="EditState" />
+          <ScalarProperty Name="EditAmount" ColumnName="EditAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Order_Detail_For_Cashier" FunctionName="RestaurantModel.Store.Get_Order_Detail_For_Cashier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Order_Detail_For_Cashier_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="RowPrice" ColumnName="RowPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Order_State" FunctionName="RestaurantModel.Store.Get_Order_State" />
+    <FunctionImportMapping FunctionImportName="Get_Orders_List_For_Cashier" FunctionName="RestaurantModel.Store.Get_Orders_List_For_Cashier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Orders_List_For_Cashier_Result">
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Waiter" ColumnName="Waiter" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Orders_List_For_Kitchen" FunctionName="RestaurantModel.Store.Get_Orders_List_For_Kitchen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Orders_List_For_Kitchen_Result">
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Waiter" ColumnName="Waiter" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+          <ScalarProperty Name="PrintState" ColumnName="PrintState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Orders_List_For_Waiter" FunctionName="RestaurantModel.Store.Get_Orders_List_For_Waiter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Orders_List_For_Waiter_Result">
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Orders_Of_A_Table" FunctionName="RestaurantModel.Store.Get_Orders_Of_A_Table">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Orders_Of_A_Table_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Orders_To_Auto_Print" FunctionName="RestaurantModel.Store.Get_Orders_To_Auto_Print">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Orders_To_Auto_Print_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_Table_Numbers" FunctionName="RestaurantModel.Store.Get_Table_Numbers" />
+    <FunctionImportMapping FunctionImportName="Get_Tickets" FunctionName="RestaurantModel.Store.Get_Tickets">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Get_Tickets_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreationDatetime" ColumnName="CreationDatetime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Lock_Order" FunctionName="RestaurantModel.Store.Lock_Order" />
+    <FunctionImportMapping FunctionImportName="Lock_Order_New" FunctionName="RestaurantModel.Store.Lock_Order_New" />
+    <FunctionImportMapping FunctionImportName="Make_OrderDetail" FunctionName="RestaurantModel.Store.Make_OrderDetail" />
+    <FunctionImportMapping FunctionImportName="Make_OrderHeader" FunctionName="RestaurantModel.Store.Make_OrderHeader" />
+    <FunctionImportMapping FunctionImportName="PPC_Get_Order_Detail" FunctionName="RestaurantModel.Store.PPC_Get_Order_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.PPC_Get_Order_Detail_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="NotEditable" ColumnName="NotEditable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Report_GetOrdersList" FunctionName="RestaurantModel.Store.Report_GetOrdersList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Report_GetOrdersList_Result">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="TableNo" ColumnName="TableNo" />
+          <ScalarProperty Name="CreationDatetime" ColumnName="CreationDatetime" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Report_ProductPopularity" FunctionName="RestaurantModel.Store.Report_ProductPopularity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.Report_ProductPopularity_Result">
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Reset_User_Password" FunctionName="RestaurantModel.Store.Reset_User_Password" />
+    <FunctionImportMapping FunctionImportName="Set_Order_Edited" FunctionName="RestaurantModel.Store.Set_Order_Edited" />
+    <FunctionImportMapping FunctionImportName="Set_Order_ReadyToServe" FunctionName="RestaurantModel.Store.Set_Order_ReadyToServe" />
+    <FunctionImportMapping FunctionImportName="Set_Order_Served" FunctionName="RestaurantModel.Store.Set_Order_Served" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RestaurantModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RestaurantModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RestaurantModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="RestaurantModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="RestaurantModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RestaurantModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RestaurantModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RestaurantModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Unlock_Order" FunctionName="RestaurantModel.Store.Unlock_Order" />
+    <FunctionImportMapping FunctionImportName="Update_DataHasChanged" FunctionName="RestaurantModel.Store.Update_DataHasChanged" />
+    <FunctionImportMapping FunctionImportName="Update_Group" FunctionName="RestaurantModel.Store.Update_Group" />
+    <FunctionImportMapping FunctionImportName="Update_NotEditable_State" FunctionName="RestaurantModel.Store.Update_NotEditable_State" />
+    <FunctionImportMapping FunctionImportName="Update_Order_TableNo" FunctionName="RestaurantModel.Store.Update_Order_TableNo" />
+    <FunctionImportMapping FunctionImportName="Update_OrderDetail" FunctionName="RestaurantModel.Store.Update_OrderDetail" />
+    <FunctionImportMapping FunctionImportName="Update_OrderPrintState" FunctionName="RestaurantModel.Store.Update_OrderPrintState" />
+    <FunctionImportMapping FunctionImportName="Update_Product" FunctionName="RestaurantModel.Store.Update_Product" />
+    <FunctionImportMapping FunctionImportName="Update_Product_Availability" FunctionName="RestaurantModel.Store.Update_Product_Availability" />
+    <FunctionImportMapping FunctionImportName="Update_Settings" FunctionName="RestaurantModel.Store.Update_Settings" />
+    <FunctionImportMapping FunctionImportName="Update_Table" FunctionName="RestaurantModel.Store.Update_Table" />
+    <FunctionImportMapping FunctionImportName="Update_Table_State" FunctionName="RestaurantModel.Store.Update_Table_State" />
+    <FunctionImportMapping FunctionImportName="Update_Unit" FunctionName="RestaurantModel.Store.Update_Unit" />
+    <FunctionImportMapping FunctionImportName="Update_User" FunctionName="RestaurantModel.Store.Update_User" />
+    <FunctionImportMapping FunctionImportName="Update_User_Pass" FunctionName="RestaurantModel.Store.Update_User_Pass" />
+  </EntityContainerMapping>
+</Mapping>
