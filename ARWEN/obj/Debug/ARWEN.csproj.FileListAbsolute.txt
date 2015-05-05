@@ -1,0 +1,12 @@
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources

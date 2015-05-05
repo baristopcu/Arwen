@@ -1,0 +1,311 @@
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.dll
+C:\Users\Admin\Documents\Visual Studio 2012\Projects\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.pdb
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe.config
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.dll
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.dll
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.pdb
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.xml
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmOrderComplete.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+D:\THINK IT SOFTWARE\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe.config
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.dll
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.pdb
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccountDetail.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccounts.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmLogin.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTickets.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Print.frmPrintDialog.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReservation.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReserved.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reports.frmProductPopularity.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reservation.frmReservedPassword.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmChangePassword.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmCompanySettings.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmCustomers.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmGroups.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmOrderComplete.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmProducts.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmSettings.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmSuppliers.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTables.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUnits.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUsers.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.PrintRibbonControllerResources.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.XRDesignRibbonControllerResources.resources
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Admin\Desktop\Yeni klasör\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe.config
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.dll
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.pdb
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccountDetail.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccounts.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmLogin.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTickets.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Print.frmPrintDialog.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReservation.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReserved.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reports.frmProductPopularity.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reservation.frmReservedPassword.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmChangePassword.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmCompanySettings.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmCustomers.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmGroups.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmOrderComplete.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmProducts.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmSettings.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmSuppliers.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTables.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUnits.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUsers.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.PrintRibbonControllerResources.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.XRDesignRibbonControllerResources.resources
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+C:\Users\Admin\Documents\GitHub\ARWEN\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAddNote.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\ARWEN\bin\Debug\ARWEN.exe.config
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ARWEN.exe.config
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.exe
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.pdb
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ARWEN.exe
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ARWEN.pdb
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ARWEN.DTO.pdb
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccountDetail.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAccounts.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmAddOrderNote.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmLogin.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTickets.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Print.frmPrintDialog.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReservation.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmReserved.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reports.frmProductPopularity.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Reservation.frmReservedPassword.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmChangePassword.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmCompanySettings.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.frmDeskCustomize.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.frmDesks.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmCustomers.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmGroups.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.frmMain.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmOrderComplete.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.frmPayment.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmProducts.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmSettings.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmSuppliers.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmTables.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUnits.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Forms.frmUsers.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.PrintRibbonControllerResources.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.XRDesignRibbonControllerResources.resources
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\ARWEN\ARWEN\obj\Debug\ARWEN.exe.licenses
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.BonusSkins.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.CodeParser.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Data.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.DataAccess.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.DataAccess.v13.2.UI.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Office.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.PivotGrid.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Printing.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.RichEdit.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Sparkline.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Utils.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Utils.v13.2.UI.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraBars.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraCharts.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraCharts.v13.2.Extensions.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraCharts.v13.2.Wizard.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraEditors.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraGrid.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraLayout.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraNavBar.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraPivotGrid.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraPrinting.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraReports.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraReports.v13.2.Extensions.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraRichEdit.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraScheduler.v13.2.Core.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraScheduler.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraTreeList.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraVerticalGrid.v13.2.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Data.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.DataAccess.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.DataAccess.v13.2.UI.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Office.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.PivotGrid.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Printing.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.RichEdit.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Utils.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Sparkline.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.Utils.v13.2.UI.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraBars.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraCharts.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraCharts.v13.2.Wizard.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraEditors.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraGrid.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraLayout.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraNavBar.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraPivotGrid.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraPrinting.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraReports.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraReports.v13.2.Extensions.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraRichEdit.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraScheduler.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraScheduler.v13.2.Core.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraTreeList.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\DevExpress.XtraVerticalGrid.v13.2.xml
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Data.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.Data.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.Data.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Data.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.DataAccess.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.DataAccess.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.DataAccess.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.DataAccess.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.DataAccess.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.DataAccess.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.DataAccess.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Office.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.Office.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.Office.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Office.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.PivotGrid.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.PivotGrid.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.PivotGrid.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.PivotGrid.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Printing.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.Printing.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.Printing.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Printing.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.RichEdit.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.RichEdit.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.RichEdit.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.RichEdit.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Utils.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.Utils.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.Utils.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Utils.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Sparkline.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Sparkline.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.Utils.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.Utils.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.Utils.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.Utils.v13.2.UI.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraBars.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraBars.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraBars.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraBars.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraCharts.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraCharts.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraCharts.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraCharts.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraCharts.v13.2.Wizard.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraCharts.v13.2.Wizard.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraCharts.v13.2.Wizard.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraCharts.v13.2.Wizard.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraEditors.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraEditors.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraEditors.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraEditors.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraLayout.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraLayout.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraLayout.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraLayout.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraNavBar.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraNavBar.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraNavBar.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraNavBar.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraPivotGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraPivotGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraPivotGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraPivotGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraPrinting.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraPrinting.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraPrinting.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraPrinting.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraReports.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraReports.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraReports.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraReports.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraReports.v13.2.Extensions.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraReports.v13.2.Extensions.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraReports.v13.2.Extensions.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraReports.v13.2.Extensions.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraRichEdit.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraRichEdit.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraRichEdit.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraRichEdit.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraScheduler.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraScheduler.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraScheduler.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraScheduler.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraScheduler.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraScheduler.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraScheduler.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraScheduler.v13.2.Core.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraTreeList.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraTreeList.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraTreeList.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraTreeList.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\de\DevExpress.XtraVerticalGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\es\DevExpress.XtraVerticalGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ja\DevExpress.XtraVerticalGrid.v13.2.resources.dll
+C:\Users\Admin\Desktop\ARWEN\ARWEN\bin\Debug\ru\DevExpress.XtraVerticalGrid.v13.2.resources.dll

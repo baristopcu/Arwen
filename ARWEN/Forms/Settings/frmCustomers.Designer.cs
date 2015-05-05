@@ -1,0 +1,494 @@
+﻿namespace ARWEN.Forms.Settings
+{
+    partial class frmCustomers
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnNewCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.gridViewCustomers = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPostalCode = new DevExpress.XtraEditors.TextEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtFax = new DevExpress.XtraEditors.TextEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTelephone = new DevExpress.XtraEditors.TextEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCity = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCountry = new DevExpress.XtraEditors.TextEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAddress = new DevExpress.XtraEditors.MemoEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.txtContactTitle = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPostalCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelephone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContactTitle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnNewCustomer
+            // 
+            this.btnNewCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNewCustomer.Appearance.Options.UseFont = true;
+            this.btnNewCustomer.Location = new System.Drawing.Point(12, 14);
+            this.btnNewCustomer.Name = "btnNewCustomer";
+            this.btnNewCustomer.Size = new System.Drawing.Size(107, 62);
+            this.btnNewCustomer.TabIndex = 9;
+            this.btnNewCustomer.Text = "Yeni Müşteri";
+            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
+            // 
+            // gridViewCustomers
+            // 
+            this.gridViewCustomers.Location = new System.Drawing.Point(15, 411);
+            this.gridViewCustomers.MainView = this.gridView1;
+            this.gridViewCustomers.Name = "gridViewCustomers";
+            this.gridViewCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnDelete});
+            this.gridViewCustomers.Size = new System.Drawing.Size(978, 282);
+            this.gridViewCustomers.TabIndex = 8;
+            this.gridViewCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridViewCustomers.DoubleClick += new System.EventHandler(this.gridViewCustomers_DoubleClick);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn5});
+            this.gridView1.GridControl = this.gridViewCustomers;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "CustomerID";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "İsim";
+            this.gridColumn2.FieldName = "ContactName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 174;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Şirket Pozisyonu";
+            this.gridColumn3.FieldName = "ContactTitle";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 174;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Adres";
+            this.gridColumn4.FieldName = "Address";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 7;
+            this.gridColumn4.Width = 347;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Şehir";
+            this.gridColumn6.FieldName = "City";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 3;
+            this.gridColumn6.Width = 174;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Posta Kodu";
+            this.gridColumn7.FieldName = "PostalCode";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.Width = 174;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Ülke";
+            this.gridColumn8.FieldName = "Country";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 174;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Telefon";
+            this.gridColumn9.FieldName = "Phone";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 4;
+            this.gridColumn9.Width = 174;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Fax";
+            this.gridColumn10.FieldName = "Fax";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 5;
+            this.gridColumn10.Width = 174;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Sil";
+            this.gridColumn5.ColumnEdit = this.btnDelete;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 8;
+            this.gridColumn5.Width = 64;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoHeight = false;
+            this.btnDelete.Caption = "Check";
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.label8);
+            this.groupControl1.Controls.Add(this.txtPostalCode);
+            this.groupControl1.Controls.Add(this.label7);
+            this.groupControl1.Controls.Add(this.txtFax);
+            this.groupControl1.Controls.Add(this.label6);
+            this.groupControl1.Controls.Add(this.txtTelephone);
+            this.groupControl1.Controls.Add(this.label5);
+            this.groupControl1.Controls.Add(this.txtCity);
+            this.groupControl1.Controls.Add(this.label4);
+            this.groupControl1.Controls.Add(this.txtCountry);
+            this.groupControl1.Controls.Add(this.label3);
+            this.groupControl1.Controls.Add(this.txtAddress);
+            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.btnCancel);
+            this.groupControl1.Controls.Add(this.btnSave);
+            this.groupControl1.Controls.Add(this.txtContactTitle);
+            this.groupControl1.Controls.Add(this.txtName);
+            this.groupControl1.Location = new System.Drawing.Point(209, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(784, 403);
+            this.groupControl1.TabIndex = 7;
+            this.groupControl1.Text = "MASA";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(35, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 18);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Posta Kodu";
+            // 
+            // txtPostalCode
+            // 
+            this.txtPostalCode.Enabled = false;
+            this.txtPostalCode.Location = new System.Drawing.Point(365, 216);
+            this.txtPostalCode.Name = "txtPostalCode";
+            this.txtPostalCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPostalCode.Properties.Appearance.Options.UseFont = true;
+            this.txtPostalCode.Size = new System.Drawing.Size(323, 24);
+            this.txtPostalCode.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(35, 186);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 18);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Fax";
+            // 
+            // txtFax
+            // 
+            this.txtFax.Enabled = false;
+            this.txtFax.Location = new System.Drawing.Point(365, 184);
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtFax.Properties.Appearance.Options.UseFont = true;
+            this.txtFax.Size = new System.Drawing.Size(323, 24);
+            this.txtFax.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(35, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 18);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Telefon";
+            // 
+            // txtTelephone
+            // 
+            this.txtTelephone.Enabled = false;
+            this.txtTelephone.Location = new System.Drawing.Point(365, 152);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTelephone.Properties.Appearance.Options.UseFont = true;
+            this.txtTelephone.Size = new System.Drawing.Size(323, 24);
+            this.txtTelephone.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(35, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 18);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Şehir";
+            // 
+            // txtCity
+            // 
+            this.txtCity.Enabled = false;
+            this.txtCity.Location = new System.Drawing.Point(365, 120);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtCity.Properties.Appearance.Options.UseFont = true;
+            this.txtCity.Size = new System.Drawing.Size(323, 24);
+            this.txtCity.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(35, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Ülke";
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Enabled = false;
+            this.txtCountry.Location = new System.Drawing.Point(365, 88);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtCountry.Properties.Appearance.Options.UseFont = true;
+            this.txtCountry.Size = new System.Drawing.Size(323, 24);
+            this.txtCountry.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(35, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Adres";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Enabled = false;
+            this.txtAddress.Location = new System.Drawing.Point(365, 248);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtAddress.Size = new System.Drawing.Size(323, 96);
+            this.txtAddress.TabIndex = 2;
+            this.txtAddress.UseOptimizedRendering = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(35, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Şirket Pozisyonu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(35, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Adı";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Location = new System.Drawing.Point(581, 350);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "İptal";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(468, 350);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Kaydet";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtContactTitle
+            // 
+            this.txtContactTitle.Enabled = false;
+            this.txtContactTitle.Location = new System.Drawing.Point(365, 56);
+            this.txtContactTitle.Name = "txtContactTitle";
+            this.txtContactTitle.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtContactTitle.Properties.Appearance.Options.UseFont = true;
+            this.txtContactTitle.Size = new System.Drawing.Size(323, 24);
+            this.txtContactTitle.TabIndex = 1;
+            // 
+            // txtName
+            // 
+            this.txtName.Enabled = false;
+            this.txtName.Location = new System.Drawing.Point(365, 24);
+            this.txtName.Name = "txtName";
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.Size = new System.Drawing.Size(323, 24);
+            this.txtName.TabIndex = 0;
+            // 
+            // frmCustomers
+            // 
+            this.AcceptButton = this.btnSave;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(1005, 701);
+            this.Controls.Add(this.btnNewCustomer);
+            this.Controls.Add(this.gridViewCustomers);
+            this.Controls.Add(this.groupControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "frmCustomers";
+            this.Text = "frmCustomers";
+            this.Load += new System.EventHandler(this.frmCustomers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPostalCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTelephone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountry.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContactTitle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.SimpleButton btnNewCustomer;
+        private DevExpress.XtraGrid.GridControl gridViewCustomers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit btnDelete;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.MemoEdit txtAddress;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.TextEdit txtContactTitle;
+        private DevExpress.XtraEditors.TextEdit txtName;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.TextEdit txtPostalCode;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.TextEdit txtFax;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.TextEdit txtTelephone;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.TextEdit txtCity;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txtCountry;
+    }
+}

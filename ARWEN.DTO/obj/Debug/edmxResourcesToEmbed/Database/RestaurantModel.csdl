@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RestaurantContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="RestaurantModel.Customers" />
+    <EntitySet Name="DataHasChanged" EntityType="RestaurantModel.DataHasChanged" />
+    <EntitySet Name="Groups" EntityType="RestaurantModel.Groups" />
+    <EntitySet Name="OrderDetail" EntityType="RestaurantModel.OrderDetail" />
+    <EntitySet Name="OrderHeader" EntityType="RestaurantModel.OrderHeader" />
+    <EntitySet Name="PaymentModules" EntityType="RestaurantModel.PaymentModules" />
+    <EntitySet Name="Payments" EntityType="RestaurantModel.Payments" />
+    <EntitySet Name="Permissions" EntityType="RestaurantModel.Permissions" />
+    <EntitySet Name="Products" EntityType="RestaurantModel.Products" />
+    <EntitySet Name="Reservation" EntityType="RestaurantModel.Reservation" />
+    <EntitySet Name="RestaurantTables" EntityType="RestaurantModel.RestaurantTables" />
+    <EntitySet Name="Settings" EntityType="RestaurantModel.Settings" />
+    <EntitySet Name="Suppliers" EntityType="RestaurantModel.Suppliers" />
+    <EntitySet Name="sysdiagrams" EntityType="RestaurantModel.sysdiagrams" />
+    <EntitySet Name="Units" EntityType="RestaurantModel.Units" />
+    <EntitySet Name="Users" EntityType="RestaurantModel.Users" />
+    <AssociationSet Name="FK_Reservation_Customers" Association="RestaurantModel.FK_Reservation_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Groups" Association="RestaurantModel.FK_Products_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_OrderHeader" Association="RestaurantModel.FK_OrderDetail_OrderHeader">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Products" Association="RestaurantModel.FK_OrderDetail_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_RestaurantTables" Association="RestaurantModel.FK_OrderHeader_RestaurantTables">
+      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_Users" Association="RestaurantModel.FK_OrderHeader_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_OrderHeader" Association="RestaurantModel.FK_Payments_OrderHeader">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_PaymentModules" Association="RestaurantModel.FK_Payments_PaymentModules">
+      <End Role="PaymentModules" EntitySet="PaymentModules" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Permission" Association="RestaurantModel.FK_Users_Permission">
+      <End Role="Permissions" EntitySet="Permissions" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Suppliers" Association="RestaurantModel.FK_Products_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Units" Association="RestaurantModel.FK_Products_Units">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_RestaurantTables" Association="RestaurantModel.FK_Reservation_RestaurantTables">
+      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Users" Association="RestaurantModel.FK_Reservation_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <FunctionImport Name="Cancel_Order" ReturnType="Collection(Int32)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="CancelCause" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Check_Out_Order" ReturnType="Collection(Int32)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="TotalPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Check_User" ReturnType="Collection(RestaurantModel.Check_User_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Create_Group">
+      <Parameter Name="GroupName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Create_Product">
+      <Parameter Name="ProductName" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Create_Table">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+      <Parameter Name="Capacity" Mode="In" Type="Byte" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Create_Unit">
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="ShortName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Create_User">
+      <Parameter Name="FullName" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="PermissionID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Group">
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Product">
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Table">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Unit">
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_User">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_All_Groups" ReturnType="Collection(RestaurantModel.Get_All_Groups_Result)" />
+    <FunctionImport Name="Get_All_Products" ReturnType="Collection(RestaurantModel.Get_All_Products_Result)" />
+    <FunctionImport Name="Get_All_Products_By_GroupID" ReturnType="Collection(RestaurantModel.Get_All_Products_By_GroupID_Result)">
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_All_Tables" ReturnType="Collection(RestaurantModel.Get_All_Tables_Result)" />
+    <FunctionImport Name="Get_All_Units" ReturnType="Collection(RestaurantModel.Get_All_Units_Result)" />
+    <FunctionImport Name="Get_All_Users" ReturnType="Collection(RestaurantModel.Get_All_Users_Result)" />
+    <FunctionImport Name="Get_Available_Products" ReturnType="Collection(RestaurantModel.Get_Available_Products_Result)" />
+    <FunctionImport Name="Get_Last_OrderNo" ReturnType="Collection(Int64)" />
+    <FunctionImport Name="Get_Order_Detail" ReturnType="Collection(RestaurantModel.Get_Order_Detail_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Order_Detail_For_Auto_Print" ReturnType="Collection(RestaurantModel.Get_Order_Detail_For_Auto_Print_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Order_Detail_For_Cashier" ReturnType="Collection(RestaurantModel.Get_Order_Detail_For_Cashier_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Order_State" ReturnType="Collection(Byte)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Orders_List_For_Cashier" ReturnType="Collection(RestaurantModel.Get_Orders_List_For_Cashier_Result)" />
+    <FunctionImport Name="Get_Orders_List_For_Kitchen" ReturnType="Collection(RestaurantModel.Get_Orders_List_For_Kitchen_Result)" />
+    <FunctionImport Name="Get_Orders_List_For_Waiter" ReturnType="Collection(RestaurantModel.Get_Orders_List_For_Waiter_Result)" />
+    <FunctionImport Name="Get_Orders_Of_A_Table" ReturnType="Collection(RestaurantModel.Get_Orders_Of_A_Table_Result)">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Orders_To_Auto_Print" ReturnType="Collection(RestaurantModel.Get_Orders_To_Auto_Print_Result)" />
+    <FunctionImport Name="Get_Table_Numbers" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="Get_Tickets" ReturnType="Collection(RestaurantModel.Get_Tickets_Result)">
+      <Parameter Name="STARTDATE" Mode="In" Type="String" />
+      <Parameter Name="ENDDATE" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Lock_Order">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="LockKeeperUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Lock_Order_New" ReturnType="Collection(String)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="LockKeeperUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Make_OrderDetail" ReturnType="Collection(Int32)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="Amount" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Make_OrderHeader" ReturnType="Collection(Decimal)">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+      <Parameter Name="CreatorUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PPC_Get_Order_Detail" ReturnType="Collection(RestaurantModel.PPC_Get_Order_Detail_Result)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetOrdersList" ReturnType="Collection(RestaurantModel.Report_GetOrdersList_Result)">
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Report_ProductPopularity" ReturnType="Collection(RestaurantModel.Report_ProductPopularity_Result)">
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Reset_User_Password">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Set_Order_Edited">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Set_Order_ReadyToServe">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Set_Order_Served">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RestaurantModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RestaurantModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Unlock_Order">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="LockKeeperUserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_DataHasChanged">
+      <Parameter Name="Type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Group">
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+      <Parameter Name="GroupName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_NotEditable_State">
+      <Parameter Name="OrderDetailID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Order_TableNo">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="CurrentTableNo" Mode="In" Type="String" />
+      <Parameter Name="NewTableNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_OrderDetail" ReturnType="Collection(Int32)">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="Amount" Mode="In" Type="Int32" />
+      <Parameter Name="ChangeState" Mode="In" Type="Byte" />
+      <Parameter Name="EditAmount" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_OrderPrintState">
+      <Parameter Name="OrderNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Product">
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductName" Mode="In" Type="String" />
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Product_Availability">
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="Availability" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Settings">
+      <Parameter Name="RestaurantName" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="WebsiteURL" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Logo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Table">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+      <Parameter Name="Capacity" Mode="In" Type="Byte" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Table_State">
+      <Parameter Name="TableNo" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Unit">
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="ShortName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_User">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FullName" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="PermissionID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_User_Pass">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="ContactTitle" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Region" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Reservation" Relationship="RestaurantModel.FK_Reservation_Customers" FromRole="Customers" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="DataHasChanged">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupsLastChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductsLastChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="RestaurantModel.FK_Products_Groups" FromRole="Groups" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int64" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="EditState" Type="Byte" Nullable="false" />
+    <Property Name="EditAmount" Type="Int32" />
+    <Property Name="NotEditable" Type="Boolean" Nullable="false" />
+    <Property Name="OrderPrice" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="OrderHeader" Relationship="RestaurantModel.FK_OrderDetail_OrderHeader" FromRole="OrderDetail" ToRole="OrderHeader" />
+    <NavigationProperty Name="Products" Relationship="RestaurantModel.FK_OrderDetail_Products" FromRole="OrderDetail" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="OrderHeader">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TableNo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CreatorUserID" Type="Int32" Nullable="false" />
+    <Property Name="CreationDatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastEditionDatetime" Type="DateTime" Precision="3" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="LockState" Type="Boolean" Nullable="false" />
+    <Property Name="LockKeeperUserID" Type="Int32" />
+    <Property Name="PrintState" Type="Boolean" Nullable="false" />
+    <Property Name="CancelCause" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="Byte" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="OrderDetail" Relationship="RestaurantModel.FK_OrderDetail_OrderHeader" FromRole="OrderHeader" ToRole="OrderDetail" />
+    <NavigationProperty Name="RestaurantTables" Relationship="RestaurantModel.FK_OrderHeader_RestaurantTables" FromRole="OrderHeader" ToRole="RestaurantTables" />
+    <NavigationProperty Name="Users" Relationship="RestaurantModel.FK_OrderHeader_Users" FromRole="OrderHeader" ToRole="Users" />
+    <NavigationProperty Name="Payments" Relationship="RestaurantModel.FK_Payments_OrderHeader" FromRole="OrderHeader" ToRole="Payments" />
+  </EntityType>
+  <EntityType Name="PaymentModules">
+    <Key>
+      <PropertyRef Name="PaymentModuleID" />
+    </Key>
+    <Property Name="PaymentModuleID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Payments" Relationship="RestaurantModel.FK_Payments_PaymentModules" FromRole="PaymentModules" ToRole="Payments" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="Int64" />
+    <Property Name="PaymentModuleID" Type="Int32" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Discount" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="DiscountPrice" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="OrderHeader" Relationship="RestaurantModel.FK_Payments_OrderHeader" FromRole="Payments" ToRole="OrderHeader" />
+    <NavigationProperty Name="PaymentModules" Relationship="RestaurantModel.FK_Payments_PaymentModules" FromRole="Payments" ToRole="PaymentModules" />
+  </EntityType>
+  <EntityType Name="Permissions">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="Byte" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Users" Relationship="RestaurantModel.FK_Users_Permission" FromRole="Permissions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UnitName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="UnitsInStock" Type="Int16" />
+    <Property Name="Availability" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Groups" Relationship="RestaurantModel.FK_Products_Groups" FromRole="Products" ToRole="Groups" />
+    <NavigationProperty Name="OrderDetail" Relationship="RestaurantModel.FK_OrderDetail_Products" FromRole="Products" ToRole="OrderDetail" />
+    <NavigationProperty Name="Suppliers" Relationship="RestaurantModel.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+    <NavigationProperty Name="Units" Relationship="RestaurantModel.FK_Products_Units" FromRole="Products" ToRole="Units" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationID" />
+    </Key>
+    <Property Name="ReservationID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="TableNo" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="Cancel" Type="Byte" />
+    <Property Name="Used" Type="Byte" />
+    <NavigationProperty Name="Customers" Relationship="RestaurantModel.FK_Reservation_Customers" FromRole="Reservation" ToRole="Customers" />
+    <NavigationProperty Name="RestaurantTables" Relationship="RestaurantModel.FK_Reservation_RestaurantTables" FromRole="Reservation" ToRole="RestaurantTables" />
+    <NavigationProperty Name="Users" Relationship="RestaurantModel.FK_Reservation_Users" FromRole="Reservation" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RestaurantTables">
+    <Key>
+      <PropertyRef Name="TableNo" />
+    </Key>
+    <Property Name="TableNo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Capacity" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="OrderHeader" Relationship="RestaurantModel.FK_OrderHeader_RestaurantTables" FromRole="RestaurantTables" ToRole="OrderHeader" />
+    <NavigationProperty Name="Reservation" Relationship="RestaurantModel.FK_Reservation_RestaurantTables" FromRole="RestaurantTables" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantName" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="12" Unicode="false" FixedLength="true" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="ContactName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="ContactTitle" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="HomePage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="RestaurantModel.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="UnitName" />
+    </Key>
+    <Property Name="UnitName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ShortName" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Products" Relationship="RestaurantModel.FK_Products_Units" FromRole="Units" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="PermissionID" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="OrderHeader" Relationship="RestaurantModel.FK_OrderHeader_Users" FromRole="Users" ToRole="OrderHeader" />
+    <NavigationProperty Name="Permissions" Relationship="RestaurantModel.FK_Users_Permission" FromRole="Users" ToRole="Permissions" />
+    <NavigationProperty Name="Reservation" Relationship="RestaurantModel.FK_Reservation_Users" FromRole="Users" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_Reservation_Customers">
+    <End Role="Customers" Type="RestaurantModel.Customers" Multiplicity="0..1" />
+    <End Role="Reservation" Type="RestaurantModel.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Groups">
+    <End Role="Groups" Type="RestaurantModel.Groups" Multiplicity="1" />
+    <End Role="Products" Type="RestaurantModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_OrderHeader">
+    <End Role="OrderHeader" Type="RestaurantModel.OrderHeader" Multiplicity="1" />
+    <End Role="OrderDetail" Type="RestaurantModel.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderHeader">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Products">
+    <End Role="Products" Type="RestaurantModel.Products" Multiplicity="1" />
+    <End Role="OrderDetail" Type="RestaurantModel.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderHeader_RestaurantTables">
+    <End Role="RestaurantTables" Type="RestaurantModel.RestaurantTables" Multiplicity="1" />
+    <End Role="OrderHeader" Type="RestaurantModel.OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RestaurantTables">
+        <PropertyRef Name="TableNo" />
+      </Principal>
+      <Dependent Role="OrderHeader">
+        <PropertyRef Name="TableNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderHeader_Users">
+    <End Role="Users" Type="RestaurantModel.Users" Multiplicity="1" />
+    <End Role="OrderHeader" Type="RestaurantModel.OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="OrderHeader">
+        <PropertyRef Name="CreatorUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_OrderHeader">
+    <End Role="OrderHeader" Type="RestaurantModel.OrderHeader" Multiplicity="0..1" />
+    <End Role="Payments" Type="RestaurantModel.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderHeader">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_PaymentModules">
+    <End Role="PaymentModules" Type="RestaurantModel.PaymentModules" Multiplicity="0..1" />
+    <End Role="Payments" Type="RestaurantModel.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentModules">
+        <PropertyRef Name="PaymentModuleID" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="PaymentModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Permission">
+    <End Role="Permissions" Type="RestaurantModel.Permissions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="RestaurantModel.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permissions">
+        <PropertyRef Name="PermissionID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PermissionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Suppliers">
+    <End Role="Suppliers" Type="RestaurantModel.Suppliers" Multiplicity="0..1" />
+    <End Role="Products" Type="RestaurantModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Units">
+    <End Role="Units" Type="RestaurantModel.Units" Multiplicity="1" />
+    <End Role="Products" Type="RestaurantModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="UnitName" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="UnitName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_RestaurantTables">
+    <End Role="RestaurantTables" Type="RestaurantModel.RestaurantTables" Multiplicity="0..1" />
+    <End Role="Reservation" Type="RestaurantModel.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RestaurantTables">
+        <PropertyRef Name="TableNo" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="TableNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Users">
+    <End Role="Users" Type="RestaurantModel.Users" Multiplicity="0..1" />
+    <End Role="Reservation" Type="RestaurantModel.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Check_User_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="32" />
+    <Property Type="Byte" Name="PermissionID" Nullable="false" />
+    <Property Type="DateTime" Name="Today" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Groups_Result">
+    <Property Type="Int32" Name="GroupID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Products_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="GroupID" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Products_By_GroupID_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Tables_Result">
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="Byte" Name="Capacity" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Units_Result">
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ShortName" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="Get_All_Users_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="Byte" Name="PermissionID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_Available_Products_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="GroupID" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Get_Order_Detail_Result">
+    <Property Type="Int64" Name="OrderDetailID" Nullable="false" />
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Byte" Name="EditState" Nullable="false" />
+    <Property Type="String" Name="EditAmount" Nullable="true" MaxLength="4" />
+    <Property Type="Boolean" Name="NotEditable" Nullable="false" />
+    <Property Type="Decimal" Name="OrderPrice" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Get_Order_Detail_For_Auto_Print_Result">
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Byte" Name="EditState" Nullable="false" />
+    <Property Type="String" Name="EditAmount" Nullable="true" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="Get_Order_Detail_For_Cashier_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="RowPrice" Nullable="true" Precision="29" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Get_Orders_List_For_Cashier_Result">
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="Waiter" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+    <Property Type="String" Name="ActionTime" Nullable="true" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="Get_Orders_List_For_Kitchen_Result">
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="Waiter" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+    <Property Type="String" Name="ActionTime" Nullable="true" MaxLength="5" />
+    <Property Type="Boolean" Name="PrintState" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_Orders_List_For_Waiter_Result">
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_Orders_Of_A_Table_Result">
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_Orders_To_Auto_Print_Result">
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="Byte" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_Tickets_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="CreationDatetime" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PPC_Get_Order_Detail_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Boolean" Name="NotEditable" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Report_GetOrdersList_Result">
+    <Property Type="Int64" Name="OrderNo" Nullable="false" />
+    <Property Type="String" Name="TableNo" Nullable="false" MaxLength="10" />
+    <Property Type="DateTime" Name="CreationDatetime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Report_ProductPopularity_Result">
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UnitName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="OrderTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
