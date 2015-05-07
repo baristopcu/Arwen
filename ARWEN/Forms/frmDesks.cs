@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using ARWEN.DTO.Class;
 using ARWEN.DTO.Database;
@@ -24,10 +25,8 @@ namespace ARWEN
         public frmDesks()
         {
             InitializeComponent();
-
+            CheckForIllegalCrossThreadCalls = false;
         }
-
-
 
         private static SimpleButton tableButton;
 
@@ -128,15 +127,20 @@ namespace ARWEN
 
         }
 
+      
+       
         private void frmDesks_Load(object sender, EventArgs e)
         {
+
             using (RestaurantContext dbContext = new RestaurantContext())
             {
                 int sayi = dbContext.Get_All_Tables().Count();
                 ButtonCreate(sayi, flwDeskChoose);
             }
 
+
         }
+
 
         private void btnAddReservation_Click(object sender, EventArgs e)
         {
@@ -147,6 +151,29 @@ namespace ARWEN
         private void btnMoveDesk_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+           
+            using (RestaurantContext dbContext = new RestaurantContext())
+            {
+                int sayi = dbContext.Get_All_Tables().Count();
+                System.Threading.Thread.Sleep(3);
+                ButtonCreate(sayi, flwDeskChoose);
+            }
+           
         }
     }
 }

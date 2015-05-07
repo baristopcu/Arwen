@@ -97,8 +97,7 @@ namespace ARWEN.Forms
         private void GetProducts()
         {
             using (var dbContext = new RestaurantContext())
-            {
-                dbContext.Configuration.LazyLoadingEnabled = false;
+            {dbContext.Configuration.LazyLoadingEnabled = false;
                 var productsQuery =
                    dbContext.Products.AsNoTracking()
                        .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.Groups, p => p.p.GroupID, g=>g.GroupID,(p,g) => new{p,g})

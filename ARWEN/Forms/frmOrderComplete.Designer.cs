@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelOrder = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSelectCustomer = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.groupControl1.Controls.Add(this.lblTotal);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.label3);
-            this.groupControl1.Location = new System.Drawing.Point(266, 21);
+            this.groupControl1.Location = new System.Drawing.Point(292, 21);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(249, 234);
             this.groupControl1.TabIndex = 6;
@@ -153,11 +154,22 @@
             this.btnSaveOrder.Text = "Tamamla";
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
+            // btnSelectCustomer
+            // 
+            this.btnSelectCustomer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnSelectCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectCustomer.Image")));
+            this.btnSelectCustomer.Location = new System.Drawing.Point(247, 46);
+            this.btnSelectCustomer.Name = "btnSelectCustomer";
+            this.btnSelectCustomer.Size = new System.Drawing.Size(24, 21);
+            this.btnSelectCustomer.TabIndex = 7;
+            this.btnSelectCustomer.Click += new System.EventHandler(this.btnSelectCustomer_Click);
+            // 
             // frmOrderComplete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 282);
+            this.ClientSize = new System.Drawing.Size(555, 282);
+            this.Controls.Add(this.btnSelectCustomer);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
@@ -192,5 +204,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.SimpleButton btnSelectCustomer;
     }
 }

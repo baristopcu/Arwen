@@ -72,11 +72,11 @@ namespace ARWEN.Forms
                         else
                         {
                           
-                            Global.FullName = query.FullName;
-                            Global.UserName = query.FullName;
-                            Global.UserID = query.UserID;
-                            Global.Password = query.Password;
-                            Global.PermissionID = query.PermissionID;
+                            GlobalUser.FullName = query.FullName;
+                            GlobalUser.UserName = query.FullName;
+                            GlobalUser.UserID = query.UserID;
+                            GlobalUser.Password = query.Password;
+                            GlobalUser.PermissionID = query.PermissionID;
 
                             //frmMain frm  = new frmMain();
                             //this.Hide();

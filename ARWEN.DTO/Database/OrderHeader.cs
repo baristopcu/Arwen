@@ -33,7 +33,9 @@ namespace ARWEN.DTO.Database
         public string CancelCause { get; set; }
         public byte State { get; set; }
         public string Note { get; set; }
+        public Nullable<int> CustomerID { get; set; }
     
+        public virtual Customers Customers { get; set; }
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }
         public virtual RestaurantTables RestaurantTables { get; set; }
         public virtual Users Users { get; set; }

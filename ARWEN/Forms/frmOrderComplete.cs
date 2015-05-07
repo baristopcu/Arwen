@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
+using ARWEN.Class;
 using ARWEN.DTO.Database;
 
 
@@ -25,7 +26,7 @@ namespace ARWEN.Forms
         private List<decimal> _orderPrices = new List<decimal>();
         private List<int> productAmounts = new List<int>();
         private string orderType = "";
-        long orderNo;
+        private long orderNo;
 
         public long OrderNo
         {
@@ -39,11 +40,6 @@ namespace ARWEN.Forms
             get { return dbContext; }
             set { dbContext = value; }
         }
-
-        DataTable OriginalOrderDetail = new DataTable();
-
-
-
 
         public decimal Total
         {
@@ -117,16 +113,22 @@ namespace ARWEN.Forms
                     oHeader.TableNo = table;
                     oHeader.CreatorUserID = 1;
                     oHeader.CreationDatetime = DateTime.Now;
-                    oHeader.CustomerName = txtName.Text;
+                   
                     oHeader.TotalPrice = total;
                     oHeader.LockState = false;
                     oHeader.PrintState = false;
                     oHeader.State = 0;
                     oHeader.Note = txtOrderNote.Text;
-
-
-
-
+                    if (!selectCustomer)
+                    {
+                        oHeader.CustomerName = txtName.Text;
+                    }
+                    else
+                    {
+                        txtName.Text = GlobalCustomer.FullName;
+                        oHeader.CustomerID = GlobalCustomer.CustomerID;
+                    }
+                   
                     dbContext.OrderHeader.Add(oHeader);
                     dbContext.SaveChanges();
 
@@ -160,8 +162,16 @@ namespace ARWEN.Forms
             {
 
                 var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
+                if (!selectCustomer)
+                {
+                     query.CustomerName = txtName.Text;
+                }
+                else
+                {
+                    txtName.Text = GlobalCustomer.FullName;
+                    query.CustomerID = GlobalCustomer.CustomerID;
+                }
                 query.Note = txtOrderNote.Text;
-                query.CustomerName = txtName.Text;
                 query.LastEditionDatetime = DateTime.Now;
                 query.TotalPrice = total;
                 DbContext.SaveChanges();
@@ -203,10 +213,21 @@ namespace ARWEN.Forms
 
         }
 
+        private bool selectCustomer = false;
+
         private void frmOrderComplete_Load(object sender, EventArgs e)
         {
             lblTable.Text = table;
             lblTotal.Text = total.ToString("C2");
+        }
+
+        private void btnSelectCustomer_Click(object sender, EventArgs e)
+        {        
+            frmSelectCustomer frm = new frmSelectCustomer();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+            selectCustomer = true;
         }
 
     }

@@ -89,7 +89,7 @@ namespace ARWEN.Forms
                 DTO.Database.Reservation reserve = new DTO.Database.Reservation()
                 {
                     CustomerID = Convert.ToInt32(cmbCustomers.SelectedValue),
-                    UserID = Global.UserID,
+                    UserID = GlobalUser.UserID,
                     Capacity = Convert.ToInt32(nudCapacity.Text),
                     TableNo = Convert.ToString(cmbTables.SelectedValue),
                     Password = pass,

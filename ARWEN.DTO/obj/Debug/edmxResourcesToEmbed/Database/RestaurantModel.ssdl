@@ -25,6 +25,10 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="OrderDetail" EntitySet="OrderDetail" />
     </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_Customers" Association="RestaurantModel.Store.FK_OrderHeader_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
     <AssociationSet Name="FK_OrderHeader_RestaurantTables" Association="RestaurantModel.Store.FK_OrderHeader_RestaurantTables">
       <End Role="RestaurantTables" EntitySet="RestaurantTables" />
       <End Role="OrderHeader" EntitySet="OrderHeader" />
@@ -130,6 +134,7 @@
     <Property Name="CancelCause" Type="nvarchar" MaxLength="255" />
     <Property Name="State" Type="tinyint" Nullable="false" />
     <Property Name="Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="CustomerID" Type="int" />
   </EntityType>
   <EntityType Name="PaymentModules">
     <Key>
@@ -271,6 +276,18 @@
       </Principal>
       <Dependent Role="OrderDetail">
         <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderHeader_Customers">
+    <End Role="Customers" Type="RestaurantModel.Store.Customers" Multiplicity="0..1" />
+    <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderHeader">
+        <PropertyRef Name="CustomerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

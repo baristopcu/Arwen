@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAddReservation = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoveDesk = new DevExpress.XtraEditors.SimpleButton();
             this.flwDeskChoose = new System.Windows.Forms.FlowLayoutPanel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnAddReservation
@@ -58,6 +61,16 @@
             this.flwDeskChoose.Size = new System.Drawing.Size(1281, 636);
             this.flwDeskChoose.TabIndex = 5;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmDesks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,5 +94,7 @@
         private DevExpress.XtraEditors.SimpleButton btnAddReservation;
         private DevExpress.XtraEditors.SimpleButton btnMoveDesk;
         private System.Windows.Forms.FlowLayoutPanel flwDeskChoose;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
