@@ -84,6 +84,7 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN.DTO\bin\Debug\ru\DevExpress.XtraGr
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN.DTO\obj\Debug\ARWEN.ORM.csprojResolveAssemblyReference.cache
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN.DTO\obj\Debug\ARWEN.DTO.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN.DTO\obj\Debug\ARWEN.DTO.pdb
+<<<<<<< HEAD
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\bin\Debug\ARWEN.DTO.dll.config
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\bin\Debug\ARWEN.DTO.dll
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\bin\Debug\ARWEN.DTO.pdb
@@ -121,3 +122,5 @@ C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-mas
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\bin\Debug\ru\DevExpress.XtraGrid.v14.2.resources.dll
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\obj\Debug\ARWEN.DTO.dll
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN.DTO\obj\Debug\ARWEN.DTO.pdb
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd

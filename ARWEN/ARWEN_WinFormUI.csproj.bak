@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="DevExpress.BonusSkins.v14.2">
       <Private>True</Private>
     </Reference>
@@ -131,6 +132,93 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraVerticalGrid.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+=======
+    <Reference Include="DevExpress.BonusSkins.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v13.2.UI, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.2.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2.UI, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Extensions, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2.Wizard, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.2.Core, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
@@ -142,12 +230,18 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+<<<<<<< HEAD
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Printing" />
+=======
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -161,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Global.cs" />
+<<<<<<< HEAD
     <Compile Include="Dataset\RestaurantDataSet.cs">
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -204,6 +299,36 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main\frmTickets.Designer.cs">
+=======
+    <Compile Include="Forms\frmAccountDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccountDetail.Designer.cs">
+      <DependentUpon>frmAccountDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccounts.Designer.cs">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAddOrderNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddOrderNote.Designer.cs">
+      <DependentUpon>frmAddOrderNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTickets.Designer.cs">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Print\frmPrintDialog.cs">
@@ -212,6 +337,7 @@
     <Compile Include="Forms\Print\frmPrintDialog.Designer.cs">
       <DependentUpon>frmPrintDialog.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forms\Reports\MostChoosedGroups.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -242,6 +368,8 @@
     <Compile Include="Forms\Reports\MostChoosedTables.Designer.cs">
       <DependentUpon>MostChoosedTables.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <Compile Include="Forms\Reservation\frmReservation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +382,15 @@
     <Compile Include="Forms\Reservation\frmReserved.Designer.cs">
       <DependentUpon>frmReserved.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Forms\Reports\frmProductPopularity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\frmProductPopularity.Designer.cs">
+      <DependentUpon>frmProductPopularity.cs</DependentUpon>
+    </Compile>
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <Compile Include="Forms\Reservation\frmReservedPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +409,7 @@
     <Compile Include="Forms\Settings\frmCompanySettings.Designer.cs">
       <DependentUpon>frmCompanySettings.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forms\Main\frmDeskCustomize.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +420,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main\frmDesks.Designer.cs">
+=======
+    <Compile Include="Forms\frmDeskCustomize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeskCustomize.Designer.cs">
+      <DependentUpon>frmDeskCustomize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDesks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDesks.Designer.cs">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmDesks.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmCustomers.cs">
@@ -296,6 +446,7 @@
     <Compile Include="Forms\Settings\frmGroups.Designer.cs">
       <DependentUpon>frmGroups.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forms\Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +463,24 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main\frmPayment.Designer.cs">
+=======
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOrderComplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOrderComplete.Designer.cs">
+      <DependentUpon>frmOrderComplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPayment.Designer.cs">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmProducts.cs">
@@ -320,10 +489,17 @@
     <Compile Include="Forms\Settings\frmProducts.Designer.cs">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Forms\Main\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main\frmSettings.Designer.cs">
+=======
+    <Compile Include="Forms\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSettings.Designer.cs">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmSuppliers.cs">
@@ -357,6 +533,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Reports\HowManyTimeInTables.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -411,11 +588,14 @@
     <Compile Include="Reports\XCustomerYTable.Designer.cs">
       <DependentUpon>XCustomerYTable.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\Main\frmAccountDetail.resx">
       <DependentUpon>frmAccountDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,11 +612,27 @@
       <DependentUpon>frmReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmTickets.resx">
+=======
+    <EmbeddedResource Include="Forms\frmAccountDetail.resx">
+      <DependentUpon>frmAccountDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccounts.resx">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddOrderNote.resx">
+      <DependentUpon>frmAddOrderNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTickets.resx">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmPrintDialog.resx">
       <DependentUpon>frmPrintDialog.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\Reports\MostChoosedGroups.resx">
       <DependentUpon>MostChoosedGroups.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,12 +648,20 @@
     <EmbeddedResource Include="Forms\Reports\MostChoosedTables.resx">
       <DependentUpon>MostChoosedTables.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <EmbeddedResource Include="Forms\Reservation\frmReservation.resx">
       <DependentUpon>frmReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reservation\frmReserved.resx">
       <DependentUpon>frmReserved.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Forms\Reports\frmProductPopularity.resx">
+      <DependentUpon>frmProductPopularity.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <EmbeddedResource Include="Forms\Reservation\frmReservedPassword.resx">
       <DependentUpon>frmReservedPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,10 +671,17 @@
     <EmbeddedResource Include="Forms\Settings\frmCompanySettings.resx">
       <DependentUpon>frmCompanySettings.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\Main\frmDeskCustomize.resx">
       <DependentUpon>frmDeskCustomize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmDesks.resx">
+=======
+    <EmbeddedResource Include="Forms\frmDeskCustomize.resx">
+      <DependentUpon>frmDeskCustomize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDesks.resx">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmDesks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmCustomers.resx">
@@ -479,6 +690,7 @@
     <EmbeddedResource Include="Forms\Settings\frmGroups.resx">
       <DependentUpon>frmGroups.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,12 +698,25 @@
       <DependentUpon>frmOrderComplete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmPayment.resx">
+=======
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOrderComplete.resx">
+      <DependentUpon>frmOrderComplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPayment.resx">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmProducts.resx">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Forms\Main\frmSettings.resx">
+=======
+    <EmbeddedResource Include="Forms\frmSettings.resx">
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmSuppliers.resx">
@@ -520,6 +745,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Reports\HowManyTimeInTables.resx">
       <DependentUpon>HowManyTimeInTables.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,11 +773,14 @@
     <EmbeddedResource Include="Reports\XCustomerYTable.resx">
       <DependentUpon>XCustomerYTable.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
+<<<<<<< HEAD
     <None Include="Dataset\RestaurantDataSet.xsc">
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </None>
@@ -563,6 +792,8 @@
     <None Include="Dataset\RestaurantDataSet.xss">
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </None>
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -583,7 +814,10 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+>>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
