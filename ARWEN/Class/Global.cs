@@ -7,7 +7,7 @@ using ARWEN.DTO.Database;
 
 namespace ARWEN.Class
 {
-    public class GlobalUser
+    public class Global
     {
         public static int UserID = -1;
         public static string FullName = "";
@@ -15,11 +15,5 @@ namespace ARWEN.Class
         public static string Password = "";
         public static byte PermissionID = 0;
 
-    }
-
-    public class GlobalCustomer
-    {
-        public static int CustomerID = -1;
-        public static string FullName = "";
     }
 }

@@ -43,7 +43,7 @@ namespace ARWEN.Forms.Settings
         {
             using (RestaurantContext dbContext = new RestaurantContext())
             {
-                var query = dbContext.Users.Where(x => x.UserID == GlobalUser.UserID).FirstOrDefault();
+                var query = dbContext.Users.Where(x => x.UserID == Global.UserID).FirstOrDefault();
                 if (query.Password == GetMd5Hash(txtOldPass.Text))
                 {
                     if (txtNewPass.Text == txtNewPassAgain.Text)
@@ -54,9 +54,9 @@ namespace ARWEN.Forms.Settings
                         }
                         else
                         {
-                            dbContext.Update_User_Pass(GlobalUser.UserID, GetMd5Hash(txtNewPass.Text));
+                            dbContext.Update_User_Pass(Global.UserID, GetMd5Hash(txtNewPass.Text));
                             dbContext.SaveChanges();
-                            MessageBox.Show("Sayın" + " '" + GlobalUser.FullName + "' " + "şifreniz başarıyla değiştirildi.",
+                            MessageBox.Show("Sayın" + " '" + Global.FullName + "' " + "şifreniz başarıyla değiştirildi.",
                                 "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                        

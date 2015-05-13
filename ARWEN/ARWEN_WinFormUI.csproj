@@ -40,11 +40,14 @@
     <Reference Include="DevExpress.BonusSkins.v14.2">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v14.2">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
@@ -57,33 +60,36 @@
     <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.2">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Sparkline.v14.2.Core">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v14.2.UI, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v14.2.UI, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.2.Wizard, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v14.2.Extensions, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v14.2.Wizard, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v14.2">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -96,9 +102,7 @@
     <Reference Include="DevExpress.XtraPivotGrid.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
@@ -136,6 +140,8 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -149,40 +155,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Global.cs" />
-    <Compile Include="Forms\frmAccountDetail.cs">
+    <Compile Include="Dataset\RestaurantDataSet.cs">
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dataset\RestaurantDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\frmAccountDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAccountDetail.Designer.cs">
+    <Compile Include="Forms\Main\frmAccountDetail.Designer.cs">
       <DependentUpon>frmAccountDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAccounts.cs">
+    <Compile Include="Forms\Main\frmAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAccounts.Designer.cs">
+    <Compile Include="Forms\Main\frmAccounts.Designer.cs">
       <DependentUpon>frmAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAddOrderNote.cs">
+    <Compile Include="Forms\Main\frmAddOrderNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAddOrderNote.Designer.cs">
+    <Compile Include="Forms\Main\frmAddOrderNote.Designer.cs">
       <DependentUpon>frmAddOrderNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Forms\Main\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
+    <Compile Include="Forms\Main\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSelectCustomer.cs">
+    <Compile Include="Forms\Main\frmReportView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSelectCustomer.Designer.cs">
-      <DependentUpon>frmSelectCustomer.cs</DependentUpon>
+    <Compile Include="Forms\Main\frmReportView.Designer.cs">
+      <DependentUpon>frmReportView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTickets.cs">
+    <Compile Include="Forms\Main\frmTickets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTickets.Designer.cs">
+    <Compile Include="Forms\Main\frmTickets.Designer.cs">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Print\frmPrintDialog.cs">
@@ -190,6 +205,72 @@
     </Compile>
     <Compile Include="Forms\Print\frmPrintDialog.Designer.cs">
       <DependentUpon>frmPrintDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedGroups.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedGroups.Designer.cs">
+      <DependentUpon>MostChoosedGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedPayment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedPayment.Designer.cs">
+      <DependentUpon>MostChoosedPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedProducts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedProducts.Designer.cs">
+      <DependentUpon>MostChoosedProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedSuppliers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedSuppliers.Designer.cs">
+      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedTables.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostChoosedTables.Designer.cs">
+      <DependentUpon>MostChoosedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostHardWorkedWaiters.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostHardWorkedWaiters.Designer.cs">
+      <DependentUpon>MostHardWorkedWaiters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\MostReservationCustomer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\MostReservationCustomer.Designer.cs">
+      <DependentUpon>MostReservationCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\ReservationCanceledTimeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\ReservationCanceledTimeReport.Designer.cs">
+      <DependentUpon>ReservationCanceledTimeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\ReservationUsedTimeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\ReservationUsedTimeReport.Designer.cs">
+      <DependentUpon>ReservationUsedTimeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\TableTimes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\TableTimes.Designer.cs">
+      <DependentUpon>TableTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\XCustomerYTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\XCustomerYTable.Designer.cs">
+      <DependentUpon>XCustomerYTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reservation\frmReservation.cs">
       <SubType>Form</SubType>
@@ -221,16 +302,16 @@
     <Compile Include="Forms\Settings\frmCompanySettings.Designer.cs">
       <DependentUpon>frmCompanySettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDeskCustomize.cs">
+    <Compile Include="Forms\Main\frmDeskCustomize.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDeskCustomize.Designer.cs">
+    <Compile Include="Forms\Main\frmDeskCustomize.Designer.cs">
       <DependentUpon>frmDeskCustomize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDesks.cs">
+    <Compile Include="Forms\Main\frmDesks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDesks.Designer.cs">
+    <Compile Include="Forms\Main\frmDesks.Designer.cs">
       <DependentUpon>frmDesks.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmCustomers.cs">
@@ -245,22 +326,22 @@
     <Compile Include="Forms\Settings\frmGroups.Designer.cs">
       <DependentUpon>frmGroups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMain.cs">
+    <Compile Include="Forms\Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMain.Designer.cs">
+    <Compile Include="Forms\Main\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmOrderComplete.cs">
+    <Compile Include="Forms\Main\frmOrderComplete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmOrderComplete.Designer.cs">
+    <Compile Include="Forms\Main\frmOrderComplete.Designer.cs">
       <DependentUpon>frmOrderComplete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPayment.cs">
+    <Compile Include="Forms\Main\frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPayment.Designer.cs">
+    <Compile Include="Forms\Main\frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmProducts.cs">
@@ -269,10 +350,10 @@
     <Compile Include="Forms\Settings\frmProducts.Designer.cs">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSettings.cs">
+    <Compile Include="Forms\Main\frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSettings.Designer.cs">
+    <Compile Include="Forms\Main\frmSettings.Designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmSuppliers.cs">
@@ -306,31 +387,118 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\HowManyTimeInTables.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\HowManyTimeInTables.Designer.cs">
+      <DependentUpon>HowManyTimeInTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostChoosedCategory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostChoosedCategory.Designer.cs">
+      <DependentUpon>MostChoosedCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostChoosedEats.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostChoosedEats.Designer.cs">
+      <DependentUpon>MostChoosedEats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostChoosedPayStyles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostChoosedPayStyles.Designer.cs">
+      <DependentUpon>MostChoosedPayStyles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostChoosedSuppliers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostChoosedSuppliers.Designer.cs">
+      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostChoosedTables.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostChoosedTables.Designer.cs">
+      <DependentUpon>MostChoosedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostRezervationCustomers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostRezervationCustomers.Designer.cs">
+      <DependentUpon>MostRezervationCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MostWorkedWaiter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MostWorkedWaiter.Designer.cs">
+      <DependentUpon>MostWorkedWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XCustomerYTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XCustomerYTable.Designer.cs">
+      <DependentUpon>XCustomerYTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\frmAccountDetail.resx">
+    <EmbeddedResource Include="Forms\Main\frmAccountDetail.resx">
       <DependentUpon>frmAccountDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAccounts.resx">
+    <EmbeddedResource Include="Forms\Main\frmAccounts.resx">
       <DependentUpon>frmAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAddOrderNote.resx">
+    <EmbeddedResource Include="Forms\Main\frmAddOrderNote.resx">
       <DependentUpon>frmAddOrderNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
+    <EmbeddedResource Include="Forms\Main\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSelectCustomer.resx">
-      <DependentUpon>frmSelectCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Main\frmReportView.resx">
+      <DependentUpon>frmReportView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTickets.resx">
+    <EmbeddedResource Include="Forms\Main\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmPrintDialog.resx">
       <DependentUpon>frmPrintDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostChoosedGroups.resx">
+      <DependentUpon>MostChoosedGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostChoosedPayment.resx">
+      <DependentUpon>MostChoosedPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostChoosedProducts.resx">
+      <DependentUpon>MostChoosedProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostChoosedSuppliers.resx">
+      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostChoosedTables.resx">
+      <DependentUpon>MostChoosedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostHardWorkedWaiters.resx">
+      <DependentUpon>MostHardWorkedWaiters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\MostReservationCustomer.resx">
+      <DependentUpon>MostReservationCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\ReservationCanceledTimeReport.resx">
+      <DependentUpon>ReservationCanceledTimeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\ReservationUsedTimeReport.resx">
+      <DependentUpon>ReservationUsedTimeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\TableTimes.resx">
+      <DependentUpon>TableTimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\XCustomerYTable.resx">
+      <DependentUpon>XCustomerYTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reservation\frmReservation.resx">
       <DependentUpon>frmReservation.cs</DependentUpon>
@@ -347,10 +515,10 @@
     <EmbeddedResource Include="Forms\Settings\frmCompanySettings.resx">
       <DependentUpon>frmCompanySettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDeskCustomize.resx">
+    <EmbeddedResource Include="Forms\Main\frmDeskCustomize.resx">
       <DependentUpon>frmDeskCustomize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDesks.resx">
+    <EmbeddedResource Include="Forms\Main\frmDesks.resx">
       <DependentUpon>frmDesks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmCustomers.resx">
@@ -359,19 +527,19 @@
     <EmbeddedResource Include="Forms\Settings\frmGroups.resx">
       <DependentUpon>frmGroups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.resx">
+    <EmbeddedResource Include="Forms\Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmOrderComplete.resx">
+    <EmbeddedResource Include="Forms\Main\frmOrderComplete.resx">
       <DependentUpon>frmOrderComplete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPayment.resx">
+    <EmbeddedResource Include="Forms\Main\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmProducts.resx">
       <DependentUpon>frmProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSettings.resx">
+    <EmbeddedResource Include="Forms\Main\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmSuppliers.resx">
@@ -400,11 +568,49 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\HowManyTimeInTables.resx">
+      <DependentUpon>HowManyTimeInTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostChoosedCategory.resx">
+      <DependentUpon>MostChoosedCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostChoosedEats.resx">
+      <DependentUpon>MostChoosedEats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostChoosedPayStyles.resx">
+      <DependentUpon>MostChoosedPayStyles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostChoosedSuppliers.resx">
+      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostChoosedTables.resx">
+      <DependentUpon>MostChoosedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostRezervationCustomers.resx">
+      <DependentUpon>MostRezervationCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MostWorkedWaiter.resx">
+      <DependentUpon>MostWorkedWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XCustomerYTable.resx">
+      <DependentUpon>XCustomerYTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="Dataset\RestaurantDataSet.xsc">
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\RestaurantDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestaurantDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\RestaurantDataSet.xss">
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -425,9 +631,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

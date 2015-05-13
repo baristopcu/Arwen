@@ -30,10 +30,6 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="OrderDetail" EntitySet="OrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderHeader_Customers" Association="RestaurantModel.Store.FK_OrderHeader_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="OrderHeader" EntitySet="OrderHeader" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderHeader_RestaurantTables" Association="RestaurantModel.Store.FK_OrderHeader_RestaurantTables">
             <End Role="RestaurantTables" EntitySet="RestaurantTables" />
             <End Role="OrderHeader" EntitySet="OrderHeader" />
@@ -139,7 +135,6 @@
           <Property Name="CancelCause" Type="nvarchar" MaxLength="255" />
           <Property Name="State" Type="tinyint" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="250" />
-          <Property Name="CustomerID" Type="int" />
         </EntityType>
         <EntityType Name="PaymentModules">
           <Key>
@@ -281,18 +276,6 @@
             </Principal>
             <Dependent Role="OrderDetail">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderHeader_Customers">
-          <End Role="Customers" Type="RestaurantModel.Store.Customers" Multiplicity="0..1" />
-          <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="OrderHeader">
-              <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -680,10 +663,6 @@
           <EntitySet Name="sysdiagrams" EntityType="RestaurantModel.sysdiagrams" />
           <EntitySet Name="Units" EntityType="RestaurantModel.Units" />
           <EntitySet Name="Users" EntityType="RestaurantModel.Users" />
-          <AssociationSet Name="FK_OrderHeader_Customers" Association="RestaurantModel.FK_OrderHeader_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="OrderHeader" EntitySet="OrderHeader" />
-          </AssociationSet>
           <AssociationSet Name="FK_Reservation_Customers" Association="RestaurantModel.FK_Reservation_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Reservation" EntitySet="Reservation" />
@@ -978,7 +957,6 @@
           <Property Name="Country" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="OrderHeader" Relationship="RestaurantModel.FK_OrderHeader_Customers" FromRole="Customers" ToRole="OrderHeader" />
           <NavigationProperty Name="Reservation" Relationship="RestaurantModel.FK_Reservation_Customers" FromRole="Customers" ToRole="Reservation" />
         </EntityType>
         <EntityType Name="DataHasChanged">
@@ -1029,8 +1007,6 @@
           <Property Name="CancelCause" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="State" Type="Byte" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <Property Name="CustomerID" Type="Int32" />
-          <NavigationProperty Name="Customers" Relationship="RestaurantModel.FK_OrderHeader_Customers" FromRole="OrderHeader" ToRole="Customers" />
           <NavigationProperty Name="OrderDetail" Relationship="RestaurantModel.FK_OrderDetail_OrderHeader" FromRole="OrderHeader" ToRole="OrderDetail" />
           <NavigationProperty Name="RestaurantTables" Relationship="RestaurantModel.FK_OrderHeader_RestaurantTables" FromRole="OrderHeader" ToRole="RestaurantTables" />
           <NavigationProperty Name="Users" Relationship="RestaurantModel.FK_OrderHeader_Users" FromRole="OrderHeader" ToRole="Users" />
@@ -1173,18 +1149,6 @@
           <NavigationProperty Name="Permissions" Relationship="RestaurantModel.FK_Users_Permission" FromRole="Users" ToRole="Permissions" />
           <NavigationProperty Name="Reservation" Relationship="RestaurantModel.FK_Reservation_Users" FromRole="Users" ToRole="Reservation" />
         </EntityType>
-        <Association Name="FK_OrderHeader_Customers">
-          <End Role="Customers" Type="RestaurantModel.Customers" Multiplicity="0..1" />
-          <End Role="OrderHeader" Type="RestaurantModel.OrderHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="OrderHeader">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Reservation_Customers">
           <End Role="Customers" Type="RestaurantModel.Customers" Multiplicity="0..1" />
           <End Role="Reservation" Type="RestaurantModel.Reservation" Multiplicity="*" />
@@ -1557,7 +1521,6 @@
                 <ScalarProperty Name="CancelCause" ColumnName="CancelCause" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -64,7 +64,6 @@
           <ScalarProperty Name="CancelCause" ColumnName="CancelCause" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
