@@ -520,7 +520,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostWorked
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.XCustomerYTable.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostRezervationCustomers.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.HowManyTimeInTables.resources
-<<<<<<< HEAD
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\bin\Debug\ARWEN.exe.config
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.exe
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.pdb
@@ -718,5 +717,3 @@ C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-mas
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationCanceledTimeReport.resources
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationUsedTimeReport.resources
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.TableTimes.resources
-=======
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd

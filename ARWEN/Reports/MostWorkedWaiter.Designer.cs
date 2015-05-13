@@ -31,23 +31,14 @@
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MostWorkedWaiter));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-<<<<<<< HEAD
-=======
-            this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
-            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
-<<<<<<< HEAD
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource();
-=======
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.pageFooterBand1 = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
@@ -67,51 +58,16 @@
             this.xrLabel3,
             this.xrLabel4,
             this.xrLine1});
-<<<<<<< HEAD
             this.Detail.HeightF = 78.08336F;
-=======
-            this.Detail.HeightF = 56F;
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-<<<<<<< HEAD
-=======
-            // TopMargin
-            // 
-            this.TopMargin.HeightF = 100F;
-            this.TopMargin.Name = "TopMargin";
-            this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // BottomMargin
-            // 
-            this.BottomMargin.HeightF = 100F;
-            this.BottomMargin.Name = "BottomMargin";
-            this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "Restaurant";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "CustomSqlQuery";
-            customSqlQuery1.Sql = resources.GetString("customSqlQuery1.Sql");
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             // xrLabel1
             // 
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 9F);
             this.xrLabel1.Name = "xrLabel1";
-<<<<<<< HEAD
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-=======
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.xrLabel1.SizeF = new System.Drawing.SizeF(162F, 18F);
             this.xrLabel1.StyleName = "FieldCaption";
             this.xrLabel1.Text = "Full Name";
@@ -120,11 +76,7 @@
             // 
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(6F, 33F);
             this.xrLabel2.Name = "xrLabel2";
-<<<<<<< HEAD
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-=======
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.xrLabel2.SizeF = new System.Drawing.SizeF(162F, 18F);
             this.xrLabel2.StyleName = "FieldCaption";
             this.xrLabel2.Text = "Toplam";
@@ -135,11 +87,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.FullName")});
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(174F, 9F);
             this.xrLabel3.Name = "xrLabel3";
-<<<<<<< HEAD
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-=======
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.xrLabel3.SizeF = new System.Drawing.SizeF(470F, 18F);
             this.xrLabel3.StyleName = "DataField";
             this.xrLabel3.Text = "xrLabel3";
@@ -150,11 +98,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "CustomSqlQuery.Toplam")});
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(174F, 33F);
             this.xrLabel4.Name = "xrLabel4";
-<<<<<<< HEAD
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-=======
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             this.xrLabel4.SizeF = new System.Drawing.SizeF(470F, 18F);
             this.xrLabel4.StyleName = "DataField";
             this.xrLabel4.Text = "xrLabel4";
@@ -165,7 +109,6 @@
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(638F, 2F);
             // 
-<<<<<<< HEAD
             // TopMargin
             // 
             this.TopMargin.HeightF = 100F;
@@ -190,8 +133,6 @@
             customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
-=======
->>>>>>> 509ba24ac08e2f517495ecebe9c6f8bc176246cd
             // pageFooterBand1
             // 
             this.pageFooterBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
