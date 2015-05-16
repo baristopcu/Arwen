@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using ARWEN.Dataset;
+using ARWEN.DTO.Class;
 using DevExpress.XtraEditors;
 using ARWEN.Forms.Reports;
 using DevExpress.XtraReports.UI;
@@ -23,17 +25,32 @@ namespace ARWEN.Forms.Main
 
         private void frmReportView_Load(object sender, EventArgs e)
         {          
-
+            dtpEnd.DateTime = DateTime.Today;
+            dtpStart.DateTime = DateTime.Today;
         }
 
-
+        private Jarvis jarvis = new Jarvis();
         private void btnMostChoosedTables_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT  TableNo,Count(TableNo)  AS Toplam  FROM            OrderHeader GROUP BY TableNo ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "OrderHeader");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp,ds,"CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT        TableNo,CONVERT(VARCHAR(10),CreationDatetime, 103) AS [OlusturulmaTarihi], COUNT (TableNo) AS Toplam FROM            OrderHeader WHERE        (CreationDatetime BETWEEN @dtpStart AND @dtpEnd) GROUP BY TableNo,CreationDatetime ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "OrderHeader");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostChoosedTables rptMCT = new MostChoosedTables();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -157,6 +174,8 @@ namespace ARWEN.Forms.Main
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
         }
+
+
 
        
     }
