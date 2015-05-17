@@ -316,28 +316,23 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ARWEN.exe
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ARWEN.pdb
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ARWEN.DTO.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.BonusSkins.v14.2.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Charts.v14.2.Core.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.CodeParser.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Data.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.DataAccess.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.DataAccess.v14.2.UI.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Office.v14.2.Core.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.PivotGrid.v14.2.Core.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Printing.v14.2.Core.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.RichEdit.v14.2.Core.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Sparkline.v14.2.Core.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Utils.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Utils.v14.2.UI.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraBars.v14.2.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraCharts.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraCharts.v14.2.Extensions.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraEditors.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraGrid.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraLayout.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraNavBar.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraPivotGrid.v14.2.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraPrinting.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraReports.v14.2.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraRichEdit.v14.2.dll
@@ -353,20 +348,16 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.DataAccess.v1
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.DataAccess.v14.2.UI.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Office.v14.2.Core.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.PivotGrid.v14.2.Core.xml
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Printing.v14.2.Core.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.RichEdit.v14.2.Core.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Utils.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Sparkline.v14.2.Core.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.Utils.v14.2.UI.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraBars.v14.2.xml
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraCharts.v14.2.xml
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraCharts.v14.2.Wizard.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraEditors.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraGrid.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraLayout.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraNavBar.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraPivotGrid.v14.2.xml
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraPrinting.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraReports.v14.2.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraReports.v14.2.Extensions.xml
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\DevExpress.XtraRichEdit.v14.2.xml
@@ -396,10 +387,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.PivotGrid.
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.PivotGrid.v14.2.Core.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.PivotGrid.v14.2.Core.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.PivotGrid.v14.2.Core.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.Printing.v14.2.Core.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.Printing.v14.2.Core.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.Printing.v14.2.Core.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.Printing.v14.2.Core.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.RichEdit.v14.2.Core.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.RichEdit.v14.2.Core.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.RichEdit.v14.2.Core.resources.dll
@@ -420,14 +407,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraBars.v
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraBars.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraBars.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraBars.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraCharts.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraCharts.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraCharts.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraCharts.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraCharts.v14.2.Wizard.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraEditors.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraEditors.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraEditors.v14.2.resources.dll
@@ -448,10 +427,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraPivotG
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraPivotGrid.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraPivotGrid.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraPivotGrid.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraPrinting.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraPrinting.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraPrinting.v14.2.resources.dll
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraPrinting.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\de\DevExpress.XtraReports.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\es\DevExpress.XtraReports.v14.2.resources.dll
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraReports.v14.2.resources.dll
@@ -489,7 +464,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmTickets.r
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Print.frmPrintDialog.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmReservation.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmReserved.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.frmProductPopularity.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reservation.frmReservedPassword.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.frmChangePassword.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmCompanySettings.resources
@@ -508,18 +482,9 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmUnits.res
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmUsers.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.PrintRibbonControllerResources.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Properties.Resources.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostChoosedTables.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.XRDesignRibbonControllerResources.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN_WinFormUI.csproj.GenerateResource.Cache
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.exe.licenses
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostChoosedEats.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostChoosedCategory.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostChoosedSuppliers.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostChoosedPayStyles.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostWorkedWaiter.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.XCustomerYTable.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.MostRezervationCustomers.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Reports.HowManyTimeInTables.resources
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\bin\Debug\ARWEN.exe.config
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.exe
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.pdb
@@ -717,3 +682,15 @@ C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-mas
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationCanceledTimeReport.resources
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationUsedTimeReport.resources
 C:\Users\Admin\Desktop\PROJECTS AR-GE\DESKTOP PROJECTS\AR-GE FOR ARWEN\Arwen-master\ARWEN\obj\Debug\ARWEN.Forms.Reports.TableTimes.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmReportView.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostChoosedGroups.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostChoosedPayment.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostChoosedProducts.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostChoosedSuppliers.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostChoosedTables.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostHardWorkedWaiters.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.MostReservationCustomer.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationCanceledTimeReport.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.ReservationUsedTimeReport.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.TableTimes.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Reports.XCustomerYTable.resources

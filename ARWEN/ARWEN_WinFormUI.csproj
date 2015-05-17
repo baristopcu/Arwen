@@ -387,60 +387,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\HowManyTimeInTables.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\HowManyTimeInTables.Designer.cs">
-      <DependentUpon>HowManyTimeInTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostChoosedCategory.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostChoosedCategory.Designer.cs">
-      <DependentUpon>MostChoosedCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostChoosedEats.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostChoosedEats.Designer.cs">
-      <DependentUpon>MostChoosedEats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostChoosedPayStyles.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostChoosedPayStyles.Designer.cs">
-      <DependentUpon>MostChoosedPayStyles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostChoosedSuppliers.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostChoosedSuppliers.Designer.cs">
-      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostChoosedTables.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostChoosedTables.Designer.cs">
-      <DependentUpon>MostChoosedTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostRezervationCustomers.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostRezervationCustomers.Designer.cs">
-      <DependentUpon>MostRezervationCustomers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\MostWorkedWaiter.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\MostWorkedWaiter.Designer.cs">
-      <DependentUpon>MostWorkedWaiter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\XCustomerYTable.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\XCustomerYTable.Designer.cs">
-      <DependentUpon>XCustomerYTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="XRDesignRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -568,33 +514,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reports\HowManyTimeInTables.resx">
-      <DependentUpon>HowManyTimeInTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostChoosedCategory.resx">
-      <DependentUpon>MostChoosedCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostChoosedEats.resx">
-      <DependentUpon>MostChoosedEats.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostChoosedPayStyles.resx">
-      <DependentUpon>MostChoosedPayStyles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostChoosedSuppliers.resx">
-      <DependentUpon>MostChoosedSuppliers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostChoosedTables.resx">
-      <DependentUpon>MostChoosedTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostRezervationCustomers.resx">
-      <DependentUpon>MostRezervationCustomers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\MostWorkedWaiter.resx">
-      <DependentUpon>MostWorkedWaiter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\XCustomerYTable.resx">
-      <DependentUpon>XCustomerYTable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>XRDesignRibbonControllerResources.Designer.cs</LastGenOutput>
