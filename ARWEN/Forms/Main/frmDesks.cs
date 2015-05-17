@@ -43,7 +43,7 @@ namespace ARWEN
                 
             }
 
-            for (int i = 0; i <= kategoriSayisi; i++)
+            for (int i = 0; i < kategoriSayisi; i++)
             {
                 SimpleButton sndrButton = new SimpleButton();
                 sndrButton.Text = tableNameList[i];

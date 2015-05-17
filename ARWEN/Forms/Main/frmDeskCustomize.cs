@@ -24,10 +24,10 @@ namespace ARWEN
         {
             InitializeComponent();
 
-            dtProducts.Columns.Add("ProductID", typeof (Int64));
-            dtProducts.Columns.Add("Amount", typeof (int));
-            dtProducts.Columns.Add("ProductName", typeof (string));
-            dtProducts.Columns.Add("Price", typeof (decimal));
+            dtProducts.Columns.Add("ProductID", typeof(Int64));
+            dtProducts.Columns.Add("Amount", typeof(int));
+            dtProducts.Columns.Add("ProductName", typeof(string));
+            dtProducts.Columns.Add("Price", typeof(decimal));
             dtProducts.Columns.Add("UnitName", typeof(string));
         }
 
@@ -95,7 +95,7 @@ namespace ARWEN
         public void StateControl(byte State)
         {
             List<object> orderProductsList = new List<object>();
-            int Adet, Dadet;
+            int Adet;
             orderType = "Edit";
             if (State == 1) //EDİT
             {
@@ -110,7 +110,7 @@ namespace ARWEN
                     {
                         var query =
                             dbContext.OrderDetail.AsNoTracking()
-                                .Join(dbContext.Products, od => od.ProductID, p => p.ProductID, (od, p) => new {od, p})
+                                .Join(dbContext.Products, od => od.ProductID, p => p.ProductID, (od, p) => new { od, p })
                                 .Where(b => b.od.OrderNo == orderNo)
                                 .Select(s => new
                                 {
@@ -133,8 +133,8 @@ namespace ARWEN
                             products.ProductName = result.ProductName;
                             products.Price = Convert.ToDecimal(result.OrderPrice);
                             products.ProductID = result.ProductID;
-                            Dadet = Convert.ToInt32(result.EditAmount);
-                            dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, Dadet);
+                            products.UnitName = result.UnitName;
+                            dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
                             gridProducts.DataSource = dtProducts;
                         }
                         break;
@@ -206,7 +206,7 @@ namespace ARWEN
                 groupIdList.AddRange(dbContext.Groups.Select(x => x.GroupID).ToList());
 
             }
-            for (int i = 0; i <= grupSayisi; i++)
+            for (int i = 0; i < grupSayisi; i++)
             {
                 SimpleButton sndrButton = new SimpleButton();
                 sndrButton.Text = groupNameList[i];
@@ -221,7 +221,7 @@ namespace ARWEN
         private void productButton_Click(object sender, EventArgs e)
         {
 
-            productButton = (SimpleButton) sender;
+            productButton = (SimpleButton)sender;
             int productUsedButton = Convert.ToInt32(productButton.Tag);
 
             if (orderType == "New")
@@ -232,7 +232,7 @@ namespace ARWEN
 
                     var addProduct = dbContext.Get_All_Products()
                         .Where(x => x.ProductID == productUsedButton)
-                        .Select(y => new {Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName})
+                        .Select(y => new { Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName })
                         .ToList();
 
 
@@ -265,6 +265,7 @@ namespace ARWEN
                     .FirstOrDefault();
                 OrderDetail oDetail = new OrderDetail();
                 products.ProductName = addProduct.ProductName;
+                products.UnitName = addProduct.UnitName;
                 oDetail.OrderNo = orderNo;
                 oDetail.ProductID = addProduct.ProductID;
                 oDetail.Amount = 1;
@@ -276,7 +277,7 @@ namespace ARWEN
                         .FirstOrDefault();
                 if (query == null)
                 {
-                    dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice);
+                    dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
                     dbContext.OrderDetail.Add(oDetail);
                     gridProducts.DataSource = dtProducts;
                     //-------------------------------------------------------------------------------------------------------
@@ -295,7 +296,7 @@ namespace ARWEN
         private void groupButton_Click(object sender, EventArgs e)
         {
             flwProducts.Controls.Clear();
-            groupButton = (SimpleButton) sender;
+            groupButton = (SimpleButton)sender;
             int productCount;
             using (RestaurantContext dbContext = new RestaurantContext())
             {
@@ -354,7 +355,7 @@ namespace ARWEN
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            DataRowView currow = (DataRowView) gridView1.GetRow(gridView1.FocusedRowHandle);
+            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (currow != null)
             {
 
@@ -367,7 +368,7 @@ namespace ARWEN
                 amount = Convert.ToInt32(currow["Amount"]);
                 editAmount = amount + 1;
                 currow[1] = editAmount;
-                totalPrice = price*editAmount;
+                totalPrice = price * editAmount;
                 currow[3] = totalPrice;
 
             }
@@ -389,7 +390,7 @@ namespace ARWEN
 
         private void btnLess_Click(object sender, EventArgs e)
         {
-            DataRowView currow = (DataRowView) gridView1.GetRow(gridView1.FocusedRowHandle);
+            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (currow != null)
             {
 
@@ -432,7 +433,7 @@ namespace ARWEN
 
         private void btnDeleteRow_Click(object sender, EventArgs e)
         {
-            DataRowView currow = (DataRowView) gridView1.GetRow(gridView1.FocusedRowHandle);
+            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (currow != null)
             {
                 productId = Convert.ToInt32(currow["ProductID"]);
@@ -572,7 +573,7 @@ namespace ARWEN
 
                 graphic.DrawString(productLine, font, new SolidBrush(Color.Black), startX, startY + Offset);
 
-                Offset = Offset + (int) fontHeight + 5;
+                Offset = Offset + (int)fontHeight + 5;
 
             }
 
