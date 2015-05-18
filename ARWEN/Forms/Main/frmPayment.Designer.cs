@@ -42,7 +42,7 @@
             this.btnTicket = new DevExpress.XtraEditors.SimpleButton();
             this.btnCash = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreditCard = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCustomer = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRestaurantTicket = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridPaymentProducts = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -211,13 +211,14 @@
             this.btnCreditCard.Text = "KREDİ KARTI";
             this.btnCreditCard.Click += new System.EventHandler(this.btnCreditCard_Click);
             // 
-            // btnCustomer
+            // btnRestaurantTicket
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(1247, 306);
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(265, 125);
-            this.btnCustomer.TabIndex = 34;
-            this.btnCustomer.Text = "MÜŞTERİ";
+            this.btnRestaurantTicket.Location = new System.Drawing.Point(1247, 306);
+            this.btnRestaurantTicket.Name = "btnRestaurantTicket";
+            this.btnRestaurantTicket.Size = new System.Drawing.Size(265, 125);
+            this.btnRestaurantTicket.TabIndex = 34;
+            this.btnRestaurantTicket.Text = "YEMEK KARTI";
+            this.btnRestaurantTicket.Click += new System.EventHandler(this.btnRestaurantTicket_Click);
             // 
             // btnClose
             // 
@@ -532,7 +533,7 @@
             this.Controls.Add(this.btnC1);
             this.Controls.Add(this.gridPaymentProducts);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnCustomer);
+            this.Controls.Add(this.btnRestaurantTicket);
             this.Controls.Add(this.btnCreditCard);
             this.Controls.Add(this.btnCash);
             this.Controls.Add(this.btnTicket);
@@ -578,7 +579,7 @@
         private DevExpress.XtraEditors.SimpleButton btnTicket;
         private DevExpress.XtraEditors.SimpleButton btnCash;
         private DevExpress.XtraEditors.SimpleButton btnCreditCard;
-        private DevExpress.XtraEditors.SimpleButton btnCustomer;
+        private DevExpress.XtraEditors.SimpleButton btnRestaurantTicket;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         public DevExpress.XtraGrid.GridControl gridPaymentProducts;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

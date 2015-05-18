@@ -217,6 +217,20 @@ namespace ARWEN
             }
         }
 
+        private void btnRestaurantTicket_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCharged.Text))
+            {
+                Discharge(3);
+            }
+            else
+            {
+                MessageBox.Show("Yemek kartıyla ödemek için bir ücret girmediniz.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                txtCharged.Focus();
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -239,6 +253,8 @@ namespace ARWEN
             }
            
         }
+
+       
 
         private void btnTicket_Click(object sender, EventArgs e)
         {
@@ -320,5 +336,7 @@ namespace ARWEN
                 new SolidBrush(Color.Black), startX, startY + Offset);
 
         }
+
+        
     }
 }

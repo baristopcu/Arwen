@@ -94,6 +94,20 @@ namespace ARWEN.Forms
                         }).ToList();
                         gridControl1.DataSource = new BindingSource(discountQuery, "");
                         break;
+                    case "Yemek Kartı":
+                        var ticketQuery = dbContext.Payments.AsNoTracking().Join(dbContext.PaymentModules, p => p.PaymentModuleID, pm => pm.PaymentModuleID, (p, pm) => new { p, pm }).Where(y => y.p.PaymentModuleID == 3).Select(x => new
+                        {
+                            x.p.PaymentID,
+                            x.p.OrderNo,
+                            x.p.TotalPrice,
+                            x.p.Date,
+                            x.p.AmountPaid,
+                            x.p.Discount,
+                            x.p.DiscountPrice,
+                            x.pm.Name
+                        }).ToList();
+                        gridControl1.DataSource = new BindingSource(ticketQuery, "");
+                        break;
 
                 
                 }
