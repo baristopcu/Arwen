@@ -41,7 +41,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT        TableNo,CONVERT(VARCHAR(10),CreationDatetime, 103) AS [OlusturulmaTarihi], COUNT (TableNo) AS Toplam FROM            OrderHeader WHERE        (CreationDatetime BETWEEN @dtpStart AND @dtpEnd) GROUP BY TableNo,CreationDatetime ORDER BY Toplam DESC";
+                "SELECT        TableNo, COUNT (TableNo) AS Toplam FROM            OrderHeader WHERE        (CreationDatetime BETWEEN CONVERT(datetime, @dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY TableNo ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
@@ -94,12 +94,6 @@ namespace ARWEN.Forms.Main
 
         private void btnMostChoosedPayment_Click(object sender, EventArgs e)
         {
-            //Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            //SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            //string query = "SELECT        PaymentModules.Name, COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
-            //SqlDataAdapter da = new SqlDataAdapter(query, con);
-            //da.Fill(ds, "PaymentReport");
-
             RestaurantDataSet ds = new RestaurantDataSet();
 
             // Get Company Properties --
@@ -109,7 +103,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT        PaymentModules.Name,CONVERT(VARCHAR(10),Date, 103) AS [Date], COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID WHERE        (Date BETWEEN @dtpStart AND @dtpEnd) GROUP BY PaymentModules.Name,Date ORDER BY Toplam DESC";
+                " SELECT        PaymentModules.Name,COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments   ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID WHERE        (Date BETWEEN CONVERT(datetime, @dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
