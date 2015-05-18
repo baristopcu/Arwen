@@ -1726,6 +1726,8 @@ namespace ARWEN.Dataset {
             
             private global::System.Data.DataColumn columnToplam;
             
+            private global::System.Data.DataColumn columnDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PaymentReportDataTable() {
@@ -1777,6 +1779,14 @@ namespace ARWEN.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1812,11 +1822,12 @@ namespace ARWEN.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PaymentReportRow AddPaymentReportRow(string Name, string Toplam) {
+            public PaymentReportRow AddPaymentReportRow(string Name, string Toplam, string Date) {
                 PaymentReportRow rowPaymentReportRow = ((PaymentReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
-                        Toplam};
+                        Toplam,
+                        Date};
                 rowPaymentReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPaymentReportRow);
                 return rowPaymentReportRow;
@@ -1841,6 +1852,7 @@ namespace ARWEN.Dataset {
             internal void InitVars() {
                 this.columnName = base.Columns["Name"];
                 this.columnToplam = base.Columns["Toplam"];
+                this.columnDate = base.Columns["Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1850,6 +1862,8 @@ namespace ARWEN.Dataset {
                 base.Columns.Add(this.columnName);
                 this.columnToplam = new global::System.Data.DataColumn("Toplam", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnToplam);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4233,6 +4247,22 @@ namespace ARWEN.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Date {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentReport.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'PaymentReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentReport.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tablePaymentReport.NameColumn);
             }
@@ -4253,6 +4283,18 @@ namespace ARWEN.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetToplamNull() {
                 this[this.tablePaymentReport.ToplamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tablePaymentReport.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tablePaymentReport.DateColumn] = global::System.Convert.DBNull;
             }
         }
         

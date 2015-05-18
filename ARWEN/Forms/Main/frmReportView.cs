@@ -24,7 +24,7 @@ namespace ARWEN.Forms.Main
         }
 
         private void frmReportView_Load(object sender, EventArgs e)
-        {          
+        {
             dtpEnd.DateTime = DateTime.Today;
             dtpStart.DateTime = DateTime.Today;
         }
@@ -37,7 +37,7 @@ namespace ARWEN.Forms.Main
             // Get Company Properties --
             string queryComp = "select * from Settings";
             jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
-            jarvis.GetDataForReport(queryComp,ds,"CompanyProperties");
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
 
             // Get Report's Data--
             string queryData =
@@ -62,7 +62,7 @@ namespace ARWEN.Forms.Main
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
             string query = "SELECT  Products.ProductName, COUNT(OrderDetail.ProductID) AS Toplam FROM OrderDetail INNER JOIN Products ON OrderDetail.ProductID = Products.ProductID GROUP BY Products.ProductName ORDER BY Toplam DESC";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds,"ProductReport");
+            da.Fill(ds, "ProductReport");
             MostChoosedProducts rptMCT = new MostChoosedProducts();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -94,11 +94,31 @@ namespace ARWEN.Forms.Main
 
         private void btnMostChoosedPayment_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT        PaymentModules.Name, COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "PaymentReport");
+            //Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
+            //SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
+            //string query = "SELECT        PaymentModules.Name, COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
+            //SqlDataAdapter da = new SqlDataAdapter(query, con);
+            //da.Fill(ds, "PaymentReport");
+
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT        PaymentModules.Name,CONVERT(VARCHAR(10),Date, 103) AS [Date], COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID WHERE        (Date BETWEEN @dtpStart AND @dtpEnd) GROUP BY PaymentModules.Name,Date ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "PaymentReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostChoosedPayment rptMCT = new MostChoosedPayment();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -177,6 +197,6 @@ namespace ARWEN.Forms.Main
 
 
 
-       
+
     }
 }
