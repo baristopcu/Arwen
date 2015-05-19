@@ -102,7 +102,7 @@ namespace ARWEN
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
 
-                    orderNo = dbContext.Get_Orders_Of_A_Table(this.Tag.ToString()).Select(y => y.OrderNo).Single();
+                    orderNo = dbContext.Get_Orders_Of_A_Table(this.Tag.ToString()).Select(y => y.OrderNo).FirstOrDefault();
                     int detailRow = dbContext.Get_Order_Detail(orderNo).Count();
 
 

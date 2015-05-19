@@ -175,9 +175,13 @@ namespace ARWEN
                     };
 
                     dbContext.Payments.Add(p);
+                    var paidQuery = dbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
+                    paidQuery.State = 5;
                     dbContext.SaveChanges();
 
                     dbContext.Update_Table_State(this.Tag.ToString(), false);
+                  
+                    
                 }
                
 
