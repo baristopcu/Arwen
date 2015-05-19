@@ -77,7 +77,7 @@
             this.xrLabel2,
             this.xrLabel1,
             this.xrLine1});
-            this.Detail.HeightF = 56.25F;
+            this.Detail.HeightF = 41.66667F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -348,7 +348,7 @@
             this.xrLabel6,
             this.xrLine3,
             this.xrLabel12});
-            this.ReportFooter.HeightF = 260.4167F;
+            this.ReportFooter.HeightF = 167.7083F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel19

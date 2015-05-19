@@ -24,7 +24,7 @@ namespace ARWEN.Forms.Main
         }
 
         private void frmReportView_Load(object sender, EventArgs e)
-        {          
+        {
             dtpEnd.DateTime = DateTime.Today;
             dtpStart.DateTime = DateTime.Today;
         }
@@ -37,11 +37,11 @@ namespace ARWEN.Forms.Main
             // Get Company Properties --
             string queryComp = "select * from Settings";
             jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
-            jarvis.GetDataForReport(queryComp,ds,"CompanyProperties");
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
 
             // Get Report's Data--
             string queryData =
-                "SELECT        TableNo,CONVERT(VARCHAR(10),CreationDatetime, 103) AS [OlusturulmaTarihi], COUNT (TableNo) AS Toplam FROM            OrderHeader WHERE        (CreationDatetime BETWEEN @dtpStart AND @dtpEnd) GROUP BY TableNo,CreationDatetime ORDER BY Toplam DESC";
+                "SELECT        OrderHeader.TableNo, COUNT(OrderHeader.TableNo) AS Toplam FROM OrderHeader INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo WHERE (CreationDatetime BETWEEN CONVERT(datetime, @dtpStart , 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY OrderHeader.TableNo ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
@@ -56,13 +56,29 @@ namespace ARWEN.Forms.Main
             rptMCT.ShowPreviewDialog();
         }
 
+       
+
         private void btnMostChoosedEats_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT  Products.ProductName, COUNT(OrderDetail.ProductID) AS Toplam FROM OrderDetail INNER JOIN Products ON OrderDetail.ProductID = Products.ProductID GROUP BY Products.ProductName ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds,"ProductReport");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT        Products.ProductName, COUNT(OrderDetail.ProductID) AS Toplam, OrderHeader.CreationDatetime, Payments.Date FROM OrderDetail INNER JOIN Products ON OrderDetail.ProductID = Products.ProductID INNER JOIN OrderHeader ON OrderDetail.OrderNo = OrderHeader.OrderNo INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo WHERE (CreationDatetime BETWEEN CONVERT(datetime, @dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY Products.ProductName, OrderHeader.CreationDatetime, Payments.Date ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "ProductReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostChoosedProducts rptMCT = new MostChoosedProducts();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -70,11 +86,25 @@ namespace ARWEN.Forms.Main
 
         private void btnMostChoosedGruops_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT        Groups.GroupName, COUNT(Products.ProductID) AS Toplam FROM Groups INNER JOIN Products ON Groups.GroupID = Products.GroupID INNER JOIN OrderDetail ON Products.ProductID = OrderDetail.ProductID GROUP BY Groups.GroupName ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "GroupReport");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT        Groups.GroupName, COUNT(Products.ProductID) AS Toplam FROM Groups INNER JOIN Products ON Groups.GroupID = Products.GroupID INNER JOIN OrderDetail ON Products.ProductID = OrderDetail.ProductID INNER JOIN OrderHeader ON OrderDetail.OrderNo = OrderHeader.OrderNo INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo WHERE (CreationDatetime BETWEEN CONVERT(datetime, '17.5.2015', 103) AND CONVERT(datetime, '19.5.2015', 103)) GROUP BY Groups.GroupName ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "GroupReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostChoosedGroups rptMCT = new MostChoosedGroups();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -94,22 +124,50 @@ namespace ARWEN.Forms.Main
 
         private void btnMostChoosedPayment_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT        PaymentModules.Name, COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "PaymentReport");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                " SELECT        PaymentModules.Name,COUNT(PaymentModules.PaymentModuleID) AS Toplam FROM PaymentModules INNER JOIN Payments   ON PaymentModules.PaymentModuleID = Payments.PaymentModuleID WHERE        (Date BETWEEN CONVERT(datetime, @dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY PaymentModules.Name ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "PaymentReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostChoosedPayment rptMCT = new MostChoosedPayment();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
         }
         private void btnMostHardWorkedWaiters_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT        Users.FullName, COUNT(OrderHeader.CreatorUserID) AS Toplam FROM            OrderHeader INNER JOIN                         Users ON OrderHeader.CreatorUserID = users.UserID GROUP BY Users.FullName ORDER BY Toplam DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "WaitersReport");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT Users.FullName, COUNT(OrderHeader.CreatorUserID) AS Toplam FROM OrderHeader INNER JOIN Users ON OrderHeader.CreatorUserID = Users.UserID INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo WHERE (CreationDatetime BETWEEN CONVERT(datetime,'1.1.2001' , 103) AND CONVERT(datetime, '19.5.2015', 103)) GROUP BY Users.FullName ORDER BY Toplam DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "WaitersReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             MostHardWorkedWaiters rptMCT = new MostHardWorkedWaiters();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -165,11 +223,25 @@ namespace ARWEN.Forms.Main
 
         private void btnTableTime_Click(object sender, EventArgs e)
         {
-            Dataset.RestaurantDataSet ds = new Dataset.RestaurantDataSet();
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Restaurant"].ConnectionString);
-            string query = "SELECT TableNo,AVG(DATEDIFF(MINUTE,OrderHeader.CreationDatetime,Payments.Date)) as SaatFarki FROM OrderHeader INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo GROUP BY TableNo ORDER BY SaatFarki DESC";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.Fill(ds, "TableTimesReport");
+            RestaurantDataSet ds = new RestaurantDataSet();
+
+            // Get Company Properties --
+            string queryComp = "select * from Settings";
+            jarvis.ConnectToDb(jarvis.GetConnStr("Restaurant"));
+            jarvis.GetDataForReport(queryComp, ds, "CompanyProperties");
+
+            // Get Report's Data--
+            string queryData =
+                "SELECT TableNo,AVG(DATEDIFF(MINUTE,OrderHeader.CreationDatetime,Payments.Date)) as SaatFarki FROM OrderHeader INNER JOIN Payments ON OrderHeader.OrderNo = Payments.OrderNo WHERE  (CreationDatetime BETWEEN CONVERT(datetime,@dtpStart , 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY TableNo ORDER BY SaatFarki DESC";
+            jarvis.Command.Parameters.Clear();
+            jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
+            jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
+            jarvis.GetDataForReport(queryData, ds, "TableTimesReport");
+
+            //Close Connections
+            jarvis.NtpDbConnection.Close();
+
+            //Send to Report
             TableTimes rptMCT = new TableTimes();
             rptMCT.DataSource = ds;
             rptMCT.ShowPreviewDialog();
@@ -177,6 +249,6 @@ namespace ARWEN.Forms.Main
 
 
 
-       
+
     }
 }
