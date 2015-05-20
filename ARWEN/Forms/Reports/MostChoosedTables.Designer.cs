@@ -117,7 +117,7 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 92.70834F;
+            this.TopMargin.HeightF = 93F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
