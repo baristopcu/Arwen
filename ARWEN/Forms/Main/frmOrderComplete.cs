@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
-
+using ARWEN.Class;
 
 namespace ARWEN.Forms
 {
@@ -117,22 +117,20 @@ namespace ARWEN.Forms
                     oHeader.TableNo = table;
                     oHeader.CreatorUserID = 1;
                     oHeader.CreationDatetime = DateTime.Now;
-                    oHeader.CustomerName = txtName.Text;
+                    if (GlobalCustomer.Choosed)
+                    {
+                        oHeader.CustomerID = GlobalCustomer.CustomerID;
+                    }     
                     oHeader.TotalPrice = total;
                     oHeader.LockState = false;
                     oHeader.PrintState = false;
                     oHeader.State = 0;
                     oHeader.Note = txtOrderNote.Text;
 
-
-
-
                     dbContext.OrderHeader.Add(oHeader);
                     dbContext.SaveChanges();
 
                     lastId = Convert.ToInt32(oHeader.OrderNo);
-
-
 
                     for (int i = 0; i < dtProducts.Rows.Count; i++)
                     {
@@ -151,7 +149,7 @@ namespace ARWEN.Forms
                     dbContext.Update_Table_State(table, true);
                     dbContext.SaveChanges();
 
-                    MessageBox.Show("Siparişiniz başarıyla alındı.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -161,13 +159,16 @@ namespace ARWEN.Forms
 
                 var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
                 query.Note = txtOrderNote.Text;
-                query.CustomerName = txtName.Text;
+                if (GlobalCustomer.Choosed)
+                {
+                    query.CustomerID = GlobalCustomer.CustomerID;
+                }       
                 query.LastEditionDatetime = DateTime.Now;
                 query.TotalPrice = total;
                 DbContext.SaveChanges();
 
-                MessageBox.Show("Siparişiniz başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
-                      MessageBoxIcon.Information);
+                MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşteri üstünden başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
                 this.Close();
             }
 
@@ -205,9 +206,28 @@ namespace ARWEN.Forms
 
         private void frmOrderComplete_Load(object sender, EventArgs e)
         {
+           
             lblTable.Text = table;
             lblTotal.Text = total.ToString("C2");
+            if (orderType == "New")
+            {
+                this.Text = "Siparişi Tamamla";
+            }
+            else if (orderType == "Edit")
+            {
+                this.Text = "Siparişi Güncelle";
+
+            }
+
+           
         }
+
+        private void btnSelectCustomer_Click(object sender, EventArgs e)
+        {
+            frmSelectCustomer frm = new frmSelectCustomer();
+            frm.ShowDialog();
+        }
+
 
     }
 }

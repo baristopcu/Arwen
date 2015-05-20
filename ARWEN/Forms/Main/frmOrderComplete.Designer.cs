@@ -32,7 +32,6 @@
             this.txtOrderNote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lblTable = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -40,12 +39,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelOrder = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveOrder = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSelectCustomer = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtOrderNote
             // 
+            this.txtOrderNote.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtOrderNote.Location = new System.Drawing.Point(24, 99);
             this.txtOrderNote.Multiline = true;
             this.txtOrderNote.Name = "txtOrderNote";
@@ -56,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(24, 80);
+            this.label1.Location = new System.Drawing.Point(24, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 18);
             this.label1.TabIndex = 3;
@@ -68,16 +69,9 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(24, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 18);
+            this.label2.Size = new System.Drawing.Size(196, 18);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Adınız Soyadınız (Opsiyonel)";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(27, 46);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(214, 21);
-            this.txtName.TabIndex = 5;
+            this.label2.Text = "Müşteri Ad Soyad(Opsiyonel)";
             // 
             // groupControl1
             // 
@@ -85,7 +79,7 @@
             this.groupControl1.Controls.Add(this.lblTotal);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.label3);
-            this.groupControl1.Location = new System.Drawing.Point(266, 21);
+            this.groupControl1.Location = new System.Drawing.Point(260, 21);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(249, 234);
             this.groupControl1.TabIndex = 6;
@@ -153,13 +147,24 @@
             this.btnSaveOrder.Text = "Tamamla";
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
+            // btnSelectCustomer
+            // 
+            this.btnSelectCustomer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnSelectCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectCustomer.Image")));
+            this.btnSelectCustomer.Location = new System.Drawing.Point(27, 42);
+            this.btnSelectCustomer.Name = "btnSelectCustomer";
+            this.btnSelectCustomer.Size = new System.Drawing.Size(214, 32);
+            this.btnSelectCustomer.TabIndex = 7;
+            this.btnSelectCustomer.Text = "Müşteri Seç";
+            this.btnSelectCustomer.Click += new System.EventHandler(this.btnSelectCustomer_Click);
+            // 
             // frmOrderComplete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 282);
+            this.ClientSize = new System.Drawing.Size(519, 268);
+            this.Controls.Add(this.btnSelectCustomer);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOrderNote);
@@ -186,11 +191,11 @@
         private System.Windows.Forms.TextBox txtOrderNote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtName;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.Label lblTable;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.SimpleButton btnSelectCustomer;
     }
 }

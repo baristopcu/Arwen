@@ -91,6 +91,17 @@ namespace ARWEN
 
         }
 
+        void LockButtons()
+        {
+            btnPayment.Enabled = false;
+            btnSaveOrder.Enabled = false;
+        }
+
+        void UnLockButtons()
+        {
+            btnPayment.Enabled = true;
+            btnSaveOrder.Enabled = true;
+        }
 
         public void StateControl(byte State)
         {
@@ -99,6 +110,7 @@ namespace ARWEN
             orderType = "Edit";
             if (State == 1) //EDİT
             {
+                btnSaveOrder.Text = "SİPARİŞİ GÜNCELLE";
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
 
@@ -151,7 +163,8 @@ namespace ARWEN
             else if (State == 0) //NEW
             {
                 orderType = "New";
-                btnPayment.Enabled = false;
+                btnSaveOrder.Text = "SİPARİŞİ KAYDET";
+                LockButtons();
 
             }
             else if (State == 2) // RESERVED
@@ -226,7 +239,7 @@ namespace ARWEN
 
             if (orderType == "New")
             {
-                btnPayment.Enabled = true;
+                UnLockButtons();
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
 
@@ -470,25 +483,33 @@ namespace ARWEN
 
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
-            foreach (DataRow x in dtProducts.Rows)
+            if (dtProducts.Rows.Count > 0)
             {
-                ProductIds.Add(Convert.ToInt32(x["ProductId"]));
-                ProductAmounts.Add(Convert.ToInt32(x["Amount"]));
-                OrderPrices.Add(Convert.ToDecimal(x["Price"]));
+                foreach (DataRow x in dtProducts.Rows)
+                {
+                    ProductIds.Add(Convert.ToInt32(x["ProductId"]));
+                    ProductAmounts.Add(Convert.ToInt32(x["Amount"]));
+                    OrderPrices.Add(Convert.ToDecimal(x["Price"]));
 
+                }
+
+                frmOrderComplete frm = new frmOrderComplete();
+                frm.Total = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
+                frm.Table = this.Tag.ToString();
+                frm.DtProducts = dtProducts;
+                frm.ProductIds = ProductIds;
+                frm.ProductAmounts = ProductAmounts;
+                frm.OrderPrices = OrderPrices;
+                frm.OrderType = orderType;
+                frm.DbContext = dbContext;
+                frm.OrderNo = orderNo;
+                frm.ShowDialog();
             }
-
-            frmOrderComplete frm = new frmOrderComplete();
-            frm.Total = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
-            frm.Table = this.Tag.ToString();
-            frm.DtProducts = dtProducts;
-            frm.ProductIds = ProductIds;
-            frm.ProductAmounts = ProductAmounts;
-            frm.OrderPrices = OrderPrices;
-            frm.OrderType = orderType;
-            frm.DbContext = dbContext;
-            frm.OrderNo = orderNo;
-            frm.ShowDialog();
+            else
+            {
+                LockButtons();
+            }
+          
         }
 
         private void frmDeskCustomize_FormClosing(object sender, FormClosingEventArgs e)

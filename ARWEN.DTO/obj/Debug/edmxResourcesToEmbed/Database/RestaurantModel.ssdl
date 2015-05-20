@@ -1,80 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="RestaurantModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="RestaurantModelStoreContainer">
-    <EntitySet Name="Customers" EntityType="RestaurantModel.Store.Customers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DataHasChanged" EntityType="RestaurantModel.Store.DataHasChanged" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Groups" EntityType="RestaurantModel.Store.Groups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="OrderDetail" EntityType="RestaurantModel.Store.OrderDetail" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="OrderHeader" EntityType="RestaurantModel.Store.OrderHeader" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PaymentModules" EntityType="RestaurantModel.Store.PaymentModules" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Payments" EntityType="RestaurantModel.Store.Payments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Permissions" EntityType="RestaurantModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Products" EntityType="RestaurantModel.Store.Products" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Reservation" EntityType="RestaurantModel.Store.Reservation" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RestaurantTables" EntityType="RestaurantModel.Store.RestaurantTables" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Settings" EntityType="RestaurantModel.Store.Settings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Suppliers" EntityType="RestaurantModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="RestaurantModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Units" EntityType="RestaurantModel.Store.Units" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Users" EntityType="RestaurantModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_OrderDetail_OrderHeader" Association="RestaurantModel.Store.FK_OrderDetail_OrderHeader">
-      <End Role="OrderHeader" EntitySet="OrderHeader" />
-      <End Role="OrderDetail" EntitySet="OrderDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetail_Products" Association="RestaurantModel.Store.FK_OrderDetail_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="OrderDetail" EntitySet="OrderDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderHeader_RestaurantTables" Association="RestaurantModel.Store.FK_OrderHeader_RestaurantTables">
-      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
-      <End Role="OrderHeader" EntitySet="OrderHeader" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderHeader_Users" Association="RestaurantModel.Store.FK_OrderHeader_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="OrderHeader" EntitySet="OrderHeader" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Payments_OrderHeader" Association="RestaurantModel.Store.FK_Payments_OrderHeader">
-      <End Role="OrderHeader" EntitySet="OrderHeader" />
-      <End Role="Payments" EntitySet="Payments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Payments_PaymentModules" Association="RestaurantModel.Store.FK_Payments_PaymentModules">
-      <End Role="PaymentModules" EntitySet="PaymentModules" />
-      <End Role="Payments" EntitySet="Payments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Groups" Association="RestaurantModel.Store.FK_Products_Groups">
-      <End Role="Groups" EntitySet="Groups" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Suppliers" Association="RestaurantModel.Store.FK_Products_Suppliers">
-      <End Role="Suppliers" EntitySet="Suppliers" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Units" Association="RestaurantModel.Store.FK_Products_Units">
-      <End Role="Units" EntitySet="Units" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Reservation_Customers" Association="RestaurantModel.Store.FK_Reservation_Customers">
-      <End Role="Customers" EntitySet="Customers" />
-      <End Role="Reservation" EntitySet="Reservation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Reservation_RestaurantTables" Association="RestaurantModel.Store.FK_Reservation_RestaurantTables">
-      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
-      <End Role="Reservation" EntitySet="Reservation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Reservation_Users" Association="RestaurantModel.Store.FK_Reservation_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Reservation" EntitySet="Reservation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Permission" Association="RestaurantModel.Store.FK_Users_Permission">
-      <End Role="Permissions" EntitySet="Permissions" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Customers">
     <Key>
       <PropertyRef Name="CustomerID" />
     </Key>
-    <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ContactName" Type="varchar" MaxLength="40" />
     <Property Name="ContactTitle" Type="varchar" MaxLength="30" />
     <Property Name="Address" Type="nvarchar" MaxLength="60" />
@@ -89,7 +19,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GroupsLastChangedDate" Type="datetime" Nullable="false" />
     <Property Name="ProductsLastChangedDate" Type="datetime" Nullable="false" />
   </EntityType>
@@ -97,77 +27,88 @@
     <Key>
       <PropertyRef Name="GroupID" />
     </Key>
-    <Property Name="GroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderDetail">
     <Key>
       <PropertyRef Name="OrderDetailID" />
     </Key>
-    <Property Name="OrderDetailID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderNo" Type="bigint" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
     <Property Name="Amount" Type="int" Nullable="false" />
     <Property Name="EditState" Type="tinyint" Nullable="false" />
     <Property Name="EditAmount" Type="int" />
     <Property Name="NotEditable" Type="bit" Nullable="false" />
-    <Property Name="OrderPrice" Type="decimal" Scale="2" />
+    <Property Name="OrderPrice" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="OrderHeader">
     <Key>
       <PropertyRef Name="OrderNo" />
     </Key>
-    <Property Name="OrderNo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="TableNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="OrderNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableNo" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="CreatorUserID" Type="int" Nullable="false" />
     <Property Name="CreationDatetime" Type="datetime" Nullable="false" />
     <Property Name="LastEditionDatetime" Type="datetime" />
     <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
-    <Property Name="TotalPrice" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="LockState" Type="bit" Nullable="false" />
     <Property Name="LockKeeperUserID" Type="int" />
     <Property Name="PrintState" Type="bit" Nullable="false" />
     <Property Name="CancelCause" Type="nvarchar" MaxLength="255" />
     <Property Name="State" Type="tinyint" Nullable="false" />
     <Property Name="Note" Type="nvarchar" MaxLength="250" />
+    <Property Name="CustomerID" Type="int" />
   </EntityType>
   <EntityType Name="PaymentModules">
     <Key>
       <PropertyRef Name="PaymentModuleID" />
     </Key>
-    <Property Name="PaymentModuleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentModuleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Payments">
     <Key>
       <PropertyRef Name="PaymentID" />
     </Key>
-    <Property Name="PaymentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderNo" Type="bigint" />
     <Property Name="PaymentModuleID" Type="int" />
-    <Property Name="AmountPaid" Type="decimal" Scale="2" />
-    <Property Name="TotalPrice" Type="decimal" Scale="2" />
+    <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Discount" Type="nvarchar" MaxLength="10" />
-    <Property Name="DiscountPrice" Type="decimal" Scale="2" />
+    <Property Name="DiscountPrice" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Permissions">
     <Key>
       <PropertyRef Name="PermissionID" />
     </Key>
-    <Property Name="PermissionID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PermissionID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductPurchases">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+    <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="ProductID" />
     </Key>
-    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="UnitName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="GroupID" Type="int" Nullable="false" />
     <Property Name="SupplierID" Type="int" />
-    <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="UnitsInStock" Type="smallint" />
     <Property Name="Availability" Type="bit" Nullable="false" />
   </EntityType>
@@ -175,7 +116,7 @@
     <Key>
       <PropertyRef Name="ReservationID" />
     </Key>
-    <Property Name="ReservationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerID" Type="int" />
     <Property Name="UserID" Type="int" />
     <Property Name="TableNo" Type="varchar" MaxLength="10" />
@@ -190,7 +131,7 @@
     <Key>
       <PropertyRef Name="TableNo" />
     </Key>
-    <Property Name="TableNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="TableNo" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Capacity" Type="tinyint" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="100" />
     <Property Name="State" Type="tinyint" Nullable="false" />
@@ -199,8 +140,8 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="RestaurantName" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantName" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="150" />
     <Property Name="PhoneNumber" Type="char" MaxLength="12" />
     <Property Name="WebsiteURL" Type="varchar" MaxLength="50" />
@@ -211,8 +152,8 @@
     <Key>
       <PropertyRef Name="SupplierID" />
     </Key>
-    <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="40" Nullable="false" />
     <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
     <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
     <Property Name="Address" Type="nvarchar" MaxLength="60" />
@@ -227,9 +168,9 @@
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
@@ -237,22 +178,22 @@
     <Key>
       <PropertyRef Name="UnitName" />
     </Key>
-    <Property Name="UnitName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="32" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="PermissionID" Type="tinyint" Nullable="false" />
   </EntityType>
   <Association Name="FK_OrderDetail_OrderHeader">
-    <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="1" />
-    <End Role="OrderDetail" Type="RestaurantModel.Store.OrderDetail" Multiplicity="*" />
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrderHeader">
         <PropertyRef Name="OrderNo" />
@@ -263,8 +204,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetail_Products">
-    <End Role="Products" Type="RestaurantModel.Store.Products" Multiplicity="1" />
-    <End Role="OrderDetail" Type="RestaurantModel.Store.OrderDetail" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Products">
         <PropertyRef Name="ProductID" />
@@ -274,9 +215,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_OrderHeader_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="OrderHeader">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_OrderHeader_RestaurantTables">
-    <End Role="RestaurantTables" Type="RestaurantModel.Store.RestaurantTables" Multiplicity="1" />
-    <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="*" />
+    <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="1" />
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RestaurantTables">
         <PropertyRef Name="TableNo" />
@@ -287,8 +240,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderHeader_Users">
-    <End Role="Users" Type="RestaurantModel.Store.Users" Multiplicity="1" />
-    <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="UserID" />
@@ -299,8 +252,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Payments_OrderHeader">
-    <End Role="OrderHeader" Type="RestaurantModel.Store.OrderHeader" Multiplicity="0..1" />
-    <End Role="Payments" Type="RestaurantModel.Store.Payments" Multiplicity="*" />
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrderHeader">
         <PropertyRef Name="OrderNo" />
@@ -311,8 +264,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Payments_PaymentModules">
-    <End Role="PaymentModules" Type="RestaurantModel.Store.PaymentModules" Multiplicity="0..1" />
-    <End Role="Payments" Type="RestaurantModel.Store.Payments" Multiplicity="*" />
+    <End Role="PaymentModules" Type="Self.PaymentModules" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PaymentModules">
         <PropertyRef Name="PaymentModuleID" />
@@ -322,9 +275,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductPurchases_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ProductPurchases" Type="Self.ProductPurchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductPurchases">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPurchases_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="ProductPurchases" Type="Self.ProductPurchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="ProductPurchases">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Products_Groups">
-    <End Role="Groups" Type="RestaurantModel.Store.Groups" Multiplicity="1" />
-    <End Role="Products" Type="RestaurantModel.Store.Products" Multiplicity="*" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Groups">
         <PropertyRef Name="GroupID" />
@@ -335,8 +312,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Suppliers">
-    <End Role="Suppliers" Type="RestaurantModel.Store.Suppliers" Multiplicity="0..1" />
-    <End Role="Products" Type="RestaurantModel.Store.Products" Multiplicity="*" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Suppliers">
         <PropertyRef Name="SupplierID" />
@@ -347,8 +324,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Units">
-    <End Role="Units" Type="RestaurantModel.Store.Units" Multiplicity="1" />
-    <End Role="Products" Type="RestaurantModel.Store.Products" Multiplicity="*" />
+    <End Role="Units" Type="Self.Units" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Units">
         <PropertyRef Name="UnitName" />
@@ -359,8 +336,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Reservation_Customers">
-    <End Role="Customers" Type="RestaurantModel.Store.Customers" Multiplicity="0..1" />
-    <End Role="Reservation" Type="RestaurantModel.Store.Reservation" Multiplicity="*" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customers">
         <PropertyRef Name="CustomerID" />
@@ -371,8 +348,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Reservation_RestaurantTables">
-    <End Role="RestaurantTables" Type="RestaurantModel.Store.RestaurantTables" Multiplicity="0..1" />
-    <End Role="Reservation" Type="RestaurantModel.Store.Reservation" Multiplicity="*" />
+    <End Role="RestaurantTables" Type="Self.RestaurantTables" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RestaurantTables">
         <PropertyRef Name="TableNo" />
@@ -383,8 +360,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Reservation_Users">
-    <End Role="Users" Type="RestaurantModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Reservation" Type="RestaurantModel.Store.Reservation" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="UserID" />
@@ -395,10 +372,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Users_Permission">
-    <End Role="Permissions" Type="RestaurantModel.Store.Permissions" Multiplicity="1">
+    <End Role="Permissions" Type="Self.Permissions" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Users" Type="RestaurantModel.Store.Users" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Permissions">
         <PropertyRef Name="PermissionID" />
@@ -460,7 +437,7 @@
   <Function Name="Delete_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserID" Type="int" Mode="In" />
   </Function>
-  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="Get_All_Groups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Get_All_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="Get_All_Products_By_GroupID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -636,4 +613,87 @@
     <Parameter Name="UserID" Type="int" Mode="In" />
     <Parameter Name="Password" Type="varchar" Mode="In" />
   </Function>
+  <EntityContainer Name="RestaurantModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataHasChanged" EntityType="Self.DataHasChanged" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentModules" EntityType="Self.PaymentModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPurchases" EntityType="Self.ProductPurchases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OrderDetail_OrderHeader" Association="Self.FK_OrderDetail_OrderHeader">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Products" Association="Self.FK_OrderDetail_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_Customers" Association="Self.FK_OrderHeader_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_RestaurantTables" Association="Self.FK_OrderHeader_RestaurantTables">
+      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderHeader_Users" Association="Self.FK_OrderHeader_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_OrderHeader" Association="Self.FK_Payments_OrderHeader">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_PaymentModules" Association="Self.FK_Payments_PaymentModules">
+      <End Role="PaymentModules" EntitySet="PaymentModules" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPurchases_Products" Association="Self.FK_ProductPurchases_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPurchases" EntitySet="ProductPurchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPurchases_Suppliers" Association="Self.FK_ProductPurchases_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="ProductPurchases" EntitySet="ProductPurchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Groups" Association="Self.FK_Products_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Suppliers" Association="Self.FK_Products_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Units" Association="Self.FK_Products_Units">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Customers" Association="Self.FK_Reservation_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_RestaurantTables" Association="Self.FK_Reservation_RestaurantTables">
+      <End Role="RestaurantTables" EntitySet="RestaurantTables" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Users" Association="Self.FK_Reservation_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Permission" Association="Self.FK_Users_Permission">
+      <End Role="Permissions" EntitySet="Permissions" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

@@ -36,6 +36,7 @@ namespace ARWEN.DTO.Database
         public DbSet<PaymentModules> PaymentModules { get; set; }
         public DbSet<Payments> Payments { get; set; }
         public DbSet<Permissions> Permissions { get; set; }
+        public DbSet<ProductPurchases> ProductPurchases { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<RestaurantTables> RestaurantTables { get; set; }

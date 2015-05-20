@@ -16,6 +16,7 @@ namespace ARWEN.DTO.Database
     {
         public Customers()
         {
+            this.OrderHeader = new HashSet<OrderHeader>();
             this.Reservation = new HashSet<Reservation>();
         }
     
@@ -30,6 +31,7 @@ namespace ARWEN.DTO.Database
         public string Phone { get; set; }
         public string Fax { get; set; }
     
+        public virtual ICollection<OrderHeader> OrderHeader { get; set; }
         public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

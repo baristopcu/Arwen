@@ -64,6 +64,7 @@
           <ScalarProperty Name="CancelCause" ColumnName="CancelCause" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,6 +95,17 @@
         <MappingFragment StoreEntitySet="Permissions">
           <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPurchases">
+      <EntityTypeMapping TypeName="RestaurantModel.ProductPurchases">
+        <MappingFragment StoreEntitySet="ProductPurchases">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

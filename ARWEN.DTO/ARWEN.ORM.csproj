@@ -147,6 +147,9 @@
     <Compile Include="Database\PPC_Get_Order_Detail_Result.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\ProductPurchases.cs">
+      <DependentUpon>RestaurantModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Products.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>

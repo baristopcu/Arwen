@@ -16,6 +16,7 @@ namespace ARWEN.DTO.Database
     {
         public Suppliers()
         {
+            this.ProductPurchases = new HashSet<ProductPurchases>();
             this.Products = new HashSet<Products>();
         }
     
@@ -31,6 +32,7 @@ namespace ARWEN.DTO.Database
         public string Fax { get; set; }
         public string HomePage { get; set; }
     
+        public virtual ICollection<ProductPurchases> ProductPurchases { get; set; }
         public virtual ICollection<Products> Products { get; set; }
     }
 }

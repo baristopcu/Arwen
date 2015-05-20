@@ -16,4 +16,12 @@ namespace ARWEN.Class
         public static byte PermissionID = 0;
 
     }
+    public class GlobalCustomer
+    {
+        public static int CustomerID = -1;
+        public static string FullName = "";
+        public static bool Choosed = false;
+        
+    }
+
 }
