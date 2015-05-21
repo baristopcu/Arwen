@@ -12,27 +12,16 @@ namespace ARWEN.DTO.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Suppliers
+    public partial class FicheTypes
     {
-        public Suppliers()
+        public FicheTypes()
         {
-            this.Products = new HashSet<Products>();
             this.Purchases = new HashSet<Purchases>();
         }
     
-        public int SupplierID { get; set; }
-        public string CompanyName { get; set; }
-        public string ContactName { get; set; }
-        public string ContactTitle { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
-        public string Phone { get; set; }
-        public string Fax { get; set; }
-        public string HomePage { get; set; }
+        public int FicheTypeID { get; set; }
+        public string Name { get; set; }
     
-        public virtual ICollection<Products> Products { get; set; }
         public virtual ICollection<Purchases> Purchases { get; set; }
     }
 }

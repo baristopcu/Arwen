@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.Forms.Settings;
+using ARWEN.Forms.Settings.Bills;
 using DevExpress.XtraEditors;
 
 namespace ARWEN.Forms
@@ -107,6 +108,13 @@ namespace ARWEN.Forms
             frmSuppliers frm = new frmSuppliers();
 
             IsOpenForm(frm, "TEDARİKÇİ AYARLARI", "TEDARİKÇİ AYARLARI");
+        }
+
+        private void btnBuyBills_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmBuyBills frm = new frmBuyBills();
+
+            frm.ShowDialog();
         }
        
     }

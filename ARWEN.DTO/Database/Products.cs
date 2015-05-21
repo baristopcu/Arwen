@@ -17,7 +17,7 @@ namespace ARWEN.DTO.Database
         public Products()
         {
             this.OrderDetail = new HashSet<OrderDetail>();
-            this.ProductPurchases = new HashSet<ProductPurchases>();
+            this.PurchaseDetail = new HashSet<PurchaseDetail>();
         }
     
         public int ProductID { get; set; }
@@ -31,8 +31,8 @@ namespace ARWEN.DTO.Database
     
         public virtual Groups Groups { get; set; }
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }
-        public virtual ICollection<ProductPurchases> ProductPurchases { get; set; }
         public virtual Suppliers Suppliers { get; set; }
         public virtual Units Units { get; set; }
+        public virtual ICollection<PurchaseDetail> PurchaseDetail { get; set; }
     }
 }

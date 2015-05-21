@@ -30,14 +30,16 @@ namespace ARWEN.DTO.Database
     
         public DbSet<Customers> Customers { get; set; }
         public DbSet<DataHasChanged> DataHasChanged { get; set; }
+        public DbSet<FicheTypes> FicheTypes { get; set; }
         public DbSet<Groups> Groups { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
         public DbSet<OrderHeader> OrderHeader { get; set; }
         public DbSet<PaymentModules> PaymentModules { get; set; }
         public DbSet<Payments> Payments { get; set; }
         public DbSet<Permissions> Permissions { get; set; }
-        public DbSet<ProductPurchases> ProductPurchases { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<PurchaseDetail> PurchaseDetail { get; set; }
+        public DbSet<Purchases> Purchases { get; set; }
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<RestaurantTables> RestaurantTables { get; set; }
         public DbSet<Settings> Settings { get; set; }

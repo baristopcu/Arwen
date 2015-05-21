@@ -23,6 +23,13 @@
     <Property Name="GroupsLastChangedDate" Type="datetime" Nullable="false" />
     <Property Name="ProductsLastChangedDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="FicheTypes">
+    <Key>
+      <PropertyRef Name="FicheTypeID" />
+    </Key>
+    <Property Name="FicheTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Groups">
     <Key>
       <PropertyRef Name="GroupID" />
@@ -89,16 +96,6 @@
     <Property Name="PermissionID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="ProductPurchases">
-    <Key>
-      <PropertyRef Name="PurchaseID" />
-    </Key>
-    <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SupplierID" Type="int" Nullable="false" />
-    <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
-    <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="2" />
-  </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="ProductID" />
@@ -111,6 +108,31 @@
     <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="UnitsInStock" Type="smallint" />
     <Property Name="Availability" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseDetail">
+    <Key>
+      <PropertyRef Name="PurchaseDetailID" />
+    </Key>
+    <Property Name="PurchaseDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="FicheTypeID" Type="int" />
+    <Property Name="PurchaseDate" Type="datetime" Nullable="false" />
+    <Property Name="TotalCash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tax" Type="int" />
+    <Property Name="TotalTax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="int" />
+    <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Reservation">
     <Key>
@@ -275,26 +297,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProductPurchases_Products">
-    <End Role="Products" Type="Self.Products" Multiplicity="1" />
-    <End Role="ProductPurchases" Type="Self.ProductPurchases" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="ProductPurchases">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ProductPurchases_Suppliers">
     <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
-    <End Role="ProductPurchases" Type="Self.ProductPurchases" Multiplicity="*" />
+    <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Suppliers">
         <PropertyRef Name="SupplierID" />
       </Principal>
-      <Dependent Role="ProductPurchases">
+      <Dependent Role="Purchases">
         <PropertyRef Name="SupplierID" />
       </Dependent>
     </ReferentialConstraint>
@@ -332,6 +342,42 @@
       </Principal>
       <Dependent Role="Products">
         <PropertyRef Name="UnitName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseDetail_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseDetail_Purchases">
+    <End Role="Purchases" Type="Self.Purchases" Multiplicity="1" />
+    <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchases">
+        <PropertyRef Name="PurchaseID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="PurchaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_FicheTypes">
+    <End Role="FicheTypes" Type="Self.FicheTypes" Multiplicity="0..1" />
+    <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FicheTypes">
+        <PropertyRef Name="FicheTypeID" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="FicheTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -616,14 +662,16 @@
   <EntityContainer Name="RestaurantModelStoreContainer">
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DataHasChanged" EntityType="Self.DataHasChanged" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FicheTypes" EntityType="Self.FicheTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentModules" EntityType="Self.PaymentModules" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permissions" EntityType="Self.Permissions" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ProductPurchases" EntityType="Self.ProductPurchases" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseDetail" EntityType="Self.PurchaseDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
@@ -659,13 +707,9 @@
       <End Role="PaymentModules" EntitySet="PaymentModules" />
       <End Role="Payments" EntitySet="Payments" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProductPurchases_Products" Association="Self.FK_ProductPurchases_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="ProductPurchases" EntitySet="ProductPurchases" />
-    </AssociationSet>
     <AssociationSet Name="FK_ProductPurchases_Suppliers" Association="Self.FK_ProductPurchases_Suppliers">
       <End Role="Suppliers" EntitySet="Suppliers" />
-      <End Role="ProductPurchases" EntitySet="ProductPurchases" />
+      <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
     <AssociationSet Name="FK_Products_Groups" Association="Self.FK_Products_Groups">
       <End Role="Groups" EntitySet="Groups" />
@@ -678,6 +722,18 @@
     <AssociationSet Name="FK_Products_Units" Association="Self.FK_Products_Units">
       <End Role="Units" EntitySet="Units" />
       <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseDetail_Products" Association="Self.FK_PurchaseDetail_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseDetail_Purchases" Association="Self.FK_PurchaseDetail_Purchases">
+      <End Role="Purchases" EntitySet="Purchases" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_FicheTypes" Association="Self.FK_Purchases_FicheTypes">
+      <End Role="FicheTypes" EntitySet="FicheTypes" />
+      <End Role="Purchases" EntitySet="Purchases" />
     </AssociationSet>
     <AssociationSet Name="FK_Reservation_Customers" Association="Self.FK_Reservation_Customers">
       <End Role="Customers" EntitySet="Customers" />

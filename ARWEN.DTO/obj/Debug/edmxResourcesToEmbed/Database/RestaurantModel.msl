@@ -26,6 +26,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FicheTypes">
+      <EntityTypeMapping TypeName="RestaurantModel.FicheTypes">
+        <MappingFragment StoreEntitySet="FicheTypes">
+          <ScalarProperty Name="FicheTypeID" ColumnName="FicheTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="RestaurantModel.Groups">
         <MappingFragment StoreEntitySet="Groups">
@@ -98,17 +106,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductPurchases">
-      <EntityTypeMapping TypeName="RestaurantModel.ProductPurchases">
-        <MappingFragment StoreEntitySet="ProductPurchases">
-          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
-          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
-          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="RestaurantModel.Products">
         <MappingFragment StoreEntitySet="Products">
@@ -120,6 +117,33 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
           <ScalarProperty Name="Availability" ColumnName="Availability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseDetail">
+      <EntityTypeMapping TypeName="RestaurantModel.PurchaseDetail">
+        <MappingFragment StoreEntitySet="PurchaseDetail">
+          <ScalarProperty Name="PurchaseDetailID" ColumnName="PurchaseDetailID" />
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="RestaurantModel.Purchases">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="FicheTypeID" ColumnName="FicheTypeID" />
+          <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+          <ScalarProperty Name="TotalCash" ColumnName="TotalCash" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

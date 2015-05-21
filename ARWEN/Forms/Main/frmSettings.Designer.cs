@@ -38,6 +38,8 @@
             this.btnTables = new DevExpress.XtraNavBar.NavBarItem();
             this.btnCustomers = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSuppliers = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.btnBuyBills = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnCompanySettings = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -53,6 +55,7 @@
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1,
+            this.navBarGroup4,
             this.navBarGroup2,
             this.navBarGroup3});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
@@ -64,18 +67,18 @@
             this.btnTables,
             this.btnChangePassword,
             this.btnCustomers,
-            this.btnSuppliers});
+            this.btnSuppliers,
+            this.btnBuyBills});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
-            this.navBarControl1.Size = new System.Drawing.Size(140, 515);
+            this.navBarControl1.Size = new System.Drawing.Size(140, 663);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Tanım";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnUsers),
@@ -129,6 +132,20 @@
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnSuppliers_LinkClicked);
             // 
+            // navBarGroup4
+            // 
+            this.navBarGroup4.Caption = "Fatura";
+            this.navBarGroup4.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
+            this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnBuyBills)});
+            this.navBarGroup4.Name = "navBarGroup4";
+            // 
+            // btnBuyBills
+            // 
+            this.btnBuyBills.Caption = "Ürün Alım Faturası";
+            this.btnBuyBills.Name = "btnBuyBills";
+            this.btnBuyBills.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnBuyBills_LinkClicked);
+            // 
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "Firma";
@@ -165,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 515);
+            this.ClientSize = new System.Drawing.Size(1434, 663);
             this.Controls.Add(this.navBarControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.IsMdiContainer = true;
@@ -190,10 +207,12 @@
         private DevExpress.XtraNavBar.NavBarItem btnGroups;
         private DevExpress.XtraNavBar.NavBarItem btnProducts;
         private DevExpress.XtraNavBar.NavBarItem btnTables;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
         private DevExpress.XtraNavBar.NavBarItem btnChangePassword;
         private DevExpress.XtraNavBar.NavBarItem btnCustomers;
         private DevExpress.XtraNavBar.NavBarItem btnSuppliers;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
+        private DevExpress.XtraNavBar.NavBarItem btnBuyBills;
     }
 }

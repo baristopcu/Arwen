@@ -78,6 +78,9 @@
     <Compile Include="Database\DataHasChanged.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\FicheTypes.cs">
+      <DependentUpon>RestaurantModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Get_All_Groups_Result.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
@@ -147,10 +150,13 @@
     <Compile Include="Database\PPC_Get_Order_Detail_Result.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\ProductPurchases.cs">
+    <Compile Include="Database\Products.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\Products.cs">
+    <Compile Include="Database\PurchaseDetail.cs">
+      <DependentUpon>RestaurantModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Purchases.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\Report_GetOrdersList_Result.cs">
