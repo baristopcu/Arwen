@@ -7,7 +7,7 @@ using ARWEN.DTO.Database;
 
 namespace ARWEN.Class
 {
-    public class Global
+    public class GlobalUser
     {
         public static int UserID = -1;
         public static string FullName = "";

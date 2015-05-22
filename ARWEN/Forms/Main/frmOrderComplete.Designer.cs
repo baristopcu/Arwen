@@ -149,7 +149,6 @@
             // 
             // btnSelectCustomer
             // 
-            this.btnSelectCustomer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.btnSelectCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectCustomer.Image")));
             this.btnSelectCustomer.Location = new System.Drawing.Point(27, 42);
             this.btnSelectCustomer.Name = "btnSelectCustomer";

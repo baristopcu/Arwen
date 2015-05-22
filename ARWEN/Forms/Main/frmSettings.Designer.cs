@@ -142,7 +142,7 @@
             // 
             // btnBuyBills
             // 
-            this.btnBuyBills.Caption = "Ürün Alım Faturası";
+            this.btnBuyBills.Caption = "Ürün Alım/Satım Faturası";
             this.btnBuyBills.Name = "btnBuyBills";
             this.btnBuyBills.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnBuyBills_LinkClicked);
             // 
