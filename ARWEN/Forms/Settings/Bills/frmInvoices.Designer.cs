@@ -1,6 +1,6 @@
 ﻿namespace ARWEN.Forms.Settings.Bills
 {
-    partial class frmBuyBills
+    partial class frmInvoices
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbProducts = new System.Windows.Forms.ComboBox();
@@ -68,25 +67,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.label19 = new System.Windows.Forms.Label();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSupplierMoney = new DevExpress.XtraEditors.TextEdit();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSupplierTotal = new DevExpress.XtraEditors.TextEdit();
+            this.txtSupplierDate = new DevExpress.XtraEditors.TextEdit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -103,13 +103,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpBill.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierMoney.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierTotal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbSupplier
@@ -121,6 +122,7 @@
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(323, 26);
             this.cmbSupplier.TabIndex = 18;
+            this.cmbSupplier.SelectedValueChanged += new System.EventHandler(this.cmbSupplier_SelectedValueChanged);
             // 
             // label5
             // 
@@ -168,17 +170,18 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(166, 392);
+            this.btnCancel.Location = new System.Drawing.Point(756, 630);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "İptal";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(53, 392);
+            this.btnSave.Location = new System.Drawing.Point(643, 630);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 16;
@@ -202,6 +205,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtStock.Properties.Appearance.Options.UseFont = true;
+            this.txtStock.Properties.ReadOnly = true;
             this.txtStock.Size = new System.Drawing.Size(323, 24);
             this.txtStock.TabIndex = 21;
             // 
@@ -263,7 +267,6 @@
             // 
             // GroupTax
             // 
-            this.GroupTax.EditValue = 18;
             this.GroupTax.Location = new System.Drawing.Point(242, 223);
             this.GroupTax.Name = "GroupTax";
             this.GroupTax.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
@@ -344,6 +347,7 @@
             this.txtAmount.Properties.Appearance.Options.UseFont = true;
             this.txtAmount.Size = new System.Drawing.Size(323, 24);
             this.txtAmount.TabIndex = 23;
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // groupControl2
             // 
@@ -543,131 +547,14 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Mal/Hizmet Toplam Tutar";
             // 
-            // gridControl1
-            // 
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            gridLevelNode1.RelationName = "Level1";
-            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gridControl1.Location = new System.Drawing.Point(638, 514);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(717, 165);
-            this.gridControl1.TabIndex = 28;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8,
-            this.gridColumn9,
-            this.gridColumn10});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Mal/Hizmet";
-            this.gridColumn1.FieldName = "ProductName";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 216;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Miktar";
-            this.gridColumn2.FieldName = "Amount";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 173;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Birim";
-            this.gridColumn3.FieldName = "UnitName";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 173;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Birim Fiyat";
-            this.gridColumn4.FieldName = "Price";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 173;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "İskonto Oranı";
-            this.gridColumn5.FieldName = "Discount";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 173;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "İskonto Tutarı";
-            this.gridColumn6.FieldName = "TotalDiscount";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 173;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Mal/Hizmet Tutarı";
-            this.gridColumn7.FieldName = "ProductPrice";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 173;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "KDV Oranı";
-            this.gridColumn8.FieldName = "Tax";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
-            this.gridColumn8.Width = 173;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "KDV Tutarı";
-            this.gridColumn9.FieldName = "TotalTax";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
-            this.gridColumn9.Width = 189;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "ID";
-            this.gridColumn10.FieldName = "ProductID";
-            this.gridColumn10.Name = "gridColumn10";
-            // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.label19);
-            this.groupControl4.Controls.Add(this.textEdit3);
+            this.groupControl4.Controls.Add(this.txtSupplierMoney);
             this.groupControl4.Controls.Add(this.label17);
             this.groupControl4.Controls.Add(this.label16);
-            this.groupControl4.Controls.Add(this.textEdit1);
-            this.groupControl4.Controls.Add(this.textEdit2);
+            this.groupControl4.Controls.Add(this.txtSupplierTotal);
+            this.groupControl4.Controls.Add(this.txtSupplierDate);
             this.groupControl4.Location = new System.Drawing.Point(617, 12);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(312, 117);
@@ -680,19 +567,20 @@
             this.label19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label19.Location = new System.Drawing.Point(18, 95);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 16);
+            this.label19.Size = new System.Drawing.Size(78, 16);
             this.label19.TabIndex = 33;
-            this.label19.Text = "Bakiye";
+            this.label19.Text = "Toplam Ciro";
             // 
-            // textEdit3
+            // txtSupplierMoney
             // 
-            this.textEdit3.EditValue = "";
-            this.textEdit3.Location = new System.Drawing.Point(125, 91);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Size = new System.Drawing.Size(152, 20);
-            this.textEdit3.TabIndex = 32;
+            this.txtSupplierMoney.EditValue = "";
+            this.txtSupplierMoney.Enabled = false;
+            this.txtSupplierMoney.Location = new System.Drawing.Point(139, 91);
+            this.txtSupplierMoney.Name = "txtSupplierMoney";
+            this.txtSupplierMoney.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSupplierMoney.Properties.Appearance.Options.UseFont = true;
+            this.txtSupplierMoney.Size = new System.Drawing.Size(152, 20);
+            this.txtSupplierMoney.TabIndex = 32;
             // 
             // label17
             // 
@@ -700,9 +588,9 @@
             this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.Location = new System.Drawing.Point(18, 65);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(45, 16);
+            this.label17.Size = new System.Drawing.Size(102, 16);
             this.label17.TabIndex = 31;
-            this.label17.Text = "Alacak";
+            this.label17.Text = "Toplam Alışveriş";
             // 
             // label16
             // 
@@ -710,38 +598,153 @@
             this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.Location = new System.Drawing.Point(18, 35);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(33, 16);
+            this.label16.Size = new System.Drawing.Size(64, 16);
             this.label16.TabIndex = 30;
-            this.label16.Text = "Borç";
+            this.label16.Text = "Son Tarih";
             // 
-            // textEdit1
+            // txtSupplierTotal
             // 
-            this.textEdit1.EditValue = "";
-            this.textEdit1.Location = new System.Drawing.Point(125, 61);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(152, 20);
-            this.textEdit1.TabIndex = 29;
+            this.txtSupplierTotal.EditValue = "";
+            this.txtSupplierTotal.Enabled = false;
+            this.txtSupplierTotal.Location = new System.Drawing.Point(139, 61);
+            this.txtSupplierTotal.Name = "txtSupplierTotal";
+            this.txtSupplierTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSupplierTotal.Properties.Appearance.Options.UseFont = true;
+            this.txtSupplierTotal.Size = new System.Drawing.Size(152, 20);
+            this.txtSupplierTotal.TabIndex = 29;
             // 
-            // textEdit2
+            // txtSupplierDate
             // 
-            this.textEdit2.EditValue = "";
-            this.textEdit2.Location = new System.Drawing.Point(125, 31);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(152, 20);
-            this.textEdit2.TabIndex = 28;
+            this.txtSupplierDate.EditValue = "";
+            this.txtSupplierDate.Enabled = false;
+            this.txtSupplierDate.Location = new System.Drawing.Point(139, 31);
+            this.txtSupplierDate.Name = "txtSupplierDate";
+            this.txtSupplierDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSupplierDate.Properties.Appearance.Options.UseFont = true;
+            this.txtSupplierDate.Size = new System.Drawing.Size(152, 20);
+            this.txtSupplierDate.TabIndex = 28;
             // 
-            // frmBuyBills
+            // gridControl1
+            // 
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.gridControl1.Location = new System.Drawing.Point(3, 3);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1083, 205);
+            this.gridControl1.TabIndex = 30;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn11,
+            this.gridColumn12,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "ID";
+            this.gridColumn11.FieldName = "ProductID";
+            this.gridColumn11.Name = "gridColumn11";
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Mal/Hizmet";
+            this.gridColumn12.FieldName = "ProductName";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 0;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Birim";
+            this.gridColumn13.FieldName = "UnitName";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 2;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Birim Fiyat";
+            this.gridColumn14.FieldName = "Price";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 3;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "İskonto Oranı";
+            this.gridColumn15.FieldName = "Discount";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 4;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "İskonto Tutarı";
+            this.gridColumn16.FieldName = "TotalDiscount";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 5;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Mal/Hizmet Tutarı";
+            this.gridColumn17.FieldName = "ProductPrice";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 6;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "KDV Oranı";
+            this.gridColumn18.FieldName = "Tax";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 7;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "KDV Tutarı";
+            this.gridColumn19.FieldName = "TotalTax";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 8;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "Miktar";
+            this.gridColumn20.FieldName = "Amount";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.gridControl1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 300);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1092, 208);
+            this.flowLayoutPanel1.TabIndex = 31;
+            // 
+            // frmInvoices
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1369, 686);
+            this.ClientSize = new System.Drawing.Size(1112, 686);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupControl4);
-            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -750,9 +753,10 @@
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmBuyBills";
+            this.Name = "frmInvoices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmBuyBills";
+            this.Text = "frmInvoices";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBuyBills_FormClosing);
             this.Load += new System.EventHandler(this.frmBuyBills_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock.Properties)).EndInit();
@@ -773,14 +777,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierMoney.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierTotal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -816,17 +821,6 @@
         private System.Windows.Forms.Label lblProductTotal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.TextEdit txtTax;
         private System.Windows.Forms.Label label15;
         private DevExpress.XtraEditors.TextEdit txtDiscount;
@@ -836,14 +830,26 @@
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit txtSupplierTotal;
+        private DevExpress.XtraEditors.TextEdit txtSupplierDate;
         private DevExpress.XtraEditors.SimpleButton btnAddRow;
         private DevExpress.XtraEditors.RadioGroup GroupTax;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Label label19;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.TextEdit txtSupplierMoney;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -112,7 +112,7 @@ namespace ARWEN.Forms
 
         private void btnBuyBills_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmBuyBills frm = new frmBuyBills();
+            frmInvoices frm = new frmInvoices();
 
             frm.ShowDialog();
         }

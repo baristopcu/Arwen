@@ -233,4 +233,3 @@ C:\Users\can\Desktop\Arwen\ARWEN.DTO\bin\Debug\ja\DevExpress.XtraGrid.v14.2.reso
 C:\Users\can\Desktop\Arwen\ARWEN.DTO\bin\Debug\ru\DevExpress.XtraGrid.v14.2.resources.dll
 C:\Users\can\Desktop\Arwen\ARWEN.DTO\obj\Debug\ARWEN.DTO.dll
 C:\Users\can\Desktop\Arwen\ARWEN.DTO\obj\Debug\ARWEN.DTO.pdb
-C:\Users\can\Desktop\Arwen\ARWEN.DTO\obj\Debug\ARWEN.ORM.csprojResolveAssemblyReference.cache

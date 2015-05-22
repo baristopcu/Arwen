@@ -312,11 +312,11 @@
     <Compile Include="Forms\Reservation\frmReservedPassword.Designer.cs">
       <DependentUpon>frmReservedPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings\Bills\frmBuyBills.cs">
+    <Compile Include="Forms\Settings\Bills\frmInvoices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings\Bills\frmBuyBills.Designer.cs">
-      <DependentUpon>frmBuyBills.cs</DependentUpon>
+    <Compile Include="Forms\Settings\Bills\frmInvoices.Designer.cs">
+      <DependentUpon>frmInvoices.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Settings\frmChangePassword.cs">
       <SubType>Form</SubType>
@@ -486,8 +486,8 @@
     <EmbeddedResource Include="Forms\Reservation\frmReservedPassword.resx">
       <DependentUpon>frmReservedPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings\Bills\frmBuyBills.resx">
-      <DependentUpon>frmBuyBills.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Settings\Bills\frmInvoices.resx">
+      <DependentUpon>frmInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
