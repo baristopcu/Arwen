@@ -94,7 +94,7 @@ namespace ARWEN.Forms.Settings.Bills
                     txtTax.Text = "18";
                 }
                 
-            }
+            }  
             else
             {
                 int selectedTax = (int)GroupTax.EditValue;
@@ -124,13 +124,22 @@ namespace ARWEN.Forms.Settings.Bills
             if (dtProductLines.Rows.Count > 0)
             {
                 decimal productPrice = Convert.ToDecimal(dtProductLines.Compute("Sum(ProductPrice)", ""));
-                lblProductTotal.Text = productPrice.ToString("C2");
+                lblProductTotal.Text = productPrice.ToString();
                 decimal totalTax = Convert.ToDecimal(dtProductLines.Compute("Sum(TotalTax)", ""));
-                lblTotalTax.Text = totalTax.ToString("C2");
+                lblTotalTax.Text = totalTax.ToString();
                 decimal totalDiscount = Convert.ToDecimal(dtProductLines.Compute("Sum(TotalDiscount)", ""));
-                lblTotalDiscount.Text = totalDiscount.ToString("C2");
-                lblTotalPrice.Text = ((productPrice + totalTax) - totalDiscount).ToString("C2");
+                lblTotalDiscount.Text = totalDiscount.ToString();
+                lblTotalPrice.Text = ((productPrice + totalTax) - totalDiscount).ToString();
             }
+        }
+
+        private void ClearGeneral()
+        {
+
+            lblProductTotal.Text = "["+label8.Text+"]";
+            lblTotalTax.Text = "[" + label11.Text + "]";
+            lblTotalDiscount.Text = "[" + label9.Text + "]";
+            lblTotalPrice.Text = "[" + label12.Text + "]"; 
         }
 
         private int GetLastFicheNo()
@@ -261,7 +270,6 @@ namespace ARWEN.Forms.Settings.Bills
                 }
 
                 GroupTax.SelectedIndex = -1;
-                txtTax.Text = "";
 
             }
         }
@@ -307,6 +315,28 @@ namespace ARWEN.Forms.Settings.Bills
             lblWarning.Visible = false;
             decimal myselected = (decimal)((cmbProducts.SelectedItem as dynamic).ProductID);
             GetProductsInformation(myselected);
+        }
+
+        private void btnDeleteRow_Click(object sender, EventArgs e)
+        {
+            int productId;
+            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
+            if (currow != null)
+            {
+                productId = Convert.ToInt32(currow["ProductID"]);
+                currow.Row.Delete();
+                ClearGeneral();
+                //if (_tableState == 1)
+                //{
+
+                //    OrderDetail query =
+                //        dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId)
+                //            .FirstOrDefault();
+                //    dbContext.OrderDetail.Remove(query);
+
+                //}
+
+            }
         }
     }
 }
