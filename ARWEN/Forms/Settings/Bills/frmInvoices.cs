@@ -118,7 +118,7 @@ namespace ARWEN.Forms.Settings.Bills
                 totalDiscount = 0;
             }
         }
-
+       
         private void GeneralCalculate()
         {
             if (dtProductLines.Rows.Count > 0)
@@ -133,13 +133,23 @@ namespace ARWEN.Forms.Settings.Bills
             }
         }
 
-        private void ClearGeneral()
+        private void ClearGeneral(decimal productTotal, decimal totalTax,decimal totalDiscount, decimal totalPrice)
         {
-
-            lblProductTotal.Text = "["+label8.Text+"]";
-            lblTotalTax.Text = "[" + label11.Text + "]";
-            lblTotalDiscount.Text = "[" + label9.Text + "]";
-            lblTotalPrice.Text = "[" + label12.Text + "]"; 
+            if (dtProductLines.Rows.Count > 0)
+            {
+                lblProductTotal.Text = (Convert.ToDecimal(lblProductTotal.Text) - productTotal).ToString();
+                lblTotalTax.Text = (Convert.ToDecimal(lblTotalTax.Text) - totalTax).ToString();
+                lblTotalDiscount.Text = (Convert.ToDecimal(lblTotalDiscount.Text) - totalDiscount).ToString();
+                lblTotalPrice.Text = (Convert.ToDecimal(lblTotalPrice.Text) - totalPrice).ToString(); 
+            }
+            else
+            {
+                lblProductTotal.Text = "[" + label8.Text + "]";
+                lblTotalTax.Text = "[" + label11.Text + "]";
+                lblTotalDiscount.Text = "[" + label9.Text + "]";
+                lblTotalPrice.Text = "[" + label12.Text + "]"; 
+            }
+           
         }
 
         private int GetLastFicheNo()
@@ -325,7 +335,8 @@ namespace ARWEN.Forms.Settings.Bills
             {
                 productId = Convert.ToInt32(currow["ProductID"]);
                 currow.Row.Delete();
-                ClearGeneral();
+                decimal total = (productLinePrice + totalTax) - totalDiscount;
+                ClearGeneral(productLinePrice, totalTax, totalDiscount, total);
                 //if (_tableState == 1)
                 //{
 
