@@ -77,7 +77,6 @@ namespace ARWEN.Forms
                         .Join(dbContext.Users, u => u.pm.oh.CreatorUserID, y => y.UserID, (u, y) => new { u, y })
                         .Select(s => new
                         {
-
                             s.u.pm.p.Date,
                             s.u.x.Name,
                             s.u.pm.oh.TableNo,
@@ -135,6 +134,7 @@ namespace ARWEN.Forms
             }
         }
 
+        string discount = "0";
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             decimal gTotal = 0;
@@ -145,7 +145,6 @@ namespace ARWEN.Forms
             string ticketDate = gridView1.GetRowCellValue(index, "Date").ToString();
             string table = gridView1.GetRowCellValue(index, "TableNo").ToString();
             string fullName = gridView1.GetRowCellValue(index, "UserName").ToString();
-            string discount = gridView1.GetRowCellValue(index, "Discount").ToString();
 
             if (order != null)
             {
@@ -155,23 +154,22 @@ namespace ARWEN.Forms
                     var query =
                         dbContext.OrderDetail.AsNoTracking()
                             .Join(dbContext.Products, od => od.ProductID, p =>
-
-                                p.ProductID, (od, p) => new {od, p})
-                            .Where(b => b.od.OrderNo == order)
+                                p.ProductID, (od, p) => new {od, p}).Join(dbContext.Payments, od1 => od1.od.OrderNo, p1 =>
+                                p1.OrderNo, (od1, p1) => new {od1, p1})
+                            .Where(b => b.od1.od.OrderNo == order)
                             .Select(s => new
                             {
-                                s.od.OrderDetailID,
-                                s.od.ProductID,
-                                s.p.ProductName,
-                                s.p.UnitName,
-                                s.od.Amount,
-                                s.od.EditState,
-                                s.od.NotEditable,
-                                s.od.OrderPrice,
-                                s.od.EditAmount
+                                s.od1.od.OrderDetailID,
+                                s.od1.od.ProductID,
+                                s.od1.p.ProductName,
+                                s.od1.p.UnitName,
+                                s.od1.od.Amount,
+                                s.od1.od.EditState,
+                                s.od1.od.NotEditable,
+                                s.od1.od.OrderPrice,
+                                s.od1.od.EditAmount,
+                                s.p1.Discount
                             }).AsQueryable();
-
-
 
 
                     Graphics graphic = e.Graphics;
@@ -218,10 +216,13 @@ namespace ARWEN.Forms
                         new SolidBrush(Color.Black), startX, startY + Offset);
                     Offset = Offset + 20;
 
+                     
+
                     foreach (var item in query)
                     {
                         string productDescription = item.ProductName.PadRight(30);
                         string productTotal = item.OrderPrice.ToString();
+                        discount = item.Discount;
                         gTotal += Convert.ToDecimal(productTotal);
                         string productLine = productDescription + productTotal;
 

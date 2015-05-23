@@ -467,13 +467,20 @@ namespace ARWEN
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            frmPayment frm = new frmPayment();
-            frm.Tag = this.Tag;
-            frm.OrderNo = orderNo;
-            frm.DtPayment = dtProducts;
-            frm.TotalCash = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
-            this.Close();
-            frm.ShowDialog();
+            if (orderType == "New")
+            {
+                MessageBox.Show("Siparişinizi kayıt etmediniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (orderType == "Edit")
+            {
+                frmPayment frm = new frmPayment();
+                frm.Tag = this.Tag;
+                frm.OrderNo = orderNo;
+                frm.DtPayment = dtProducts;
+                frm.TotalCash = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
+                this.Close();
+                frm.ShowDialog();
+            }         
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -533,10 +540,17 @@ namespace ARWEN
 
         private void btnWriteTicket_Click(object sender, EventArgs e)
         {
-            DialogResult pdr = printDialog1.ShowDialog();
-            if (pdr == DialogResult.OK)
+            if (orderType == "New")
             {
-                printDocument1.Print();
+                MessageBox.Show("Siparişinizi kayıt etmediniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (orderType == "Edit")
+            {
+                DialogResult pdr = printDialog1.ShowDialog();
+                if (pdr == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
             }
         }
 
@@ -618,10 +632,8 @@ namespace ARWEN
             if (orderType == "Edit")
             {
                 frmAddOrderNote frm = new frmAddOrderNote();
-                frm.OrderNo = orderNo;
-                this.Hide();
+                frm.OrderNo = orderNo;             
                 frm.ShowDialog();
-                this.Show();
             }
         }
     }

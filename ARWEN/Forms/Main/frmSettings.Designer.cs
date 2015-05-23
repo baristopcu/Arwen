@@ -137,7 +137,6 @@
             // navBarGroup4
             // 
             this.navBarGroup4.Caption = "Fatura";
-            this.navBarGroup4.Expanded = true;
             this.navBarGroup4.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.btnInvoices),

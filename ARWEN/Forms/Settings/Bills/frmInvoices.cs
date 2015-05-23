@@ -303,7 +303,7 @@ namespace ARWEN.Forms.Settings.Bills
                         }
                         else
                         {
-                            txtStock.Text = (Convert.ToInt64(txtAmount.Text) + Convert.ToInt64(txtStock.Text)).ToString();
+                            txtStock.Text = (Convert.ToInt64(txtAmount.Text) + Convert.ToInt64(query.UnitsInStock)).ToString();
                         }
                     }
 

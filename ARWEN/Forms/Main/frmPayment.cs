@@ -247,8 +247,16 @@ namespace ARWEN
         {
             if (!string.IsNullOrEmpty(txtCharged.Text))
             {
-                GetDiscountPrice(Convert.ToDecimal(totalCash));
-                clickedDiscount = true;
+                if (totalCash.ToString() == txtCharged.Text)
+                {
+                    MessageBox.Show("Tüm fiyata indirim yapamazsınız.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    GetDiscountPrice(Convert.ToDecimal(totalCash));
+                    clickedDiscount = true;
+                }
+              
             }
             else
             {

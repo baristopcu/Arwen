@@ -484,7 +484,7 @@
             // 
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDiscount.Location = new System.Drawing.Point(907, 122);
+            this.lblDiscount.Location = new System.Drawing.Point(925, 122);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(28, 18);
             this.lblDiscount.TabIndex = 51;
