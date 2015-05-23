@@ -1339,3 +1339,4 @@ C:\Users\can\Desktop\Arwen\ARWEN\bin\Debug\ja\DevExpress.XtraPrinting.v14.2.reso
 C:\Users\can\Desktop\Arwen\ARWEN\bin\Debug\ru\DevExpress.XtraPrinting.v14.2.resources.dll
 C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmSelectCustomer.resources
 C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmInvoices.resources
+C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmShowInvoices.resources

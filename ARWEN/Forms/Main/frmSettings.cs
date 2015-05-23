@@ -116,6 +116,12 @@ namespace ARWEN.Forms
 
             frm.ShowDialog();
         }
+
+        private void btnShowInvoices_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmShowInvoices frm = new frmShowInvoices();
+            frm.ShowDialog();
+        }
        
     }
 }

@@ -39,7 +39,8 @@
             this.btnCustomers = new DevExpress.XtraNavBar.NavBarItem();
             this.btnSuppliers = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.btnBuyBills = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnInvoices = new DevExpress.XtraNavBar.NavBarItem();
+            this.btnShowInvoices = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnCompanySettings = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -68,7 +69,8 @@
             this.btnChangePassword,
             this.btnCustomers,
             this.btnSuppliers,
-            this.btnBuyBills});
+            this.btnInvoices,
+            this.btnShowInvoices});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
@@ -135,16 +137,24 @@
             // navBarGroup4
             // 
             this.navBarGroup4.Caption = "Fatura";
+            this.navBarGroup4.Expanded = true;
             this.navBarGroup4.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnBuyBills)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnInvoices),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnShowInvoices)});
             this.navBarGroup4.Name = "navBarGroup4";
             // 
-            // btnBuyBills
+            // btnInvoices
             // 
-            this.btnBuyBills.Caption = "Ürün Alım/Satım Faturası";
-            this.btnBuyBills.Name = "btnBuyBills";
-            this.btnBuyBills.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnBuyBills_LinkClicked);
+            this.btnInvoices.Caption = "Ürün Alım/Satım Faturası";
+            this.btnInvoices.Name = "btnInvoices";
+            this.btnInvoices.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnBuyBills_LinkClicked);
+            // 
+            // btnShowInvoices
+            // 
+            this.btnShowInvoices.Caption = "Faturalar";
+            this.btnShowInvoices.Name = "btnShowInvoices";
+            this.btnShowInvoices.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnShowInvoices_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -213,6 +223,7 @@
         private DevExpress.XtraNavBar.NavBarItem btnSuppliers;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
-        private DevExpress.XtraNavBar.NavBarItem btnBuyBills;
+        private DevExpress.XtraNavBar.NavBarItem btnInvoices;
+        private DevExpress.XtraNavBar.NavBarItem btnShowInvoices;
     }
 }

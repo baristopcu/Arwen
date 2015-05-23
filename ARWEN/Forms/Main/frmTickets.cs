@@ -65,8 +65,38 @@ namespace ARWEN.Forms
 
         private void frmTickets_Load(object sender, EventArgs e)
         {
+            using (var dbContext = new RestaurantContext())
+            {
+                dbContext.Configuration.LazyLoadingEnabled = false;
+
+                var query =
+                    dbContext.OrderHeader.AsNoTracking().ToList()
+                        .Join(dbContext.Payments, oh => oh.OrderNo, p => p.OrderNo, (oh, p) => new { oh, p })
+                        .Join(dbContext.PaymentModules, pm => pm.p.PaymentModuleID, x => x.PaymentModuleID,
+                            (pm, x) => new { pm, x })
+                        .Join(dbContext.Users, u => u.pm.oh.CreatorUserID, y => y.UserID, (u, y) => new { u, y })
+                        .Select(s => new
+                        {
+
+                            s.u.pm.p.Date,
+                            s.u.x.Name,
+                            s.u.pm.oh.TableNo,
+                            s.u.pm.oh.CustomerName,
+                            s.u.pm.oh.TotalPrice,
+                            s.u.pm.oh.Note,
+                            s.u.pm.oh.CreationDatetime,
+                            s.y.UserName,
+                            s.u.pm.oh.OrderNo,
+                            s.u.pm.p.PaymentID,
+                            s.u.pm.p.Discount,
+                            Saat = s.u.pm.oh.CreationDatetime.ToString("hh:mm") + "-" + s.u.pm.p.Date.ToString("hh:mm")
+
+                        }).ToList();
 
 
+                gridControlTickets.DataSource = new BindingSource(query, "");
+
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
