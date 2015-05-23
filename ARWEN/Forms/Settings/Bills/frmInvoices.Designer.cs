@@ -86,9 +86,9 @@
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -383,7 +383,7 @@
             this.cmbFicheType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFicheType.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbFicheType.FormattingEnabled = true;
-            this.cmbFicheType.Location = new System.Drawing.Point(154, 54);
+            this.cmbFicheType.Location = new System.Drawing.Point(154, 56);
             this.cmbFicheType.Name = "cmbFicheType";
             this.cmbFicheType.Size = new System.Drawing.Size(205, 26);
             this.cmbFicheType.TabIndex = 27;
@@ -441,9 +441,9 @@
             // dtpBill
             // 
             this.dtpBill.EditValue = null;
-            this.dtpBill.Location = new System.Drawing.Point(154, 86);
+            this.dtpBill.Location = new System.Drawing.Point(154, 90);
             this.dtpBill.Name = "dtpBill";
-            this.dtpBill.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dtpBill.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpBill.Properties.Appearance.Options.UseFont = true;
             this.dtpBill.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -451,7 +451,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpBill.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
             this.dtpBill.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpBill.Size = new System.Drawing.Size(205, 30);
+            this.dtpBill.Size = new System.Drawing.Size(205, 24);
             this.dtpBill.TabIndex = 7;
             // 
             // groupControl3
@@ -735,6 +735,14 @@
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 1;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Sil";
+            this.gridColumn1.ColumnEdit = this.btnDeleteRow;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 9;
+            // 
             // btnDeleteRow
             // 
             this.btnDeleteRow.AutoHeight = false;
@@ -748,14 +756,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1092, 208);
             this.flowLayoutPanel1.TabIndex = 31;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Sil";
-            this.gridColumn1.ColumnEdit = this.btnDeleteRow;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 9;
             // 
             // frmInvoices
             // 

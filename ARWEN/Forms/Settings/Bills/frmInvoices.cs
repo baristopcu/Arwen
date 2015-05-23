@@ -168,6 +168,7 @@ namespace ARWEN.Forms.Settings.Bills
                 dbContext.Configuration.LazyLoadingEnabled = false;  
                 var query = dbContext.Products.Where(x => x.ProductID == selectedID).FirstOrDefault();
                 txtPrice.Text = query.Price.ToString();
+                txtStock.Text = query.UnitsInStock.ToString();
             }
         }
 
@@ -286,7 +287,29 @@ namespace ARWEN.Forms.Settings.Bills
       
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
-            txtStock.Text = txtAmount.Text;
+            if (!string.IsNullOrEmpty(txtAmount.Text))
+            {
+                if (!string.IsNullOrEmpty(txtStock.Text))
+                {
+                    txtStock.Text = (Convert.ToInt32(txtAmount.Text) + Convert.ToInt32(txtStock.Text)).ToString();
+                }
+                else
+                {
+                    txtStock.Text = txtAmount.Text;
+                }
+               
+            }
+            else
+            {
+                decimal myselected = (decimal)((cmbProducts.SelectedItem as dynamic).ProductID);
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var query = dbContext.Products.Where(x => x.ProductID == myselected).FirstOrDefault();                    
+                    txtStock.Text = query.UnitsInStock.ToString();
+                }
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

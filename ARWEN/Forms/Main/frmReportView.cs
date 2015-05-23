@@ -112,9 +112,6 @@ namespace ARWEN.Forms.Main
 
         private void btnMostChoosedSuppliers_Click(object sender, EventArgs e)
         {
-
-            //--> Tarih sütunu eklendikten sonra tarih koşulu eklenicek.
-
             RestaurantDataSet ds = new RestaurantDataSet();
 
             // Get Company Properties --
@@ -124,7 +121,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT        Suppliers.CompanyName, COUNT(Products.ProductID) AS Toplam FROM Products INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID GROUP BY Suppliers.CompanyName ORDER BY Toplam DESC";
+                "SELECT        Suppliers.CompanyName, COUNT(Products.ProductID) AS Toplam FROM Products INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID INNER JOIN Purchases ON Suppliers.SupplierID = Purchases.SupplierID WHERE (Purchases.PurchaseDate BETWEEN CONVERT(datetime,@dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) and FicheTypeID = 1 GROUP BY Suppliers.CompanyName ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
@@ -229,7 +226,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT        Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID GROUP BY Customers.ContactName ORDER BY Toplam DESC";
+                "SELECT        Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID WHERE (StartDate BETWEEN CONVERT(datetime,@dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) GROUP BY Customers.ContactName ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
@@ -255,7 +252,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID WHERE (Reservation.Cancel = 1) GROUP BY Customers.ContactName ORDER BY Toplam DESC";
+               "SELECT        Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID WHERE (StartDate BETWEEN CONVERT(datetime,@dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) and Cancel = 1 GROUP BY Customers.ContactName ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
@@ -281,7 +278,7 @@ namespace ARWEN.Forms.Main
 
             // Get Report's Data--
             string queryData =
-                "SELECT Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID WHERE (Reservation.Used = 1) GROUP BY Customers.ContactName ORDER BY Toplam DESC";
+                "SELECT        Customers.ContactName, COUNT(Reservation.CustomerID) AS Toplam FROM Reservation INNER JOIN Customers ON Reservation.CustomerID = Customers.CustomerID WHERE (StartDate BETWEEN CONVERT(datetime,@dtpStart, 103) AND CONVERT(datetime, @dtpEnd, 103)) and Used = 1 GROUP BY Customers.ContactName ORDER BY Toplam DESC";
             jarvis.Command.Parameters.Clear();
             jarvis.Command.Parameters.AddWithValue("@dtpStart", dtpStart.DateTime);
             jarvis.Command.Parameters.AddWithValue("@dtpEnd", dtpEnd.DateTime);
