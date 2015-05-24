@@ -14,6 +14,14 @@ namespace ARWEN.Forms.Main
             InitializeComponent();
         }
 
+        string tableNo;
+
+        public string TableNo
+        {
+            get { return tableNo; }
+            set { tableNo = value; }
+        }
+
         private void GetTables(ComboBox cmbTable,ComboBox cmbTableTo)
         {
             using (var dbContext = new RestaurantContext())
@@ -42,6 +50,10 @@ namespace ARWEN.Forms.Main
         private void frmTableTransfer_Load(object sender, EventArgs e)
         {
             GetTables(cmbTable,cmbTableTo);
+            if (!string.IsNullOrEmpty(tableNo))
+            {
+                cmbTable.SelectedValue = tableNo;
+            }
         }
 
         private void btnTasi_Click(object sender, EventArgs e)
