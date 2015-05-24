@@ -60,13 +60,13 @@ namespace ARWEN.Forms.Main
                     queryRT2.State = 1;
                     dbContext.SaveChanges();
                 }
-                MessageBox.Show("Masa Başarıyla Taşındı", "Başarılı | Arwen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(table+" "+"Masası"+" "+tableTo+" "+"Masasına başarıyla taşındı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Bir Hata Oluştu ! , Masa Taşınamadı","Hata | Arwen",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Bir Hata Oluştu ! , Masa Taşınamadı","ARWEN",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Close();
             }
            

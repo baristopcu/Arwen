@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTableTransfer));
             this.cmbTable = new System.Windows.Forms.ComboBox();
             this.cmbTableTo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,42 +40,48 @@
             // cmbTable
             // 
             this.cmbTable.FormattingEnabled = true;
-            this.cmbTable.Location = new System.Drawing.Point(107, 17);
+            this.cmbTable.Location = new System.Drawing.Point(143, 24);
+            this.cmbTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTable.Name = "cmbTable";
-            this.cmbTable.Size = new System.Drawing.Size(121, 21);
+            this.cmbTable.Size = new System.Drawing.Size(160, 26);
             this.cmbTable.TabIndex = 0;
             // 
             // cmbTableTo
             // 
             this.cmbTableTo.FormattingEnabled = true;
-            this.cmbTableTo.Location = new System.Drawing.Point(107, 47);
+            this.cmbTableTo.Location = new System.Drawing.Point(143, 65);
+            this.cmbTableTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTableTo.Name = "cmbTableTo";
-            this.cmbTableTo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTableTo.Size = new System.Drawing.Size(160, 26);
             this.cmbTableTo.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 53);
+            this.label1.Location = new System.Drawing.Point(24, 73);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Bu Masaya";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 24);
+            this.label2.Location = new System.Drawing.Point(20, 33);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.Size = new System.Drawing.Size(85, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Bu Masayı ;";
             // 
             // btnTasi
             // 
-            this.btnTasi.Location = new System.Drawing.Point(21, 88);
+            this.btnTasi.Image = ((System.Drawing.Image)(resources.GetObject("btnTasi.Image")));
+            this.btnTasi.Location = new System.Drawing.Point(28, 122);
+            this.btnTasi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTasi.Name = "btnTasi";
-            this.btnTasi.Size = new System.Drawing.Size(97, 23);
+            this.btnTasi.Size = new System.Drawing.Size(129, 32);
             this.btnTasi.TabIndex = 4;
             this.btnTasi.Text = "Taşı";
             this.btnTasi.Click += new System.EventHandler(this.btnTasi_Click);
@@ -82,9 +89,11 @@
             // btnIptal
             // 
             this.btnIptal.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnIptal.Location = new System.Drawing.Point(134, 88);
+            this.btnIptal.Image = ((System.Drawing.Image)(resources.GetObject("btnIptal.Image")));
+            this.btnIptal.Location = new System.Drawing.Point(179, 122);
+            this.btnIptal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIptal.Name = "btnIptal";
-            this.btnIptal.Size = new System.Drawing.Size(94, 23);
+            this.btnIptal.Size = new System.Drawing.Size(125, 32);
             this.btnIptal.TabIndex = 5;
             this.btnIptal.Text = "İptal";
             this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
@@ -92,20 +101,23 @@
             // frmTableTransfer
             // 
             this.AcceptButton = this.btnTasi;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnIptal;
-            this.ClientSize = new System.Drawing.Size(251, 140);
+            this.ClientSize = new System.Drawing.Size(335, 170);
             this.Controls.Add(this.btnIptal);
             this.Controls.Add(this.btnTasi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTableTo);
             this.Controls.Add(this.cmbTable);
+            this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.LookAndFeel.SkinMaskColor2 = System.Drawing.SystemColors.ActiveCaptionText;
             this.LookAndFeel.SkinName = "Darkroom";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmTableTransfer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masa Taşı | Arwen";
