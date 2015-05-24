@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ARWEN.DTO.Class;
 using ARWEN.DTO.Database;
 using ARWEN.Forms;
+using ARWEN.Forms.Main;
 using ARWEN.Forms.Reservation;
 using DevExpress.CodeParser;
 using DevExpress.Data.Mask;
@@ -146,7 +147,8 @@ namespace ARWEN
 
         private void btnMoveDesk_Click(object sender, EventArgs e)
         {
-
+            frmTableTransfer frm = new frmTableTransfer();
+            frm.ShowDialog();
         }
     }
 }
