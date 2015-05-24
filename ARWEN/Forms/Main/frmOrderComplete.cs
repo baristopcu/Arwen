@@ -105,6 +105,7 @@ namespace ARWEN.Forms
         }
 
         public static int lastId = 0;
+        private bool eventSucces = false;
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
             OrderHeader oHeader = new OrderHeader();
@@ -151,6 +152,7 @@ namespace ARWEN.Forms
 
                     MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    eventSucces = true;
                     this.Close();
                 }
             }
@@ -169,6 +171,7 @@ namespace ARWEN.Forms
 
                 MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşteri üstünden başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+                eventSucces = true;
                 this.Close();
             }
 
@@ -176,13 +179,14 @@ namespace ARWEN.Forms
 
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-
+            eventSucces = false;
+            Close();
         }
 
         private void frmOrderComplete_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            if (e.CloseReason == CloseReason.UserClosing)
+            
+            if (e.CloseReason == CloseReason.UserClosing && eventSucces == false)
             {
                 DialogResult result = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -200,7 +204,7 @@ namespace ARWEN.Forms
             }
             else
             {
-                e.Cancel = true;
+                e.Cancel = false;
             }
 
         }

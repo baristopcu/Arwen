@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -179,6 +180,7 @@ namespace ARWEN
 
         }
 
+        private bool newProduct = false;
         public void ProductButtonCreate(int grupSayisi, FlowLayoutPanel flwLayoutPanel)
         {
             List<string> productNameList = new List<string>();
@@ -205,6 +207,7 @@ namespace ARWEN
                 flwLayoutPanel.Controls.Add(sndrButton);
                 sndrButton.Click += productButton_Click;
             }
+            newProduct = true;
         }
 
         public void GroupButtonCreate(int grupSayisi, FlowLayoutPanel flwLayoutPanel)
@@ -364,7 +367,7 @@ namespace ARWEN
         }
 
         private RestaurantContext dbContext = new RestaurantContext();
-
+        OrderDetail oDetail = new OrderDetail();
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -387,13 +390,57 @@ namespace ARWEN
             }
             if (_tableState == 1)
             {
-                var query =
-                    dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId).FirstOrDefault();
-                query.Amount = 1;
-                query.EditAmount = 1;
-                query.Amount = editAmount;
-                query.EditAmount = editAmount;
-                query.OrderPrice = totalPrice;
+                if (orderType == "Edit")
+                {
+                    var query = dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
+                    if (query == null)
+                    {
+                        if (newProduct)
+                        {
+                            
+                            //--
+                            oDetail.OrderNo = orderNo;
+                            oDetail.ProductID = productId;
+                            oDetail.NotEditable = false;
+                            oDetail.OrderPrice = price;
+                            oDetail.EditAmount = 1;
+                            oDetail.Amount = editAmount;
+                            oDetail.EditAmount = editAmount;
+                            oDetail.OrderPrice = totalPrice;
+                            //--
+                            newProduct = false;
+                        }
+                        else
+                        {
+                            oDetail.Amount = 1;
+                            oDetail.EditAmount = 1;
+                            oDetail.Amount = editAmount;
+                            oDetail.EditAmount = editAmount;
+                            oDetail.OrderPrice = totalPrice;
+                        }
+
+                    }
+                    else
+                    {
+                        query.Amount = 1;
+                        query.EditAmount = 1;
+                        query.Amount = editAmount;
+                        query.EditAmount = editAmount;
+                        query.OrderPrice = totalPrice;
+                    }
+                    dbContext.OrderDetail.AddOrUpdate(oDetail);
+                }
+    //            else
+    //            {
+    //                var query =
+    //dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId).FirstOrDefault();
+    //                query.Amount = 1;
+    //                query.EditAmount = 1;
+    //                query.Amount = editAmount;
+    //                query.EditAmount = editAmount;
+    //                query.OrderPrice = totalPrice;
+    //            }
+
 
 
             }
@@ -480,7 +527,7 @@ namespace ARWEN
                 frm.TotalCash = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
                 this.Close();
                 frm.ShowDialog();
-            }         
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -516,7 +563,7 @@ namespace ARWEN
             {
                 LockButtons();
             }
-          
+
         }
 
         private void frmDeskCustomize_FormClosing(object sender, FormClosingEventArgs e)
@@ -634,7 +681,7 @@ namespace ARWEN
             if (orderType == "Edit")
             {
                 frmAddOrderNote frm = new frmAddOrderNote();
-                frm.OrderNo = orderNo;             
+                frm.OrderNo = orderNo;
                 frm.ShowDialog();
             }
         }
