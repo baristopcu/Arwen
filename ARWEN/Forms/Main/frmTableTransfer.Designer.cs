@@ -41,7 +41,7 @@
             // 
             this.cmbTable.FormattingEnabled = true;
             this.cmbTable.Location = new System.Drawing.Point(143, 24);
-            this.cmbTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTable.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTable.Name = "cmbTable";
             this.cmbTable.Size = new System.Drawing.Size(160, 26);
             this.cmbTable.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.cmbTableTo.FormattingEnabled = true;
             this.cmbTableTo.Location = new System.Drawing.Point(143, 65);
-            this.cmbTableTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTableTo.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTableTo.Name = "cmbTableTo";
             this.cmbTableTo.Size = new System.Drawing.Size(160, 26);
             this.cmbTableTo.TabIndex = 1;
@@ -68,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 33);
+            this.label2.Location = new System.Drawing.Point(25, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 18);
@@ -79,7 +79,7 @@
             // 
             this.btnTasi.Image = ((System.Drawing.Image)(resources.GetObject("btnTasi.Image")));
             this.btnTasi.Location = new System.Drawing.Point(28, 122);
-            this.btnTasi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTasi.Margin = new System.Windows.Forms.Padding(4);
             this.btnTasi.Name = "btnTasi";
             this.btnTasi.Size = new System.Drawing.Size(129, 32);
             this.btnTasi.TabIndex = 4;
@@ -91,7 +91,7 @@
             this.btnIptal.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIptal.Image = ((System.Drawing.Image)(resources.GetObject("btnIptal.Image")));
             this.btnIptal.Location = new System.Drawing.Point(179, 122);
-            this.btnIptal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIptal.Margin = new System.Windows.Forms.Padding(4);
             this.btnIptal.Name = "btnIptal";
             this.btnIptal.Size = new System.Drawing.Size(125, 32);
             this.btnIptal.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.LookAndFeel.SkinMaskColor2 = System.Drawing.SystemColors.ActiveCaptionText;
             this.LookAndFeel.SkinName = "Darkroom";
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTableTransfer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masa Taşı | Arwen";

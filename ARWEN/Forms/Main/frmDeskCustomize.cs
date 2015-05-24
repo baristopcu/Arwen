@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using ARWEN.Forms;
+using ARWEN.Forms.Main;
 using DevExpress.Xpo.DB.Helpers;
 using DevExpress.XtraEditors;
 
@@ -113,10 +114,9 @@ namespace ARWEN
                 btnSaveOrder.Text = "SİPARİŞİ GÜNCELLE";
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
-
-                    orderNo = dbContext.Get_Orders_Of_A_Table(this.Tag.ToString()).Select(y => y.OrderNo).FirstOrDefault();
+                    string controlTableNo = this.Tag.ToString();
+                    orderNo = dbContext.OrderHeader.Where(o => o.TableNo == controlTableNo).Where(x => x.State < 5).Select(y => y.OrderNo).FirstOrDefault();
                     int detailRow = dbContext.Get_Order_Detail(orderNo).Count();
-
 
                     for (int i = 0; i < detailRow; i++)
                     {
@@ -535,7 +535,9 @@ namespace ARWEN
 
         private void btnMoveDesk_Click(object sender, EventArgs e)
         {
-
+            frmTableTransfer frm = new frmTableTransfer();
+            frm.TableNo = this.Tag.ToString();
+            frm.ShowDialog();
         }
 
         private void btnWriteTicket_Click(object sender, EventArgs e)
