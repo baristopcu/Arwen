@@ -33,6 +33,7 @@ namespace ARWEN.Forms.Main
 
             }
         }
+
         private void btnIptal_Click(object sender, EventArgs e)
         {
             Close();
@@ -51,7 +52,7 @@ namespace ARWEN.Forms.Main
                 string tableTo = cmbTableTo.SelectedValue.ToString();
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    var queryOH = dbContext.OrderHeader.Where(x => x.TableNo == table).FirstOrDefault();
+                    var queryOH = dbContext.OrderHeader.Where(x => x.TableNo == table).Where(y=>y.State < 5).FirstOrDefault();
                     queryOH.TableNo = tableTo;
                     var queryRT = dbContext.RestaurantTables.Where(x => x.TableNo == table).FirstOrDefault();
                     queryRT.State = 0;
