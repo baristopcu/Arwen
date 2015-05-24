@@ -1383,3 +1383,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmSelectCus
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmInvoices.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmShowInvoices.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmTableTransfer.resources
+C:\Users\can\Documents\GitProject\ARWEN\obj\Debug\ARWEN.Forms.Main.frmTableTransfer.resources
+C:\Users\can\Documents\GitProject\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmInvoices.resources
+C:\Users\can\Documents\GitProject\ARWEN\obj\Debug\ARWEN.Forms.Settings.Bills.frmShowInvoices.resources
