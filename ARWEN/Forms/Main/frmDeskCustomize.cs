@@ -181,6 +181,8 @@ namespace ARWEN
         }
 
         private bool newProduct = false;
+        private bool newProducts = false;
+        
         public void ProductButtonCreate(int grupSayisi, FlowLayoutPanel flwLayoutPanel)
         {
             List<string> productNameList = new List<string>();
@@ -207,7 +209,7 @@ namespace ARWEN
                 flwLayoutPanel.Controls.Add(sndrButton);
                 sndrButton.Click += productButton_Click;
             }
-           
+
         }
 
         public void GroupButtonCreate(int grupSayisi, FlowLayoutPanel flwLayoutPanel)
@@ -233,6 +235,8 @@ namespace ARWEN
                 sndrButton.Click += groupButton_Click;
             }
         }
+
+        private int newProductCount = 0;
         private void productButton_Click(object sender, EventArgs e)
         {
 
@@ -286,7 +290,7 @@ namespace ARWEN
                 oDetail.OrderNo = orderNo;
                 oDetail.ProductID = addProduct.ProductID;
                 oDetail.NotEditable = false;
-                oDetail.OrderPrice = addProduct.Price;
+                oDetail.OrderPrice = Convert.ToDecimal(addProduct.Price);
                 oDetail.Amount = 1;
                 oDetail.OrderPrice = totalPrice;
                 oDetail.EditState = 0;
@@ -298,10 +302,11 @@ namespace ARWEN
                 if (query == null)
                 {
                     dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
-                    oDetails.Add(oDetail);
-                    dbContext.OrderDetail.Add(oDetails.Last());
                     gridProducts.DataSource = dtProducts;
+                    oDetails.Add(oDetail);
                     newProduct = true;
+                    newProducts = true;
+                    newProductCount++;
                     //-------------------------------------------------------------------------------------------------------
                 }
                 else if (query.OrderNo == orderNo && query.ProductID == addProduct.ProductID) //?????
@@ -378,7 +383,7 @@ namespace ARWEN
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            DataRowView currow = (DataRowView) gridView1.GetRow(gridView1.FocusedRowHandle);
+            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (currow != null)
             {
 
@@ -391,7 +396,7 @@ namespace ARWEN
                 amount = Convert.ToInt32(currow["Amount"]);
                 editAmount = amount + 1;
                 currow[1] = editAmount;
-                totalPrice = price*editAmount;
+                totalPrice = price * editAmount;
                 currow[3] = totalPrice;
 
             }
@@ -399,34 +404,43 @@ namespace ARWEN
             {
                 if (orderType == "Edit")
                 {
-                    OrderDetail oDetail = oDetails.Last();
+                    OrderDetail oDetail = new OrderDetail();
                     var query =
                         dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
                     if (query == null)
                     {
                         if (newProduct)
                         {
-                                //--
-                                oDetail.OrderNo = orderNo;
-                                oDetail.ProductID = productId;
-                                oDetail.NotEditable = false;
-                                oDetail.OrderPrice = price;
-                                oDetail.EditAmount = 1;
-                                oDetail.Amount = editAmount;
-                                oDetail.EditAmount = editAmount;
-                                oDetail.OrderPrice = totalPrice;
-                                //--
-                            oDetails.Add(oDetail);
-                            dbContext.OrderDetail.Add(oDetail);
-                        }
-
-                        else
-                        {
-                            oDetail.Amount = 1;
+                            //--
+                            oDetail.OrderNo = orderNo;
+                            oDetail.ProductID = productId;
+                            oDetail.NotEditable = false;
+                            oDetail.OrderPrice = price;
                             oDetail.EditAmount = 1;
                             oDetail.Amount = editAmount;
                             oDetail.EditAmount = editAmount;
                             oDetail.OrderPrice = totalPrice;
+                            //--
+                            oDetails.Add(oDetail);
+
+                        }
+
+                        else
+                        {
+                            foreach (var item in oDetails)
+                            {
+                                if (item.ProductID == productId)
+                                {
+                                    oDetail.Amount = 1;
+                                    oDetail.EditAmount = 1;
+                                    oDetail.Amount = editAmount;
+                                    oDetail.EditAmount = editAmount;
+                                    oDetail.OrderPrice = totalPrice;
+                                    oDetails.Add(oDetail);
+                                }
+
+                            }
+
                         }
 
                     }
@@ -439,7 +453,7 @@ namespace ARWEN
                         query.EditAmount = editAmount;
                         query.OrderPrice = totalPrice;
                     }
-                    
+
                 }
 
 
@@ -580,8 +594,9 @@ namespace ARWEN
                     OrderPrices.Add(Convert.ToDecimal(x["Price"]));
 
                 }
-
                 frmOrderComplete frm = new frmOrderComplete();
+                frm.NewProducts = newProducts;
+                frm.ODetails = oDetails;
                 frm.Total = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
                 frm.Table = this.Tag.ToString();
                 frm.DtProducts = dtProducts;

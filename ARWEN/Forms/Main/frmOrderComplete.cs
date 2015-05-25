@@ -24,8 +24,10 @@ namespace ARWEN.Forms
         private List<int> _productIds = new List<int>();
         private List<decimal> _orderPrices = new List<decimal>();
         private List<int> productAmounts = new List<int>();
+        private List<OrderDetail> oDetails = new List<OrderDetail>();
         private string orderType = "";
         long orderNo;
+        bool newProducts = false;
 
         public long OrderNo
         {
@@ -87,6 +89,18 @@ namespace ARWEN.Forms
             set { orderType = value; }
         }
 
+        public bool NewProducts
+        {
+            get { return newProducts; }
+            set { newProducts = value; }
+        }
+
+        public List<OrderDetail> ODetails
+        {
+            get { return oDetails; }
+            set { oDetails = value; }
+        }
+
         #endregion
 
 
@@ -134,7 +148,7 @@ namespace ARWEN.Forms
                     lastId = Convert.ToInt32(oHeader.OrderNo);
 
                     for (int i = 0; i < dtProducts.Rows.Count; i++)
-                    {
+                    {   
                         oDetail.OrderNo = lastId;
                         oDetail.ProductID = ProductIds[i];
                         oDetail.Amount = productAmounts[i];
@@ -164,7 +178,23 @@ namespace ARWEN.Forms
                 {
                     query.CustomerID = GlobalCustomer.CustomerID;
                 }
-              
+                if (newProducts)
+                {
+                    foreach (var item in oDetails)
+                    {
+                        oDetail.OrderNo = orderNo;
+                        oDetail.ProductID = item.ProductID;
+                        oDetail.NotEditable = false;
+                        oDetail.OrderPrice = item.OrderPrice;
+                        oDetail.EditAmount = 1;
+                        oDetail.Amount = item.Amount;
+                        oDetail.EditAmount = item.EditAmount;
+                        oDetail.OrderPrice = item.Amount * item.OrderPrice;
+                        dbContext.OrderDetail.Add(oDetail);
+                        dbContext.SaveChanges();
+                    }
+
+                }
                 query.LastEditionDatetime = DateTime.Now;
                 query.TotalPrice = total;
                 DbContext.SaveChanges();
