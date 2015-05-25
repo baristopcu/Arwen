@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace ARWEN.Forms
         private string table;
         private DataTable dtProducts = new DataTable();
         private List<int> _productIds = new List<int>();
+        private List<OrderDetail> oDetails = new List<OrderDetail>();
         private List<decimal> _orderPrices = new List<decimal>();
         private List<int> productAmounts = new List<int>();
         private string orderType = "";
@@ -87,6 +89,12 @@ namespace ARWEN.Forms
             set { orderType = value; }
         }
 
+        public List<OrderDetail> ODetails
+        {
+            get { return oDetails; }
+            set { oDetails = value; }
+        }
+
         #endregion
 
 
@@ -106,6 +114,7 @@ namespace ARWEN.Forms
 
         public static int lastId = 0;
         private bool eventSucces = false;
+
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
             OrderHeader oHeader = new OrderHeader();
@@ -121,7 +130,7 @@ namespace ARWEN.Forms
                     if (GlobalCustomer.Choosed)
                     {
                         oHeader.CustomerID = GlobalCustomer.CustomerID;
-                    }     
+                    }
                     oHeader.TotalPrice = total;
                     oHeader.LockState = false;
                     oHeader.PrintState = false;
@@ -150,28 +159,55 @@ namespace ARWEN.Forms
                     dbContext.Update_Table_State(table, true);
                     dbContext.SaveChanges();
 
-                    MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBox.Show(
+                        "Siparişiniz " + GlobalCustomer.FullName + " " +
+                        "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     eventSucces = true;
                     this.Close();
                 }
             }
             else if (orderType == "Edit")
-            { 
+            {
                 var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
-                query.Note = txtOrderNote.Text;
-                if (GlobalCustomer.Choosed)
+                if (query != null)
                 {
-                    query.CustomerID = GlobalCustomer.CustomerID;
+                    query.Note = txtOrderNote.Text;
+                    if (GlobalCustomer.Choosed)
+                    {
+                        query.CustomerID = GlobalCustomer.CustomerID;
+                    }
+                    query.LastEditionDatetime = DateTime.Now;
+                    query.TotalPrice = total;
+                    var oDetailNull = oDetails.FirstOrDefault();
+                    if (oDetailNull == null)
+                    {
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        dbContext.OrderDetail.Remove(oDetails.Last());
+
+                        foreach (var item in oDetails)
+                        {
+                            oDetail.OrderNo = orderNo;
+                            oDetail.ProductID = item.ProductID;
+                            oDetail.Amount = item.Amount;
+                            oDetail.EditAmount = item.EditAmount;
+                            oDetail.EditState = 0;
+                            oDetail.NotEditable = false;
+                            oDetail.OrderPrice = item.OrderPrice;
+                            dbContext.OrderDetail.AddOrUpdate(oDetail);
+                            dbContext.SaveChanges();
+                        }
+
+                    }
+
+
+
                 }
-              
-                query.LastEditionDatetime = DateTime.Now;
-                query.TotalPrice = total;
-                DbContext.SaveChanges();
-
-
                 MessageBox.Show("Siparişiniz başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
+                    MessageBoxIcon.Information);
                 eventSucces = true;
                 this.Close();
             }
