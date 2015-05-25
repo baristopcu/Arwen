@@ -233,7 +233,6 @@ namespace ARWEN
                 sndrButton.Click += groupButton_Click;
             }
         }
-
         private void productButton_Click(object sender, EventArgs e)
         {
 
@@ -275,25 +274,32 @@ namespace ARWEN
             }
             else if (orderType == "Edit")
             {
+                OrderDetail oDetail = new OrderDetail();
 
                 var addProduct = dbContext.Get_All_Products()
                     .Where(x => x.ProductID == productUsedButton)
                     .FirstOrDefault();
                 products.ProductName = addProduct.ProductName;
                 products.UnitName = addProduct.UnitName;
+
+                //---------------------
                 oDetail.OrderNo = orderNo;
                 oDetail.ProductID = addProduct.ProductID;
-                oDetail.Amount = 1;
-                oDetail.EditState = 0;
+                oDetail.NotEditable = false;
                 oDetail.OrderPrice = addProduct.Price;
+                oDetail.Amount = 1;
+                oDetail.OrderPrice = totalPrice;
+                oDetail.EditState = 0;
+                //---------------
                 var query =
-                    dbContext.OrderDetail.Where(x => x.OrderNo == orderNo)
-                        .Where(x => x.ProductID == addProduct.ProductID)
-                        .FirstOrDefault();
+                    dbContext.OrderDetail
+                        .Where(x => x.OrderNo == orderNo)
+                        .FirstOrDefault(x => x.ProductID == addProduct.ProductID);
                 if (query == null)
                 {
                     dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
-                    dbContext.OrderDetail.Add(oDetail);
+                    oDetails.Add(oDetail);
+                    dbContext.OrderDetail.Add(oDetails.Last());
                     gridProducts.DataSource = dtProducts;
                     newProduct = true;
                     //-------------------------------------------------------------------------------------------------------
@@ -367,7 +373,7 @@ namespace ARWEN
         }
 
         private RestaurantContext dbContext = new RestaurantContext();
-        OrderDetail oDetail = new OrderDetail();
+        List<OrderDetail> oDetails = new List<OrderDetail>(); 
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
@@ -392,13 +398,12 @@ namespace ARWEN
             {
                 if (orderType == "Edit")
                 {
-
+                    OrderDetail oDetail = oDetails.Last();
                     var query = dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
                     if (query == null)
                     {
                         if (newProduct)
                         {
-                            
                             //--
                             oDetail.OrderNo = orderNo;
                             oDetail.ProductID = productId;
@@ -409,6 +414,8 @@ namespace ARWEN
                             oDetail.EditAmount = editAmount;
                             oDetail.OrderPrice = totalPrice;
                             //--
+                            oDetails.Add(oDetail);
+                            dbContext.OrderDetail.Add(oDetails.Last());
                             newProduct = false;
                         }
                         else
@@ -429,19 +436,7 @@ namespace ARWEN
                         query.EditAmount = editAmount;
                         query.OrderPrice = totalPrice;
                     }
-                    dbContext.OrderDetail.AddOrUpdate(oDetail);
                 }
-    //            else
-    //            {
-    //                var query =
-    //dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId).FirstOrDefault();
-    //                query.Amount = 1;
-    //                query.EditAmount = 1;
-    //                query.Amount = editAmount;
-    //                query.EditAmount = editAmount;
-    //                query.OrderPrice = totalPrice;
-    //            }
-
 
 
             }
@@ -472,23 +467,50 @@ namespace ARWEN
 
                     if (_tableState == 1)
                     {
-                        var result =
-                            dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId)
-                                .FirstOrDefault();
-                        result.Amount = editAmount;
-                        result.EditAmount = editAmount;
-                        result.OrderPrice = totalPrice;
+                        //if (orderType == "Edit")
+                        //{
+                        //    var result =
+                        //        dbContext.OrderDetail.FirstOrDefault(
+                        //            x => x.ProductID == productId && x.OrderNo == orderNo);
+                        //    if (result == null)
+                        //    {
+                        //        if (newProduct)
+                        //        {
+
+                        //            //--
+                        //            oDetail.OrderNo = orderNo;
+                        //            oDetail.ProductID = productId;
+                        //            oDetail.NotEditable = false;
+                        //            oDetail.OrderPrice = price;
+                        //            oDetail.EditAmount = 1;
+                        //            oDetail.Amount = editAmount;
+                        //            oDetail.EditAmount = editAmount;
+                        //            oDetail.OrderPrice = totalPrice;
+                        //            //--
+                        //            newProduct = false;
+                        //        }
+                        //        else
+                        //        {
+                        //            oDetail.Amount = 1;
+                        //            oDetail.EditAmount = 1;
+                        //            oDetail.Amount = editAmount;
+                        //            oDetail.EditAmount = editAmount;
+                        //            oDetail.OrderPrice = totalPrice;
+                        //        }
+
+                        //    }
+                        //    else
+                        //    {
+                        //        result.Amount = 1;
+                        //        result.EditAmount = 1;
+                        //        result.Amount = editAmount;
+                        //        result.EditAmount = editAmount;
+                        //        result.OrderPrice = totalPrice;
+                        //    }
+                        //    dbContext.OrderDetail.AddOrUpdate(oDetail);
+                        //}
                     }
-
-
                 }
-                else
-                {
-                    return;
-                }
-
-
-
             }
         }
 
@@ -505,7 +527,14 @@ namespace ARWEN
                     OrderDetail query =
                         dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId)
                             .FirstOrDefault();
-                    dbContext.OrderDetail.Remove(query);
+                    if (query != null)
+                    {
+                        dbContext.OrderDetail.Remove(query);
+                    }
+                    else
+                    {
+                        dbContext.OrderDetail.Remove(oDetails.Last());
+                    }
 
                 }
 
