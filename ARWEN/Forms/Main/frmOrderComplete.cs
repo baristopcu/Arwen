@@ -157,19 +157,20 @@ namespace ARWEN.Forms
                 }
             }
             else if (orderType == "Edit")
-            {
-
+            { 
                 var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
                 query.Note = txtOrderNote.Text;
                 if (GlobalCustomer.Choosed)
                 {
                     query.CustomerID = GlobalCustomer.CustomerID;
-                }       
+                }
+              
                 query.LastEditionDatetime = DateTime.Now;
                 query.TotalPrice = total;
                 DbContext.SaveChanges();
 
-                MessageBox.Show("Siparişiniz " + GlobalCustomer.FullName + " " + "adlı müşteri üstünden başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
+
+                MessageBox.Show("Siparişiniz başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
                 eventSucces = true;
                 this.Close();

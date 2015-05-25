@@ -207,7 +207,7 @@ namespace ARWEN
                 flwLayoutPanel.Controls.Add(sndrButton);
                 sndrButton.Click += productButton_Click;
             }
-            newProduct = true;
+           
         }
 
         public void GroupButtonCreate(int grupSayisi, FlowLayoutPanel flwLayoutPanel)
@@ -279,7 +279,6 @@ namespace ARWEN
                 var addProduct = dbContext.Get_All_Products()
                     .Where(x => x.ProductID == productUsedButton)
                     .FirstOrDefault();
-                OrderDetail oDetail = new OrderDetail();
                 products.ProductName = addProduct.ProductName;
                 products.UnitName = addProduct.UnitName;
                 oDetail.OrderNo = orderNo;
@@ -296,6 +295,7 @@ namespace ARWEN
                     dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
                     dbContext.OrderDetail.Add(oDetail);
                     gridProducts.DataSource = dtProducts;
+                    newProduct = true;
                     //-------------------------------------------------------------------------------------------------------
                 }
                 else if (query.OrderNo == orderNo && query.ProductID == addProduct.ProductID) //?????
@@ -392,6 +392,7 @@ namespace ARWEN
             {
                 if (orderType == "Edit")
                 {
+
                     var query = dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
                     if (query == null)
                     {
