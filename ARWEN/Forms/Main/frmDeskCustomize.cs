@@ -288,14 +288,17 @@ namespace ARWEN
                 oDetail.NotEditable = false;
                 oDetail.OrderPrice = addProduct.Price;
                 oDetail.Amount = 1;
-                oDetail.OrderPrice = totalPrice;
                 oDetail.EditState = 0;
                 //---------------
+
                 var query =
                     dbContext.OrderDetail
                         .Where(x => x.OrderNo == orderNo)
                         .FirstOrDefault(x => x.ProductID == addProduct.ProductID);
-                if (query == null)
+
+                var s = oDetails.Where(x => x.ProductID == addProduct.ProductID && x.OrderNo == orderNo).FirstOrDefault();
+
+                if (s == null)
                 {
                     dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
                     oDetails.Add(oDetail);
@@ -306,6 +309,7 @@ namespace ARWEN
                 }
                 else if (query.OrderNo == orderNo && query.ProductID == addProduct.ProductID) //?????
                 {
+                    
                     MessageBox.Show("Bu yemek zaten var");
                 }
 
@@ -409,9 +413,7 @@ namespace ARWEN
                             oDetail.ProductID = productId;
                             oDetail.NotEditable = false;
                             oDetail.OrderPrice = price;
-                            oDetail.EditAmount = 1;
                             oDetail.Amount = editAmount;
-                            oDetail.EditAmount = editAmount;
                             oDetail.OrderPrice = totalPrice;
                             //--
                             oDetails.Add(oDetail);
@@ -423,7 +425,6 @@ namespace ARWEN
                             oDetail.Amount = 1;
                             oDetail.EditAmount = 1;
                             oDetail.Amount = editAmount;
-                            oDetail.EditAmount = editAmount;
                             oDetail.OrderPrice = totalPrice;
                         }
 
@@ -431,9 +432,7 @@ namespace ARWEN
                     else
                     {
                         query.Amount = 1;
-                        query.EditAmount = 1;
                         query.Amount = editAmount;
-                        query.EditAmount = editAmount;
                         query.OrderPrice = totalPrice;
                     }
                 }
@@ -450,7 +449,7 @@ namespace ARWEN
             if (currow != null)
             {
 
-                if (Convert.ToInt32(currow["Amount"]) >= 1)
+                if (Convert.ToInt32(currow["Amount"]) >= 2)
                 {
 
                     productId = Convert.ToInt32(currow["ProductID"]);
@@ -529,7 +528,8 @@ namespace ARWEN
                             .FirstOrDefault();
                     if (query != null)
                     {
-                        dbContext.OrderDetail.Remove(query);
+
+                        oDetails.Remove(query);
                     }
                     else
                     {
