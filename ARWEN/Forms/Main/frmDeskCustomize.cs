@@ -233,6 +233,23 @@ namespace ARWEN
                 sndrButton.Click += groupButton_Click;
             }
         }
+
+        bool findProduct = false;
+        private void FindProductID(int id)
+        {
+            DataRow[] dr = dtProducts.Select("ProductID = '" + id + "'");
+            if (dr.Length > 0)
+            {              
+                findProduct = true;
+            }
+            else
+            {
+                findProduct = false;
+            }
+
+          
+        }
+      
         private void productButton_Click(object sender, EventArgs e)
         {
 
@@ -250,10 +267,11 @@ namespace ARWEN
                         .Select(y => new { Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName })
                         .ToList();
 
-
+                  
 
                     foreach (var result in addProduct)
                     {
+                        FindProductID(result.Id);
                         Adet = 1;
                         products.ProductName = result.Ad;
                         products.Price = result.Fiyat;
@@ -262,14 +280,24 @@ namespace ARWEN
 
                     }
 
-                    dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
+                    if (!findProduct)
+                    {
+                        dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
 
-                    gridView1.OptionsView.ShowFooter = true;
-                    gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                    gridView1.Columns[2].SummaryItem.FieldName = "Price";
-                    gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
+                        gridView1.OptionsView.ShowFooter = true;
+                        gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                        gridView1.Columns[2].SummaryItem.FieldName = "Price";
+                        gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
 
-                    gridProducts.DataSource = dtProducts;
+                        gridProducts.DataSource = dtProducts;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bu yemek zaten var");
+                    }
+                  
+
+                  
                 }
             }
             else if (orderType == "Edit")
