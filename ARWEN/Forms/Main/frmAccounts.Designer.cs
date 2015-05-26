@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccounts));
             this.btnFindTicket = new DevExpress.XtraEditors.SimpleButton();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,6 +40,7 @@
             // 
             this.btnFindTicket.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnFindTicket.Appearance.Options.UseFont = true;
+            this.btnFindTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnFindTicket.Image")));
             this.btnFindTicket.Location = new System.Drawing.Point(1145, 12);
             this.btnFindTicket.Name = "btnFindTicket";
             this.btnFindTicket.Size = new System.Drawing.Size(124, 149);

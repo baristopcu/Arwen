@@ -235,11 +235,13 @@ namespace ARWEN
         }
 
         bool findProduct = false;
+        string findedProductID;
         private void FindProductID(int id)
         {
             DataRow[] dr = dtProducts.Select("ProductID = '" + id + "'");
             if (dr.Length > 0)
-            {              
+            {
+                findedProductID = dr[0]["ProductID"].ToString();
                 findProduct = true;
             }
             else
@@ -247,9 +249,10 @@ namespace ARWEN
                 findProduct = false;
             }
 
-          
+
         }
-      
+
+
         private void productButton_Click(object sender, EventArgs e)
         {
 
@@ -267,7 +270,7 @@ namespace ARWEN
                         .Select(y => new { Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName })
                         .ToList();
 
-                  
+
 
                     foreach (var result in addProduct)
                     {
@@ -293,16 +296,14 @@ namespace ARWEN
                     }
                     else
                     {
-                        MessageBox.Show("Bu yemek zaten var");
+                        MessageBox.Show("Bu yemek zaten var.");
                     }
-                  
-
-                  
                 }
             }
+
             else if (orderType == "Edit")
             {
-                
+
 
                 var addProduct = dbContext.Get_All_Products()
                     .Where(x => x.ProductID == productUsedButton)
@@ -322,7 +323,7 @@ namespace ARWEN
                 if (query != null || s != null) //?????
                 {
 
-                    MessageBox.Show("Bu yemek zaten var");
+                    MessageBox.Show("Bu yemek zaten var.");
                 }
 
                 else
@@ -341,9 +342,6 @@ namespace ARWEN
                     newProduct = true;
 
                 }
-
-
-
             }
 
         }

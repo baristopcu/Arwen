@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPayment));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalCash = new DevExpress.XtraEditors.TextEdit();
@@ -186,6 +187,7 @@
             // 
             // btnTicket
             // 
+            this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
             this.btnTicket.Location = new System.Drawing.Point(843, 586);
             this.btnTicket.Name = "btnTicket";
             this.btnTicket.Size = new System.Drawing.Size(228, 49);
@@ -222,6 +224,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(1247, 447);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(265, 125);

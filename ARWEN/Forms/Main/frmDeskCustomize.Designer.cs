@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeskCustomize));
             this.btnMoveDesk = new DevExpress.XtraEditors.SimpleButton();
             this.btnWriteTicket = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddNote = new DevExpress.XtraEditors.SimpleButton();
@@ -59,6 +60,7 @@
             // 
             // btnMoveDesk
             // 
+            this.btnMoveDesk.Image = ((System.Drawing.Image)(resources.GetObject("btnMoveDesk.Image")));
             this.btnMoveDesk.Location = new System.Drawing.Point(12, 411);
             this.btnMoveDesk.Name = "btnMoveDesk";
             this.btnMoveDesk.Size = new System.Drawing.Size(271, 85);
@@ -68,6 +70,7 @@
             // 
             // btnWriteTicket
             // 
+            this.btnWriteTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteTicket.Image")));
             this.btnWriteTicket.Location = new System.Drawing.Point(12, 527);
             this.btnWriteTicket.Name = "btnWriteTicket";
             this.btnWriteTicket.Size = new System.Drawing.Size(271, 85);
@@ -77,6 +80,7 @@
             // 
             // btnAddNote
             // 
+            this.btnAddNote.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNote.Image")));
             this.btnAddNote.Location = new System.Drawing.Point(12, 643);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(271, 85);
@@ -186,6 +190,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(1166, 643);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(322, 85);
@@ -195,6 +200,7 @@
             // 
             // btnPayment
             // 
+            this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
             this.btnPayment.Location = new System.Drawing.Point(824, 643);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(325, 85);
@@ -220,6 +226,7 @@
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAdd.Appearance.Options.UseFont = true;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.Location = new System.Drawing.Point(12, 26);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(271, 85);
@@ -231,6 +238,7 @@
             // 
             this.btnLess.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnLess.Appearance.Options.UseFont = true;
+            this.btnLess.Image = ((System.Drawing.Image)(resources.GetObject("btnLess.Image")));
             this.btnLess.Location = new System.Drawing.Point(12, 142);
             this.btnLess.Name = "btnLess";
             this.btnLess.Size = new System.Drawing.Size(271, 85);
@@ -242,6 +250,7 @@
             // 
             this.btnDeleteRow.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnDeleteRow.Appearance.Options.UseFont = true;
+            this.btnDeleteRow.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteRow.Image")));
             this.btnDeleteRow.Location = new System.Drawing.Point(12, 258);
             this.btnDeleteRow.Name = "btnDeleteRow";
             this.btnDeleteRow.Size = new System.Drawing.Size(271, 85);
@@ -262,6 +271,7 @@
             // 
             this.btnSaveOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSaveOrder.Appearance.Options.UseFont = true;
+            this.btnSaveOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveOrder.Image")));
             this.btnSaveOrder.Location = new System.Drawing.Point(312, 643);
             this.btnSaveOrder.Name = "btnSaveOrder";
             this.btnSaveOrder.Size = new System.Drawing.Size(465, 85);

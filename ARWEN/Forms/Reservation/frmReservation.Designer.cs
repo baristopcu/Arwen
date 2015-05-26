@@ -54,9 +54,10 @@
             // 
             // dtEndDate
             // 
+            this.dtEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtEndDate.Location = new System.Drawing.Point(149, 132);
             this.dtEndDate.Name = "dtEndDate";
-            this.dtEndDate.Size = new System.Drawing.Size(251, 26);
+            this.dtEndDate.Size = new System.Drawing.Size(86, 26);
             this.dtEndDate.TabIndex = 5;
             // 
             // dtStartDate
@@ -152,7 +153,6 @@
             // 
             // frmReservation
             // 
-            this.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,6 +168,7 @@
             this.Controls.Add(this.dtEndDate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbTables);
+            this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReservation";

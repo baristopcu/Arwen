@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesks));
             this.btnAddReservation = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoveDesk = new DevExpress.XtraEditors.SimpleButton();
             this.flwDeskChoose = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,6 +36,7 @@
             // 
             // btnAddReservation
             // 
+            this.btnAddReservation.Image = ((System.Drawing.Image)(resources.GetObject("btnAddReservation.Image")));
             this.btnAddReservation.Location = new System.Drawing.Point(688, 21);
             this.btnAddReservation.Name = "btnAddReservation";
             this.btnAddReservation.Size = new System.Drawing.Size(271, 44);
@@ -44,6 +46,7 @@
             // 
             // btnMoveDesk
             // 
+            this.btnMoveDesk.Image = ((System.Drawing.Image)(resources.GetObject("btnMoveDesk.Image")));
             this.btnMoveDesk.Location = new System.Drawing.Point(396, 21);
             this.btnMoveDesk.Name = "btnMoveDesk";
             this.btnMoveDesk.Size = new System.Drawing.Size(271, 44);
