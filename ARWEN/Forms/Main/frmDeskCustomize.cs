@@ -274,7 +274,7 @@ namespace ARWEN
             }
             else if (orderType == "Edit")
             {
-                OrderDetail oDetail = new OrderDetail();
+                
 
                 var addProduct = dbContext.Get_All_Products()
                     .Where(x => x.ProductID == productUsedButton)
@@ -283,34 +283,35 @@ namespace ARWEN
                 products.UnitName = addProduct.UnitName;
 
                 //---------------------
-                oDetail.OrderNo = orderNo;
-                oDetail.ProductID = addProduct.ProductID;
-                oDetail.NotEditable = false;
-                oDetail.OrderPrice = addProduct.Price;
-                oDetail.Amount = 1;
-                oDetail.EditState = 0;
+
                 //---------------
 
                 var query =
                     dbContext.OrderDetail
                         .Where(x => x.OrderNo == orderNo)
                         .FirstOrDefault(x => x.ProductID == addProduct.ProductID);
-
-                var s = oDetails.Where(x => x.ProductID == addProduct.ProductID && x.OrderNo == orderNo).FirstOrDefault();
-
-                if (s == null)
+                var s = oDetails.FirstOrDefault(x => x.ProductID == addProduct.ProductID && x.OrderNo == orderNo);
+                if (query != null || s != null) //?????
                 {
+
+                    MessageBox.Show("Bu yemek zaten var");
+                }
+
+                else
+                {
+                    OrderDetail oDetail = new OrderDetail();
+                    oDetail.OrderNo = orderNo;
+                    oDetail.ProductID = addProduct.ProductID;
+                    oDetail.NotEditable = false;
+                    oDetail.OrderPrice = addProduct.Price;
+                    oDetail.Amount = 1;
+                    oDetail.EditState = 0;
                     dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
                     oDetails.Add(oDetail);
-                    dbContext.OrderDetail.Add(oDetails.Last());
+                    dbContext.OrderDetail.AddOrUpdate(oDetails.LastOrDefault());
                     gridProducts.DataSource = dtProducts;
                     newProduct = true;
-                    //-------------------------------------------------------------------------------------------------------
-                }
-                else if (query.OrderNo == orderNo && query.ProductID == addProduct.ProductID) //?????
-                {
-                    
-                    MessageBox.Show("Bu yemek zaten var");
+
                 }
 
 
@@ -377,11 +378,12 @@ namespace ARWEN
         }
 
         private RestaurantContext dbContext = new RestaurantContext();
-        List<OrderDetail> oDetails = new List<OrderDetail>(); 
+        List<OrderDetail> oDetails = new List<OrderDetail>();
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            DataRowView currow = (DataRowView)gridView1.GetRow(gridView1.FocusedRowHandle);
+            DataRowView currow = (DataRowView) gridView1.GetRow(gridView1.FocusedRowHandle);
             if (currow != null)
             {
 
@@ -394,7 +396,7 @@ namespace ARWEN
                 amount = Convert.ToInt32(currow["Amount"]);
                 editAmount = amount + 1;
                 currow[1] = editAmount;
-                totalPrice = price * editAmount;
+                totalPrice = price*editAmount;
                 currow[3] = totalPrice;
 
             }
@@ -402,23 +404,34 @@ namespace ARWEN
             {
                 if (orderType == "Edit")
                 {
-                    OrderDetail oDetail = oDetails.Last();
-                    var query = dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
+                    OrderDetail oDetail = oDetails.FirstOrDefault(x=>x.ProductID==productId);
+                    var query =
+                        dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
                     if (query == null)
                     {
                         if (newProduct)
                         {
-                            //--
-                            oDetail.OrderNo = orderNo;
-                            oDetail.ProductID = productId;
-                            oDetail.NotEditable = false;
-                            oDetail.OrderPrice = price;
-                            oDetail.Amount = editAmount;
-                            oDetail.OrderPrice = totalPrice;
-                            //--
-                            oDetails.Add(oDetail);
-                            dbContext.OrderDetail.Add(oDetails.Last());
-                            newProduct = false;
+                            var check = oDetails.FirstOrDefault(x => x.ProductID == productId);
+                            if (check == null)
+                            {
+                                oDetail.OrderNo = orderNo;
+                                oDetail.NotEditable = false;
+                                oDetail.OrderPrice = price;
+                                oDetail.Amount = editAmount;
+                                oDetail.OrderPrice = totalPrice;
+                                oDetails.Add(oDetail);
+                                dbContext.OrderDetail.AddOrUpdate(oDetails.Last());
+                                newProduct = false;
+                            }
+                            else
+                            {
+                                oDetail.Amount = 1;
+                                oDetail.EditAmount = 1;
+                                oDetail.EditAmount = editAmount;
+                                oDetail.Amount = editAmount;
+                                oDetail.OrderPrice = totalPrice;
+                            }
+
                         }
                         else
                         {
@@ -459,55 +472,61 @@ namespace ARWEN
 
                     amount = Convert.ToInt32(currow["Amount"]);
                     editAmount = amount - 1;
+                    if (editAmount <= 0)
+                    {
+                        editAmount = 0;
+                    }
                     currow[1] = editAmount;
-
+                   
                     totalPrice = Convert.ToDecimal(currow["Price"]) - price;
                     currow[3] = totalPrice;
 
                     if (_tableState == 1)
                     {
-                        //if (orderType == "Edit")
-                        //{
-                        //    var result =
-                        //        dbContext.OrderDetail.FirstOrDefault(
-                        //            x => x.ProductID == productId && x.OrderNo == orderNo);
-                        //    if (result == null)
-                        //    {
-                        //        if (newProduct)
-                        //        {
+                        OrderDetail oDetail = oDetails.FirstOrDefault(x => x.ProductID == productId);
+                        var queryOD =
+                            dbContext.OrderDetail.FirstOrDefault(x => x.ProductID == productId && x.OrderNo == orderNo);
+                        if (queryOD == null)
+                        {
+                            if (newProduct)
+                            {
+                                var check = oDetails.FirstOrDefault(x => x.ProductID == productId);
+                                if (check == null)
+                                {
+                                    oDetail.OrderNo = orderNo;
+                                    oDetail.NotEditable = false;
+                                    oDetail.OrderPrice = price;
+                                    oDetail.Amount = editAmount;
+                                    oDetail.OrderPrice = totalPrice;
+                                    oDetails.Add(oDetail);
+                                    dbContext.OrderDetail.AddOrUpdate(oDetails.Last());
+                                    newProduct = false;
+                                }
+                                else
+                                {
+                                    oDetail.Amount = 1;
+                                    oDetail.EditAmount = 1;
+                                    oDetail.EditAmount = editAmount;
+                                    oDetail.Amount = editAmount;
+                                    oDetail.OrderPrice = totalPrice;
+                                }
 
-                        //            //--
-                        //            oDetail.OrderNo = orderNo;
-                        //            oDetail.ProductID = productId;
-                        //            oDetail.NotEditable = false;
-                        //            oDetail.OrderPrice = price;
-                        //            oDetail.EditAmount = 1;
-                        //            oDetail.Amount = editAmount;
-                        //            oDetail.EditAmount = editAmount;
-                        //            oDetail.OrderPrice = totalPrice;
-                        //            //--
-                        //            newProduct = false;
-                        //        }
-                        //        else
-                        //        {
-                        //            oDetail.Amount = 1;
-                        //            oDetail.EditAmount = 1;
-                        //            oDetail.Amount = editAmount;
-                        //            oDetail.EditAmount = editAmount;
-                        //            oDetail.OrderPrice = totalPrice;
-                        //        }
+                            }
+                            else
+                            {
+                                oDetail.Amount = 1;
+                                oDetail.EditAmount = 1;
+                                oDetail.Amount = editAmount;
+                                oDetail.OrderPrice = totalPrice;
+                            }
 
-                        //    }
-                        //    else
-                        //    {
-                        //        result.Amount = 1;
-                        //        result.EditAmount = 1;
-                        //        result.Amount = editAmount;
-                        //        result.EditAmount = editAmount;
-                        //        result.OrderPrice = totalPrice;
-                        //    }
-                        //    dbContext.OrderDetail.AddOrUpdate(oDetail);
-                        //}
+                        }
+                        else
+                        {
+                            queryOD.Amount = 1;
+                            queryOD.Amount = editAmount;
+                            queryOD.OrderPrice = totalPrice;
+                        }
                     }
                 }
             }
@@ -529,11 +548,11 @@ namespace ARWEN
                     if (query != null)
                     {
 
-                        oDetails.Remove(query);
+                        dbContext.OrderDetail.Remove(query);
                     }
                     else
                     {
-                        dbContext.OrderDetail.Remove(oDetails.Last());
+                        dbContext.OrderDetail.Remove(oDetails.FirstOrDefault(x=>x.ProductID==productId));
                     }
 
                 }
@@ -578,8 +597,10 @@ namespace ARWEN
                 }
 
                 frmOrderComplete frm = new frmOrderComplete();
+         
                 frm.Total = Convert.ToDecimal(dtProducts.Compute("Sum(Price)", ""));
                 frm.Table = this.Tag.ToString();
+                frm.ODetails = oDetails;
                 frm.DtProducts = dtProducts;
                 frm.ProductIds = ProductIds;
                 frm.ProductAmounts = ProductAmounts;
