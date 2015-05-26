@@ -45,6 +45,8 @@
             this.btnCompanySettings = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnChangePassword = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup5 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.btnReservePassword = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -58,7 +60,8 @@
             this.navBarGroup1,
             this.navBarGroup4,
             this.navBarGroup2,
-            this.navBarGroup3});
+            this.navBarGroup3,
+            this.navBarGroup5});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.btnUsers,
             this.btnUnits,
@@ -70,7 +73,8 @@
             this.btnCustomers,
             this.btnSuppliers,
             this.btnInvoices,
-            this.btnShowInvoices});
+            this.btnShowInvoices,
+            this.btnReservePassword});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
@@ -183,6 +187,20 @@
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnChangePassword_LinkClicked);
             // 
+            // navBarGroup5
+            // 
+            this.navBarGroup5.Caption = "Program";
+            this.navBarGroup5.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
+            this.navBarGroup5.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.btnReservePassword)});
+            this.navBarGroup5.Name = "navBarGroup5";
+            // 
+            // btnReservePassword
+            // 
+            this.btnReservePassword.Caption = "Rezervasyon Şifresi";
+            this.btnReservePassword.Name = "btnReservePassword";
+            this.btnReservePassword.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnReservePassword_LinkClicked);
+            // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
@@ -197,7 +215,7 @@
             this.IsMdiContainer = true;
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSettings";
+            this.Text = "AYARLAR";
             this.Load += new System.EventHandler(this.frmSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
@@ -224,5 +242,7 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
         private DevExpress.XtraNavBar.NavBarItem btnInvoices;
         private DevExpress.XtraNavBar.NavBarItem btnShowInvoices;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup5;
+        private DevExpress.XtraNavBar.NavBarItem btnReservePassword;
     }
 }

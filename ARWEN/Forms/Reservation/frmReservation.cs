@@ -56,24 +56,7 @@ namespace ARWEN.Forms
             dtEndDate.ShowUpDown = true;
         }
 
-        public string CreatePassword()
-        {
-            string pas = Guid.NewGuid().ToString();
-            string sonKod = string.Empty;
-            foreach (char item in pas)
-            {
-                if (char.IsNumber(item))
-                {
-                    sonKod += item;
-                }
-            }
-
-            sonKod = sonKod.Substring(0, 5);
-
-            return sonKod;
-
-        }
-
+     
         private void frmReservation_Load(object sender, EventArgs e)
         {           
             GetTables();
@@ -83,19 +66,20 @@ namespace ARWEN.Forms
        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string pass = CreatePassword();
             using (RestaurantContext dbContext = new RestaurantContext())
             {
+                var pass = dbContext.ReservationPasswords.FirstOrDefault();
+
                 DTO.Database.Reservation reserve = new DTO.Database.Reservation()
                 {
                     CustomerID = Convert.ToInt32(cmbCustomers.SelectedValue),
                     UserID = GlobalUser.UserID,
                     Capacity = Convert.ToInt32(nudCapacity.Text),
                     TableNo = Convert.ToString(cmbTables.SelectedValue),
-                    Password = pass,
+                    Password = pass.Password,
                     StartDate = Convert.ToDateTime(dtStartDate.Value),
                     EndDate = Convert.ToDateTime(dtEndDate.Value)
-                    
+
                 };
 
                 dbContext.Reservation.Add(reserve);
@@ -106,10 +90,10 @@ namespace ARWEN.Forms
                 var query = dbContext.RestaurantTables.Where(x => x.TableNo == lastId).FirstOrDefault();
                 query.State = 2;
                 dbContext.SaveChanges();
-                
+
 
                 MessageBox.Show("Rezervasyon başarıyla kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
-                       MessageBoxIcon.Information);          
+                       MessageBoxIcon.Information);
                 this.Close();
 
             }

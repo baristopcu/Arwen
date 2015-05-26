@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
+using System.Security.Cryptography;
 
 namespace ARWEN.Forms.Reservation
 {
@@ -29,6 +30,22 @@ namespace ARWEN.Forms.Reservation
         }
 
 
+        public static string GetMd5Hash(string input)
+        {
+            MD5 md5Hasher = MD5.Create();
+
+            byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+
+            StringBuilder sBuilder = new StringBuilder();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("X2"));
+            }
+
+            return sBuilder.ToString();
+        }
+
         private void frmReservedPassword_Load(object sender, EventArgs e)
         {
 
@@ -40,9 +57,9 @@ namespace ARWEN.Forms.Reservation
             {
                 var getReserveQuery = dbContext.Reservation.Where(x => x.TableNo == _tableNo).FirstOrDefault();
                 reservationPass = getReserveQuery.Password;
-                if (!string.IsNullOrEmpty(txtPassword.Text))
+                if (!string.IsNullOrEmpty(GetMd5Hash(txtPassword.Text)))
                 {
-                    if (txtPassword.Text == reservationPass)
+                    if (GetMd5Hash(txtPassword.Text) == reservationPass)
                     {
    
                         frmReserved frm = new frmReserved();

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.Forms.Settings;
 using ARWEN.Forms.Settings.Bills;
+using ARWEN.Forms.Settings.Reserve;
 using DevExpress.XtraEditors;
 
 namespace ARWEN.Forms
@@ -121,6 +122,13 @@ namespace ARWEN.Forms
         {
             frmShowInvoices frm = new frmShowInvoices();
             frm.ShowDialog();
+        }
+
+        private void btnReservePassword_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmChangeReservePassword frm = new frmChangeReservePassword();
+
+            IsOpenForm(frm, "REZERVASYON ŞİFRE AYARLARI", "REZERVASYON ŞİFRE AYARLARI");
         }
        
     }

@@ -93,7 +93,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAccounts";
+            this.Text = "GENEL HESAP RAPORU";
             this.Load += new System.EventHandler(this.frmAccounts_Load);
             this.ResumeLayout(false);
 

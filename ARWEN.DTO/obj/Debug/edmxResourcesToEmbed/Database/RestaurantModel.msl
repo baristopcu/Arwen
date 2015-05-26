@@ -163,6 +163,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ReservationPasswords">
+      <EntityTypeMapping TypeName="RestaurantModel.ReservationPasswords">
+        <MappingFragment StoreEntitySet="ReservationPasswords">
+          <ScalarProperty Name="ReservationPasswordID" ColumnName="ReservationPasswordID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RestaurantTables">
       <EntityTypeMapping TypeName="RestaurantModel.RestaurantTables">
         <MappingFragment StoreEntitySet="RestaurantTables">

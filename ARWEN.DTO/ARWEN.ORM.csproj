@@ -168,6 +168,9 @@
     <Compile Include="Database\Reservation.cs">
       <DependentUpon>RestaurantModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\ReservationPasswords.cs">
+      <DependentUpon>RestaurantModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\RestaurantModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

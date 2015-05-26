@@ -170,12 +170,19 @@
     <Property Name="StartDate" Type="DateTime" Precision="3" />
     <Property Name="EndDate" Type="DateTime" Precision="3" />
     <Property Name="Capacity" Type="Int32" />
-    <Property Name="Password" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Cancel" Type="Byte" />
     <Property Name="Used" Type="Byte" />
     <NavigationProperty Name="Customers" Relationship="Self.FK_Reservation_Customers" FromRole="Reservation" ToRole="Customers" />
     <NavigationProperty Name="RestaurantTables" Relationship="Self.FK_Reservation_RestaurantTables" FromRole="Reservation" ToRole="RestaurantTables" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Reservation_Users" FromRole="Reservation" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="ReservationPasswords">
+    <Key>
+      <PropertyRef Name="ReservationPasswordID" />
+    </Key>
+    <Property Name="ReservationPasswordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RestaurantTables">
     <Key>
@@ -481,6 +488,7 @@
     <EntitySet Name="PurchaseDetail" EntityType="Self.PurchaseDetail" />
     <EntitySet Name="Purchases" EntityType="Self.Purchases" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+    <EntitySet Name="ReservationPasswords" EntityType="Self.ReservationPasswords" />
     <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" />
     <EntitySet Name="Settings" EntityType="Self.Settings" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />

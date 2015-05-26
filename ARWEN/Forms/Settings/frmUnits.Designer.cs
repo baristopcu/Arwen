@@ -221,7 +221,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmUnits";
-            this.Text = "frmUnits";
+            this.Text = "BİRİMLER";
             this.Load += new System.EventHandler(this.frmUnits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewUnits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

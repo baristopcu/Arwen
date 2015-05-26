@@ -145,9 +145,16 @@
     <Property Name="StartDate" Type="datetime" />
     <Property Name="EndDate" Type="datetime" />
     <Property Name="Capacity" Type="int" />
-    <Property Name="Password" Type="nvarchar" MaxLength="5" />
+    <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="Cancel" Type="tinyint" />
     <Property Name="Used" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ReservationPasswords">
+    <Key>
+      <PropertyRef Name="ReservationPasswordID" />
+    </Key>
+    <Property Name="ReservationPasswordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="RestaurantTables">
     <Key>
@@ -673,6 +680,7 @@
     <EntitySet Name="PurchaseDetail" EntityType="Self.PurchaseDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReservationPasswords" EntityType="Self.ReservationPasswords" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RestaurantTables" EntityType="Self.RestaurantTables" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />

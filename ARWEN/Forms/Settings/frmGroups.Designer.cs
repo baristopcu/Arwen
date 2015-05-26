@@ -185,7 +185,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmGroups";
-            this.Text = "frmGroups";
+            this.Text = "KATEGORİLER";
             this.Load += new System.EventHandler(this.frmGroups_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGroups)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

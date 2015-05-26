@@ -370,7 +370,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmProducts";
-            this.Text = "frmProducts";
+            this.Text = "ÜRÜNLER";
             this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

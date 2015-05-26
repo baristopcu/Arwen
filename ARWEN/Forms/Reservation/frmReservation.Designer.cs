@@ -173,7 +173,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReservation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReservation";
+            this.Text = "YENİ REZERVASYON";
             this.Load += new System.EventHandler(this.frmReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacity)).EndInit();
             this.ResumeLayout(false);

@@ -172,7 +172,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmOrderComplete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Siparişi Tamamla";
+            this.Text = "SİPARİŞİ TAMAMLA";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmOrderComplete_FormClosing);
             this.Load += new System.EventHandler(this.frmOrderComplete_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

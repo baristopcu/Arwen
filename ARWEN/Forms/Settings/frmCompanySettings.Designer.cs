@@ -167,7 +167,6 @@
             this.txtAdres.Properties.Appearance.Options.UseFont = true;
             this.txtAdres.Size = new System.Drawing.Size(413, 96);
             this.txtAdres.TabIndex = 4;
-            this.txtAdres.UseOptimizedRendering = true;
             // 
             // imgCompanyLogo
             // 
@@ -212,7 +211,7 @@
             this.Controls.Add(this.imgCompanyLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCompanySettings";
-            this.Text = "frmCompanySettings";
+            this.Text = "RESTORAN AYARLARI";
             this.Load += new System.EventHandler(this.frmCompanySettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTelephone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();

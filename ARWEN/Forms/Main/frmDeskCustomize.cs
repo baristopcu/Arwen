@@ -265,9 +265,9 @@ namespace ARWEN
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
 
-                    var addProduct = dbContext.Get_All_Products()
+                    var addProduct = dbContext.Products
                         .Where(x => x.ProductID == productUsedButton)
-                        .Select(y => new { Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName })
+                        .Select(y => new { Ad = y.ProductName, Fiyat = y.Price, Id = y.ProductID, Birim = y.UnitName, Varmi= y.Availability })
                         .ToList();
 
 
@@ -280,19 +280,28 @@ namespace ARWEN
                         products.Price = result.Fiyat;
                         products.ProductID = result.Id;
                         products.UnitName = result.Birim;
+                        products.Availability = result.Varmi;
 
                     }
 
                     if (!findProduct)
                     {
-                        dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
+                        if (!products.Availability)
+                        {
+                            dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
 
-                        gridView1.OptionsView.ShowFooter = true;
-                        gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                        gridView1.Columns[2].SummaryItem.FieldName = "Price";
-                        gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
+                            gridView1.OptionsView.ShowFooter = true;
+                            gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                            gridView1.Columns[2].SummaryItem.FieldName = "Price";
+                            gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
 
-                        gridProducts.DataSource = dtProducts;
+                            gridProducts.DataSource = dtProducts;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ürün mutfakta yok.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                       
                     }
                     else
                     {
@@ -305,11 +314,12 @@ namespace ARWEN
             {
 
 
-                var addProduct = dbContext.Get_All_Products()
+                var addProduct = dbContext.Products
                     .Where(x => x.ProductID == productUsedButton)
                     .FirstOrDefault();
                 products.ProductName = addProduct.ProductName;
                 products.UnitName = addProduct.UnitName;
+                products.Availability = addProduct.Availability;
 
                 //---------------------
 
@@ -335,11 +345,18 @@ namespace ARWEN
                     oDetail.OrderPrice = addProduct.Price;
                     oDetail.Amount = 1;
                     oDetail.EditState = 0;
-                    dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
-                    oDetails.Add(oDetail);
-                    dbContext.OrderDetail.AddOrUpdate(oDetails.LastOrDefault());
-                    gridProducts.DataSource = dtProducts;
-                    newProduct = true;
+                    if (!products.Availability)
+                    {
+                        dtProducts.Rows.Add(oDetail.ProductID, oDetail.Amount, products.ProductName, oDetail.OrderPrice, products.UnitName);
+                        oDetails.Add(oDetail);
+                        dbContext.OrderDetail.AddOrUpdate(oDetails.LastOrDefault());
+                        gridProducts.DataSource = dtProducts;
+                        newProduct = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ürün mutfakta yok.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
             }
@@ -564,21 +581,29 @@ namespace ARWEN
             if (currow != null)
             {
                 productId = Convert.ToInt32(currow["ProductID"]);
-                currow.Row.Delete();
+              
                 if (_tableState == 1)
                 {
-
                     OrderDetail query =
                         dbContext.OrderDetail.Where(x => x.OrderNo == orderNo && x.ProductID == productId)
                             .FirstOrDefault();
                     if (query != null)
                     {
-
-                        dbContext.OrderDetail.Remove(query);
+                        if (query.NotEditable == false)
+                        {
+                            currow.Row.Delete();
+                            dbContext.OrderDetail.Remove(query);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ürün iptal edilemez mutfak tarafından sipariş hazırlandı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+   
                     }
                     else
                     {
-                        dbContext.OrderDetail.Remove(oDetails.FirstOrDefault(x=>x.ProductID==productId));
+                        currow.Row.Delete();
+                        dbContext.OrderDetail.Remove(oDetails.FirstOrDefault(x => x.ProductID == productId));
                     }
 
                 }

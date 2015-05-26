@@ -159,7 +159,6 @@
             this.txtDescription.Properties.Appearance.Options.UseFont = true;
             this.txtDescription.Size = new System.Drawing.Size(323, 96);
             this.txtDescription.TabIndex = 2;
-            this.txtDescription.UseOptimizedRendering = true;
             // 
             // label2
             // 
@@ -249,7 +248,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmTables";
-            this.Text = "frmTables";
+            this.Text = "MASALAR";
             this.Load += new System.EventHandler(this.frmTables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -180,6 +180,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Main\frmKitchenUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\frmKitchenUser.Designer.cs">
+      <DependentUpon>frmKitchenUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\frmKitchenUserDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\frmKitchenUserDesk.Designer.cs">
+      <DependentUpon>frmKitchenUserDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main\frmSelectCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,12 +221,6 @@
     </Compile>
     <Compile Include="Forms\Main\frmAddOrderNote.Designer.cs">
       <DependentUpon>frmAddOrderNote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Main\frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Main\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main\frmReportView.cs">
       <SubType>Form</SubType>
@@ -420,6 +432,12 @@
     <Compile Include="Forms\Settings\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Settings\Reserve\frmChangeReservePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Settings\Reserve\frmChangeReservePassword.Designer.cs">
+      <DependentUpon>frmChangeReservePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -432,6 +450,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>XRDesignRibbonControllerResources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Main\frmKitchenUser.resx">
+      <DependentUpon>frmKitchenUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\frmKitchenUserDesk.resx">
+      <DependentUpon>frmKitchenUserDesk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -443,9 +470,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmAddOrderNote.resx">
       <DependentUpon>frmAddOrderNote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\frmReportView.resx">
       <DependentUpon>frmReportView.cs</DependentUpon>
@@ -551,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Settings\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Settings\Reserve\frmChangeReservePassword.resx">
+      <DependentUpon>frmChangeReservePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

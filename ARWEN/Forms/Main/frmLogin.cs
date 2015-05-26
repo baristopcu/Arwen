@@ -7,12 +7,13 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ARWEN.Class;
-using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
 using System.Security.Cryptography;
+using ARWEN.Forms.Main;
+using ARWEN.Class;
+using ARWEN.DTO.Database;
 
-namespace ARWEN.Forms
+namespace ARWEN.Forms.Main
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
@@ -35,6 +36,11 @@ namespace ARWEN.Forms
             }
 
             return sBuilder.ToString();
+        }
+
+        private void frmLogin1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -60,9 +66,9 @@ namespace ARWEN.Forms
                     using (RestaurantContext dbContext = new RestaurantContext())
                     {
                         string pass = GetMd5Hash(txtPassword.Text);
-                       var query = dbContext.Users.Where(
-                            x => x.UserName == txtUserName.Text && x.Password == pass)
-                            .FirstOrDefault();
+                        var query = dbContext.Users.Where(
+                             x => x.UserName == txtUserName.Text && x.Password == pass)
+                             .FirstOrDefault();
                         if (query == null)
                         {
                             MessageBox.Show("Kullanıcı adı veya Şifre yanlış!", "ARWEN", MessageBoxButtons.OK,
@@ -71,20 +77,38 @@ namespace ARWEN.Forms
                         }
                         else
                         {
-                          
+
                             GlobalUser.FullName = query.FullName;
                             GlobalUser.UserName = query.FullName;
                             GlobalUser.UserID = query.UserID;
                             GlobalUser.Password = query.Password;
                             GlobalUser.PermissionID = query.PermissionID;
 
-                            //frmMain frm  = new frmMain();
-                            //this.Hide();
-                            //frm.ShowDialog();
-                            //this.Show();
-                            
-                            MessageBox.Show("Giriş başarılı!", "ARWEN", MessageBoxButtons.OK,
-                               MessageBoxIcon.Information);
+                            if (GlobalUser.PermissionID == 1 || GlobalUser.PermissionID == 2)
+                            {
+                                MessageBox.Show("Hoşgeldin" + " " + GlobalUser.FullName, "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                
+                                frmMain frm = new frmMain();
+                                this.Hide();
+                                frm.ShowDialog();
+                                this.Show();
+                                
+                            }
+                            else if (GlobalUser.PermissionID == 3)
+                            {
+                                MessageBox.Show("Hoşgeldin" + " " + GlobalUser.FullName, "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                frmKitchenUser frm = new frmKitchenUser();
+                                this.Hide();
+                                frm.ShowDialog();
+                                this.Show();
+                            }
+                            else if (GlobalUser.PermissionID == 4)
+                            {
+                                MessageBox.Show("Üzgünüm" + " " + GlobalUser.FullName + " " + "buradan giriş yapamazsın.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+
                         }
                     }
                 }

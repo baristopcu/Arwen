@@ -117,6 +117,7 @@ namespace ARWEN.Forms
         private void frmAccountDetail_Load(object sender, EventArgs e)
         {
             GetAccountDetails(detailName);
+            this.Text = detailName;
         }
     }
 }

@@ -141,7 +141,7 @@
             this.Controls.Add(this.txtOldPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChangePassword";
-            this.Text = "frmChangePassword";
+            this.Text = "ŞİFRE DEĞİŞTİR";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).EndInit();

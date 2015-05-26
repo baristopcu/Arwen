@@ -356,7 +356,6 @@
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
             this.txtAddress.Size = new System.Drawing.Size(323, 96);
             this.txtAddress.TabIndex = 2;
-            this.txtAddress.UseOptimizedRendering = true;
             // 
             // label2
             // 
@@ -435,7 +434,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCustomers";
-            this.Text = "frmCustomers";
+            this.Text = "MÜŞTERİLER";
             this.Load += new System.EventHandler(this.frmCustomers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
