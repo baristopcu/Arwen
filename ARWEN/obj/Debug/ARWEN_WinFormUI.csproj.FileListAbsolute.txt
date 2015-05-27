@@ -459,7 +459,6 @@ C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN_WinFormUI.csprojRe
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmAccountDetail.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmAccounts.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmAddOrderNote.resources
-C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmLogin.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmTickets.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Print.frmPrintDialog.resources
 C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.frmReservation.resources
@@ -1390,3 +1389,7 @@ C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Reserve.frmChang
 C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmKitchenUser.resources
 C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmKitchenUserDesk.resources
 C:\Users\can\Desktop\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmLogin.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmKitchenUser.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmKitchenUserDesk.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Main.frmLogin.resources
+C:\Users\Barış\Documents\GitHub\Arwen\ARWEN\obj\Debug\ARWEN.Forms.Settings.Reserve.frmChangeReservePassword.resources

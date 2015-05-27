@@ -163,5 +163,6 @@ namespace ARWEN.Forms.Settings.Bills
             frm.ShowDialog();
             this.Show();
         }
+
     }
 }
