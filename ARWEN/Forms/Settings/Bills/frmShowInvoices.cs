@@ -152,5 +152,16 @@ namespace ARWEN.Forms.Settings.Bills
                 focusedRowNIdNumber = a.GetFocusedRowCellValue("PurchaseID").ToString();
             }
         }
+
+        private void btnCustomize_Click(object sender, EventArgs e)
+        {
+            int index = gridView1.FocusedRowHandle;
+            int InvocideID = Convert.ToInt32(gridView1.GetRowCellValue(index, "PurchaseID").ToString());
+            frmInvoices frm = new frmInvoices();
+            frm.FicheID = InvocideID;
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

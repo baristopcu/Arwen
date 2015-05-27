@@ -46,9 +46,12 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnCustomize = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCustomize)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView2
@@ -105,6 +108,8 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnCustomize});
             this.gridControl1.Size = new System.Drawing.Size(1321, 503);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -123,7 +128,8 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.gridColumn12});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
@@ -217,6 +223,20 @@
             this.gridColumn10.VisibleIndex = 9;
             this.gridColumn10.Width = 184;
             // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Düzenle";
+            this.gridColumn12.ColumnEdit = this.btnCustomize;
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 10;
+            // 
+            // btnCustomize
+            // 
+            this.btnCustomize.AutoHeight = false;
+            this.btnCustomize.Name = "btnCustomize";
+            this.btnCustomize.Click += new System.EventHandler(this.btnCustomize_Click);
+            // 
             // frmShowInvoices
             // 
             this.Appearance.Options.UseFont = true;
@@ -234,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCustomize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +278,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit btnCustomize;
     }
 }

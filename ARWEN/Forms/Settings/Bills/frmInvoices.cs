@@ -37,8 +37,18 @@ namespace ARWEN.Forms.Settings.Bills
         decimal totalTax, productLinePrice, totalDiscount;
         int lastFiche = 0;
         private List<int> productIds = new List<int>();
+        private List<OrderDetail> iDetails = new List<OrderDetail>();
         private List<decimal> productPrices = new List<decimal>();
         private List<int> productAmounts = new List<int>();
+        long ficheID;
+        string invoiceType = "New";
+
+        public long FicheID
+        {
+            get { return ficheID; }
+            set { ficheID = value; }
+        }
+
         #endregion
 
         private void GetSuppliers()
@@ -198,64 +208,168 @@ namespace ARWEN.Forms.Settings.Bills
          
         }
 
+        private void InvoiceStateControl(long ficheıdnull)
+        {
+            if (ficheıdnull == null)
+            {               
+                txtNo.Text = GetLastFicheNo().ToString();
+                dtpBill.DateTime = DateTime.Today;
+            }
+            else
+            {
+                invoiceType = "Edit";
+                List<object> invoiceDetailList = new List<object>();
+
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var GetInvoiceHeader = dbContext.Purchases.Where(p => p.PurchaseID == FicheID).FirstOrDefault();
+                    cmbSupplier.SelectedValue = GetInvoiceHeader.SupplierID;
+                    cmbFicheType.SelectedValue = GetInvoiceHeader.FicheTypeID;
+                    int detailRow = dbContext.PurchaseDetail.Where(pd => pd.PurchaseID == FicheID).Count();
+
+                    for (int i = 0; i < detailRow; i++)
+                    {
+                        var query =
+                            dbContext.Purchases.AsNoTracking()
+                                .Join(dbContext.PurchaseDetail, p => p.PurchaseID, pd => pd.PurchaseID, (p, pd) => new { p, pd }).Join(dbContext.Products, pp => pp.pd.ProductID, pq => pq.ProductID, (pp, pq) => new { pp, pq }).Join(dbContext.Groups, p => p.pq.GroupID, g => g.GroupID, (p, g) => new {p,g })
+                                .Where(b => b.p.pp.pd.PurchaseID == FicheID)
+                                .Select(s => new
+                                {
+                                    s.p.pq.ProductName,
+                                    UrunFiyat=s.p.pq.Price,
+                                    s.p.pp.pd.Amount,
+                                    s.p.pq.UnitName,
+                                    s.p.pp.pd.Price,
+                                    s.p.pp.p.Discount,
+                                    s.p.pp.p.TotalDiscount,
+                                    s.p.pp.p.Tax,
+                                    s.p.pp.p.TotalTax,
+                                    s.p.pq.ProductID,
+                                    s.g.GroupName
+
+
+                                }).AsQueryable();
+
+                        invoiceDetailList.AddRange(query.ToList());
+
+                        foreach (var result in query)
+                        {
+                            dtProductLines.Rows.Add(result.ProductName, result.Amount, result.GroupName, result.UrunFiyat, result.Discount, result.TotalDiscount, result.Price, result.Tax, result.TotalTax, result.ProductID);
+                            gridControl1.DataSource = dtProductLines;
+                        }
+
+                        GeneralCalculate();
+                        break;
+                    }
+                }
+            }
+        }
+
         private void frmBuyBills_Load(object sender, EventArgs e)
         {
             GetSuppliers();
             GetProducts();
             GetFicheTypes();
-            txtNo.Text = GetLastFicheNo().ToString();
-            gridView1.BestFitColumns();
-            dtpBill.DateTime = DateTime.Today;        
+            InvoiceStateControl(FicheID);
+          
         }
         
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Purchases purchase = new Purchases();
-            PurchaseDetail pDetail = new PurchaseDetail();
-            using (RestaurantContext dbContext = new RestaurantContext())
+            if (invoiceType == "New")
             {
-                purchase.Description = txtDescription.Text;
-                purchase.Discount = Convert.ToInt32(txtDiscount.Text);
-                purchase.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
-                purchase.Tax = Convert.ToInt32(txtTax.Text);
-                purchase.TotalTax = Convert.ToDecimal(totalTax);
-                purchase.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
-                purchase.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
-                purchase.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
-                purchase.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
-
-                dbContext.Purchases.Add(purchase);
-                dbContext.SaveChanges();
-
-                lastFiche = Convert.ToInt32(purchase.PurchaseID);
-
-                foreach (DataRow x in dtProductLines.Rows)
+                Purchases purchase = new Purchases();
+                PurchaseDetail pDetail = new PurchaseDetail();
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    productIds.Add(Convert.ToInt32(x["ProductId"]));
-                    productAmounts.Add(Convert.ToInt32(x["Amount"]));
-                    productPrices.Add(Convert.ToDecimal(x["Price"]));
+                    purchase.Description = txtDescription.Text;
+                    purchase.Discount = Convert.ToInt32(txtDiscount.Text);
+                    purchase.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
+                    purchase.Tax = Convert.ToInt32(txtTax.Text);
+                    purchase.TotalTax = Convert.ToDecimal(totalTax);
+                    purchase.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                    purchase.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
+                    purchase.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                    purchase.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
 
-                }
-
-                for (int i = 0; i < dtProductLines.Rows.Count; i++)
-                {
-                    pDetail.PurchaseID = lastFiche;
-                    pDetail.ProductID = productIds[i];
-                    pDetail.Amount = productAmounts[i];
-                    pDetail.Price = productPrices[i];
-
-                    dbContext.PurchaseDetail.Add(pDetail);
+                    dbContext.Purchases.Add(purchase);
                     dbContext.SaveChanges();
 
+                    lastFiche = Convert.ToInt32(purchase.PurchaseID);
+
+                    foreach (DataRow x in dtProductLines.Rows)
+                    {
+                        productIds.Add(Convert.ToInt32(x["ProductId"]));
+                        productAmounts.Add(Convert.ToInt32(x["Amount"]));
+                        productPrices.Add(Convert.ToDecimal(x["Price"]));
+
+                    }
+
+                    for (int i = 0; i < dtProductLines.Rows.Count; i++)
+                    {
+                        pDetail.PurchaseID = lastFiche;
+                        pDetail.ProductID = productIds[i];
+                        pDetail.Amount = productAmounts[i];
+                        pDetail.Price = productPrices[i];
+
+                        dbContext.PurchaseDetail.Add(pDetail);
+                        dbContext.SaveChanges();
+
+                    }
+
+                     dbContext.SaveChanges();
+                    MessageBox.Show("Faturanız başarıyla kayıt edilmiştir.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    this.Close();
                 }
+            }
+            else if (invoiceType == "Edit")
+            {
+                using(RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var query = dbContext.Purchases.Where(x => x.PurchaseID == FicheID).FirstOrDefault();
+                    if (query != null)
+                    {
+                        query.Description = txtDescription.Text;
+                        query.Discount = Convert.ToInt32(txtDiscount.Text);
+                        query.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
+                        query.Tax = Convert.ToInt32(txtTax.Text);
+                        query.TotalTax = Convert.ToDecimal(totalTax);
+                        query.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                        query.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
+                        query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                        query.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
 
-                dbContext.SaveChanges();
+                        //var oDetailNull = oDetails.FirstOrDefault();
+                        //if (oDetailNull == null)
+                        //{
+                        //    dbContext.SaveChanges();
+                        //}
+                        //else
+                        //{
+                        //    dbContext.OrderDetail.Remove(oDetails.Last());
 
-                MessageBox.Show("Faturanız başarıyla kayıt edilmiştir.", "ARWEN", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                this.Close();
+                        //    foreach (var item in oDetails)
+                        //    {
+                        //        oDetail.OrderNo = orderNo;
+                        //        oDetail.ProductID = item.ProductID;
+                        //        oDetail.Amount = item.Amount;
+                        //        oDetail.EditAmount = item.EditAmount;
+                        //        oDetail.EditState = 0;
+                        //        oDetail.NotEditable = false;
+                        //        oDetail.OrderPrice = item.OrderPrice;
+                        //        dbContext.OrderDetail.AddOrUpdate(oDetail);
+                        //        dbContext.SaveChanges();
+                        //    }
+
+                        //}
+
+                    }
+                }
+  
             }
         }
+        
 
         private void btnAddRow_Click(object sender, EventArgs e)
         {

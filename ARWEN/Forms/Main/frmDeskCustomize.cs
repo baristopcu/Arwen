@@ -261,7 +261,7 @@ namespace ARWEN
 
             if (orderType == "New")
             {
-                UnLockButtons();
+                
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
 
@@ -296,6 +296,8 @@ namespace ARWEN
                             gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
 
                             gridProducts.DataSource = dtProducts;
+
+                            UnLockButtons();
                         }
                         else
                         {
