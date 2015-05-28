@@ -29,7 +29,7 @@ namespace ARWEN.Forms.Settings.Bills
             dtProductLines.Columns.Add("TotalTax", typeof(decimal));
             dtProductLines.Columns.Add("ProductID", typeof(Int64));
 
-           
+
         }
 
         #region Fields
@@ -40,8 +40,9 @@ namespace ARWEN.Forms.Settings.Bills
         private List<OrderDetail> iDetails = new List<OrderDetail>();
         private List<decimal> productPrices = new List<decimal>();
         private List<int> productAmounts = new List<int>();
-        long ficheID;
+        long ficheID = 0;
         string invoiceType = "New";
+        private bool newIn = false;
 
         public long FicheID
         {
@@ -103,8 +104,8 @@ namespace ARWEN.Forms.Settings.Bills
                     totalTax = productLinePrice * Convert.ToInt32(18) / 100;
                     txtTax.Text = "18";
                 }
-                
-            }  
+
+            }
             else
             {
                 int selectedTax = (int)GroupTax.EditValue;
@@ -128,7 +129,7 @@ namespace ARWEN.Forms.Settings.Bills
                 totalDiscount = 0;
             }
         }
-       
+
         private void GeneralCalculate()
         {
             if (dtProductLines.Rows.Count > 0)
@@ -143,28 +144,28 @@ namespace ARWEN.Forms.Settings.Bills
             }
         }
 
-        private void ClearGeneral(decimal productTotal, decimal totalTax,decimal totalDiscount, decimal totalPrice)
+        private void ClearGeneral(decimal productTotal, decimal totalTax, decimal totalDiscount, decimal totalPrice)
         {
             if (dtProductLines.Rows.Count > 0)
             {
                 lblProductTotal.Text = (Convert.ToDecimal(lblProductTotal.Text) - productTotal).ToString();
                 lblTotalTax.Text = (Convert.ToDecimal(lblTotalTax.Text) - totalTax).ToString();
                 lblTotalDiscount.Text = (Convert.ToDecimal(lblTotalDiscount.Text) - totalDiscount).ToString();
-                lblTotalPrice.Text = (Convert.ToDecimal(lblTotalPrice.Text) - totalPrice).ToString(); 
+                lblTotalPrice.Text = (Convert.ToDecimal(lblTotalPrice.Text) - totalPrice).ToString();
             }
             else
             {
                 lblProductTotal.Text = "[" + label8.Text + "]";
                 lblTotalTax.Text = "[" + label11.Text + "]";
                 lblTotalDiscount.Text = "[" + label9.Text + "]";
-                lblTotalPrice.Text = "[" + label12.Text + "]"; 
+                lblTotalPrice.Text = "[" + label12.Text + "]";
             }
-           
+
         }
 
         private int GetLastFicheNo()
         {
-            using(RestaurantContext dbContext = new RestaurantContext())
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
                 var lastFicheNo = dbContext.Purchases.Max(p => p.PurchaseID);
                 return Convert.ToInt32(lastFicheNo) + 1;
@@ -173,9 +174,9 @@ namespace ARWEN.Forms.Settings.Bills
 
         private void GetProductsInformation(decimal selectedID)
         {
-            using(var dbContext = new RestaurantContext())
+            using (var dbContext = new RestaurantContext())
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;  
+                dbContext.Configuration.LazyLoadingEnabled = false;
                 var query = dbContext.Products.Where(x => x.ProductID == selectedID).FirstOrDefault();
                 txtPrice.Text = query.Price.ToString();
                 txtStock.Text = query.UnitsInStock.ToString();
@@ -205,13 +206,13 @@ namespace ARWEN.Forms.Settings.Bills
                 lblWarning.ForeColor = Color.White;
                 lblWarning.Text = "Normalden Düşük Fiyat!";
             }
-         
+
         }
 
         private void InvoiceStateControl(long ficheıdnull)
         {
-            if (ficheıdnull == null)
-            {               
+            if (ficheıdnull == 0)
+            {
                 txtNo.Text = GetLastFicheNo().ToString();
                 dtpBill.DateTime = DateTime.Today;
             }
@@ -223,6 +224,10 @@ namespace ARWEN.Forms.Settings.Bills
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
                     var GetInvoiceHeader = dbContext.Purchases.Where(p => p.PurchaseID == FicheID).FirstOrDefault();
+                    txtNo.Text = GetInvoiceHeader.PurchaseID.ToString();
+                    cmbFicheType.SelectedItem = GetInvoiceHeader.FicheTypes;
+                    dtpBill.DateTime = GetInvoiceHeader.PurchaseDate;
+                    txtDescription.Text = GetInvoiceHeader.Description;
                     cmbSupplier.SelectedValue = GetInvoiceHeader.SupplierID;
                     cmbFicheType.SelectedValue = GetInvoiceHeader.FicheTypeID;
                     int detailRow = dbContext.PurchaseDetail.Where(pd => pd.PurchaseID == FicheID).Count();
@@ -231,12 +236,12 @@ namespace ARWEN.Forms.Settings.Bills
                     {
                         var query =
                             dbContext.Purchases.AsNoTracking()
-                                .Join(dbContext.PurchaseDetail, p => p.PurchaseID, pd => pd.PurchaseID, (p, pd) => new { p, pd }).Join(dbContext.Products, pp => pp.pd.ProductID, pq => pq.ProductID, (pp, pq) => new { pp, pq }).Join(dbContext.Groups, p => p.pq.GroupID, g => g.GroupID, (p, g) => new {p,g })
+                                .Join(dbContext.PurchaseDetail, p => p.PurchaseID, pd => pd.PurchaseID, (p, pd) => new { p, pd }).Join(dbContext.Products, pp => pp.pd.ProductID, pq => pq.ProductID, (pp, pq) => new { pp, pq }).Join(dbContext.Groups, p => p.pq.GroupID, g => g.GroupID, (p, g) => new { p, g })
                                 .Where(b => b.p.pp.pd.PurchaseID == FicheID)
                                 .Select(s => new
                                 {
                                     s.p.pq.ProductName,
-                                    UrunFiyat=s.p.pq.Price,
+                                    UrunFiyat = s.p.pq.Price,
                                     s.p.pp.pd.Amount,
                                     s.p.pq.UnitName,
                                     s.p.pp.pd.Price,
@@ -271,9 +276,9 @@ namespace ARWEN.Forms.Settings.Bills
             GetProducts();
             GetFicheTypes();
             InvoiceStateControl(FicheID);
-          
+
         }
-        
+        //List<PurchaseDetail> 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (invoiceType == "New")
@@ -317,7 +322,7 @@ namespace ARWEN.Forms.Settings.Bills
 
                     }
 
-                     dbContext.SaveChanges();
+                    dbContext.SaveChanges();
                     MessageBox.Show("Faturanız başarıyla kayıt edilmiştir.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     this.Close();
@@ -325,55 +330,88 @@ namespace ARWEN.Forms.Settings.Bills
             }
             else if (invoiceType == "Edit")
             {
-                using(RestaurantContext dbContext = new RestaurantContext())
+
+                //query.Description = txtDescription.Text;
+                //query.Discount = Convert.ToInt32(txtDiscount.Text);
+                //query.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
+                //query.Tax = Convert.ToInt32(txtTax.Text);
+                //query.TotalTax = Convert.ToDecimal(totalTax);
+                //query.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                //query.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
+                //query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                //query.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
+                //dbContext.SaveChanges();
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    var query = dbContext.Purchases.Where(x => x.PurchaseID == FicheID).FirstOrDefault();
+                    var query = dbContext.Purchases.FirstOrDefault(x => x.PurchaseID == FicheID);
                     if (query != null)
                     {
-                        query.Description = txtDescription.Text;
-                        query.Discount = Convert.ToInt32(txtDiscount.Text);
-                        query.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
-                        query.Tax = Convert.ToInt32(txtTax.Text);
-                        query.TotalTax = Convert.ToDecimal(totalTax);
-                        query.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
-                        query.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
-                        query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
-                        query.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
-
-                        //var oDetailNull = oDetails.FirstOrDefault();
-                        //if (oDetailNull == null)
-                        //{
-                        //    dbContext.SaveChanges();
-                        //}
-                        //else
-                        //{
-                        //    dbContext.OrderDetail.Remove(oDetails.Last());
-
-                        //    foreach (var item in oDetails)
-                        //    {
-                        //        oDetail.OrderNo = orderNo;
-                        //        oDetail.ProductID = item.ProductID;
-                        //        oDetail.Amount = item.Amount;
-                        //        oDetail.EditAmount = item.EditAmount;
-                        //        oDetail.EditState = 0;
-                        //        oDetail.NotEditable = false;
-                        //        oDetail.OrderPrice = item.OrderPrice;
-                        //        dbContext.OrderDetail.AddOrUpdate(oDetail);
-                        //        dbContext.SaveChanges();
-                        //    }
-
-                        //}
-
+                        if (newIn)
+                        {
+                            foreach (var pdResult in pDetails)
+                            {
+                                foreach (var pResult in Products)
+                                {
+                                    foreach (var purResult in Purchaseses)
+                                    {
+                                        foreach (var gResult in Groups)
+                                        {
+                                            query.Description = txtDescription.Text;
+                                            query.Discount = Convert.ToInt32(txtDiscount.Text);
+                                            query.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
+                                            query.Tax = Convert.ToInt32(txtTax.Text);
+                                            query.TotalTax = Convert.ToDecimal(totalTax);
+                                            query.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                                            query.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
+                                            query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                                            query.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
+                                            dbContext.SaveChanges();
+                                            PurchaseDetail purD = new PurchaseDetail();
+                                            purD.ProductID = pResult.ProductID;
+                                            purD.Amount = pdResult.Amount;
+                                            purD.Price = pdResult.Price;
+                                            purD.PurchaseID = pdResult.PurchaseID;
+                                            dbContext.PurchaseDetail.Add(purD);
+                                            dbContext.SaveChanges();
+                                            MessageBox.Show("ok");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            query.Description = txtDescription.Text;
+                            query.Discount = Convert.ToInt32(txtDiscount.Text);
+                            query.TotalDiscount = Convert.ToDecimal(lblTotalDiscount.Text);
+                            query.Tax = Convert.ToInt32(txtTax.Text);
+                            query.TotalTax = Convert.ToDecimal(totalTax);
+                            query.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                            query.PurchaseDate = Convert.ToDateTime(dtpBill.EditValue);
+                            query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                            query.FicheTypeID = Convert.ToInt32(cmbFicheType.SelectedValue);
+                            dbContext.SaveChanges();
+                        }
                     }
                 }
-  
+
             }
         }
-        
 
+        #region NewLists
+        List<PurchaseDetail> pDetails = new List<PurchaseDetail>();
+        List<Purchases> Purchaseses = new List<Purchases>();
+        List<Products> Products = new List<Products>();
+        List<Groups> Groups = new List<Groups>();
+       
+        Purchases purchase = new Purchases();
+        PurchaseDetail pDetail = new PurchaseDetail();
+        Products product = new Products();
+        private Groups group = new Groups();
+        #endregion
         private void btnAddRow_Click(object sender, EventArgs e)
         {
-           
+            
             int productID = Convert.ToInt32(cmbProducts.SelectedValue);
             using (RestaurantContext dbContext = new RestaurantContext())
             {
@@ -388,17 +426,40 @@ namespace ARWEN.Forms.Settings.Bills
                     CalculateTax();
                     UserWarning(addProduct.Price);
 
-                    dtProductLines.Rows.Add(addProduct.ProductName, Convert.ToInt32(txtAmount.Text), addProduct.GroupName, Convert.ToDecimal(txtPrice.Text), Convert.ToInt32(txtDiscount.Text), totalDiscount, productLinePrice, Convert.ToInt32(txtTax.Text), totalTax,Convert.ToInt64(cmbProducts.SelectedValue));
+                    dtProductLines.Rows.Add(addProduct.ProductName, Convert.ToInt32(txtAmount.Text), addProduct.GroupName, Convert.ToDecimal(txtPrice.Text), Convert.ToInt32(txtDiscount.Text), totalDiscount, productLinePrice, Convert.ToInt32(txtTax.Text), totalTax, Convert.ToInt64(cmbProducts.SelectedValue));
 
                     GeneralCalculate();
-                    gridControl1.DataSource = dtProductLines;     
+                    gridControl1.DataSource = dtProductLines;
                 }
 
                 GroupTax.SelectedIndex = -1;
+                if (invoiceType == "Edit")
+                {
+                    //Product
+                    product.ProductName = addProduct.ProductName;
+                    pDetail.Amount = Convert.ToInt32(txtAmount.Text);
+                    group.GroupName = addProduct.GroupName;
+                    pDetail.Price = Convert.ToDecimal(txtPrice.Text);
+                    purchase.Discount = Convert.ToInt32(txtDiscount.Text);
+                    purchase.TotalDiscount = totalDiscount;
+                    pDetail.Price = productLinePrice;
+                    purchase.Tax = Convert.ToInt32(txtTax.Text);
+                    purchase.TotalTax = totalTax;
+                    purchase.TotalCash = Convert.ToDecimal(lblTotalPrice.Text);
+                    pDetail.PurchaseID = Convert.ToInt32(ficheID);
+                    product.ProductID = Convert.ToInt32(cmbProducts.SelectedValue);
+
+                    Products.Add(product);
+                    Groups.Add(group);
+                    pDetails.Add(pDetail);
+                    Purchaseses.Add(purchase);
+                    newIn = true;
+
+                }
 
             }
         }
-      
+
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             decimal myselected = (decimal)((cmbProducts.SelectedItem as dynamic).ProductID);
@@ -406,7 +467,7 @@ namespace ARWEN.Forms.Settings.Bills
             if (!string.IsNullOrEmpty(txtAmount.Text))
             {
                 if (!string.IsNullOrEmpty(txtStock.Text))
-                {        
+                {
                     using (var dbContext = new RestaurantContext())
                     {
                         dbContext.Configuration.LazyLoadingEnabled = false;
@@ -421,25 +482,25 @@ namespace ARWEN.Forms.Settings.Bills
                         }
                     }
 
-                    
+
                 }
                 else
                 {
                     txtStock.Text = txtAmount.Text;
                 }
-               
+
             }
             else
             {
-                
+
                 using (var dbContext = new RestaurantContext())
                 {
                     dbContext.Configuration.LazyLoadingEnabled = false;
-                    var query = dbContext.Products.Where(x => x.ProductID == myselected).FirstOrDefault();                    
+                    var query = dbContext.Products.Where(x => x.ProductID == myselected).FirstOrDefault();
                     txtStock.Text = query.UnitsInStock.ToString();
                 }
             }
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

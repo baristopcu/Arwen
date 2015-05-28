@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using DevExpress.XtraEditors;
+
 namespace ARWEN.DTO.Database
 {
     using System;

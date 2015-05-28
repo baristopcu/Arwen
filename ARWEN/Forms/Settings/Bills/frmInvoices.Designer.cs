@@ -431,6 +431,7 @@
             // txtNo
             // 
             this.txtNo.EditValue = "";
+            this.txtNo.Enabled = false;
             this.txtNo.Location = new System.Drawing.Point(154, 24);
             this.txtNo.Name = "txtNo";
             this.txtNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
