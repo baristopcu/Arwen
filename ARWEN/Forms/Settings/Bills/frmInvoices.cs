@@ -43,6 +43,7 @@ namespace ARWEN.Forms.Settings.Bills
         long ficheID = 0;
         string invoiceType = "New";
         private bool newIn = false;
+        private bool eventSucces = false;
 
         public long FicheID
         {
@@ -326,6 +327,7 @@ namespace ARWEN.Forms.Settings.Bills
                     dbContext.SaveChanges();
                     MessageBox.Show("Faturanız başarıyla kayıt edilmiştir.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    eventSucces = true;
                     this.Close();
                 }
             }
@@ -377,6 +379,7 @@ namespace ARWEN.Forms.Settings.Bills
                     }
                     MessageBox.Show("Faturanız başarıyla güncellenmiştir", "ARWEN", MessageBoxButtons.OK,
 MessageBoxIcon.Information);
+                    eventSucces = true;
                 }
             }
 
@@ -500,12 +503,13 @@ MessageBoxIcon.Information);
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            eventSucces = false;
             this.Close();
         }
 
         private void frmBuyBills_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && eventSucces == false)
             {
                 DialogResult result = MessageBox.Show("Faturada yaptığınız değişiklikler kaydedilmedi çıkmak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -519,7 +523,7 @@ MessageBoxIcon.Information);
             }
             else
             {
-                e.Cancel = true;
+                e.Cancel = false;
             }
         }
 
