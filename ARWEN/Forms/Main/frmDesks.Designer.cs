@@ -36,7 +36,7 @@
             // 
             // flwDeskChoose
             // 
-            this.flwDeskChoose.Location = new System.Drawing.Point(31, 74);
+            this.flwDeskChoose.Location = new System.Drawing.Point(27, 98);
             this.flwDeskChoose.Name = "flwDeskChoose";
             this.flwDeskChoose.Size = new System.Drawing.Size(1281, 636);
             this.flwDeskChoose.TabIndex = 5;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 715);
+            this.ClientSize = new System.Drawing.Size(1276, 766);
             this.Controls.Add(this.flwDeskChoose);
             this.Controls.Add(this.btnAddReservation);
             this.Controls.Add(this.btnMoveDesk);

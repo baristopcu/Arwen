@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNewPass = new DevExpress.XtraEditors.TextEdit();
             this.txtOldPass = new DevExpress.XtraEditors.TextEdit();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNewPassAgain = new DevExpress.XtraEditors.TextEdit();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPassAgain.Properties)).BeginInit();
@@ -81,31 +81,6 @@
             this.txtOldPass.Size = new System.Drawing.Size(323, 24);
             this.txtOldPass.TabIndex = 0;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(369, 155);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 36);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "İptal";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(256, 155);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 36);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Kaydet";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -125,6 +100,31 @@
             this.txtNewPassAgain.Properties.UseSystemPasswordChar = true;
             this.txtNewPassAgain.Size = new System.Drawing.Size(323, 24);
             this.txtNewPassAgain.TabIndex = 2;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSave.Location = new System.Drawing.Point(256, 155);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Kaydet";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(369, 155);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "İptal";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmChangePassword
             // 
