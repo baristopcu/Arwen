@@ -307,7 +307,7 @@ namespace ARWEN
                     }
                     else
                     {
-                        MessageBox.Show("Bu yemek zaten var.");
+                        MessageBox.Show("Eklemeye Çalıştığınız ürün zaten siparişlerinizde bulunmakta.","ARWEN",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
             }
@@ -335,7 +335,7 @@ namespace ARWEN
                 if (query != null || s != null) //?????
                 {
 
-                    MessageBox.Show("Bu yemek zaten var.");
+                    MessageBox.Show("Eklemeye Çalıştığınız ürün zaten siparişlerinizde bulunmakta.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 else

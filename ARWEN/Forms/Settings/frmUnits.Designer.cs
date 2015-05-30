@@ -73,6 +73,7 @@
             this.gridColumn3,
             this.gridColumn5});
             this.gridView1.GridControl = this.gridViewUnits;
+            this.gridView1.GroupPanelText = "Birimler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -127,9 +128,9 @@
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtShortName);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(131, 2);
+            this.groupControl1.Location = new System.Drawing.Point(389, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(770, 177);
+            this.groupControl1.Size = new System.Drawing.Size(512, 177);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "BİRİM";
             // 
@@ -137,7 +138,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(35, 86);
+            this.label2.Location = new System.Drawing.Point(35, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 1;
@@ -147,7 +148,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(35, 61);
+            this.label1.Location = new System.Drawing.Point(35, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 18);
             this.label1.TabIndex = 1;
@@ -159,9 +160,10 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(581, 124);
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(318, 104);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.Size = new System.Drawing.Size(153, 36);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -171,9 +173,10 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(468, 124);
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSave.Location = new System.Drawing.Point(148, 104);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.Size = new System.Drawing.Size(153, 36);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -181,7 +184,7 @@
             // txtShortName
             // 
             this.txtShortName.Enabled = false;
-            this.txtShortName.Location = new System.Drawing.Point(365, 80);
+            this.txtShortName.Location = new System.Drawing.Point(148, 74);
             this.txtShortName.Name = "txtShortName";
             this.txtShortName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtShortName.Properties.Appearance.Options.UseFont = true;
@@ -191,7 +194,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(365, 54);
+            this.txtName.Location = new System.Drawing.Point(148, 48);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -202,9 +205,10 @@
             // 
             this.btnNewUnit.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewUnit.Appearance.Options.UseFont = true;
-            this.btnNewUnit.Location = new System.Drawing.Point(12, 12);
+            this.btnNewUnit.Image = global::ARWEN.Properties.Resources.add_32x32;
+            this.btnNewUnit.Location = new System.Drawing.Point(36, 31);
             this.btnNewUnit.Name = "btnNewUnit";
-            this.btnNewUnit.Size = new System.Drawing.Size(107, 62);
+            this.btnNewUnit.Size = new System.Drawing.Size(287, 62);
             this.btnNewUnit.TabIndex = 4;
             this.btnNewUnit.Text = "Yeni Birim";
             this.btnNewUnit.Click += new System.EventHandler(this.btnNewUnit_Click);
@@ -221,7 +225,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmUnits";
-            this.Text = "BİRİMLER";
+            this.Text = "Birimleri Yönet | ARWEN";
             this.Load += new System.EventHandler(this.frmUnits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewUnits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

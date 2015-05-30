@@ -88,9 +88,10 @@
             // 
             this.btnNewSupplier.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewSupplier.Appearance.Options.UseFont = true;
-            this.btnNewSupplier.Location = new System.Drawing.Point(12, 15);
+            this.btnNewSupplier.Image = global::ARWEN.Properties.Resources.add_32x32;
+            this.btnNewSupplier.Location = new System.Drawing.Point(12, 24);
             this.btnNewSupplier.Name = "btnNewSupplier";
-            this.btnNewSupplier.Size = new System.Drawing.Size(107, 62);
+            this.btnNewSupplier.Size = new System.Drawing.Size(295, 62);
             this.btnNewSupplier.TabIndex = 12;
             this.btnNewSupplier.Text = "Yeni Tedarikçi";
             this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
@@ -124,6 +125,7 @@
             this.gridColumn12,
             this.gridColumn5});
             this.gridView1.GridControl = this.gridViewSuppliers;
+            this.gridView1.GroupPanelText = "Tedarikçiler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -263,9 +265,9 @@
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtContactTitle);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(209, 3);
+            this.groupControl1.Location = new System.Drawing.Point(338, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(781, 479);
+            this.groupControl1.Size = new System.Drawing.Size(652, 479);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "MASA";
             // 
@@ -273,7 +275,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(33, 102);
+            this.label10.Location = new System.Drawing.Point(41, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 18);
             this.label10.TabIndex = 20;
@@ -282,7 +284,7 @@
             // txtWebSite
             // 
             this.txtWebSite.Enabled = false;
-            this.txtWebSite.Location = new System.Drawing.Point(363, 95);
+            this.txtWebSite.Location = new System.Drawing.Point(282, 95);
             this.txtWebSite.Name = "txtWebSite";
             this.txtWebSite.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtWebSite.Properties.Appearance.Options.UseFont = true;
@@ -293,7 +295,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(33, 38);
+            this.label9.Location = new System.Drawing.Point(41, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 18);
             this.label9.TabIndex = 19;
@@ -302,7 +304,7 @@
             // txtCompany
             // 
             this.txtCompany.Enabled = false;
-            this.txtCompany.Location = new System.Drawing.Point(363, 31);
+            this.txtCompany.Location = new System.Drawing.Point(282, 31);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCompany.Properties.Appearance.Options.UseFont = true;
@@ -313,7 +315,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(33, 294);
+            this.label8.Location = new System.Drawing.Point(41, 289);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 18);
             this.label8.TabIndex = 16;
@@ -322,7 +324,7 @@
             // txtPostalCode
             // 
             this.txtPostalCode.Enabled = false;
-            this.txtPostalCode.Location = new System.Drawing.Point(363, 287);
+            this.txtPostalCode.Location = new System.Drawing.Point(282, 287);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPostalCode.Properties.Appearance.Options.UseFont = true;
@@ -333,7 +335,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(33, 262);
+            this.label7.Location = new System.Drawing.Point(41, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 18);
             this.label7.TabIndex = 14;
@@ -342,7 +344,7 @@
             // txtFax
             // 
             this.txtFax.Enabled = false;
-            this.txtFax.Location = new System.Drawing.Point(363, 255);
+            this.txtFax.Location = new System.Drawing.Point(282, 255);
             this.txtFax.Name = "txtFax";
             this.txtFax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtFax.Properties.Appearance.Options.UseFont = true;
@@ -353,7 +355,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(33, 230);
+            this.label6.Location = new System.Drawing.Point(41, 225);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 18);
             this.label6.TabIndex = 12;
@@ -362,7 +364,7 @@
             // txtTelephone
             // 
             this.txtTelephone.Enabled = false;
-            this.txtTelephone.Location = new System.Drawing.Point(363, 223);
+            this.txtTelephone.Location = new System.Drawing.Point(282, 223);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTelephone.Properties.Appearance.Options.UseFont = true;
@@ -373,7 +375,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(33, 198);
+            this.label5.Location = new System.Drawing.Point(41, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 18);
             this.label5.TabIndex = 10;
@@ -382,7 +384,7 @@
             // txtCity
             // 
             this.txtCity.Enabled = false;
-            this.txtCity.Location = new System.Drawing.Point(363, 191);
+            this.txtCity.Location = new System.Drawing.Point(282, 191);
             this.txtCity.Name = "txtCity";
             this.txtCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCity.Properties.Appearance.Options.UseFont = true;
@@ -393,7 +395,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(33, 166);
+            this.label4.Location = new System.Drawing.Point(41, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 18);
             this.label4.TabIndex = 8;
@@ -402,7 +404,7 @@
             // txtCountry
             // 
             this.txtCountry.Enabled = false;
-            this.txtCountry.Location = new System.Drawing.Point(363, 159);
+            this.txtCountry.Location = new System.Drawing.Point(282, 159);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCountry.Properties.Appearance.Options.UseFont = true;
@@ -413,7 +415,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(33, 326);
+            this.label3.Location = new System.Drawing.Point(41, 321);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 7;
@@ -422,7 +424,7 @@
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(363, 319);
+            this.txtAddress.Location = new System.Drawing.Point(282, 319);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
@@ -433,7 +435,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(33, 70);
+            this.label2.Location = new System.Drawing.Point(41, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 18);
             this.label2.TabIndex = 1;
@@ -443,7 +445,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(33, 134);
+            this.label1.Location = new System.Drawing.Point(41, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 18);
             this.label1.TabIndex = 1;
@@ -455,9 +457,10 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(579, 429);
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(469, 428);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.Size = new System.Drawing.Size(136, 36);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -467,9 +470,10 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(466, 429);
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSave.Location = new System.Drawing.Point(282, 428);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.Size = new System.Drawing.Size(153, 36);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -477,7 +481,7 @@
             // txtContactTitle
             // 
             this.txtContactTitle.Enabled = false;
-            this.txtContactTitle.Location = new System.Drawing.Point(363, 63);
+            this.txtContactTitle.Location = new System.Drawing.Point(282, 63);
             this.txtContactTitle.Name = "txtContactTitle";
             this.txtContactTitle.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtContactTitle.Properties.Appearance.Options.UseFont = true;
@@ -487,7 +491,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(363, 127);
+            this.txtName.Location = new System.Drawing.Point(282, 127);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -506,7 +510,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSuppliers";
-            this.Text = "TEDARİKÇİLER";
+            this.Text = "Tedarikçileri Yönet | ARWEN";
             this.Load += new System.EventHandler(this.frmSuppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSuppliers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

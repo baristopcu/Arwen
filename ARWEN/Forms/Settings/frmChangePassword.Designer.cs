@@ -86,6 +86,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
             this.btnCancel.Location = new System.Drawing.Point(369, 155);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 36);
@@ -97,6 +98,7 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
             this.btnSave.Location = new System.Drawing.Point(256, 155);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 36);
@@ -130,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(493, 214);
+            this.ClientSize = new System.Drawing.Size(493, 211);
             this.Controls.Add(this.txtNewPassAgain);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
@@ -141,7 +143,8 @@
             this.Controls.Add(this.txtOldPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmChangePassword";
-            this.Text = "ŞİFRE DEĞİŞTİR";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Şifre Değiştirme Formu | ARWEN";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).EndInit();
