@@ -30,8 +30,6 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtTelephone = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +39,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtAdres = new DevExpress.XtraEditors.MemoEdit();
             this.imgCompanyLogo = new DevExpress.XtraEditors.PictureEdit();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelephone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -69,29 +69,6 @@
             this.label1.Size = new System.Drawing.Size(67, 18);
             this.label1.TabIndex = 8;
             this.label1.Text = "Şirket Adı";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(528, 268);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 36);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "İptal";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(400, 268);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 36);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Kaydet";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtTelephone
             // 
@@ -173,17 +150,43 @@
             this.imgCompanyLogo.Location = new System.Drawing.Point(685, 29);
             this.imgCompanyLogo.Name = "imgCompanyLogo";
             this.imgCompanyLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.imgCompanyLogo.Size = new System.Drawing.Size(204, 213);
+            this.imgCompanyLogo.Size = new System.Drawing.Size(204, 175);
             this.imgCompanyLogo.TabIndex = 18;
             this.imgCompanyLogo.TabStop = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSave.Location = new System.Drawing.Point(401, 248);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Kaydet";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(528, 248);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "İptal";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnBrowse
             // 
             this.btnBrowse.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBrowse.Appearance.Options.UseFont = true;
-            this.btnBrowse.Location = new System.Drawing.Point(726, 248);
+            this.btnBrowse.Image = global::ARWEN.Properties.Resources.loadfrom_32x32;
+            this.btnBrowse.Location = new System.Drawing.Point(685, 210);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(107, 22);
+            this.btnBrowse.Size = new System.Drawing.Size(204, 32);
             this.btnBrowse.TabIndex = 7;
             this.btnBrowse.Text = "SEÇ";
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -194,7 +197,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(921, 316);
+            this.ClientSize = new System.Drawing.Size(921, 293);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.label5);
@@ -211,7 +214,7 @@
             this.Controls.Add(this.imgCompanyLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCompanySettings";
-            this.Text = "RESTORAN AYARLARI";
+            this.Text = "Restaurant Bilgilerini Güncelle | ARWEN";
             this.Load += new System.EventHandler(this.frmCompanySettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTelephone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();

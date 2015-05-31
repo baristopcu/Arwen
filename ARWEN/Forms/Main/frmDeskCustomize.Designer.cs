@@ -60,43 +60,43 @@
             // 
             // btnMoveDesk
             // 
-            this.btnMoveDesk.Image = ((System.Drawing.Image)(resources.GetObject("btnMoveDesk.Image")));
+            this.btnMoveDesk.Image = global::ARWEN.Properties.Resources.redo_32x32;
             this.btnMoveDesk.Location = new System.Drawing.Point(12, 411);
             this.btnMoveDesk.Name = "btnMoveDesk";
-            this.btnMoveDesk.Size = new System.Drawing.Size(271, 85);
+            this.btnMoveDesk.Size = new System.Drawing.Size(142, 85);
             this.btnMoveDesk.TabIndex = 0;
-            this.btnMoveDesk.Text = "MASAYI TAŞI";
+            this.btnMoveDesk.Text = "Masayı Taşı";
             this.btnMoveDesk.Click += new System.EventHandler(this.btnMoveDesk_Click);
             // 
             // btnWriteTicket
             // 
-            this.btnWriteTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnWriteTicket.Image")));
+            this.btnWriteTicket.Image = global::ARWEN.Properties.Resources.print_32x32;
             this.btnWriteTicket.Location = new System.Drawing.Point(12, 527);
             this.btnWriteTicket.Name = "btnWriteTicket";
-            this.btnWriteTicket.Size = new System.Drawing.Size(271, 85);
+            this.btnWriteTicket.Size = new System.Drawing.Size(142, 85);
             this.btnWriteTicket.TabIndex = 1;
-            this.btnWriteTicket.Text = "FİŞİ YAZDIR";
+            this.btnWriteTicket.Text = "Fişi Yazdır";
             this.btnWriteTicket.Click += new System.EventHandler(this.btnWriteTicket_Click);
             // 
             // btnAddNote
             // 
-            this.btnAddNote.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNote.Image")));
+            this.btnAddNote.Image = global::ARWEN.Properties.Resources.notes_32x32;
             this.btnAddNote.Location = new System.Drawing.Point(12, 643);
             this.btnAddNote.Name = "btnAddNote";
-            this.btnAddNote.Size = new System.Drawing.Size(271, 85);
+            this.btnAddNote.Size = new System.Drawing.Size(142, 85);
             this.btnAddNote.TabIndex = 2;
-            this.btnAddNote.Text = "NOT EKLE";
+            this.btnAddNote.Text = "Not Ekle";
             this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
             // 
             // gridProducts
             // 
             this.gridProducts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gridProducts.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gridProducts.Location = new System.Drawing.Point(312, 26);
+            this.gridProducts.Location = new System.Drawing.Point(168, 26);
             this.gridProducts.MainView = this.gridView1;
             this.gridProducts.Margin = new System.Windows.Forms.Padding(2);
             this.gridProducts.Name = "gridProducts";
-            this.gridProducts.Size = new System.Drawing.Size(465, 599);
+            this.gridProducts.Size = new System.Drawing.Size(457, 599);
             this.gridProducts.TabIndex = 3;
             this.gridProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -111,6 +111,7 @@
             this.gridColumn5,
             this.gridColumn6});
             this.gridView1.GridControl = this.gridProducts;
+            this.gridView1.GroupPanelText = "Siparişleriniz";
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Toplam", this.gridColumn3, "c0")});
             this.gridView1.Name = "gridView1";
@@ -171,7 +172,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(906, 172);
+            this.label1.Location = new System.Drawing.Point(712, 183);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(515, 13);
             this.label1.TabIndex = 11;
@@ -182,54 +183,55 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(1095, 202);
+            this.label2.Location = new System.Drawing.Point(916, 204);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 23);
+            this.label2.Size = new System.Drawing.Size(111, 23);
             this.label2.TabIndex = 13;
-            this.label2.Text = "ÜRÜN SEÇİMİ";
+            this.label2.Text = "Ürün Seçimi";
             // 
             // btnClose
             // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1166, 643);
+            this.btnClose.Location = new System.Drawing.Point(967, 640);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(322, 85);
+            this.btnClose.Size = new System.Drawing.Size(297, 85);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "ÇIKIŞ";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnPayment
             // 
-            this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
-            this.btnPayment.Location = new System.Drawing.Point(824, 643);
+            this.btnPayment.Image = global::ARWEN.Properties.Resources.currency_32x32;
+            this.btnPayment.Location = new System.Drawing.Point(642, 640);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(325, 85);
+            this.btnPayment.Size = new System.Drawing.Size(302, 85);
             this.btnPayment.TabIndex = 15;
             this.btnPayment.Text = "ÖDEME AL";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // flwProductGroups
             // 
-            this.flwProductGroups.Location = new System.Drawing.Point(824, 26);
+            this.flwProductGroups.Location = new System.Drawing.Point(642, 26);
             this.flwProductGroups.Name = "flwProductGroups";
-            this.flwProductGroups.Size = new System.Drawing.Size(664, 143);
+            this.flwProductGroups.Size = new System.Drawing.Size(630, 143);
             this.flwProductGroups.TabIndex = 18;
             // 
             // flwProducts
             // 
-            this.flwProducts.Location = new System.Drawing.Point(824, 245);
+            this.flwProducts.Location = new System.Drawing.Point(642, 245);
             this.flwProducts.Name = "flwProducts";
-            this.flwProducts.Size = new System.Drawing.Size(664, 380);
+            this.flwProducts.Size = new System.Drawing.Size(630, 380);
             this.flwProducts.TabIndex = 19;
             // 
             // btnAdd
             // 
             this.btnAdd.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Image = global::ARWEN.Properties.Resources.add_32x32;
             this.btnAdd.Location = new System.Drawing.Point(12, 26);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(271, 85);
+            this.btnAdd.Size = new System.Drawing.Size(142, 85);
             this.btnAdd.TabIndex = 20;
             this.btnAdd.Text = "+";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -238,10 +240,10 @@
             // 
             this.btnLess.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnLess.Appearance.Options.UseFont = true;
-            this.btnLess.Image = ((System.Drawing.Image)(resources.GetObject("btnLess.Image")));
+            this.btnLess.Image = global::ARWEN.Properties.Resources.remove_32x32;
             this.btnLess.Location = new System.Drawing.Point(12, 142);
             this.btnLess.Name = "btnLess";
-            this.btnLess.Size = new System.Drawing.Size(271, 85);
+            this.btnLess.Size = new System.Drawing.Size(142, 85);
             this.btnLess.TabIndex = 21;
             this.btnLess.Text = "-";
             this.btnLess.Click += new System.EventHandler(this.btnLess_Click);
@@ -250,31 +252,31 @@
             // 
             this.btnDeleteRow.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnDeleteRow.Appearance.Options.UseFont = true;
-            this.btnDeleteRow.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteRow.Image")));
+            this.btnDeleteRow.Image = global::ARWEN.Properties.Resources.cancel_32x32;
             this.btnDeleteRow.Location = new System.Drawing.Point(12, 258);
             this.btnDeleteRow.Name = "btnDeleteRow";
-            this.btnDeleteRow.Size = new System.Drawing.Size(271, 85);
+            this.btnDeleteRow.Size = new System.Drawing.Size(142, 85);
             this.btnDeleteRow.TabIndex = 22;
-            this.btnDeleteRow.Text = "SİL";
+            this.btnDeleteRow.Text = "Kaldır";
             this.btnDeleteRow.Click += new System.EventHandler(this.btnDeleteRow_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 367);
+            this.label4.Location = new System.Drawing.Point(12, 364);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 13);
+            this.label4.Size = new System.Drawing.Size(139, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "--------------------------------------------";
+            this.label4.Text = "---------------------------------";
             // 
             // btnSaveOrder
             // 
             this.btnSaveOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSaveOrder.Appearance.Options.UseFont = true;
-            this.btnSaveOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveOrder.Image")));
-            this.btnSaveOrder.Location = new System.Drawing.Point(312, 643);
+            this.btnSaveOrder.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSaveOrder.Location = new System.Drawing.Point(168, 643);
             this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Size = new System.Drawing.Size(465, 85);
+            this.btnSaveOrder.Size = new System.Drawing.Size(457, 85);
             this.btnSaveOrder.TabIndex = 25;
             this.btnSaveOrder.Text = "SİPARİŞİ KAYDET";
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
@@ -283,7 +285,7 @@
             // 
             this.lblTableNo.AutoSize = true;
             this.lblTableNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTableNo.Location = new System.Drawing.Point(474, 8);
+            this.lblTableNo.Location = new System.Drawing.Point(309, 8);
             this.lblTableNo.Name = "lblTableNo";
             this.lblTableNo.Size = new System.Drawing.Size(52, 16);
             this.lblTableNo.TabIndex = 26;
@@ -299,12 +301,14 @@
             // 
             // frmDeskCustomize
             // 
+            this.AcceptButton = this.btnSaveOrder;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 737);
-            this.Controls.Add(this.lblTableNo);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(1276, 737);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.lblTableNo);
             this.Controls.Add(this.btnSaveOrder);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDeleteRow);
@@ -325,7 +329,7 @@
             this.Name = "frmDeskCustomize";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MASA DETAY";
+            this.Text = "Masa Detay | ARWEN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDeskCustomize_FormClosing);
             this.Load += new System.EventHandler(this.frmDeskCustomize_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();

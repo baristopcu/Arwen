@@ -62,6 +62,7 @@
             this.gridColumn2,
             this.gridColumn3});
             this.gridView1.GridControl = this.gridControlProducts;
+            this.gridView1.GroupPanelText = "Ürünler";
             this.gridView1.Name = "gridView1";
             this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             // 
@@ -115,7 +116,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 651);
+            this.ClientSize = new System.Drawing.Size(1276, 651);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -123,7 +124,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKitchenUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MUTFAK KULLANICISI";
+            this.Text = "Mutfak Kullanıcısı | ARWEN";
             this.Load += new System.EventHandler(this.frmKitchenUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -50,12 +50,12 @@
             // 
             // gridViewGroups
             // 
-            this.gridViewGroups.Location = new System.Drawing.Point(0, 194);
+            this.gridViewGroups.Location = new System.Drawing.Point(12, 171);
             this.gridViewGroups.MainView = this.gridView1;
             this.gridViewGroups.Name = "gridViewGroups";
             this.gridViewGroups.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDelete});
-            this.gridViewGroups.Size = new System.Drawing.Size(902, 324);
+            this.gridViewGroups.Size = new System.Drawing.Size(750, 347);
             this.gridViewGroups.TabIndex = 5;
             this.gridViewGroups.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -68,6 +68,7 @@
             this.gridColumn5,
             this.gridColumn1});
             this.gridView1.GridControl = this.gridViewGroups;
+            this.gridView1.GroupPanelText = "Kategoriler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedRow = false;
             // 
@@ -111,9 +112,9 @@
             this.groupControl1.Controls.Add(this.btnCancel);
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(132, 6);
+            this.groupControl1.Location = new System.Drawing.Point(298, 14);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(770, 182);
+            this.groupControl1.Size = new System.Drawing.Size(464, 143);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "KATEGORİ";
             // 
@@ -121,11 +122,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(42, 52);
+            this.label1.Location = new System.Drawing.Point(17, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 18);
+            this.label1.Size = new System.Drawing.Size(85, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Adı";
+            this.label1.Text = "Kategori Adı";
             // 
             // btnCancel
             // 
@@ -133,9 +134,10 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(581, 102);
+            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
+            this.btnCancel.Location = new System.Drawing.Point(316, 86);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.Size = new System.Drawing.Size(107, 37);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -145,9 +147,10 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(468, 102);
+            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
+            this.btnSave.Location = new System.Drawing.Point(203, 86);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 36);
+            this.btnSave.Size = new System.Drawing.Size(107, 37);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -155,7 +158,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(285, 46);
+            this.txtName.Location = new System.Drawing.Point(20, 46);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -166,9 +169,10 @@
             // 
             this.btnNewGroup.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewGroup.Appearance.Options.UseFont = true;
-            this.btnNewGroup.Location = new System.Drawing.Point(12, 14);
+            this.btnNewGroup.Image = global::ARWEN.Properties.Resources.add_32x32;
+            this.btnNewGroup.Location = new System.Drawing.Point(12, 22);
             this.btnNewGroup.Name = "btnNewGroup";
-            this.btnNewGroup.Size = new System.Drawing.Size(107, 62);
+            this.btnNewGroup.Size = new System.Drawing.Size(242, 62);
             this.btnNewGroup.TabIndex = 6;
             this.btnNewGroup.Text = "Yeni Kategori";
             this.btnNewGroup.Click += new System.EventHandler(this.btnNewGroup_Click);
@@ -179,13 +183,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(903, 530);
+            this.ClientSize = new System.Drawing.Size(774, 530);
             this.Controls.Add(this.btnNewGroup);
             this.Controls.Add(this.gridViewGroups);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmGroups";
-            this.Text = "KATEGORİLER";
+            this.Text = "Kategorileri Yönet | ARWEN";
             this.Load += new System.EventHandler(this.frmGroups_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGroups)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 171);
+            this.label1.Location = new System.Drawing.Point(15, 156);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 18);
             this.label1.TabIndex = 0;
@@ -59,11 +59,11 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Enabled = false;
-            this.txtCustomerName.Location = new System.Drawing.Point(160, 166);
+            this.txtCustomerName.Location = new System.Drawing.Point(160, 151);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCustomerName.Properties.Appearance.Options.UseFont = true;
-            this.txtCustomerName.Size = new System.Drawing.Size(304, 24);
+            this.txtCustomerName.Size = new System.Drawing.Size(291, 24);
             this.txtCustomerName.TabIndex = 1;
             // 
             // txtEndDate
@@ -73,7 +73,7 @@
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtEndDate.Properties.Appearance.Options.UseFont = true;
-            this.txtEndDate.Size = new System.Drawing.Size(304, 24);
+            this.txtEndDate.Size = new System.Drawing.Size(291, 24);
             this.txtEndDate.TabIndex = 5;
             // 
             // label2
@@ -88,7 +88,7 @@
             // txtCapacity
             // 
             this.txtCapacity.Enabled = false;
-            this.txtCapacity.Location = new System.Drawing.Point(160, 211);
+            this.txtCapacity.Location = new System.Drawing.Point(160, 181);
             this.txtCapacity.Name = "txtCapacity";
             this.txtCapacity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCapacity.Properties.Appearance.Options.UseFont = true;
@@ -98,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 217);
+            this.label3.Location = new System.Drawing.Point(15, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 18);
             this.label3.TabIndex = 6;
@@ -127,9 +127,9 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(18, 257);
+            this.btnSave.Location = new System.Drawing.Point(160, 225);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(201, 45);
+            this.btnSave.Size = new System.Drawing.Size(140, 45);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Tamamla";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
@@ -140,9 +140,9 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(263, 255);
+            this.btnCancel.Location = new System.Drawing.Point(311, 223);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(201, 47);
+            this.btnCancel.Size = new System.Drawing.Size(140, 47);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Kapat";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -190,7 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(474, 314);
+            this.ClientSize = new System.Drawing.Size(463, 285);
             this.Controls.Add(this.btnActivated);
             this.Controls.Add(this.lblTable);
             this.Controls.Add(this.btnSave);
@@ -209,7 +209,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReserved";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "REZERVASYON DETAYI";
+            this.Text = "Rezervasyon Detay | ARWEN";
             this.Load += new System.EventHandler(this.frmReserved_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtCustomerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).EndInit();
