@@ -108,43 +108,61 @@ namespace ARWEN.Forms
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            if (update)
+            try
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                if (update)
                 {
+                    using (RestaurantContext dbContext = new RestaurantContext())
+                    {
 
-                    var updateReservation =
-                        dbContext.Reservation.Where(x => x.ReservationID == reservationID).FirstOrDefault();
-                    updateReservation.Capacity = Convert.ToInt32(txtCapacity.Text);
-                    updateReservation.EndDate = Convert.ToDateTime(txtEndDate.Text);
-                    dbContext.SaveChanges();
+                        var updateReservation =
+                            dbContext.Reservation.Where(x => x.ReservationID == reservationID).FirstOrDefault();
+                        updateReservation.Capacity = Convert.ToInt32(txtCapacity.Text);
+                        updateReservation.EndDate = Convert.ToDateTime(txtEndDate.Text);
+                        dbContext.SaveChanges();
 
+                    }
+
+                    MessageBox.Show("Rezervasyon bilgileri güncellendi.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    DisableFields();
                 }
-
-                MessageBox.Show("Rezervasyon bilgileri güncellendi.", "ARWEN", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                DisableFields();
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
 
         private void btnActivated_Click(object sender, EventArgs e)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                var usedReservation =
-                    dbContext.Reservation.Where(x => x.ReservationID == reservationID).FirstOrDefault();
-                usedReservation.Used = 1;
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var usedReservation =
+                        dbContext.Reservation.Where(x => x.ReservationID == reservationID).FirstOrDefault();
+                    usedReservation.Used = 1;
 
-                var tableValue = dbContext.RestaurantTables.Where(x => x.TableNo == _tableNo).FirstOrDefault();
-                tableValue.State = 0;
+                    var tableValue = dbContext.RestaurantTables.Where(x => x.TableNo == _tableNo).FirstOrDefault();
+                    tableValue.State = 0;
 
-                dbContext.SaveChanges();
-                MessageBox.Show("Rezervasyon aktif edildi.", "ARWEN", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Rezervasyon aktif edildi.", "ARWEN", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
 
-                this.Close();
+                    this.Close();
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
     }

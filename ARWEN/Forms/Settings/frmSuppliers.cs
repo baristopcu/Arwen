@@ -75,12 +75,21 @@ namespace ARWEN.Forms.Settings
 
         private void GetSuppliers()
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                var suppliersQuery = dbContext.Suppliers.ToList();
-                gridViewSuppliers.DataSource = new BindingSource(suppliersQuery, "");
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var suppliersQuery = dbContext.Suppliers.ToList();
+                    gridViewSuppliers.DataSource = new BindingSource(suppliersQuery, "");
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void frmSuppliers_Load(object sender, EventArgs e)
@@ -96,66 +105,75 @@ namespace ARWEN.Forms.Settings
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!saveNew)
+            try
             {
-
-                using (RestaurantContext dbContext = new RestaurantContext())
+                if (!saveNew)
                 {
-                    var query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
-                    query.CompanyName = txtCompany.Text;
-                    query.HomePage = txtWebSite.Text;
-                    query.ContactName = txtName.Text;
-                    query.ContactTitle = txtContactTitle.Text;
-                    query.Address = txtAddress.Text;
-                    query.Country = txtCountry.Text;
-                    query.Fax = txtFax.Text;
-                    query.Phone = txtTelephone.Text;
-                    query.PostalCode = txtPostalCode.Text;
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Tedarikçi başarıyla güncellendi.", "ARWEN",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GetSuppliers();
-                    SetLockSupplier();
 
-                }
-
-
-            }
-            else if (saveNew)
-            {
-                if (string.IsNullOrEmpty(txtCompany.Text) || string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtCity.Text) || string.IsNullOrEmpty(txtContactTitle.Text) || string.IsNullOrEmpty(txtCountry.Text) || string.IsNullOrEmpty(txtFax.Text) || string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtTelephone.Text) || string.IsNullOrEmpty(txtPostalCode.Text))
-                {
-                    MessageBox.Show("Alanlardan hiçbiri boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                }
-                else
-                {
                     using (RestaurantContext dbContext = new RestaurantContext())
                     {
-                        Suppliers supplier = new Suppliers()
-                        {
-                            CompanyName = txtCompany.Text,
-                            HomePage = txtWebSite.Text,
-                            ContactName = txtName.Text,
-                            ContactTitle = txtContactTitle.Text,
-                            Country = txtCountry.Text,
-                            Address = txtAddress.Text,
-                            City = txtCity.Text,
-                            Fax = txtFax.Text,
-                            Phone = txtTelephone.Text,
-                            PostalCode = txtPostalCode.Text
-
-                        };
-                        dbContext.Suppliers.Add(supplier);
+                        var query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
+                        query.CompanyName = txtCompany.Text;
+                        query.HomePage = txtWebSite.Text;
+                        query.ContactName = txtName.Text;
+                        query.ContactTitle = txtContactTitle.Text;
+                        query.Address = txtAddress.Text;
+                        query.Country = txtCountry.Text;
+                        query.Fax = txtFax.Text;
+                        query.Phone = txtTelephone.Text;
+                        query.PostalCode = txtPostalCode.Text;
                         dbContext.SaveChanges();
-                        MessageBox.Show("Yeni tedarikçi başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        MessageBox.Show("Tedarikçi başarıyla güncellendi.", "ARWEN",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GetSuppliers();
                         SetLockSupplier();
-                    }
-                }
 
+                    }
+
+
+                }
+                else if (saveNew)
+                {
+                    if (string.IsNullOrEmpty(txtCompany.Text) || string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtCity.Text) || string.IsNullOrEmpty(txtContactTitle.Text) || string.IsNullOrEmpty(txtCountry.Text) || string.IsNullOrEmpty(txtFax.Text) || string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtTelephone.Text) || string.IsNullOrEmpty(txtPostalCode.Text))
+                    {
+                        MessageBox.Show("Alanlardan hiçbiri boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        using (RestaurantContext dbContext = new RestaurantContext())
+                        {
+                            Suppliers supplier = new Suppliers()
+                            {
+                                CompanyName = txtCompany.Text,
+                                HomePage = txtWebSite.Text,
+                                ContactName = txtName.Text,
+                                ContactTitle = txtContactTitle.Text,
+                                Country = txtCountry.Text,
+                                Address = txtAddress.Text,
+                                City = txtCity.Text,
+                                Fax = txtFax.Text,
+                                Phone = txtTelephone.Text,
+                                PostalCode = txtPostalCode.Text
+
+                            };
+                            dbContext.Suppliers.Add(supplier);
+                            dbContext.SaveChanges();
+                            MessageBox.Show("Yeni tedarikçi başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            GetSuppliers();
+                            SetLockSupplier();
+                        }
+                    }
+
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -165,50 +183,65 @@ namespace ARWEN.Forms.Settings
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Bu tedarikçiyi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            try
             {
+                DialogResult dr = new DialogResult();
+                dr = MessageBox.Show("Bu tedarikçiyi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    int index = gridView1.FocusedRowHandle;
+                    s.SupplierID = Convert.ToInt32(gridView1.GetRowCellValue(index, "SupplierID").ToString());
+
+                    using (RestaurantContext dbContext = new RestaurantContext())
+                    {
+                        Suppliers query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
+                        dbContext.Suppliers.Remove(query);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Tedarikçi başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetSuppliers();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void gridViewSuppliers_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                SetFreeSupplier();
+                saveNew = false;
                 int index = gridView1.FocusedRowHandle;
                 s.SupplierID = Convert.ToInt32(gridView1.GetRowCellValue(index, "SupplierID").ToString());
 
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    Suppliers query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
-                    dbContext.Suppliers.Remove(query);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Tedarikçi başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GetSuppliers();
+                    var query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
+                    txtCompany.Text = query.CompanyName;
+                    txtWebSite.Text = query.HomePage;
+                    txtName.Text = query.ContactName;
+                    txtAddress.Text = query.Address;
+                    txtCity.Text = query.City;
+                    txtContactTitle.Text = query.ContactTitle;
+                    txtCountry.Text = query.Country;
+                    txtTelephone.Text = query.Phone;
+                    txtPostalCode.Text = query.PostalCode;
+                    txtFax.Text = query.Fax;
+
+
                 }
             }
-        }
-
-        private void gridViewSuppliers_DoubleClick(object sender, EventArgs e)
-        {
-            SetFreeSupplier();
-            saveNew = false;
-            int index = gridView1.FocusedRowHandle;
-            s.SupplierID = Convert.ToInt32(gridView1.GetRowCellValue(index, "SupplierID").ToString());
-
-            using (RestaurantContext dbContext = new RestaurantContext())
+            catch (Exception ex)
             {
-                var query = dbContext.Suppliers.Where(x => x.SupplierID == s.SupplierID).FirstOrDefault();
-                txtCompany.Text = query.CompanyName;
-                txtWebSite.Text = query.HomePage;
-                txtName.Text = query.ContactName;
-                txtAddress.Text = query.Address;
-                txtCity.Text = query.City;
-                txtContactTitle.Text = query.ContactTitle;
-                txtCountry.Text = query.Country;
-                txtTelephone.Text = query.Phone;
-                txtPostalCode.Text = query.PostalCode;
-                txtFax.Text = query.Fax;
 
-
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-       
     }
 }

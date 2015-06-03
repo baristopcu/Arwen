@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridControlProducts = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnAvailabilitiy = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAvailabilitiy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,8 +48,6 @@
             this.gridControlProducts.Location = new System.Drawing.Point(3, 3);
             this.gridControlProducts.MainView = this.gridView1;
             this.gridControlProducts.Name = "gridControlProducts";
-            this.gridControlProducts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnAvailabilitiy});
             this.gridControlProducts.Size = new System.Drawing.Size(415, 643);
             this.gridControlProducts.TabIndex = 0;
             this.gridControlProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -85,16 +83,13 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Durum";
-            this.gridColumn3.ColumnEdit = this.btnAvailabilitiy;
+            repositoryItemCheckEdit1.AutoHeight = false;
+            repositoryItemCheckEdit1.Name = "btnAvailabilitiy";
+            this.gridColumn3.ColumnEdit = repositoryItemCheckEdit1;
             this.gridColumn3.FieldName = "Availability";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
-            // 
-            // btnAvailabilitiy
-            // 
-            this.btnAvailabilitiy.AutoHeight = false;
-            this.btnAvailabilitiy.Name = "btnAvailabilitiy";
             // 
             // flowLayoutPanel1
             // 
@@ -116,7 +111,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 651);
+            this.ClientSize = new System.Drawing.Size(1363, 651);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -128,7 +123,7 @@
             this.Load += new System.EventHandler(this.frmKitchenUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAvailabilitiy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -141,7 +136,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit btnAvailabilitiy;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }

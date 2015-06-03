@@ -46,26 +46,44 @@ namespace ARWEN
 
         private void UnLockOrder(Int64 orderNo)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-               
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
 
-                var query = dbContext.OrderHeader.Where(x => (x.OrderNo == OrderNo)).FirstOrDefault(); 
-                query.LockState = false;
-                query.LockKeeperUserID = null; 
-                dbContext.SaveChanges();
+
+                    var query = dbContext.OrderHeader.Where(x => (x.OrderNo == OrderNo)).FirstOrDefault();
+                    query.LockState = false;
+                    query.LockKeeperUserID = null;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
 
         }
 
         public void MakeTotalCash()
         {
-            gridPaymentProducts.DataSource = dtPayment;
+            try
+            {
+                gridPaymentProducts.DataSource = dtPayment;
 
-            gridView1.OptionsView.ShowFooter = true;
-            gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            gridView1.Columns[2].SummaryItem.FieldName = "Price";
-            gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
+                gridView1.OptionsView.ShowFooter = true;
+                gridView1.Columns[2].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                gridView1.Columns[2].SummaryItem.FieldName = "Price";
+                gridView1.Columns[2].SummaryItem.DisplayFormat = "Toplam {0} TL";
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+       
 
 
         }
@@ -73,127 +91,184 @@ namespace ARWEN
         private decimal discountPrice = 0;
         public decimal GetDiscountPrice(decimal actualPrice)
         {
-            decimal r = Convert.ToDecimal(txtCharged.Text);
-            decimal a = actualPrice - (1 * r);
-            lblDiscount.Text = a.ToString("c");
-            lblRound.Text = "%" + txtCharged.Text + "=";
-            txtTotalCash.Text = a.ToString();
-            discountPrice = totalCash - a;
-            txtCharged.Text = "";
-            lblDiscount.BackColor = Color.Red;
-            lblDiscount.ForeColor = Color.White;
-            lblRound.BackColor = Color.Red;
-            lblRound.ForeColor = Color.White;
-            lblDiscount.Visible = true;
-            lblRound.Visible = true;
-            return a;
+            try
+            {
+                decimal r = Convert.ToDecimal(txtCharged.Text);
+                decimal a = actualPrice - (1 * r);
+                lblDiscount.Text = a.ToString("c");
+                lblRound.Text = "%" + txtCharged.Text + "=";
+                txtTotalCash.Text = a.ToString();
+                discountPrice = totalCash - a;
+                txtCharged.Text = "";
+                lblDiscount.BackColor = Color.Red;
+                lblDiscount.ForeColor = Color.White;
+                lblRound.BackColor = Color.Red;
+                lblRound.ForeColor = Color.White;
+                lblDiscount.Visible = true;
+                lblRound.Visible = true;
+                return a;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return actualPrice;
+            }
+        
         }
 
         private void frmPayment_Load(object sender, EventArgs e)
         {
-            this.Text = this.Tag + " " + "ÖDEME";
-            txtTotalCash.Text = totalCash.ToString();
-            btnTotalValue.Text = totalCash.ToString();
-            MakeTotalCash();
+            try
+            {
+                this.Text = this.Tag + " " + "ÖDEME";
+                txtTotalCash.Text = totalCash.ToString();
+                btnTotalValue.Text = totalCash.ToString();
+                MakeTotalCash();
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
 
         }
 
         private void button_click(object sender, EventArgs e)
         {
-            SimpleButton btn = sender as SimpleButton;
-            txtCharged.Text += btn.Text;
+            try
+            {
+                SimpleButton btn = sender as SimpleButton;
+                txtCharged.Text += btn.Text;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btnCC_Click(object sender, EventArgs e)
         {
-            txtCharged.Text = string.Empty;
+            try
+            {
+                txtCharged.Text = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_banks(object sender, EventArgs e)
         {
-            SimpleButton btn = sender as SimpleButton;
-            if (!String.IsNullOrEmpty(txtCharged.Text))
+            try
             {
-                decimal t = (Convert.ToDecimal(txtCharged.Text) + Convert.ToDecimal(btn.Text));
-                txtCharged.Text = t.ToString();
+                SimpleButton btn = sender as SimpleButton;
+                if (!String.IsNullOrEmpty(txtCharged.Text))
+                {
+                    decimal t = (Convert.ToDecimal(txtCharged.Text) + Convert.ToDecimal(btn.Text));
+                    txtCharged.Text = t.ToString();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return;
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+          
            
         }
 
         private void btnGetTotalPrice_Click(object sender, EventArgs e)
         {
-            txtCharged.Text = txtTotalCash.Text;
+            try
+            {
+                txtCharged.Text = txtTotalCash.Text;
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+         
         }
-
-
-        /* Modules 
-         * 1 = Credit Card 
-         * 2= Cash 
-         * 3 = Ticket 
-         */
 
         private void Discharge(int moduleID)
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                if (!clickedDiscount)
+                using (var dbContext = new RestaurantContext())
                 {
-                    Payments p = new Payments()
+                    if (!clickedDiscount)
                     {
-                        TotalPrice = Convert.ToDecimal(txtTotalCash.Text),
-                        AmountPaid = Convert.ToDecimal(txtCharged.Text),
-                        Date = DateTime.Now,
-                        OrderNo = OrderNo,
-                        PaymentModuleID = moduleID,
-                       
-                    };
+                        Payments p = new Payments()
+                        {
+                            TotalPrice = Convert.ToDecimal(txtTotalCash.Text),
+                            AmountPaid = Convert.ToDecimal(txtCharged.Text),
+                            Date = DateTime.Now,
+                            OrderNo = OrderNo,
+                            PaymentModuleID = moduleID,
 
-                    dbContext.Payments.Add(p);
-                    dbContext.SaveChanges();
+                        };
 
-                    dbContext.Update_Table_State(this.Tag.ToString(), false);
-                }
-                else if (clickedDiscount)
-                {
-                    int index = lblRound.Text.IndexOf("=");
-                    string discountValue = lblRound.Text.Substring(0, index);
+                        dbContext.Payments.Add(p);
+                        dbContext.SaveChanges();
 
-                    Payments p = new Payments()
+                        dbContext.Update_Table_State(this.Tag.ToString(), false);
+                    }
+                    else if (clickedDiscount)
                     {
-                        TotalPrice = Convert.ToDecimal(txtTotalCash.Text),
-                        AmountPaid = Convert.ToDecimal(txtCharged.Text),
-                        Date = DateTime.Now,
-                        OrderNo = OrderNo,
-                        PaymentModuleID = moduleID,
-                        Discount = discountValue,
-                        DiscountPrice = discountPrice
+                        int index = lblRound.Text.IndexOf("=");
+                        string discountValue = lblRound.Text.Substring(0, index);
 
-                    };
+                        Payments p = new Payments()
+                        {
+                            TotalPrice = Convert.ToDecimal(txtTotalCash.Text),
+                            AmountPaid = Convert.ToDecimal(txtCharged.Text),
+                            Date = DateTime.Now,
+                            OrderNo = OrderNo,
+                            PaymentModuleID = moduleID,
+                            Discount = discountValue,
+                            DiscountPrice = discountPrice
 
-                    dbContext.Payments.Add(p);
-                    var paidQuery = dbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
-                    paidQuery.State = 5;
-                    dbContext.SaveChanges();
+                        };
 
-                    dbContext.Update_Table_State(this.Tag.ToString(), false);
-                  
-                    
+                        dbContext.Payments.Add(p);
+                        var paidQuery = dbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
+                        paidQuery.State = 5;
+                        dbContext.SaveChanges();
+
+                        dbContext.Update_Table_State(this.Tag.ToString(), false);
+
+
+                    }
+
                 }
-               
 
-
+                UnLockOrder(OrderNo);
+                this.Close();
             }
-
-            UnLockOrder(OrderNo);
-            this.Close();
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
 
         private void btnCash_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(txtCharged.Text))
             {
                 Discharge(2);
@@ -245,24 +320,33 @@ namespace ARWEN
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCharged.Text))
+            try
             {
-                if (totalCash.ToString() == txtCharged.Text)
+                if (!string.IsNullOrEmpty(txtCharged.Text))
                 {
-                    MessageBox.Show("Tüm fiyata indirim yapamazsınız.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (totalCash.ToString() == txtCharged.Text)
+                    {
+                        MessageBox.Show("Tüm fiyata indirim yapamazsınız.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        GetDiscountPrice(Convert.ToDecimal(totalCash));
+                        clickedDiscount = true;
+                    }
+
                 }
                 else
                 {
-                    GetDiscountPrice(Convert.ToDecimal(totalCash));
-                    clickedDiscount = true;
+                    MessageBox.Show("İndirim değeri giriniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clickedDiscount = false;
                 }
-              
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("İndirim değeri giriniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clickedDiscount = false;
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+         
            
         }
 
@@ -270,85 +354,103 @@ namespace ARWEN
 
         private void btnTicket_Click(object sender, EventArgs e)
         {
-            DialogResult pdr = printDialog1.ShowDialog();
-            if (pdr == DialogResult.OK)
+            try
             {
-                printDocument1.Print();
+                DialogResult pdr = printDialog1.ShowDialog();
+                if (pdr == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            decimal gTotal = 0;
-
-            Graphics graphic = e.Graphics;
-            Graphics graphics = e.Graphics;
-            Font font = new Font("Courier New", 10);
-            float fontHeight = font.GetHeight();
-            int startX = 50;
-            int startY = 55;
-            int Offset = 40;
-
-            graphics.DrawString("Sipariş Formu", new Font("Courier New", 14),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            String underLine = "------------------------------------------"; //ADİSYON BİLGİLERİ
-            graphics.DrawString(underLine, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            graphics.DrawString("Masa: " + this.Tag,
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            graphics.DrawString("Tarih: " + DateTime.Now,
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            graphics.DrawString("User: " + "Admin",
-                new Font("Courier New", 12),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            underLine = "------------------------------------------"; //ADİSYON BİLGİLERİ
-            graphics.DrawString(underLine, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 10;
-            string top = "Item Name".PadRight(30) + "Price";
-            graphics.DrawString(top, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 10;
-            underLine = "------------------------------------------"; // ÜRÜN BİLGİLERİ
-            graphics.DrawString(underLine, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-
-            foreach (DataRow item in dtPayment.Rows)
+            try
             {
-                string productDescription = item[2].ToString().PadRight(30);
-                string productTotal = item[3].ToString();
-                gTotal += Convert.ToDecimal(productTotal);
-                string productLine = productDescription + productTotal;
+                decimal gTotal = 0;
 
-                graphic.DrawString(productLine, font, new SolidBrush(Color.Black), startX, startY + Offset);
+                Graphics graphic = e.Graphics;
+                Graphics graphics = e.Graphics;
+                Font font = new Font("Courier New", 10);
+                float fontHeight = font.GetHeight();
+                int startX = 50;
+                int startY = 55;
+                int Offset = 40;
 
-                Offset = Offset + (int)fontHeight + 5;
+                graphics.DrawString("Sipariş Formu", new Font("Courier New", 14),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                String underLine = "------------------------------------------"; //ADİSYON BİLGİLERİ
+                graphics.DrawString(underLine, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                graphics.DrawString("Masa: " + this.Tag,
+                    new Font("Courier New", 12),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                graphics.DrawString("Tarih: " + DateTime.Now,
+                    new Font("Courier New", 12),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                graphics.DrawString("User: " + "Admin",
+                    new Font("Courier New", 12),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                underLine = "------------------------------------------"; //ADİSYON BİLGİLERİ
+                graphics.DrawString(underLine, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 10;
+                string top = "Item Name".PadRight(30) + "Price";
+                graphics.DrawString(top, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 10;
+                underLine = "------------------------------------------"; // ÜRÜN BİLGİLERİ
+                graphics.DrawString(underLine, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+
+                foreach (DataRow item in dtPayment.Rows)
+                {
+                    string productDescription = item[2].ToString().PadRight(30);
+                    string productTotal = item[3].ToString();
+                    gTotal += Convert.ToDecimal(productTotal);
+                    string productLine = productDescription + productTotal;
+
+                    graphic.DrawString(productLine, font, new SolidBrush(Color.Black), startX, startY + Offset);
+
+                    Offset = Offset + (int)fontHeight + 5;
+
+                }
+
+
+                String Grosstotal = "Toplam = " + gTotal.ToString("c");
+                underLine = "------------------------------------------";
+                graphics.DrawString(underLine, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                graphics.DrawString(Grosstotal.PadRight(30), new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+                String DrawnBy = "Admin";
+                graphics.DrawString("Conductor - " + DrawnBy, new Font("Courier New", 10),
+                    new SolidBrush(Color.Black), startX, startY + Offset);
+
 
             }
+            catch (Exception ex)
+            {
 
-
-            String Grosstotal = "Toplam = " + gTotal.ToString("c");
-            underLine = "------------------------------------------";
-            graphics.DrawString(underLine, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            graphics.DrawString(Grosstotal.PadRight(30), new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
-            Offset = Offset + 20;
-            String DrawnBy = "Admin";
-            graphics.DrawString("Conductor - " + DrawnBy, new Font("Courier New", 10),
-                new SolidBrush(Color.Black), startX, startY + Offset);
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
-
         
     }
 }

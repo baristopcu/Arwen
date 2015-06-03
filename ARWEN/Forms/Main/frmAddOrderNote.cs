@@ -34,13 +34,22 @@ namespace ARWEN.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                var query = dbContext.OrderHeader.Where(x => x.OrderNo == _orderNo).FirstOrDefault();
-                query.Note = txtNote.Text;
-                dbContext.SaveChanges();
-                this.Close();
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var query = dbContext.OrderHeader.Where(x => x.OrderNo == _orderNo).FirstOrDefault();
+                    query.Note = txtNote.Text;
+                    dbContext.SaveChanges();
+                    this.Close();
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

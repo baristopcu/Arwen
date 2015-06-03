@@ -28,113 +28,135 @@ namespace ARWEN
 
         }
 
-
-
         private static SimpleButton tableButton;
 
         public static void ButtonCreate(int kategoriSayisi, FlowLayoutPanel flwLayoutPanel)
         {
             List<string> tableNameList = new List<string>();
             List<byte> tableStateList = new List<byte>();
-
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                tableNameList.AddRange(dbContext.Get_All_Tables().Select(y => y.TableNo).ToList());
-                tableStateList.AddRange(dbContext.Get_All_Tables().Select(y =>  y.State).ToList());
-                
-            }
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    tableNameList.AddRange(dbContext.Get_All_Tables().Select(y => y.TableNo).ToList());
+                    tableStateList.AddRange(dbContext.Get_All_Tables().Select(y => y.State).ToList());
 
-            for (int i = 0; i < kategoriSayisi; i++)
+                }
+
+                for (int i = 0; i < kategoriSayisi; i++)
+                {
+                    SimpleButton sndrButton = new SimpleButton();
+                    sndrButton.Text = tableNameList[i];
+                    sndrButton.Tag = tableStateList[i];
+                    if (tableStateList[i] == 0)
+                    {
+                        sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Available.png");
+                    }
+                    else if (tableStateList[i] == 1)
+                    {
+                        sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Busy.png");
+                    }
+                    else if (tableStateList[i] == 2)
+                    {
+                        sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Closed.png");
+                    }
+
+                    sndrButton.Width = 200;
+                    sndrButton.Height = 60;
+
+                    flwLayoutPanel.Controls.Add(sndrButton);
+                    sndrButton.Click += sndrButton_Click;
+                }
+            }
+            catch (Exception ex)
             {
-                SimpleButton sndrButton = new SimpleButton();
-                sndrButton.Text = tableNameList[i];
-                sndrButton.Tag = tableStateList[i];
-                if (tableStateList[i] == 0)
-                {
-                    sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Available.png");
-                }
-                else if (tableStateList[i] == 1)
-                {
-                    sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Busy.png");
-                }
-                else if (tableStateList[i] == 2)
-                {
-                    sndrButton.Image = Image.FromFile(Application.StartupPath + @"\Images\Closed.png");
-                }
-                               
-                sndrButton.Width = 200;
-                sndrButton.Height = 60;
-
-                flwLayoutPanel.Controls.Add(sndrButton);
-                sndrButton.Click += sndrButton_Click;
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
+           
         }
 
         public static List<object> SiparislerList = new List<object>();
 
         private static void sndrButton_Click(object sender, EventArgs e)
         {
-            tableButton = (SimpleButton) sender;
+            try
+            {
+                tableButton = (SimpleButton)sender;
 
-            if (Convert.ToByte(tableButton.Tag) == 2)
-            {
-                
-                frmReservedPassword frm = new frmReservedPassword();               
-                frm.TableNo = tableButton.Text;
-                frm.ShowDialog();
-            }
-            else if (Convert.ToByte(tableButton.Tag) == 1)
-            {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                if (Convert.ToByte(tableButton.Tag) == 2)
                 {
-                    var query = dbContext.OrderHeader.Where(x => x.TableNo == tableButton.Text).FirstOrDefault();
 
-                    if (query == null)
+                    frmReservedPassword frm = new frmReservedPassword();
+                    frm.TableNo = tableButton.Text;
+                    frm.ShowDialog();
+                }
+                else if (Convert.ToByte(tableButton.Tag) == 1)
+                {
+                    using (RestaurantContext dbContext = new RestaurantContext())
                     {
-                        frmDeskCustomize frm = new frmDeskCustomize();
-                        frm.Tag = tableButton.Text;
-                        frm.TableState = Convert.ToByte(tableButton.Tag);
-                        frm.ShowDialog();
-                    }
-                    else if (query.LockState == true)
-                    {
-                        var getUserQuery =
-                            dbContext.OrderHeader.AsNoTracking()
-                                .Join(dbContext.Users, od => od.LockKeeperUserID, p => p.UserID, (od, p) => new {od, p})
-                                .Where(b => b.od.TableNo == tableButton.Text)
-                                .Select(s => new
-                                {
-                                    Name = s.p.FullName
-                                }).FirstOrDefault();
+                        var query = dbContext.OrderHeader.Where(x => x.TableNo == tableButton.Text).FirstOrDefault();
 
-                        MessageBox.Show("Bu masa şuan" + " '" + getUserQuery.Name + "' " + "tarafından düzenlenmekte.",
-                            "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (query.LockState == false)
-                    {
-                        frmDeskCustomize frm = new frmDeskCustomize();
-                        frm.Tag = tableButton.Text;
-                        frm.TableState = Convert.ToByte(tableButton.Tag);
-                        frm.ShowDialog();
+                        if (query == null)
+                        {
+                            frmDeskCustomize frm = new frmDeskCustomize();
+                            frm.Tag = tableButton.Text;
+                            frm.TableState = Convert.ToByte(tableButton.Tag);
+                            frm.ShowDialog();
+                        }
+                        else if (query.LockState == true)
+                        {
+                            var getUserQuery =
+                                dbContext.OrderHeader.AsNoTracking()
+                                    .Join(dbContext.Users, od => od.LockKeeperUserID, p => p.UserID, (od, p) => new { od, p })
+                                    .Where(b => b.od.TableNo == tableButton.Text)
+                                    .Select(s => new
+                                    {
+                                        Name = s.p.FullName
+                                    }).FirstOrDefault();
+
+                            MessageBox.Show("Bu masa şuan" + " '" + getUserQuery.Name + "' " + "tarafından düzenlenmekte.",
+                                "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (query.LockState == false)
+                        {
+                            frmDeskCustomize frm = new frmDeskCustomize();
+                            frm.Tag = tableButton.Text;
+                            frm.TableState = Convert.ToByte(tableButton.Tag);
+                            frm.ShowDialog();
+                        }
                     }
                 }
+                else if (Convert.ToByte(tableButton.Tag) == 0)
+                {
+                    frmDeskCustomize frm = new frmDeskCustomize();
+                    frm.Tag = tableButton.Text;
+                    frm.TableState = Convert.ToByte(tableButton.Tag);
+                    frm.ShowDialog();
+                }
+
             }
-            else if (Convert.ToByte(tableButton.Tag) == 0)
+            catch (Exception ex)
             {
-                frmDeskCustomize frm = new frmDeskCustomize();
-                frm.Tag = tableButton.Text;
-                frm.TableState = Convert.ToByte(tableButton.Tag);
-                frm.ShowDialog();
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
 
+        
         }
 
         private void frmDesks_Load(object sender, EventArgs e)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                int sayi = dbContext.Get_All_Tables().Count();
-                ButtonCreate(sayi, flwDeskChoose);
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    int sayi = dbContext.Get_All_Tables().Count();
+                    ButtonCreate(sayi, flwDeskChoose);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

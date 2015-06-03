@@ -25,57 +25,75 @@ namespace ARWEN.Forms
         private bool contayn = true;
         private void frmCompanySettings_Load(object sender, EventArgs e)
         {
-
-            var query = dbContext.Settings.FirstOrDefault();
-            if (query == null)
+            try
             {
-                contayn = false;
+                var query = dbContext.Settings.FirstOrDefault();
+                if (query == null)
+                {
+                    contayn = false;
+                }
+                txtAdres.Text = query.Address;
+                txtEmail.Text = query.Email;
+                txtTelephone.Text = query.PhoneNumber;
+                txtName.Text = query.RestaurantName;
+                txtWebSite.Text = query.WebsiteURL;
+                imgCompanyLogo.Image = byteArrayToImage(query.Logo);
             }
-            txtAdres.Text = query.Address;
-            txtEmail.Text = query.Email;
-            txtTelephone.Text = query.PhoneNumber;
-            txtName.Text = query.RestaurantName;
-            txtWebSite.Text = query.WebsiteURL;
-            imgCompanyLogo.Image = byteArrayToImage(query.Logo);
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                DTO.Database.Settings setting = new  DTO.Database.Settings()
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    RestaurantName = txtName.Text,
-                    PhoneNumber = txtTelephone.Text,
-                    WebsiteURL = txtWebSite.Text,
-                    Email = txtEmail.Text,
-                    Address = txtAdres.Text,
-                    Logo = Content
-                };
-                if (!contayn)
-                {
-                    dbContext.Settings.Add(setting);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Şirket ayarlarınız başarıyla kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                    DTO.Database.Settings setting = new DTO.Database.Settings()
+                    {
+                        RestaurantName = txtName.Text,
+                        PhoneNumber = txtTelephone.Text,
+                        WebsiteURL = txtWebSite.Text,
+                        Email = txtEmail.Text,
+                        Address = txtAdres.Text,
+                        Logo = Content
+                    };
+                    if (!contayn)
+                    {
+                        dbContext.Settings.Add(setting);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Şirket ayarlarınız başarıyla kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        var query = dbContext.Settings.FirstOrDefault();
+                        query.Address = txtAdres.Text;
+                        query.Email = txtEmail.Text;
+                        query.Logo = Content;
+                        query.PhoneNumber = txtTelephone.Text;
+                        query.RestaurantName = txtName.Text;
+                        query.WebsiteURL = txtWebSite.Text;
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Şirket ayarlarınız başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
+                 MessageBoxIcon.Information);
+                    }
+
+
                 }
-                else
-                {
-                    var query = dbContext.Settings.FirstOrDefault();
-                    query.Address = txtAdres.Text;
-                    query.Email = txtEmail.Text;
-                    query.Logo = Content;
-                    query.PhoneNumber = txtTelephone.Text;
-                    query.RestaurantName = txtName.Text;
-                    query.WebsiteURL = txtWebSite.Text;
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Şirket ayarlarınız başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
-                }
-              
-            
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+         
         }
 
         public byte[] Content { get; set; }
@@ -89,6 +107,7 @@ namespace ARWEN.Forms
 
         public Image byteArrayToImage(byte[] byteArrayIn)
         {
+
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);
             return returnImage;
@@ -97,16 +116,25 @@ namespace ARWEN.Forms
         
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image files|*.jpg;*.png;*.gif";
-            DialogResult dgr = ofd.ShowDialog();
-            if (dgr == DialogResult.OK)
+            try
             {
-               Image q  = Image.FromFile(ofd.FileName);
-               imgCompanyLogo.Image = q;
-               Content = imageToByteArray(q);
-               
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image files|*.jpg;*.png;*.gif";
+                DialogResult dgr = ofd.ShowDialog();
+                if (dgr == DialogResult.OK)
+                {
+                    Image q = Image.FromFile(ofd.FileName);
+                    imgCompanyLogo.Image = q;
+                    Content = imageToByteArray(q);
+
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+      
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

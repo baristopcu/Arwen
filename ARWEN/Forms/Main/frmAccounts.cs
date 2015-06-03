@@ -22,79 +22,142 @@ namespace ARWEN.Forms
 
         private void frmAccounts_Load(object sender, EventArgs e)
         {
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                var creditCardTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 1).Sum(y => y.TotalPrice);
-                var restaurantTicketTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 3).Sum(y => y.TotalPrice);
-                var cashTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 2).Sum(y => y.TotalPrice);
-                var total = dbContext.Payments.Sum(y => y.TotalPrice);
-                var discountTotal = dbContext.Payments.Sum(y => y.DiscountPrice);
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var creditCardTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 1).Sum(y => y.TotalPrice);
+                    var restaurantTicketTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 3).Sum(y => y.TotalPrice);
+                    var cashTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 2).Sum(y => y.TotalPrice);
+                    var total = dbContext.Payments.Sum(y => y.TotalPrice);
+                    var discountTotal = dbContext.Payments.Sum(y => y.DiscountPrice);
 
-                SetAccounts(total);
-                SetCredits(discountTotal);
-                SetCash(cashTotal);
-                SetCreditCard(creditCardTotal);
-                SetRestaurantTicket(restaurantTicketTotal);
+                    SetAccounts(total);
+                    SetCredits(discountTotal);
+                    SetCash(cashTotal);
+                    SetCreditCard(creditCardTotal);
+                    SetRestaurantTicket(restaurantTicketTotal);
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
 
         private void SetAccounts(decimal? total)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "Satışlar";
-            li.SubItems.Add(total.ToString());
-            li.SubItems.Add("(" + total.ToString() + ")");
-            listView1.Items.Add(li);
+            try
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = "Satışlar";
+                li.SubItems.Add(total.ToString());
+                li.SubItems.Add("(" + total.ToString() + ")");
+                listView1.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
         private void SetCredits(decimal? total)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "İndirimler";
-            li.SubItems.Add("-");
-            li.SubItems.Add(total.ToString());
-            listView1.Items.Add(li);
+            try
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = "İndirimler";
+                li.SubItems.Add("-");
+                li.SubItems.Add(total.ToString());
+                listView1.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+      
         }
         private void SetCash(decimal? total)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "Nakit";
-            li.SubItems.Add("-");
-            li.SubItems.Add(total.ToString());
-            listView1.Items.Add(li);
+            try
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = "Nakit";
+                li.SubItems.Add("-");
+                li.SubItems.Add(total.ToString());
+                listView1.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
         private void SetCreditCard(decimal? total)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "Kredi Kartı";
-            li.SubItems.Add("-");
-            li.SubItems.Add(total.ToString());
-            listView1.Items.Add(li);
+            try
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = "Kredi Kartı";
+                li.SubItems.Add("-");
+                li.SubItems.Add(total.ToString());
+                listView1.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
         }
         private void SetRestaurantTicket(decimal? total)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "Yemek Kartı";
-            li.SubItems.Add("-");
-            li.SubItems.Add(total.ToString());
-            listView1.Items.Add(li);
+            try
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = "Yemek Kartı";
+                li.SubItems.Add("-");
+                li.SubItems.Add(total.ToString());
+                listView1.Items.Add(li);
+            }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
 
         private void btnFindTicket_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedIndices.Count > 0)
+            try
             {
-                string a = listView1.SelectedItems[0].Text;
-                frmAccountDetail frm = new frmAccountDetail();
-                frm.DetailName = a;
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
+                if (listView1.SelectedIndices.Count > 0)
+                {
+                    string a = listView1.SelectedItems[0].Text;
+                    frmAccountDetail frm = new frmAccountDetail();
+                    frm.DetailName = a;
+                    this.Hide();
+                    frm.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return;
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+           
             
         }
 

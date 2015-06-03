@@ -237,7 +237,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(784, 322);
             this.groupControl1.TabIndex = 7;
-            this.groupControl1.Text = "MASA";
+            this.groupControl1.Text = "MÜŞTERİ";
             // 
             // label8
             // 

@@ -24,22 +24,31 @@ namespace ARWEN.Forms.Main
 
         private void GetTables(ComboBox cmbTable,ComboBox cmbTableTo)
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                //--
-                var query = dbContext.RestaurantTables.Where(x => x.State == 1).ToList();
-                cmbTable.DataSource = query;
-                cmbTable.ValueMember = "TableNo";
-                cmbTable.DisplayMember = "TableNo";
-                //--
-                var queryTo = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
-                cmbTableTo.DataSource = queryTo;
-                cmbTableTo.ValueMember = "TableNo";
-                cmbTableTo.DisplayMember = "TableNo";
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    //--
+                    var query = dbContext.RestaurantTables.Where(x => x.State == 1).ToList();
+                    cmbTable.DataSource = query;
+                    cmbTable.ValueMember = "TableNo";
+                    cmbTable.DisplayMember = "TableNo";
+                    //--
+                    var queryTo = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
+                    cmbTableTo.DataSource = queryTo;
+                    cmbTableTo.ValueMember = "TableNo";
+                    cmbTableTo.DisplayMember = "TableNo";
 
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
@@ -75,10 +84,10 @@ namespace ARWEN.Forms.Main
                 MessageBox.Show(table+" "+"Masası"+" "+tableTo+" "+"Masasına başarıyla taşındı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Bir Hata Oluştu ! , Masa Taşınamadı","ARWEN",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
            

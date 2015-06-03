@@ -57,64 +57,100 @@ namespace ARWEN.Forms
 
         private void GetGroups()
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                var query = dbContext.Groups.ToList();
-                cmbGroups.DataSource = query;
-                cmbGroups.ValueMember = "GroupID";
-                cmbGroups.DisplayMember = "GroupName";
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var query = dbContext.Groups.ToList();
+                    cmbGroups.DataSource = query;
+                    cmbGroups.ValueMember = "GroupID";
+                    cmbGroups.DisplayMember = "GroupName";
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
 
         private void GetUnits()
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                var query = dbContext.Units.ToList();
-                cmbUnits.DataSource = query;
-                cmbUnits.ValueMember = "UnitName";
-                cmbUnits.DisplayMember = "UnitName";
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var query = dbContext.Units.ToList();
+                    cmbUnits.DataSource = query;
+                    cmbUnits.ValueMember = "UnitName";
+                    cmbUnits.DisplayMember = "UnitName";
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+         
         }
 
         private void GetSuppliers()
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                var query = dbContext.Suppliers.ToList();
-                cmbSupplier.DataSource = query;
-                cmbSupplier.ValueMember = "SupplierID";
-                cmbSupplier.DisplayMember = "CompanyName";
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var query = dbContext.Suppliers.ToList();
+                    cmbSupplier.DataSource = query;
+                    cmbSupplier.ValueMember = "SupplierID";
+                    cmbSupplier.DisplayMember = "CompanyName";
 
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
         }
 
         private void GetProducts()
         {
-            using (var dbContext = new RestaurantContext())
+            try
             {
-                dbContext.Configuration.LazyLoadingEnabled = false;
-                var productsQuery =
-                   dbContext.Products.AsNoTracking()
-                       .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.Groups, p => p.p.GroupID, g=>g.GroupID,(p,g) => new{p,g})
-                       .Select(y => new
-                       {
-                           y.p.p.ProductName,
-                           y.p.p.UnitName,
-                           y.p.s.CompanyName,
-                           y.g.GroupName,
-                           y.p.p.Price,
-                           y.p.p.ProductID,
-                           y.p.p.UnitsInStock
+                using (var dbContext = new RestaurantContext())
+                {
+                    dbContext.Configuration.LazyLoadingEnabled = false;
+                    var productsQuery =
+                       dbContext.Products.AsNoTracking()
+                           .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.Groups, p => p.p.GroupID, g => g.GroupID, (p, g) => new { p, g })
+                           .Select(y => new
+                           {
+                               y.p.p.ProductName,
+                               y.p.p.UnitName,
+                               y.p.s.CompanyName,
+                               y.g.GroupName,
+                               y.p.p.Price,
+                               y.p.p.ProductID,
+                               y.p.p.UnitsInStock
 
-                       }).ToList();
-                gridViewProducts.DataSource = new BindingSource(productsQuery, "");
+                           }).ToList();
+                    gridViewProducts.DataSource = new BindingSource(productsQuery, "");
+                }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
 
@@ -129,46 +165,55 @@ namespace ARWEN.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!saveNew)
+            try
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                if (!saveNew)
                 {
-                    var query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
-                    query.ProductName = txtName.Text;
-                    query.Price = Convert.ToDecimal(txtPrice.Text);
-                    query.UnitName = Convert.ToString(cmbUnits.SelectedValue);
-                    query.GroupID = Convert.ToInt32(cmbGroups.SelectedValue);
-                    query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
-                    query.UnitsInStock = Convert.ToInt16(txtStock.Text);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Ürün başarıyla güncellendi.", "ARWEN",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GetUnits();
-                    SetLockProduct();
-
-                }
-            }
-            else if (saveNew)
-            {
-                using (RestaurantContext dbContext = new RestaurantContext())
-                {
-                    Products product = new Products
+                    using (RestaurantContext dbContext = new RestaurantContext())
                     {
-                        ProductName = txtName.Text,
-                        GroupID = Convert.ToInt32(cmbGroups.SelectedValue),
-                        UnitName =Convert.ToString(cmbUnits.SelectedValue),
-                        Price = Convert.ToDecimal(txtPrice.Text),
-                        SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue)
+                        var query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
+                        query.ProductName = txtName.Text;
+                        query.Price = Convert.ToDecimal(txtPrice.Text);
+                        query.UnitName = Convert.ToString(cmbUnits.SelectedValue);
+                        query.GroupID = Convert.ToInt32(cmbGroups.SelectedValue);
+                        query.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                        query.UnitsInStock = Convert.ToInt16(txtStock.Text);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Ürün başarıyla güncellendi.", "ARWEN",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetUnits();
+                        SetLockProduct();
 
-                    };
-                    dbContext.Products.Add(product);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Yeni ürün başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    GetProducts();
-                    SetLockProduct();
+                    }
+                }
+                else if (saveNew)
+                {
+                    using (RestaurantContext dbContext = new RestaurantContext())
+                    {
+                        Products product = new Products
+                        {
+                            ProductName = txtName.Text,
+                            GroupID = Convert.ToInt32(cmbGroups.SelectedValue),
+                            UnitName = Convert.ToString(cmbUnits.SelectedValue),
+                            Price = Convert.ToDecimal(txtPrice.Text),
+                            SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue)
+
+                        };
+                        dbContext.Products.Add(product);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Yeni ürün başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        GetProducts();
+                        SetLockProduct();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
          
         }
 
@@ -179,23 +224,32 @@ namespace ARWEN.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Bu ürünü silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            try
             {
-                int index = gridView1.FocusedRowHandle;
-                p.ProductID = Convert.ToInt32(gridView1.GetRowCellValue(index, "ProductID").ToString());
-
-                using (RestaurantContext dbContext = new RestaurantContext())
+                DialogResult dr = new DialogResult();
+                dr = MessageBox.Show("Bu ürünü silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
                 {
-                    Products query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
-                    dbContext.Products.Remove(query);
-                    dbContext.SaveChanges();
-                    MessageBox.Show("Ürün başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GetProducts();
+                    int index = gridView1.FocusedRowHandle;
+                    p.ProductID = Convert.ToInt32(gridView1.GetRowCellValue(index, "ProductID").ToString());
+
+                    using (RestaurantContext dbContext = new RestaurantContext())
+                    {
+                        Products query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
+                        dbContext.Products.Remove(query);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Ürün başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetProducts();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)
@@ -206,21 +260,30 @@ namespace ARWEN.Forms
 
         private void gridViewProducts_DoubleClick(object sender, EventArgs e)
         {
-            SetFreeProduct();
-            saveNew = false;
-            int index = gridView1.FocusedRowHandle;
-            p.ProductID = Convert.ToInt32(gridView1.GetRowCellValue(index, "ProductID").ToString());
-
-            using (RestaurantContext dbContext = new RestaurantContext())
+            try
             {
-                var query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
-                txtName.Text = query.ProductName;
-                txtPrice.Text = query.Price.ToString();
-                cmbGroups.SelectedValue = query.GroupID;
-                cmbUnits.SelectedValue = query.UnitName;
-                txtStock.Text = query.UnitsInStock.ToString();
-            }
-        }
+                SetFreeProduct();
+                saveNew = false;
+                int index = gridView1.FocusedRowHandle;
+                p.ProductID = Convert.ToInt32(gridView1.GetRowCellValue(index, "ProductID").ToString());
 
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var query = dbContext.Products.Where(x => x.ProductID == p.ProductID).FirstOrDefault();
+                    txtName.Text = query.ProductName;
+                    txtPrice.Text = query.Price.ToString();
+                    cmbGroups.SelectedValue = query.GroupID;
+                    cmbUnits.SelectedValue = query.UnitName;
+                    txtStock.Text = query.UnitsInStock.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
