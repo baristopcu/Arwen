@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ARWEN.Forms;
 using DevExpress.Utils.Drawing.Helpers;
 using ARWEN.Forms.Main;
+using ARWEN.Class;
 
 namespace ARWEN
 {
@@ -22,7 +23,7 @@ namespace ARWEN
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-          
+            stLblLoginUser.Text = "Kullanıcı =" + " " + GlobalUser.FullName.ToUpper();
         }
 
         private void btnDesks_Click(object sender, EventArgs e)
@@ -69,8 +70,5 @@ namespace ARWEN
             frm.ShowDialog();
             this.Show();
         }
-
-       
-       
     }
 }

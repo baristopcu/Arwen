@@ -22,6 +22,13 @@ namespace ARWEN.Forms.Main
             InitializeComponent();
         }
 
+        private void LoginInformation()
+        {
+            txtPassword.Text = "";
+            txtUserName.Text = "";
+            txtUserName.Focus();
+        }
+
         public static string GetMd5Hash(string input)
         {
             MD5 md5Hasher = MD5.Create();
@@ -86,11 +93,11 @@ namespace ARWEN.Forms.Main
                                 GlobalUser.Password = query.Password;
                                 GlobalUser.PermissionID = query.PermissionID;
 
+                                LoginInformation();
+
                                 if (GlobalUser.PermissionID == 1 || GlobalUser.PermissionID == 2)
                                 {
-                                    MessageBox.Show("Hoşgeldin" + " " + GlobalUser.FullName, "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                                    
                                     frmMain frm = new frmMain();
                                     this.Hide();
                                     frm.ShowDialog();
@@ -99,7 +106,6 @@ namespace ARWEN.Forms.Main
                                 }
                                 else if (GlobalUser.PermissionID == 3)
                                 {
-                                    MessageBox.Show("Hoşgeldin" + " " + GlobalUser.FullName, "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     frmKitchenUser frm = new frmKitchenUser();
                                     this.Hide();
