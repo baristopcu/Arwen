@@ -23,8 +23,11 @@ namespace ARWEN.Forms.Main
             InitializeComponent();
         }
 
+        Jarvis j = new Jarvis();
+
         private void frmReportView_Load(object sender, EventArgs e)
         {
+            j.cozunurlukAyarla(this);
             dtpEnd.DateTime = DateTime.Today;
             dtpStart.DateTime = DateTime.Today;
         }

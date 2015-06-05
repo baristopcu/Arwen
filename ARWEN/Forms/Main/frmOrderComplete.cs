@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using ARWEN.Class;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -28,6 +29,7 @@ namespace ARWEN.Forms
         private List<int> productAmounts = new List<int>();
         private string orderType = "";
         long orderNo;
+        Jarvis j = new Jarvis();
 
         public long OrderNo
         {
@@ -277,6 +279,7 @@ namespace ARWEN.Forms
         {
             try
             {
+                j.cozunurlukAyarla(this);
                 lblTable.Text = table;
                 lblTotal.Text = total.ToString("C2");
                 if (orderType == "New")

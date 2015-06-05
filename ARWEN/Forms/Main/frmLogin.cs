@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using ARWEN.Forms.Main;
 using ARWEN.Class;
 using ARWEN.DTO.Database;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms.Main
 {
@@ -47,7 +48,8 @@ namespace ARWEN.Forms.Main
 
         private void frmLogin1_Load(object sender, EventArgs e)
         {
-
+            Jarvis j = new Jarvis();
+            j.cozunurlukAyarla(this);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

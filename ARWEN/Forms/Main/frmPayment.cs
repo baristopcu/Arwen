@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ARWEN.DTO.Database;
 using System.Globalization;
+using ARWEN.DTO.Class;
 
 namespace ARWEN
 {
@@ -23,6 +24,7 @@ namespace ARWEN
         #region Fields
         long orderNo;
         decimal totalCash;
+        Jarvis j = new Jarvis();
 
         public decimal TotalCash
         {
@@ -121,6 +123,7 @@ namespace ARWEN
         {
             try
             {
+                j.cozunurlukAyarla(this);
                 this.Text = this.Tag + " " + "ÖDEME";
                 txtTotalCash.Text = totalCash.ToString();
                 btnTotalValue.Text = totalCash.ToString();

@@ -147,6 +147,8 @@ namespace ARWEN
         {
             try
             {
+                Jarvis j = new Jarvis();
+                j.cozunurlukAyarla(this);
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
                     int sayi = dbContext.Get_All_Tables().Count();

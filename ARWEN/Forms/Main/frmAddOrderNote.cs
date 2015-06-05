@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -18,6 +19,8 @@ namespace ARWEN.Forms
         {
             InitializeComponent();
         }
+
+        Jarvis j = new Jarvis();
 
         private long _orderNo;
 
@@ -29,7 +32,7 @@ namespace ARWEN.Forms
 
         private void frmAddOrderNote_Load(object sender, EventArgs e)
         {
-          
+            j.cozunurlukAyarla(this);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

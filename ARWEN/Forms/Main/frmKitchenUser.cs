@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using ARWEN.DTO.Database;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms.Main
 {
@@ -73,6 +74,7 @@ namespace ARWEN.Forms.Main
 
                     sndrButton.Width = 200;
                     sndrButton.Height = 60;
+                    
 
                     flwLayoutPanel.Controls.Add(sndrButton);
                     sndrButton.Click += sndrButton_Click;
@@ -152,6 +154,9 @@ namespace ARWEN.Forms.Main
         {
             try
             {
+                Jarvis j = new Jarvis();
+                j.cozunurlukAyarla(this);
+
                 GetProducts();
 
                 using (RestaurantContext dbContext = new RestaurantContext())

@@ -50,10 +50,7 @@ namespace ARWEN.Forms.Main
                     {
                         string controlTableNo = this.Tag.ToString();
                         orderNo = dbContext.OrderHeader.Where(o => o.TableNo == controlTableNo).Where(x => x.State < 5).Select(y => y.OrderNo).FirstOrDefault();
-                        int detailRow = dbContext.Get_Order_Detail(orderNo).Count();
-
-                        for (int i = 0; i < detailRow; i++)
-                        {
+                      
                             var query =
                                 dbContext.OrderDetail.AsNoTracking()
                                     .Join(dbContext.Products, od => od.ProductID, p => p.ProductID, (od, p) => new { od, p })
@@ -83,10 +80,10 @@ namespace ARWEN.Forms.Main
                                 dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.UnitName, result.NotEditable);
                                 gridControl1.DataSource = dtProducts;
                             }
-                            break;
+                           
                         }
                     }
-                }
+                
                 else
                 {
                     MessageBox.Show("HATA");

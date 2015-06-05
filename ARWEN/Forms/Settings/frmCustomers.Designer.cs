@@ -90,12 +90,13 @@
             // 
             // gridViewCustomers
             // 
-            this.gridViewCustomers.Location = new System.Drawing.Point(15, 344);
+            this.gridViewCustomers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridViewCustomers.Location = new System.Drawing.Point(0, 352);
             this.gridViewCustomers.MainView = this.gridView1;
             this.gridViewCustomers.Name = "gridViewCustomers";
             this.gridViewCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDelete});
-            this.gridViewCustomers.Size = new System.Drawing.Size(978, 349);
+            this.gridViewCustomers.Size = new System.Drawing.Size(1005, 349);
             this.gridViewCustomers.TabIndex = 8;
             this.gridViewCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -233,9 +234,9 @@
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtContactTitle);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(209, 2);
+            this.groupControl1.Location = new System.Drawing.Point(195, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(784, 322);
+            this.groupControl1.Size = new System.Drawing.Size(810, 322);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "MÜŞTERİ";
             // 

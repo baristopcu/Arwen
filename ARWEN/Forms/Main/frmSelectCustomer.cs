@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ARWEN.Class;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -20,7 +21,7 @@ namespace ARWEN.Forms
             InitializeComponent();
         }
 
-      
+        Jarvis j = new Jarvis();
 
         private void GetCustomers()
         {
@@ -43,6 +44,7 @@ namespace ARWEN.Forms
         
         private void frmSelectCustomer_Load(object sender, EventArgs e)
         {
+            j.cozunurlukAyarla(this);
             GetCustomers();
         }
 

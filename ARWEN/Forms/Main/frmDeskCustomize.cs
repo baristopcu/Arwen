@@ -12,6 +12,7 @@ using ARWEN.Forms.Main;
 using DevExpress.Xpo.DB.Helpers;
 using DevExpress.XtraEditors;
 using ARWEN.Class;
+using ARWEN.DTO.Class;
 
 namespace ARWEN
 {
@@ -36,6 +37,7 @@ namespace ARWEN
 
         #region Fields
 
+        Jarvis j = new Jarvis();
         private static SimpleButton groupButton;
         private static SimpleButton productButton;
         private string orderType = "";
@@ -128,10 +130,7 @@ namespace ARWEN
                     {
                         string controlTableNo = this.Tag.ToString();
                         orderNo = dbContext.OrderHeader.Where(o => o.TableNo == controlTableNo).Where(x => x.State < 5).Select(y => y.OrderNo).FirstOrDefault();
-                        int detailRow = dbContext.Get_Order_Detail(orderNo).Count();
-
-                        for (int i = 0; i < detailRow; i++)
-                        {
+                      
                             var query =
                                 dbContext.OrderDetail.AsNoTracking()
                                     .Join(dbContext.Products, od => od.ProductID, p => p.ProductID, (od, p) => new { od, p })
@@ -161,7 +160,7 @@ namespace ARWEN
                                 dtProducts.Rows.Add(products.ProductID, Adet, products.ProductName, products.Price, products.UnitName);
                                 gridProducts.DataSource = dtProducts;
                             }
-                            break;
+                            
                         }
 
                         gridView1.OptionsView.ShowFooter = true;
@@ -171,7 +170,7 @@ namespace ARWEN
 
 
                     }
-                }
+                
                 else if (State == 0) //NEW
                 {
                     orderType = "New";
@@ -262,6 +261,7 @@ namespace ARWEN
                     sndrButton.Tag = groupIdList[i];
                     sndrButton.Width = 150;
                     sndrButton.Height = 60;
+                    sndrButton.Anchor = (AnchorStyles.Right | AnchorStyles.Top);
                     flwLayoutPanel.Controls.Add(sndrButton);
                     sndrButton.Click += groupButton_Click;
                 }
@@ -447,7 +447,8 @@ namespace ARWEN
         {
             try
             {
-                lblTableNo.Text = Tag.ToString() + " " + "DETAY";
+                j.cozunurlukAyarla(this);
+                groupControlTable.Text = Tag.ToString() + " " + "DETAY";
                 StateControl(TableState);
                 if (orderType == "Edit")
                 {
@@ -710,6 +711,11 @@ namespace ARWEN
                         }
 
                     }
+                    else
+                    {
+                        currow.Row.Delete();
+                        //dbContext.OrderDetail.Remove(oDetails.FirstOrDefault(x => x.ProductID == productId));
+                    }
 
                 }
 
@@ -862,7 +868,7 @@ namespace ARWEN
                 graphics.DrawString(underLine, new Font("Courier New", 10),
                     new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset = Offset + 20;
-                graphics.DrawString("Masa: " + lblTableNo.Text,
+                graphics.DrawString("Masa: " + groupControlTable.Text,
                     new Font("Courier New", 12),
                     new SolidBrush(Color.Black), startX, startY + Offset);
                 Offset = Offset + 20;

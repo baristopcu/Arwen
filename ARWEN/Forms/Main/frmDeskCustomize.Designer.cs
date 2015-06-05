@@ -51,11 +51,16 @@
             this.btnDeleteRow = new DevExpress.XtraEditors.SimpleButton();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSaveOrder = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTableNo = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.groupControlTable = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlTable)).BeginInit();
+            this.groupControlTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMoveDesk
@@ -71,7 +76,7 @@
             // btnWriteTicket
             // 
             this.btnWriteTicket.Image = global::ARWEN.Properties.Resources.print_32x32;
-            this.btnWriteTicket.Location = new System.Drawing.Point(12, 527);
+            this.btnWriteTicket.Location = new System.Drawing.Point(12, 524);
             this.btnWriteTicket.Name = "btnWriteTicket";
             this.btnWriteTicket.Size = new System.Drawing.Size(142, 85);
             this.btnWriteTicket.TabIndex = 1;
@@ -81,7 +86,7 @@
             // btnAddNote
             // 
             this.btnAddNote.Image = global::ARWEN.Properties.Resources.notes_32x32;
-            this.btnAddNote.Location = new System.Drawing.Point(12, 643);
+            this.btnAddNote.Location = new System.Drawing.Point(12, 637);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(142, 85);
             this.btnAddNote.TabIndex = 2;
@@ -90,13 +95,16 @@
             // 
             // gridProducts
             // 
+            this.gridProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridProducts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gridProducts.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gridProducts.Location = new System.Drawing.Point(168, 26);
+            this.gridProducts.Location = new System.Drawing.Point(4, 23);
             this.gridProducts.MainView = this.gridView1;
             this.gridProducts.Margin = new System.Windows.Forms.Padding(2);
             this.gridProducts.Name = "gridProducts";
-            this.gridProducts.Size = new System.Drawing.Size(457, 599);
+            this.gridProducts.Size = new System.Drawing.Size(457, 584);
             this.gridProducts.TabIndex = 3;
             this.gridProducts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -171,8 +179,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(712, 183);
+            this.label1.Location = new System.Drawing.Point(75, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(515, 13);
             this.label1.TabIndex = 11;
@@ -181,9 +190,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(916, 204);
+            this.label2.Location = new System.Drawing.Point(278, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 23);
             this.label2.TabIndex = 13;
@@ -191,37 +201,42 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(967, 640);
+            this.btnClose.Location = new System.Drawing.Point(964, 638);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(297, 85);
+            this.btnClose.Size = new System.Drawing.Size(303, 85);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "ÇIKIŞ";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnPayment
             // 
+            this.btnPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPayment.Image = global::ARWEN.Properties.Resources.currency_32x32;
-            this.btnPayment.Location = new System.Drawing.Point(642, 640);
+            this.btnPayment.Location = new System.Drawing.Point(631, 638);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(302, 85);
+            this.btnPayment.Size = new System.Drawing.Size(312, 85);
             this.btnPayment.TabIndex = 15;
             this.btnPayment.Text = "ÖDEME AL";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // flwProductGroups
             // 
-            this.flwProductGroups.Location = new System.Drawing.Point(642, 26);
+            this.flwProductGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flwProductGroups.Location = new System.Drawing.Point(5, 24);
             this.flwProductGroups.Name = "flwProductGroups";
-            this.flwProductGroups.Size = new System.Drawing.Size(630, 143);
+            this.flwProductGroups.Size = new System.Drawing.Size(630, 167);
             this.flwProductGroups.TabIndex = 18;
             // 
             // flwProducts
             // 
-            this.flwProducts.Location = new System.Drawing.Point(642, 245);
+            this.flwProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flwProducts.Location = new System.Drawing.Point(5, 247);
             this.flwProducts.Name = "flwProducts";
-            this.flwProducts.Size = new System.Drawing.Size(630, 380);
+            this.flwProducts.Size = new System.Drawing.Size(630, 359);
             this.flwProducts.TabIndex = 19;
             // 
             // btnAdd
@@ -271,25 +286,17 @@
             // 
             // btnSaveOrder
             // 
+            this.btnSaveOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveOrder.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSaveOrder.Appearance.Options.UseFont = true;
             this.btnSaveOrder.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSaveOrder.Location = new System.Drawing.Point(168, 643);
+            this.btnSaveOrder.Location = new System.Drawing.Point(160, 638);
             this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Size = new System.Drawing.Size(457, 85);
+            this.btnSaveOrder.Size = new System.Drawing.Size(465, 85);
             this.btnSaveOrder.TabIndex = 25;
             this.btnSaveOrder.Text = "SİPARİŞİ KAYDET";
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
-            // 
-            // lblTableNo
-            // 
-            this.lblTableNo.AutoSize = true;
-            this.lblTableNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTableNo.Location = new System.Drawing.Point(309, 8);
-            this.lblTableNo.Name = "lblTableNo";
-            this.lblTableNo.Size = new System.Drawing.Size(52, 16);
-            this.lblTableNo.TabIndex = 26;
-            this.lblTableNo.Text = "[MASA]";
             // 
             // printDialog1
             // 
@@ -299,6 +306,30 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // groupControlTable
+            // 
+            this.groupControlTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControlTable.Controls.Add(this.gridProducts);
+            this.groupControlTable.Location = new System.Drawing.Point(160, 21);
+            this.groupControlTable.Name = "groupControlTable";
+            this.groupControlTable.Size = new System.Drawing.Size(466, 611);
+            this.groupControlTable.TabIndex = 27;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.flwProductGroups);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.flwProducts);
+            this.groupControl1.Location = new System.Drawing.Point(632, 21);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(641, 611);
+            this.groupControl1.TabIndex = 28;
+            // 
             // frmDeskCustomize
             // 
             this.AcceptButton = this.btnSaveOrder;
@@ -307,19 +338,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1276, 737);
+            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.groupControlTable);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblTableNo);
             this.Controls.Add(this.btnSaveOrder);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDeleteRow);
             this.Controls.Add(this.btnLess);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.flwProducts);
-            this.Controls.Add(this.flwProductGroups);
             this.Controls.Add(this.btnPayment);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.gridProducts);
             this.Controls.Add(this.btnAddNote);
             this.Controls.Add(this.btnWriteTicket);
             this.Controls.Add(this.btnMoveDesk);
@@ -334,6 +361,11 @@
             this.Load += new System.EventHandler(this.frmDeskCustomize_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlTable)).EndInit();
+            this.groupControlTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,9 +394,10 @@
         public DevExpress.XtraGrid.GridControl gridProducts;
         private DevExpress.XtraEditors.SimpleButton btnSaveOrder;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private System.Windows.Forms.Label lblTableNo;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.GroupControl groupControlTable;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

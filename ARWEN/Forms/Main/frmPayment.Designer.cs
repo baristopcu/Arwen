@@ -78,6 +78,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(413, 15);
@@ -88,6 +89,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(481, 85);
@@ -98,6 +100,7 @@
             // 
             // txtTotalCash
             // 
+            this.txtTotalCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotalCash.Location = new System.Drawing.Point(663, 12);
             this.txtTotalCash.Name = "txtTotalCash";
             this.txtTotalCash.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -111,6 +114,7 @@
             // 
             // txtCharged
             // 
+            this.txtCharged.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCharged.Location = new System.Drawing.Point(663, 74);
             this.txtCharged.Name = "txtCharged";
             this.txtCharged.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -124,6 +128,7 @@
             // 
             // btn5
             // 
+            this.btn5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn5.Location = new System.Drawing.Point(429, 231);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(160, 52);
@@ -133,6 +138,7 @@
             // 
             // btn10
             // 
+            this.btn10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn10.Location = new System.Drawing.Point(429, 303);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(160, 52);
@@ -142,6 +148,7 @@
             // 
             // btn20
             // 
+            this.btn20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn20.Location = new System.Drawing.Point(429, 375);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(160, 52);
@@ -151,6 +158,7 @@
             // 
             // btn1
             // 
+            this.btn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn1.Location = new System.Drawing.Point(429, 159);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(160, 52);
@@ -160,6 +168,7 @@
             // 
             // btn100
             // 
+            this.btn100.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn100.Location = new System.Drawing.Point(429, 522);
             this.btn100.Name = "btn100";
             this.btn100.Size = new System.Drawing.Size(160, 52);
@@ -169,6 +178,7 @@
             // 
             // btn50
             // 
+            this.btn50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn50.Location = new System.Drawing.Point(429, 447);
             this.btn50.Name = "btn50";
             this.btn50.Size = new System.Drawing.Size(160, 52);
@@ -178,6 +188,7 @@
             // 
             // btnDiscount
             // 
+            this.btnDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDiscount.Location = new System.Drawing.Point(609, 586);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(228, 49);
@@ -187,6 +198,7 @@
             // 
             // btnTicket
             // 
+            this.btnTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
             this.btnTicket.Location = new System.Drawing.Point(843, 586);
             this.btnTicket.Name = "btnTicket";
@@ -197,6 +209,7 @@
             // 
             // btnCash
             // 
+            this.btnCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCash.Location = new System.Drawing.Point(1247, 15);
             this.btnCash.Name = "btnCash";
             this.btnCash.Size = new System.Drawing.Size(265, 125);
@@ -206,6 +219,7 @@
             // 
             // btnCreditCard
             // 
+            this.btnCreditCard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCreditCard.Location = new System.Drawing.Point(1247, 159);
             this.btnCreditCard.Name = "btnCreditCard";
             this.btnCreditCard.Size = new System.Drawing.Size(265, 125);
@@ -215,6 +229,7 @@
             // 
             // btnRestaurantTicket
             // 
+            this.btnRestaurantTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurantTicket.Location = new System.Drawing.Point(1247, 306);
             this.btnRestaurantTicket.Name = "btnRestaurantTicket";
             this.btnRestaurantTicket.Size = new System.Drawing.Size(265, 125);
@@ -224,6 +239,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(1247, 447);
             this.btnClose.Name = "btnClose";
@@ -234,6 +250,9 @@
             // 
             // gridPaymentProducts
             // 
+            this.gridPaymentProducts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPaymentProducts.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gridPaymentProducts.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gridPaymentProducts.Location = new System.Drawing.Point(11, 36);
@@ -304,6 +323,7 @@
             // 
             // btnC1
             // 
+            this.btnC1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC1.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC1.Appearance.Options.UseBackColor = true;
@@ -317,6 +337,7 @@
             // 
             // btnC4
             // 
+            this.btnC4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC4.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC4.Appearance.Options.UseBackColor = true;
@@ -330,6 +351,7 @@
             // 
             // btnC7
             // 
+            this.btnC7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC7.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC7.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC7.Appearance.Options.UseBackColor = true;
@@ -343,6 +365,7 @@
             // 
             // btnCV
             // 
+            this.btnCV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCV.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnCV.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCV.Appearance.Options.UseBackColor = true;
@@ -356,6 +379,7 @@
             // 
             // btnC2
             // 
+            this.btnC2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC2.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC2.Appearance.Options.UseBackColor = true;
@@ -369,6 +393,7 @@
             // 
             // btnC3
             // 
+            this.btnC3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC3.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC3.Appearance.Options.UseBackColor = true;
@@ -382,6 +407,7 @@
             // 
             // btnC6
             // 
+            this.btnC6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC6.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC6.Appearance.Options.UseBackColor = true;
@@ -395,6 +421,7 @@
             // 
             // btnC5
             // 
+            this.btnC5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC5.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC5.Appearance.Options.UseBackColor = true;
@@ -408,6 +435,7 @@
             // 
             // btnC9
             // 
+            this.btnC9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC9.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC9.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC9.Appearance.Options.UseBackColor = true;
@@ -421,6 +449,7 @@
             // 
             // btnC8
             // 
+            this.btnC8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC8.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC8.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC8.Appearance.Options.UseBackColor = true;
@@ -434,6 +463,7 @@
             // 
             // btnCC
             // 
+            this.btnCC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCC.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnCC.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCC.Appearance.Options.UseBackColor = true;
@@ -447,6 +477,7 @@
             // 
             // btnC0
             // 
+            this.btnC0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnC0.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnC0.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnC0.Appearance.Options.UseBackColor = true;
@@ -460,6 +491,7 @@
             // 
             // btnGetTotalPrice
             // 
+            this.btnGetTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGetTotalPrice.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnGetTotalPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGetTotalPrice.Appearance.Options.UseBackColor = true;
@@ -473,6 +505,7 @@
             // 
             // btnTotalValue
             // 
+            this.btnTotalValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTotalValue.Appearance.BackColor = System.Drawing.Color.Black;
             this.btnTotalValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnTotalValue.Appearance.Options.UseBackColor = true;
@@ -485,6 +518,7 @@
             // 
             // lblDiscount
             // 
+            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDiscount.Location = new System.Drawing.Point(925, 122);
@@ -496,6 +530,7 @@
             // 
             // lblRound
             // 
+            this.lblRound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRound.AutoSize = true;
             this.lblRound.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRound.Location = new System.Drawing.Point(873, 122);

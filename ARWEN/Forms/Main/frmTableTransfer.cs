@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
 using ComboBox = System.Windows.Forms.ComboBox;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms.Main
 {
@@ -58,6 +59,8 @@ namespace ARWEN.Forms.Main
 
         private void frmTableTransfer_Load(object sender, EventArgs e)
         {
+            Jarvis j = new Jarvis();
+            j.cozunurlukAyarla(this);
             GetTables(cmbTable,cmbTableTo);
             if (!string.IsNullOrEmpty(tableNo))
             {

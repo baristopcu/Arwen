@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -18,12 +19,15 @@ namespace ARWEN.Forms
         {
             InitializeComponent();
         }
-  
+
+        Jarvis j = new Jarvis();
+
 
         private void frmAccounts_Load(object sender, EventArgs e)
         {
             try
             {
+                j.cozunurlukAyarla(this);
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
                     var creditCardTotal = dbContext.Payments.Where(x => x.PaymentModuleID == 1).Sum(y => y.TotalPrice);

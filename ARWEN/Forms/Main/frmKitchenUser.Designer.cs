@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.btnAvailabilitiy = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridControlProducts = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -36,11 +36,16 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAvailabilitiy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnAvailabilitiy
+            // 
+            this.btnAvailabilitiy.AutoHeight = false;
+            this.btnAvailabilitiy.Name = "btnAvailabilitiy";
             // 
             // gridControlProducts
             // 
@@ -83,9 +88,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Durum";
-            repositoryItemCheckEdit1.AutoHeight = false;
-            repositoryItemCheckEdit1.Name = "btnAvailabilitiy";
-            this.gridColumn3.ColumnEdit = repositoryItemCheckEdit1;
+            this.gridColumn3.ColumnEdit = this.btnAvailabilitiy;
             this.gridColumn3.FieldName = "Availability";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
@@ -101,6 +104,8 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Location = new System.Drawing.Point(425, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(935, 646);
@@ -121,9 +126,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mutfak Kullanıcısı | ARWEN";
             this.Load += new System.EventHandler(this.frmKitchenUser_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAvailabilitiy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -138,5 +143,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit btnAvailabilitiy;
     }
 }

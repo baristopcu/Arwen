@@ -333,10 +333,7 @@ namespace ARWEN.Forms.Settings.Bills
                         txtDescription.Text = GetInvoiceHeader.Description;
                         cmbSupplier.SelectedValue = GetInvoiceHeader.SupplierID;
                         cmbFicheType.SelectedValue = GetInvoiceHeader.FicheTypeID;
-                        int detailRow = dbContext.PurchaseDetail.Where(pd => pd.PurchaseID == FicheID).Count();
-
-                        for (int i = 0; i < detailRow; i++)
-                        {
+                       
                             var query =
                                 dbContext.Purchases.AsNoTracking()
                                     .Join(dbContext.PurchaseDetail, p => p.PurchaseID, pd => pd.PurchaseID, (p, pd) => new { p, pd }).Join(dbContext.Products, pp => pp.pd.ProductID, pq => pq.ProductID, (pp, pq) => new { pp, pq }).Join(dbContext.Groups, p => p.pq.GroupID, g => g.GroupID, (p, g) => new { p, g })
@@ -367,11 +364,10 @@ namespace ARWEN.Forms.Settings.Bills
                             }
 
                             GeneralCalculate();
-                            break;
+                            
                         }
                     }
-                }
-            }
+                }            
             catch (Exception ex)
             {
                 

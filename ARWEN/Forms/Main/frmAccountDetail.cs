@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
+using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -19,6 +20,7 @@ namespace ARWEN.Forms
             InitializeComponent();
         }
 
+        Jarvis j = new Jarvis();
 
         private string detailName;
 
@@ -127,6 +129,7 @@ namespace ARWEN.Forms
         {
             try
             {
+                j.cozunurlukAyarla(this);
                 GetAccountDetails(detailName);
                 this.Text = detailName;
             }

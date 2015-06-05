@@ -170,7 +170,7 @@ namespace ARWEN.Forms
                 decimal gTotal = 0;
 
                 int index = gridView1.FocusedRowHandle;
-                int order = Convert.ToInt32(gridView1.GetRowCellValue(index, "OrderNo").ToString());
+                int? order = Convert.ToInt32(gridView1.GetRowCellValue(index, "OrderNo").ToString());
                 int payment = Convert.ToInt32(gridView1.GetRowCellValue(index, "PaymentID").ToString());
                 string ticketDate = gridView1.GetRowCellValue(index, "Date").ToString();
                 string table = gridView1.GetRowCellValue(index, "TableNo").ToString();

@@ -1,10 +1,10 @@
 ﻿
-
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -25,6 +25,7 @@ namespace ARWEN.DTO.Class
         Yonetici,
         Kullanici
     }
+
 
     public class Jarvis
     {
@@ -207,6 +208,17 @@ namespace ARWEN.DTO.Class
             }
             catch { }
             return plainText;
+        }
+
+        public void cozunurlukAyarla(DevExpress.XtraEditors.XtraForm frm)
+        {
+            int SimdikiWidth = 1920;
+            int SimdikiHeight = 1080;
+            Rectangle ClientCozunurluk = new Rectangle();
+            ClientCozunurluk = Screen.GetBounds(ClientCozunurluk);
+            float OranWidth = ((float)ClientCozunurluk.Width / (float)SimdikiWidth);
+            float OranHeight = ((float)ClientCozunurluk.Height / (float)SimdikiHeight);
+            frm.Scale(OranWidth, OranHeight);
         }
 
         public string Encrypt(string plainText, string passPhrase)
