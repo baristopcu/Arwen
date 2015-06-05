@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesks));
             this.flwDeskChoose = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddReservation = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoveDesk = new DevExpress.XtraEditors.SimpleButton();
+            this.backgroundWorkerDesk = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // flwDeskChoose
@@ -61,6 +64,16 @@
             this.btnMoveDesk.Text = "MASAYI TAŞI";
             this.btnMoveDesk.Click += new System.EventHandler(this.btnMoveDesk_Click);
             // 
+            // backgroundWorkerDesk
+            // 
+            this.backgroundWorkerDesk.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerDesk_DoWork);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmDesks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,5 +97,7 @@
         private DevExpress.XtraEditors.SimpleButton btnAddReservation;
         private DevExpress.XtraEditors.SimpleButton btnMoveDesk;
         private System.Windows.Forms.FlowLayoutPanel flwDeskChoose;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerDesk;
+        private System.Windows.Forms.Timer timer1;
     }
 }

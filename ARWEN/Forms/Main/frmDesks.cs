@@ -16,6 +16,7 @@ using DevExpress.CodeParser;
 using DevExpress.Data.Mask;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraEditors;
+using System.Threading;
 
 
 namespace ARWEN
@@ -29,8 +30,8 @@ namespace ARWEN
         }
 
         private static SimpleButton tableButton;
-
-        public static void ButtonCreate(int kategoriSayisi, FlowLayoutPanel flwLayoutPanel)
+        int sayi = 0;
+        public void ButtonCreate()
         {
             List<string> tableNameList = new List<string>();
             List<byte> tableStateList = new List<byte>();
@@ -43,7 +44,7 @@ namespace ARWEN
 
                 }
 
-                for (int i = 0; i < kategoriSayisi; i++)
+                for (int i = 0; i < sayi; i++)
                 {
                     SimpleButton sndrButton = new SimpleButton();
                     sndrButton.Text = tableNameList[i];
@@ -64,24 +65,25 @@ namespace ARWEN
                     sndrButton.Width = 200;
                     sndrButton.Height = 60;
 
-                    flwLayoutPanel.Controls.Add(sndrButton);
+                    flwDeskChoose.Controls.Add(sndrButton);
                     sndrButton.Click += sndrButton_Click;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
         public static List<object> SiparislerList = new List<object>();
 
+    
         private static void sndrButton_Click(object sender, EventArgs e)
         {
             try
             {
-                tableButton = (SimpleButton)sender;
+                tableButton = (SimpleButton)sender;             
 
                 if (Convert.ToByte(tableButton.Tag) == 2)
                 {
@@ -137,23 +139,32 @@ namespace ARWEN
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        
+
         }
 
         private void frmDesks_Load(object sender, EventArgs e)
         {
+           
             try
             {
                 Jarvis j = new Jarvis();
                 j.cozunurlukAyarla(this);
-                using (RestaurantContext dbContext = new RestaurantContext())
+                CheckForIllegalCrossThreadCalls = false;
+                using (var dbContext = new RestaurantContext())
                 {
-                    int sayi = dbContext.Get_All_Tables().Count();
-                    ButtonCreate(sayi, flwDeskChoose);
+                    sayi = dbContext.Get_All_Tables().Count();
+                    ButtonCreate();
+
                 }
+
+                //using (RestaurantContext dbContext = new RestaurantContext())
+                //{
+                //    int sayi = dbContext.Get_All_Tables().Count();
+                //    ButtonCreate(sayi, flwDeskChoose);
+                //}
             }
             catch (Exception ex)
             {
@@ -173,6 +184,112 @@ namespace ARWEN
         {
             frmTableTransfer frm = new frmTableTransfer();
             frm.ShowDialog();
+        }
+
+        Thread thread1;
+
+
+        void GetTable()
+        {
+            List<string> tableNameList = new List<string>();
+            List<byte> tableStateList = new List<byte>();
+
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke((MethodInvoker)delegate()
+                {
+                    if (flwDeskChoose != null)
+                    {
+                        List<SimpleButton> listControls = flwDeskChoose.Controls.Cast<SimpleButton>().ToList();
+
+                        using (RestaurantContext dbContext = new RestaurantContext())
+                        {
+                            tableNameList.AddRange(dbContext.Get_All_Tables().Select(y => y.TableNo).ToList());
+                            tableStateList.AddRange(dbContext.Get_All_Tables().Select(y => y.State).ToList());
+
+                        }
+
+                        for (int i = 0; i < listControls.Count; i++)
+                        {
+                            if (listControls[i].Text != tableNameList[i] && Convert.ToByte(listControls[i].Tag) != tableStateList[i])
+                            {
+                                listControls[i].Text = tableNameList[i];
+                                listControls[i].Tag = tableStateList[i];
+
+                                if (tableStateList[i] == 0)
+                                {
+                                    listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Available.png");
+                                }
+                                else if (tableStateList[i] == 1)
+                                {
+                                    listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Busy.png");
+                                }
+                                else if (tableStateList[i] == 2)
+                                {
+                                    listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Closed.png");
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                });
+
+            }
+            else
+            {
+
+                List<SimpleButton> listControls = flwDeskChoose.Controls.Cast<SimpleButton>().ToList();
+
+
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    tableNameList.AddRange(dbContext.Get_All_Tables().Select(y => y.TableNo).ToList());
+                    tableStateList.AddRange(dbContext.Get_All_Tables().Select(y => y.State).ToList());
+
+                }
+
+                for (int i = 0; i < listControls.Count; i++)
+                {
+                    if (listControls[i].Text != tableNameList[i] && Convert.ToByte(listControls[i].Tag) != tableStateList[i])
+                    {
+                        listControls[i].Text = tableNameList[i];
+                        listControls[i].Tag = tableStateList[i];
+
+                        if (tableStateList[i] == 0)
+                        {
+                            listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Available.png");
+                        }
+                        else if (tableStateList[i] == 1)
+                        {
+                            listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Busy.png");
+                        }
+                        else if (tableStateList[i] == 2)
+                        {
+                            listControls[i].Image = Image.FromFile(Application.StartupPath + @"\Images\Closed.png");
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+        private void backgroundWorkerDesk_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            thread1 = new Thread(new ThreadStart(GetTable));
+            thread1.Start();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!backgroundWorkerDesk.IsBusy)
+                backgroundWorkerDesk.RunWorkerAsync();
         }
     }
 }
