@@ -47,114 +47,96 @@ namespace ARWEN.Forms.Settings.Bills
 
         private void GetInvoices()
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var productsQuery =
-                       dbContext.Purchases.AsNoTracking()
-                           .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.FicheTypes, p => p.p.FicheTypeID, g => g.FicheTypeID, (p, g) => new { p, g })
-                           .Select(y => new
-                           {
-                               y.p.p.Description,
-                               y.g.Name,
-                               y.p.s.CompanyName,
-                               y.p.p.TotalCash,
-                               y.p.p.TotalDiscount,
-                               y.p.p.TotalTax,
-                               y.p.p.Tax,
-                               y.p.p.Discount,
-                               y.p.p.PurchaseID,
-                               y.p.p.PurchaseDate
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var productsQuery =
+                   dbContext.Purchases.AsNoTracking()
+                       .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.FicheTypes, p => p.p.FicheTypeID, g => g.FicheTypeID, (p, g) => new { p, g })
+                       .Select(y => new
+                       {
+                           y.p.p.Description,
+                           y.g.Name,
+                           y.p.s.CompanyName,
+                           y.p.p.TotalCash,
+                           y.p.p.TotalDiscount,
+                           y.p.p.TotalTax,
+                           y.p.p.Tax,
+                           y.p.p.Discount,
+                           y.p.p.PurchaseID,
+                           y.p.p.PurchaseDate
 
-                           }).ToList();
+                       }).ToList();
 
-                    gridControl1.DataSource = new BindingSource(productsQuery, "");
-                }
+                gridControl1.DataSource = new BindingSource(productsQuery, "");
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-      
         }
 
         void LoadTable()
         {
-            try
-            {
-                dtInvoices.Clear();
+            dtInvoices.Clear(); 
 
-                using (var dbContext = new RestaurantContext())
+            using (var dbContext = new RestaurantContext())
+            {
+                #region InvoiceQuery
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var invoiceQuery =
+                   dbContext.Purchases.AsNoTracking()
+                       .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.FicheTypes, p => p.p.FicheTypeID, g => g.FicheTypeID, (p, g) => new { p, g })
+                       .Select(y => new
+                       {
+                           y.p.p.Description,
+                           y.g.Name,
+                           y.p.s.CompanyName,
+                           y.p.p.TotalCash,
+                           y.p.p.TotalDiscount,
+                           y.p.p.TotalTax,
+                           y.p.p.Tax,
+                           y.p.p.Discount,
+                           y.p.p.PurchaseID,
+                           y.p.p.PurchaseDate
+
+                       }).ToList();
+
+                foreach (var item in invoiceQuery)
                 {
-                    #region InvoiceQuery
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var invoiceQuery =
-                       dbContext.Purchases.AsNoTracking()
-                           .Join(dbContext.Suppliers, p => p.SupplierID, s => s.SupplierID, (p, s) => new { p, s }).Join(dbContext.FicheTypes, p => p.p.FicheTypeID, g => g.FicheTypeID, (p, g) => new { p, g })
-                           .Select(y => new
-                           {
-                               y.p.p.Description,
-                               y.g.Name,
-                               y.p.s.CompanyName,
-                               y.p.p.TotalCash,
-                               y.p.p.TotalDiscount,
-                               y.p.p.TotalTax,
-                               y.p.p.Tax,
-                               y.p.p.Discount,
-                               y.p.p.PurchaseID,
-                               y.p.p.PurchaseDate
+                    dtInvoices.Rows.Add(item.PurchaseID, item.CompanyName,item.Name, item.PurchaseDate, item.TotalCash, item.Description, item.Tax, item.TotalTax, item.Discount, item.TotalDiscount);
+                } 
+                #endregion
 
-                           }).ToList();
+                #region InvoiceDetailQuery
+                var invoiceDetailQuery =
+                         dbContext.PurchaseDetail.AsNoTracking()
+                             .Join(dbContext.Products, p => p.ProductID, s => s.ProductID, (p, s) => new { p, s })
+                             .Select(y => new
+                             {
+                                 y.p.Amount,
+                                 y.p.Price,
+                                 y.s.ProductName,
+                                 y.p.PurchaseID,
+                                 y.p.PurchaseDetailID
 
-                    foreach (var item in invoiceQuery)
-                    {
-                        dtInvoices.Rows.Add(item.PurchaseID, item.CompanyName, item.Name, item.PurchaseDate, item.TotalCash, item.Description, item.Tax, item.TotalTax, item.Discount, item.TotalDiscount);
-                    }
-                    #endregion
+                             }).ToList();
 
-                    #region InvoiceDetailQuery
-                    var invoiceDetailQuery =
-                             dbContext.PurchaseDetail.AsNoTracking()
-                                 .Join(dbContext.Products, p => p.ProductID, s => s.ProductID, (p, s) => new { p, s })
-                                 .Select(y => new
-                                 {
-                                     y.p.Amount,
-                                     y.p.Price,
-                                     y.s.ProductName,
-                                     y.p.PurchaseID,
-                                     y.p.PurchaseDetailID
+                foreach (var item in invoiceDetailQuery)
+                {
+                    dtInvoiceDetail.Rows.Add(item.PurchaseDetailID, item.PurchaseID, item.ProductName, item.Amount, item.Price);
+                }  
+                #endregion
 
-                                 }).ToList();
-
-                    foreach (var item in invoiceDetailQuery)
-                    {
-                        dtInvoiceDetail.Rows.Add(item.PurchaseDetailID, item.PurchaseID, item.ProductName, item.Amount, item.Price);
-                    }
-                    #endregion
-
-                }
-
-                DataSet dsRel = new DataSet();
-                dsRel.Tables.Add(dtInvoices);
-                dsRel.Tables.Add(dtInvoiceDetail);
-
-                dsRel.Relations.Add("Fatura Detay", dtInvoices.Columns["PurchaseID"], dtInvoiceDetail.Columns["PurchaseID"]);
-
-                gridControl1.LevelTree.Nodes.Add(dsRel.Relations["Fatura Detay"].RelationName, gridView2);
-
-                gridControl1.DataSource = dsRel.Tables["INVOICES"];
-                gridControl1.Refresh();
-                gridControl1.RefreshDataSource();
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
+
+            DataSet dsRel = new DataSet();
+            dsRel.Tables.Add(dtInvoices);
+            dsRel.Tables.Add(dtInvoiceDetail);
+
+            dsRel.Relations.Add("Fatura Detay", dtInvoices.Columns["PurchaseID"], dtInvoiceDetail.Columns["PurchaseID"]);
+
+            gridControl1.LevelTree.Nodes.Add(dsRel.Relations["Fatura Detay"].RelationName, gridView2);
+
+            gridControl1.DataSource = dsRel.Tables["INVOICES"];
+            gridControl1.Refresh();
+            gridControl1.RefreshDataSource();
         }
 
         private void frmShowInvoices_Load(object sender, EventArgs e)
@@ -164,40 +146,22 @@ namespace ARWEN.Forms.Settings.Bills
 
         private void gridView2_Click(object sender, EventArgs e)
         {
-            try
+            DevExpress.XtraGrid.Views.Grid.GridView a = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            if (a.FocusedRowHandle > -1) 
             {
-                DevExpress.XtraGrid.Views.Grid.GridView a = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
-                if (a.FocusedRowHandle > -1)
-                {
-                    focusedRowNIdNumber = a.GetFocusedRowCellValue("PurchaseID").ToString();
-                }
+                focusedRowNIdNumber = a.GetFocusedRowCellValue("PurchaseID").ToString();
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        
         }
 
         private void btnCustomize_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int index = gridView1.FocusedRowHandle;
-                int InvocideID = Convert.ToInt32(gridView1.GetRowCellValue(index, "PurchaseID").ToString());
-                frmInvoices frm = new frmInvoices();
-                frm.FicheID = InvocideID;
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-      
+            int index = gridView1.FocusedRowHandle;
+            int InvocideID = Convert.ToInt32(gridView1.GetRowCellValue(index, "PurchaseID").ToString());
+            frmInvoices frm = new frmInvoices();
+            frm.FicheID = InvocideID;
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
 
     }

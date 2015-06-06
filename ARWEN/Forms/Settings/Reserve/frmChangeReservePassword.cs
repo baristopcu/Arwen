@@ -38,45 +38,36 @@ namespace ARWEN.Forms.Settings.Reserve
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                var query = dbContext.ReservationPasswords.FirstOrDefault();
+                if (query.Password == GetMd5Hash(txtOldPass.Text))
                 {
-                    var query = dbContext.ReservationPasswords.FirstOrDefault();
-                    if (query.Password == GetMd5Hash(txtOldPass.Text))
+                    if (txtNewPass.Text == txtNewPassAgain.Text)
                     {
-                        if (txtNewPass.Text == txtNewPassAgain.Text)
+                        if (txtNewPass.Text == txtOldPass.Text)
                         {
-                            if (txtNewPass.Text == txtOldPass.Text)
-                            {
-                                MessageBox.Show("Yeni şifreniz eski şifrenizle aynı olamaz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                query.Password = GetMd5Hash(txtNewPass.Text);
-                                dbContext.SaveChanges();
-                                MessageBox.Show("Rezervasyon şifreleriniz başarıyla değiştirildi.",
-                                    "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-
+                            MessageBox.Show("Yeni şifreniz eski şifrenizle aynı olamaz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MessageBox.Show("Şifreler uyuşmuyor.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            query.Password = GetMd5Hash(txtNewPass.Text);
+                            dbContext.SaveChanges();
+                            MessageBox.Show("Rezervasyon şifreleriniz başarıyla değiştirildi.",
+                                "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+
                     }
                     else
                     {
-                        MessageBox.Show("Eski şifrenizi doğru giriniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Şifreler uyuşmuyor.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Eski şifrenizi doğru giriniz.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

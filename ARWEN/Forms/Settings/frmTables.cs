@@ -52,66 +52,48 @@ namespace ARWEN.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (!saveNew)
             {
-                if (!saveNew)
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        var query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
-                        query.Capacity = Convert.ToByte(txtCapacity.Text);
-                        query.Description = txtDescription.Text;
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Masa başarıyla güncellendi.", "ARWEN",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetTables();
-                        SetLockTable();
+                    var query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
+                    query.Capacity = Convert.ToByte(txtCapacity.Text);
+                    query.Description = txtDescription.Text;
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Masa başarıyla güncellendi.", "ARWEN",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetTables();
+                    SetLockTable();
 
-                    }
-                }
-                else if (saveNew)
-                {
-                    RestaurantTables table = new RestaurantTables();
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        table.TableNo = txtName.Text;
-                        table.Capacity = Convert.ToByte(txtCapacity.Text);
-                        table.Description = txtDescription.Text;
-                        dbContext.RestaurantTables.Add(table);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Yeni masa başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        GetTables();
-                        SetLockTable();
-                    }
                 }
             }
-            catch (Exception ex)
+            else if (saveNew)
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RestaurantTables table = new RestaurantTables();
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    table.TableNo = txtName.Text;
+                    table.Capacity = Convert.ToByte(txtCapacity.Text);
+                    table.Description = txtDescription.Text;
+                    dbContext.RestaurantTables.Add(table);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Yeni masa başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    GetTables();
+                    SetLockTable();
+                }
             }
-          
           
         }
 
         private void GetTables()
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var tablesQuery = dbContext.RestaurantTables.ToList();
-                    gridViewTables.DataSource = new BindingSource(tablesQuery, "");
-                }
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var tablesQuery = dbContext.RestaurantTables.ToList();
+                gridViewTables.DataSource = new BindingSource(tablesQuery, "");
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -126,57 +108,39 @@ namespace ARWEN.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Bu masayı silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DialogResult dr = new DialogResult();
-                dr = MessageBox.Show("Bu masayı silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
-                {
-                    int index = gridView1.FocusedRowHandle;
-                    t.TableNo = gridView1.GetRowCellValue(index, "TableNo").ToString();
-
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        RestaurantTables query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
-                        dbContext.RestaurantTables.Remove(query);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Masa silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetTables();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
-        }
-
-        private void gridViewTables_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                SetFreeTable();
-                saveNew = false;
                 int index = gridView1.FocusedRowHandle;
                 t.TableNo = gridView1.GetRowCellValue(index, "TableNo").ToString();
 
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    var query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
-                    txtName.Text = query.TableNo;
-                    txtCapacity.Text = query.Capacity.ToString();
-                    txtDescription.Text = query.Description;
+                    RestaurantTables query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
+                    dbContext.RestaurantTables.Remove(query);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Masa silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetTables();
                 }
             }
-            catch (Exception ex)
+        }
+
+        private void gridViewTables_DoubleClick(object sender, EventArgs e)
+        {
+            SetFreeTable();
+            saveNew = false;
+            int index = gridView1.FocusedRowHandle;
+            t.TableNo = gridView1.GetRowCellValue(index, "TableNo").ToString();
+
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var query = dbContext.RestaurantTables.Where(x => x.TableNo == t.TableNo).FirstOrDefault();
+                txtName.Text = query.TableNo;
+                txtCapacity.Text = query.Capacity.ToString();
+                txtDescription.Text = query.Description;
             }
-          
         }
 
         private void btnNewTable_Click(object sender, EventArgs e)

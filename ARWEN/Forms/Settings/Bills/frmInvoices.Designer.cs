@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.cmbSupplier = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbProducts = new System.Windows.Forms.ComboBox();
@@ -88,6 +87,7 @@
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock.Properties)).BeginInit();
@@ -112,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteRow)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,10 +173,9 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(566, 607);
+            this.btnCancel.Location = new System.Drawing.Point(756, 630);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(257, 59);
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -185,10 +184,9 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(566, 529);
+            this.btnSave.Location = new System.Drawing.Point(643, 630);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(257, 65);
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -286,7 +284,6 @@
             // 
             this.btnAddRow.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAddRow.Appearance.Options.UseFont = true;
-            this.btnAddRow.Image = global::ARWEN.Properties.Resources.add_16x16;
             this.btnAddRow.Location = new System.Drawing.Point(454, 252);
             this.btnAddRow.Name = "btnAddRow";
             this.btnAddRow.Size = new System.Drawing.Size(111, 25);
@@ -637,7 +634,9 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1083, 250);
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnDeleteRow});
+            this.gridControl1.Size = new System.Drawing.Size(1083, 205);
             this.gridControl1.TabIndex = 30;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -657,7 +656,6 @@
             this.gridColumn20,
             this.gridColumn1});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupPanelText = "Faturalarınız";
             this.gridView1.Name = "gridView1";
             // 
             // gridColumn11
@@ -741,13 +739,16 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Sil";
-            repositoryItemCheckEdit2.AutoHeight = false;
-            repositoryItemCheckEdit2.LookAndFeel.SkinName = "Visual Studio 2013 Blue";
-            repositoryItemCheckEdit2.Name = "btnDeleteRow";
-            this.gridColumn1.ColumnEdit = repositoryItemCheckEdit2;
+            this.gridColumn1.ColumnEdit = this.btnDeleteRow;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 9;
+            // 
+            // btnDeleteRow
+            // 
+            this.btnDeleteRow.AutoHeight = false;
+            this.btnDeleteRow.Name = "btnDeleteRow";
+            this.btnDeleteRow.Click += new System.EventHandler(this.btnDeleteRow_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -759,11 +760,9 @@
             // 
             // frmInvoices
             // 
-            this.AcceptButton = this.btnSave;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(1112, 686);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupControl4);
@@ -777,7 +776,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmInvoices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fatura Ekle / Düzenle  | ARWEN";
+            this.Text = "frmInvoices";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBuyBills_FormClosing);
             this.Load += new System.EventHandler(this.frmBuyBills_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
@@ -807,7 +806,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupplierDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteRow)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -873,7 +872,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit btnDeleteRow;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTickets));
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControlTickets = new DevExpress.XtraGrid.GridControl();
@@ -71,17 +71,16 @@
             // 
             // gridControlTickets
             // 
-            this.gridControlTickets.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            gridLevelNode2.LevelTemplate = this.gridView2;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.LevelTemplate = this.gridView2;
+            gridLevelNode1.RelationName = "Level1";
             this.gridControlTickets.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.gridControlTickets.Location = new System.Drawing.Point(30, 98);
+            gridLevelNode1});
+            this.gridControlTickets.Location = new System.Drawing.Point(1, 80);
             this.gridControlTickets.MainView = this.gridView1;
             this.gridControlTickets.Name = "gridControlTickets";
             this.gridControlTickets.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnPrint});
-            this.gridControlTickets.Size = new System.Drawing.Size(1200, 472);
+            this.gridControlTickets.Size = new System.Drawing.Size(1473, 515);
             this.gridControlTickets.TabIndex = 3;
             this.gridControlTickets.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -106,7 +105,6 @@
             this.gridColumn12,
             this.gridColumn13});
             this.gridView1.GridControl = this.gridControlTickets;
-            this.gridView1.GroupPanelText = "Fişler";
             this.gridView1.Name = "gridView1";
             // 
             // gridColumn1
@@ -312,7 +310,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 598);
+            this.ClientSize = new System.Drawing.Size(1475, 598);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridControlTickets);
@@ -324,7 +322,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTickets";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fişler | ARWEN";
+            this.Text = "FİŞLER";
             this.Load += new System.EventHandler(this.frmTickets_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTickets)).EndInit();

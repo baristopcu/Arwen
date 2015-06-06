@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
 using ComboBox = System.Windows.Forms.ComboBox;
-using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms.Main
 {
@@ -25,31 +24,22 @@ namespace ARWEN.Forms.Main
 
         private void GetTables(ComboBox cmbTable,ComboBox cmbTableTo)
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    //--
-                    var query = dbContext.RestaurantTables.Where(x => x.State == 1).ToList();
-                    cmbTable.DataSource = query;
-                    cmbTable.ValueMember = "TableNo";
-                    cmbTable.DisplayMember = "TableNo";
-                    //--
-                    var queryTo = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
-                    cmbTableTo.DataSource = queryTo;
-                    cmbTableTo.ValueMember = "TableNo";
-                    cmbTableTo.DisplayMember = "TableNo";
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                //--
+                var query = dbContext.RestaurantTables.Where(x => x.State == 1).ToList();
+                cmbTable.DataSource = query;
+                cmbTable.ValueMember = "TableNo";
+                cmbTable.DisplayMember = "TableNo";
+                //--
+                var queryTo = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
+                cmbTableTo.DataSource = queryTo;
+                cmbTableTo.ValueMember = "TableNo";
+                cmbTableTo.DisplayMember = "TableNo";
 
 
-                }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
@@ -59,8 +49,6 @@ namespace ARWEN.Forms.Main
 
         private void frmTableTransfer_Load(object sender, EventArgs e)
         {
-            Jarvis j = new Jarvis();
-            j.cozunurlukAyarla(this);
             GetTables(cmbTable,cmbTableTo);
             if (!string.IsNullOrEmpty(tableNo))
             {
@@ -87,10 +75,10 @@ namespace ARWEN.Forms.Main
                 MessageBox.Show(table+" "+"Masası"+" "+tableTo+" "+"Masasına başarıyla taşındı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bir Hata Oluştu ! , Masa Taşınamadı","ARWEN",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 Close();
             }
            

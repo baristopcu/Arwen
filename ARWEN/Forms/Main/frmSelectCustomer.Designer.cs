@@ -46,7 +46,6 @@
             // gridViewCustomers
             // 
             this.gridViewCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridViewCustomers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridViewCustomers.Location = new System.Drawing.Point(0, 0);
             this.gridViewCustomers.MainView = this.gridView1;
             this.gridViewCustomers.Name = "gridViewCustomers";
@@ -69,7 +68,6 @@
             this.gridColumn9,
             this.gridColumn10});
             this.gridView1.GridControl = this.gridViewCustomers;
-            this.gridView1.GroupPanelText = "Müşteriler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -163,7 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSelectCustomer";
-            this.Text = "Müşteri Seç | ARWEN";
+            this.Text = "BİR MÜŞTERİ SEÇİNİZ";
             this.Load += new System.EventHandler(this.frmSelectCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -43,7 +43,7 @@
             // 
             // txtNewPassAgain
             // 
-            this.txtNewPassAgain.Location = new System.Drawing.Point(155, 72);
+            this.txtNewPassAgain.Location = new System.Drawing.Point(154, 96);
             this.txtNewPassAgain.Name = "txtNewPassAgain";
             this.txtNewPassAgain.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtNewPassAgain.Properties.Appearance.Options.UseFont = true;
@@ -55,7 +55,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(12, 78);
+            this.label3.Location = new System.Drawing.Point(13, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 18);
             this.label3.TabIndex = 16;
@@ -66,8 +66,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(371, 102);
+            this.btnCancel.Location = new System.Drawing.Point(370, 141);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 14;
@@ -78,8 +77,7 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(257, 102);
+            this.btnSave.Location = new System.Drawing.Point(257, 141);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 12;
@@ -90,7 +88,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(12, 45);
+            this.label2.Location = new System.Drawing.Point(14, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 18);
             this.label2.TabIndex = 13;
@@ -108,7 +106,7 @@
             // 
             // txtNewPass
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(154, 42);
+            this.txtNewPass.Location = new System.Drawing.Point(154, 54);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtNewPass.Properties.Appearance.Options.UseFont = true;
@@ -131,7 +129,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 155);
+            this.ClientSize = new System.Drawing.Size(490, 191);
             this.Controls.Add(this.txtNewPassAgain);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
@@ -142,10 +140,10 @@
             this.Controls.Add(this.txtOldPass);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmChangeReservePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rezervasyon Şifresi Değiştir | ARWEN";
+            this.Text = "frmChangeReservePassword";
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPassAgain.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).EndInit();

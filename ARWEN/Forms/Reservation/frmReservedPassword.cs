@@ -53,44 +53,35 @@ namespace ARWEN.Forms.Reservation
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            try
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                var getReserveQuery = dbContext.Reservation.Where(x => x.TableNo == _tableNo).FirstOrDefault();
+                reservationPass = getReserveQuery.Password;
+                if (!string.IsNullOrEmpty(GetMd5Hash(txtPassword.Text)))
                 {
-                    var getReserveQuery = dbContext.Reservation.Where(x => x.TableNo == _tableNo).FirstOrDefault();
-                    reservationPass = getReserveQuery.Password;
-                    if (!string.IsNullOrEmpty(GetMd5Hash(txtPassword.Text)))
+                    if (GetMd5Hash(txtPassword.Text) == reservationPass)
                     {
-                        if (GetMd5Hash(txtPassword.Text) == reservationPass)
-                        {
-
-                            frmReserved frm = new frmReserved();
-                            this.Close();
-                            frm.TableNo = _tableNo;
-                            frm.ShowDialog();
-                            this.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Rezervasyon şifreniz yanlış.", "ARWEN", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                        }
+   
+                        frmReserved frm = new frmReserved();
+                        this.Close();
+                        frm.TableNo = _tableNo;
+                        frm.ShowDialog();
+                        this.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Şifre boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBox.Show("Rezervasyon şifreniz yanlış.", "ARWEN", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
-
-
                 }
+                else
+                {
+                    MessageBox.Show("Şifre boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

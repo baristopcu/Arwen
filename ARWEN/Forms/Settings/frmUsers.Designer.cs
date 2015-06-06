@@ -78,9 +78,9 @@
             this.groupControl1.Controls.Add(this.txtPassword);
             this.groupControl1.Controls.Add(this.txtFullName);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(387, 12);
+            this.groupControl1.Location = new System.Drawing.Point(132, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(515, 217);
+            this.groupControl1.Size = new System.Drawing.Size(770, 230);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "KULLANICI";
             // 
@@ -90,7 +90,7 @@
             this.cmbPermission.Enabled = false;
             this.cmbPermission.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbPermission.FormattingEnabled = true;
-            this.cmbPermission.Location = new System.Drawing.Point(162, 127);
+            this.cmbPermission.Location = new System.Drawing.Point(366, 126);
             this.cmbPermission.Name = "cmbPermission";
             this.cmbPermission.Size = new System.Drawing.Size(323, 26);
             this.cmbPermission.TabIndex = 4;
@@ -151,10 +151,9 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(328, 164);
+            this.btnCancel.Location = new System.Drawing.Point(582, 163);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(157, 36);
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -164,10 +163,9 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(162, 164);
+            this.btnSave.Location = new System.Drawing.Point(469, 163);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(157, 36);
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -175,7 +173,7 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Enabled = false;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(162, 101);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(366, 100);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtConfirmPassword.Properties.Appearance.Options.UseFont = true;
@@ -186,7 +184,7 @@
             // txtPassword
             // 
             this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(162, 75);
+            this.txtPassword.Location = new System.Drawing.Point(366, 74);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
@@ -197,7 +195,7 @@
             // txtFullName
             // 
             this.txtFullName.Enabled = false;
-            this.txtFullName.Location = new System.Drawing.Point(162, 49);
+            this.txtFullName.Location = new System.Drawing.Point(366, 48);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtFullName.Properties.Appearance.Options.UseFont = true;
@@ -207,7 +205,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(162, 23);
+            this.txtName.Location = new System.Drawing.Point(366, 22);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -238,7 +236,6 @@
             this.gridColumn5,
             this.gridColumn6});
             this.gridView1.GridControl = this.gridViewUsers;
-            this.gridView1.GroupPanelText = "Kullanıcılar";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -315,10 +312,9 @@
             // 
             this.btnNewUser.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewUser.Appearance.Options.UseFont = true;
-            this.btnNewUser.Image = global::ARWEN.Properties.Resources.add_32x32;
-            this.btnNewUser.Location = new System.Drawing.Point(32, 38);
+            this.btnNewUser.Location = new System.Drawing.Point(12, 22);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(295, 62);
+            this.btnNewUser.Size = new System.Drawing.Size(107, 62);
             this.btnNewUser.TabIndex = 2;
             this.btnNewUser.Text = "Yeni Kullanıcı";
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
@@ -335,7 +331,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmUsers";
-            this.Text = "Kullanıcıları Yönet | ARWEN";
+            this.Text = "KULLANICILAR";
             this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

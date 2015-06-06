@@ -91,7 +91,6 @@
             this.gridColumn5,
             this.gridColumn8});
             this.gridView1.GridControl = this.gridViewProducts;
-            this.gridView1.GroupPanelText = "Ürünler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -192,9 +191,9 @@
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtPrice);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(263, 12);
+            this.groupControl1.Location = new System.Drawing.Point(133, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(640, 263);
+            this.groupControl1.Size = new System.Drawing.Size(770, 263);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "ÜRÜN";
             // 
@@ -202,7 +201,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(20, 153);
+            this.label6.Location = new System.Drawing.Point(36, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 18);
             this.label6.TabIndex = 8;
@@ -212,7 +211,7 @@
             // 
             this.txtStock.EditValue = "";
             this.txtStock.Enabled = false;
-            this.txtStock.Location = new System.Drawing.Point(295, 154);
+            this.txtStock.Location = new System.Drawing.Point(366, 152);
             this.txtStock.Name = "txtStock";
             this.txtStock.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtStock.Properties.Appearance.Options.UseFont = true;
@@ -225,7 +224,7 @@
             this.cmbSupplier.Enabled = false;
             this.cmbSupplier.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(295, 55);
+            this.cmbSupplier.Location = new System.Drawing.Point(366, 53);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(323, 26);
             this.cmbSupplier.TabIndex = 6;
@@ -234,7 +233,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(20, 58);
+            this.label5.Location = new System.Drawing.Point(36, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 18);
             this.label5.TabIndex = 7;
@@ -246,7 +245,7 @@
             this.cmbGroups.Enabled = false;
             this.cmbGroups.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbGroups.FormattingEnabled = true;
-            this.cmbGroups.Location = new System.Drawing.Point(295, 121);
+            this.cmbGroups.Location = new System.Drawing.Point(366, 119);
             this.cmbGroups.Name = "cmbGroups";
             this.cmbGroups.Size = new System.Drawing.Size(323, 26);
             this.cmbGroups.TabIndex = 2;
@@ -257,7 +256,7 @@
             this.cmbUnits.Enabled = false;
             this.cmbUnits.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbUnits.FormattingEnabled = true;
-            this.cmbUnits.Location = new System.Drawing.Point(295, 88);
+            this.cmbUnits.Location = new System.Drawing.Point(366, 86);
             this.cmbUnits.Name = "cmbUnits";
             this.cmbUnits.Size = new System.Drawing.Size(323, 26);
             this.cmbUnits.TabIndex = 1;
@@ -266,7 +265,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(20, 182);
+            this.label4.Location = new System.Drawing.Point(36, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 18);
             this.label4.TabIndex = 1;
@@ -276,7 +275,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(20, 120);
+            this.label3.Location = new System.Drawing.Point(36, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 18);
             this.label3.TabIndex = 1;
@@ -286,7 +285,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(20, 89);
+            this.label2.Location = new System.Drawing.Point(36, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 18);
             this.label2.TabIndex = 1;
@@ -296,7 +295,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(20, 27);
+            this.label1.Location = new System.Drawing.Point(36, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 18);
             this.label1.TabIndex = 1;
@@ -308,8 +307,7 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(511, 218);
+            this.btnCancel.Location = new System.Drawing.Point(582, 216);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 5;
@@ -321,8 +319,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(398, 218);
+            this.btnSave.Location = new System.Drawing.Point(469, 216);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 4;
@@ -333,7 +330,7 @@
             // 
             this.txtPrice.EditValue = "0.00";
             this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(295, 185);
+            this.txtPrice.Location = new System.Drawing.Point(366, 183);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPrice.Properties.Appearance.Options.UseFont = true;
@@ -343,7 +340,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(295, 26);
+            this.txtName.Location = new System.Drawing.Point(366, 22);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -354,10 +351,9 @@
             // 
             this.btnNewProduct.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewProduct.Appearance.Options.UseFont = true;
-            this.btnNewProduct.Image = global::ARWEN.Properties.Resources.add_32x32;
-            this.btnNewProduct.Location = new System.Drawing.Point(12, 26);
+            this.btnNewProduct.Location = new System.Drawing.Point(12, 19);
             this.btnNewProduct.Name = "btnNewProduct";
-            this.btnNewProduct.Size = new System.Drawing.Size(227, 62);
+            this.btnNewProduct.Size = new System.Drawing.Size(107, 62);
             this.btnNewProduct.TabIndex = 5;
             this.btnNewProduct.Text = "Yeni Ürün";
             this.btnNewProduct.Click += new System.EventHandler(this.btnNewProduct_Click);
@@ -374,7 +370,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmProducts";
-            this.Text = "Ürünleri Yönet | ARWEN";
+            this.Text = "ÜRÜNLER";
             this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

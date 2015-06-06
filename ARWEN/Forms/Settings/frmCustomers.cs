@@ -69,90 +69,72 @@ namespace ARWEN.Forms.Settings
 
         private void GetCustomers()
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var customersQuery = dbContext.Customers.ToList();
-                    gridViewCustomers.DataSource = new BindingSource(customersQuery, "");
-                }
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var customersQuery = dbContext.Customers.ToList();
+                gridViewCustomers.DataSource = new BindingSource(customersQuery, "");
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-         
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (!saveNew)
             {
-                if (!saveNew)
-                {
 
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    var query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
+                    query.ContactName = txtName.Text;
+                    query.ContactTitle = txtContactTitle.Text;
+                    query.Address = txtAddress.Text;
+                    query.Country = txtCountry.Text;
+                    query.Fax = txtFax.Text;
+                    query.Phone = txtTelephone.Text;
+                    query.PostalCode = txtPostalCode.Text;
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Müşteri başarıyla güncellendi.", "ARWEN",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetCustomers();
+                    SetLockCustomer();
+
+                }
+
+
+            }
+            else if (saveNew)
+            {
+                if (string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtCity.Text) || string.IsNullOrEmpty(txtContactTitle.Text) || string.IsNullOrEmpty(txtCountry.Text) || string.IsNullOrEmpty(txtFax.Text) || string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtTelephone.Text) || string.IsNullOrEmpty(txtPostalCode.Text))
+                {
+                    MessageBox.Show("Alanlardan hiçbiri boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                }
+                else
+                {
                     using (RestaurantContext dbContext = new RestaurantContext())
                     {
-                        var query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
-                        query.ContactName = txtName.Text;
-                        query.ContactTitle = txtContactTitle.Text;
-                        query.Address = txtAddress.Text;
-                        query.Country = txtCountry.Text;
-                        query.Fax = txtFax.Text;
-                        query.Phone = txtTelephone.Text;
-                        query.PostalCode = txtPostalCode.Text;
+                        Customers customer = new Customers
+                        {
+                            ContactName = txtName.Text,
+                            ContactTitle = txtContactTitle.Text,
+                            Country = txtCountry.Text,
+                            Address = txtAddress.Text,
+                            City = txtCity.Text,
+                            Fax = txtFax.Text,
+                            Phone = txtTelephone.Text,
+                            PostalCode = txtPostalCode.Text
+
+                        };
+                        dbContext.Customers.Add(customer);
                         dbContext.SaveChanges();
-                        MessageBox.Show("Müşteri başarıyla güncellendi.", "ARWEN",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Yeni müşteri başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                         GetCustomers();
                         SetLockCustomer();
-
                     }
-
-
                 }
-                else if (saveNew)
-                {
-                    if (string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtCity.Text) || string.IsNullOrEmpty(txtContactTitle.Text) || string.IsNullOrEmpty(txtCountry.Text) || string.IsNullOrEmpty(txtFax.Text) || string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtTelephone.Text) || string.IsNullOrEmpty(txtPostalCode.Text))
-                    {
-                        MessageBox.Show("Alanlardan hiçbiri boş bırakılamaz.", "ARWEN", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        using (RestaurantContext dbContext = new RestaurantContext())
-                        {
-                            Customers customer = new Customers
-                            {
-                                ContactName = txtName.Text,
-                                ContactTitle = txtContactTitle.Text,
-                                Country = txtCountry.Text,
-                                Address = txtAddress.Text,
-                                City = txtCity.Text,
-                                Fax = txtFax.Text,
-                                Phone = txtTelephone.Text,
-                                PostalCode = txtPostalCode.Text
-
-                            };
-                            dbContext.Customers.Add(customer);
-                            dbContext.SaveChanges();
-                            MessageBox.Show("Yeni müşteri başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                            GetCustomers();
-                            SetLockCustomer();
-                        }
-                    }
-
-                }
+              
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        
         }
 
 
@@ -169,64 +151,46 @@ namespace ARWEN.Forms.Settings
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Bu müşteriyi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DialogResult dr = new DialogResult();
-                dr = MessageBox.Show("Bu müşteriyi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
-                {
-                    int index = gridView1.FocusedRowHandle;
-                    c.CustomerID = Convert.ToInt32(gridView1.GetRowCellValue(index, "CustomerID").ToString());
-
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        Customers query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
-                        dbContext.Customers.Remove(query);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Müşteri başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetCustomers();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
-        }
-
-        private void gridViewCustomers_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                SetFreeCustomer();
-                saveNew = false;
                 int index = gridView1.FocusedRowHandle;
                 c.CustomerID = Convert.ToInt32(gridView1.GetRowCellValue(index, "CustomerID").ToString());
 
                 using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    var query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
-                    txtName.Text = query.ContactName;
-                    txtAddress.Text = query.Address;
-                    txtCity.Text = query.City;
-                    txtContactTitle.Text = query.ContactTitle;
-                    txtCountry.Text = query.Country;
-                    txtTelephone.Text = query.Phone;
-                    txtPostalCode.Text = query.PostalCode;
-                    txtFax.Text = query.Fax;
-
-
+                    Customers query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
+                    dbContext.Customers.Remove(query);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Müşteri başarıyla silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetCustomers();
                 }
             }
-            catch (Exception ex)
+        }
+
+        private void gridViewCustomers_DoubleClick(object sender, EventArgs e)
+        {
+            SetFreeCustomer();
+            saveNew = false;
+            int index = gridView1.FocusedRowHandle;
+           c.CustomerID = Convert.ToInt32(gridView1.GetRowCellValue(index, "CustomerID").ToString());
+
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var query = dbContext.Customers.Where(x => x.CustomerID == c.CustomerID).FirstOrDefault();
+                txtName.Text = query.ContactName;
+                txtAddress.Text = query.Address;
+                txtCity.Text = query.City;
+                txtContactTitle.Text = query.ContactTitle;
+                txtCountry.Text = query.Country;
+                txtTelephone.Text = query.Phone;
+                txtPostalCode.Text = query.PostalCode;
+                txtFax.Text = query.Fax;
+
+
             }
-          
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

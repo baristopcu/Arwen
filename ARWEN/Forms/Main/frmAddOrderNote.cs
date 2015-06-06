@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using DevExpress.XtraEditors;
-using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -19,8 +18,6 @@ namespace ARWEN.Forms
         {
             InitializeComponent();
         }
-
-        Jarvis j = new Jarvis();
 
         private long _orderNo;
 
@@ -32,27 +29,18 @@ namespace ARWEN.Forms
 
         private void frmAddOrderNote_Load(object sender, EventArgs e)
         {
-            j.cozunurlukAyarla(this);
+          
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
-                {
-                    var query = dbContext.OrderHeader.Where(x => x.OrderNo == _orderNo).FirstOrDefault();
-                    query.Note = txtNote.Text;
-                    dbContext.SaveChanges();
-                    this.Close();
-                }
+                var query = dbContext.OrderHeader.Where(x => x.OrderNo == _orderNo).FirstOrDefault();
+                query.Note = txtNote.Text;
+                dbContext.SaveChanges();
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
         }
     }
 }

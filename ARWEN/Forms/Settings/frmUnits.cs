@@ -23,63 +23,45 @@ namespace ARWEN.Forms
         bool saveNew = true;
         private void GetUnits()
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var unitsQuery = dbContext.Units.ToList();
-                    gridViewUnits.DataSource = new BindingSource(unitsQuery, "");
-                }
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var unitsQuery = dbContext.Units.ToList();
+                gridViewUnits.DataSource = new BindingSource(unitsQuery, "");
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (!saveNew)
             {
-                if (!saveNew)
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        var query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();
-                        query.ShortName = txtShortName.Text;
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Birim başarıyla güncellendi.", "ARWEN",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetUnits();
-                        SetLockUnit();
+                    var query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();     
+                    query.ShortName = txtShortName.Text;             
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Birim başarıyla güncellendi.", "ARWEN",
+                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetUnits();
+                    SetLockUnit();
 
-                    }
-                }
-                else if (saveNew)
-                {
-                    Units unit = new Units();
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        unit.UnitName = txtName.Text;
-                        unit.ShortName = txtShortName.Text;
-                        dbContext.Units.Add(unit);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Yeni birim başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        GetUnits();
-                        SetLockUnit();
-                    }
                 }
             }
-            catch (Exception ex)
+            else if (saveNew)
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Units unit = new Units();
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    unit.UnitName = txtName.Text;
+                    unit.ShortName = txtShortName.Text;
+                    dbContext.Units.Add(unit);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Yeni birim başarıyla eklendi.", "ARWEN", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    GetUnits();
+                    SetLockUnit();
+                }
             }
-            
           
         }
 
@@ -95,32 +77,23 @@ namespace ARWEN.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Bu birimi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DialogResult dr = new DialogResult();
-                dr = MessageBox.Show("Bu birimi silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
-                {
-                    int index = gridView1.FocusedRowHandle;
-                    u.UnitName = gridView1.GetRowCellValue(index, "UnitName").ToString();
+                int index = gridView1.FocusedRowHandle;
+                u.UnitName = gridView1.GetRowCellValue(index, "UnitName").ToString();
 
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        Units query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();
-                        dbContext.Units.Remove(query);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Birim silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetUnits();
-                    }
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    Units query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();
+                    dbContext.Units.Remove(query);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Birim silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetUnits();
                 }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-         
         }
 
        
@@ -157,28 +130,20 @@ namespace ARWEN.Forms
 
         private void gridViewUnits_DoubleClick(object sender, EventArgs e)
         {
-            try
+            SetFreeUnit();
+            saveNew = false;
+            int index = gridView1.FocusedRowHandle;
+            u.UnitName = gridView1.GetRowCellValue(index, "UnitName").ToString();
+
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                SetFreeUnit();
-                saveNew = false;
-                int index = gridView1.FocusedRowHandle;
-                u.UnitName = gridView1.GetRowCellValue(index, "UnitName").ToString();
-
-                using (RestaurantContext dbContext = new RestaurantContext())
-                {
-                    var query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();
-                    txtName.Text = query.UnitName;
-                    txtShortName.Text = query.ShortName;
-
-                }
+                var query = dbContext.Units.Where(x => x.UnitName == u.UnitName).FirstOrDefault();
+                txtName.Text = query.UnitName;
+                txtShortName.Text = query.ShortName;
+              
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
+
       
     }
 }

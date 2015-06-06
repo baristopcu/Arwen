@@ -64,7 +64,6 @@
             this.gridColumn3,
             this.gridColumn4});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupPanelText = "Ürünler";
             this.gridView1.Name = "gridView1";
             this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             // 
@@ -135,7 +134,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKitchenUserDesk";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mutfak Kullanıcısı | ARWEN";
+            this.Text = "frmKitchenUserDesk";
             this.Load += new System.EventHandler(this.frmKitchenUserDesk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -93,121 +93,94 @@ namespace ARWEN.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (saveNew)
             {
-                if (saveNew)
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    using (RestaurantContext dbContext = new RestaurantContext())
+                    Users user = new Users();
+                    if (txtPassword.Text == txtConfirmPassword.Text)
                     {
-                        Users user = new Users();
-                        if (txtPassword.Text == txtConfirmPassword.Text)
-                        {
-                            user.FullName = txtFullName.Text;
-                            user.UserName = txtName.Text;
-                            user.Password = GetMd5Hash(txtPassword.Text);
-                            user.PermissionID = Convert.ToByte(cmbPermission.SelectedValue);
-                            dbContext.Users.Add(user);
-                            dbContext.SaveChanges();
-                            GetUsers();
-                            SetLockUser();
-                            MessageBox.Show("Yeni kullanıcı başarıyla eklendi.", "ARWEN",
-                               MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Girilen şifreler uyuşmuyor, lütfen kontrol edip tekrar deneyiniz.", "ARWEN",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        user.FullName = txtFullName.Text;
+                        user.UserName = txtName.Text;
+                        user.Password = GetMd5Hash(txtPassword.Text);
+                        user.PermissionID = Convert.ToByte(cmbPermission.SelectedValue);
+                        dbContext.Users.Add(user);
+                        dbContext.SaveChanges();
+                        GetUsers();
+                        SetLockUser();
+                        MessageBox.Show("Yeni kullanıcı başarıyla eklendi.", "ARWEN",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Girilen şifreler uyuşmuyor, lütfen kontrol edip tekrar deneyiniz.", "ARWEN",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-                    }
-                }
-                else if (!saveNew)
-                {
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        Users user = new Users();
-                        if (txtPassword.Text == txtConfirmPassword.Text)
-                        {
-                            var query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
-                            query.UserName = txtName.Text;
-                            query.FullName = txtFullName.Text;
-                            query.Password = txtPassword.Text;
-                            query.PermissionID = Convert.ToByte(cmbPermission.SelectedValue);
-                            dbContext.SaveChanges();
-                            MessageBox.Show("Kullanıcı başarıyla güncellendi.", "ARWEN",
-                               MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            GetUsers();
-                            SetLockUser();
-                        }
-                    }
                 }
             }
-            catch (Exception ex)
+            else if (!saveNew)
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    Users user = new Users();
+                    if (txtPassword.Text == txtConfirmPassword.Text)
+                    {
+                        var query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
+                        query.UserName = txtName.Text;
+                        query.FullName = txtFullName.Text;
+                        query.Password = txtPassword.Text;
+                        query.PermissionID = Convert.ToByte(cmbPermission.SelectedValue);
+                        dbContext.SaveChanges();
+                        MessageBox.Show("Kullanıcı başarıyla güncellendi.", "ARWEN",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetUsers();
+                        SetLockUser();
+                    }
+                }
             }
-           
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Bu kullanıcıyı silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DialogResult dr = new DialogResult();
-                dr = MessageBox.Show("Bu kullanıcıyı silmek istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
-                {
-                    int index = gridView1.FocusedRowHandle;
-                    u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
+                int index = gridView1.FocusedRowHandle;
+                u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
 
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        Users query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
-                        dbContext.Users.Remove(query);
-                        dbContext.SaveChanges();
-                        MessageBox.Show("Kullanıcı silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetUsers();
-                    }
+                using (RestaurantContext dbContext = new RestaurantContext())
+                {
+                    Users query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
+                    dbContext.Users.Remove(query);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Kullanıcı silindi.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetUsers();
                 }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Bu kullanıcının şifresini sıfırlamak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DialogResult dr = new DialogResult();
-                dr = MessageBox.Show("Bu kullanıcının şifresini sıfırlamak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (dr == DialogResult.Yes)
+                int index = gridView1.FocusedRowHandle;
+                u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
+                u.FullName = gridView1.GetRowCellValue(index, "FullName").ToString();
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    int index = gridView1.FocusedRowHandle;
-                    u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
-                    u.FullName = gridView1.GetRowCellValue(index, "FullName").ToString();
-                    using (RestaurantContext dbContext = new RestaurantContext())
-                    {
-                        dbContext.Reset_User_Password(u.UserID);
-                        MessageBox.Show("'" + u.FullName + "' " + "Adlı kullanıcının şifresi başarıyla sıfırlandı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetUsers();
-                    }
-
+                    dbContext.Reset_User_Password(u.UserID);
+                    MessageBox.Show("'" + u.FullName + "' " + "Adlı kullanıcının şifresi başarıyla sıfırlandı.", "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GetUsers();
                 }
+
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
         }
 
        
@@ -252,26 +225,19 @@ namespace ARWEN.Forms
 
         private void gridViewUsers_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                SetFreeUser();
-                saveNew = false;
-                int index = gridView1.FocusedRowHandle;
-                u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
+            SetFreeUser();
+            saveNew = false;
+            int index = gridView1.FocusedRowHandle;
+            u.UserID = Convert.ToInt32(gridView1.GetRowCellValue(index, "UserID").ToString());
 
 
-                var query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
-                cmbPermission.SelectedValue = query.PermissionID;
-                txtName.Text = query.UserName;
-                txtFullName.Text = query.FullName;
-                txtPassword.Text = query.Password;
-                txtConfirmPassword.Text = query.Password;
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var query = dbContext.Users.Where(x => x.UserID == u.UserID).FirstOrDefault();
+            cmbPermission.SelectedValue = query.PermissionID;
+            txtName.Text = query.UserName;
+            txtFullName.Text = query.FullName;
+            txtPassword.Text = query.Password;
+            txtConfirmPassword.Text = query.Password;
+
         }
     }
 }

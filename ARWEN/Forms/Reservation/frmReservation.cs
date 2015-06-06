@@ -25,24 +25,15 @@ namespace ARWEN.Forms
 
         private void GetTables()
         {
-            try
+            using (var dbContext = new RestaurantContext())
             {
-                using (var dbContext = new RestaurantContext())
-                {
-                    dbContext.Configuration.LazyLoadingEnabled = false;
-                    var query = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
-                    cmbTables.DataSource = query;
-                    cmbTables.ValueMember = "TableNo";
-                    cmbTables.DisplayMember = "TableNo";
+                dbContext.Configuration.LazyLoadingEnabled = false;
+                var query = dbContext.RestaurantTables.Where(x => x.State == 0).ToList();
+                cmbTables.DataSource = query;
+                cmbTables.ValueMember = "TableNo";
+                cmbTables.DisplayMember = "TableNo";
 
-                }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-          
         }
 
         private void GetCustomers()
@@ -57,6 +48,14 @@ namespace ARWEN.Forms
 
             }
         }
+
+        private void DateTimeSelectHour()
+        {
+            dtEndDate.Format = DateTimePickerFormat.Custom;
+            dtEndDate.CustomFormat = "HH:mm"; // Only use hours and minutes
+            dtEndDate.ShowUpDown = true;
+        }
+
      
         private void frmReservation_Load(object sender, EventArgs e)
         {           
@@ -67,51 +66,37 @@ namespace ARWEN.Forms
        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
+                var pass = dbContext.ReservationPasswords.FirstOrDefault();
+
+                DTO.Database.Reservation reserve = new DTO.Database.Reservation()
                 {
-                    var pass = dbContext.ReservationPasswords.FirstOrDefault();
+                    CustomerID = Convert.ToInt32(cmbCustomers.SelectedValue),
+                    UserID = GlobalUser.UserID,
+                    Capacity = Convert.ToInt32(nudCapacity.Text),
+                    TableNo = Convert.ToString(cmbTables.SelectedValue),
+                    Password = pass.Password,
+                    StartDate = Convert.ToDateTime(dtStartDate.Value),
+                    EndDate = Convert.ToDateTime(dtEndDate.Value)
 
-                    DTO.Database.Reservation reserve = new DTO.Database.Reservation()
-                    {
-                        CustomerID = Convert.ToInt32(cmbCustomers.SelectedValue),
-                        UserID = GlobalUser.UserID,
-                        Capacity = Convert.ToInt32(nudCapacity.Text),
-                        TableNo = Convert.ToString(cmbTables.SelectedValue),
-                        Password = pass.Password,
-                        StartDate = Convert.ToDateTime(dtStartDate.Value),
-                        EndDate = Convert.ToDateTime(dtEndDate.Value)
+                };
 
-                    };
+                dbContext.Reservation.Add(reserve);
+                dbContext.SaveChanges();
 
-                    dbContext.Reservation.Add(reserve);
-                    dbContext.SaveChanges();
+                lastId = Convert.ToString(reserve.TableNo);
 
-                    lastId = Convert.ToString(reserve.TableNo);
-
-                    var query = dbContext.RestaurantTables.Where(x => x.TableNo == lastId).FirstOrDefault();
-                    query.State = 2;
-                    dbContext.SaveChanges();
+                var query = dbContext.RestaurantTables.Where(x => x.TableNo == lastId).FirstOrDefault();
+                query.State = 2;
+                dbContext.SaveChanges();
 
 
-                    MessageBox.Show("Rezervasyon başarıyla kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
-                           MessageBoxIcon.Information);
-                    this.Close();
+                MessageBox.Show("Rezervasyon başarıyla kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                this.Close();
 
-                }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-     
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

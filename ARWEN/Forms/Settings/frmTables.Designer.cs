@@ -76,7 +76,6 @@
             this.gridColumn1,
             this.gridColumn5});
             this.gridView1.GridControl = this.gridViewTables;
-            this.gridView1.GroupPanelText = "Masalar";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -130,14 +129,14 @@
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.txtDescription);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.btnCancel);
             this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.btnCancel);
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtCapacity);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(409, 4);
+            this.groupControl1.Location = new System.Drawing.Point(133, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(494, 230);
+            this.groupControl1.Size = new System.Drawing.Size(770, 230);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "MASA";
             // 
@@ -154,7 +153,7 @@
             // txtDescription
             // 
             this.txtDescription.Enabled = false;
-            this.txtDescription.Location = new System.Drawing.Point(143, 81);
+            this.txtDescription.Location = new System.Drawing.Point(365, 80);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtDescription.Properties.Appearance.Options.UseFont = true;
@@ -187,10 +186,9 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(322, 183);
+            this.btnCancel.Location = new System.Drawing.Point(581, 189);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(144, 36);
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -200,10 +198,9 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(143, 183);
+            this.btnSave.Location = new System.Drawing.Point(468, 189);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(144, 36);
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -211,7 +208,7 @@
             // txtCapacity
             // 
             this.txtCapacity.Enabled = false;
-            this.txtCapacity.Location = new System.Drawing.Point(143, 53);
+            this.txtCapacity.Location = new System.Drawing.Point(365, 52);
             this.txtCapacity.Name = "txtCapacity";
             this.txtCapacity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCapacity.Properties.Appearance.Options.UseFont = true;
@@ -221,7 +218,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(143, 25);
+            this.txtName.Location = new System.Drawing.Point(365, 24);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
@@ -232,10 +229,9 @@
             // 
             this.btnNewTable.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewTable.Appearance.Options.UseFont = true;
-            this.btnNewTable.Image = global::ARWEN.Properties.Resources.add_32x32;
-            this.btnNewTable.Location = new System.Drawing.Point(52, 16);
+            this.btnNewTable.Location = new System.Drawing.Point(12, 16);
             this.btnNewTable.Name = "btnNewTable";
-            this.btnNewTable.Size = new System.Drawing.Size(280, 62);
+            this.btnNewTable.Size = new System.Drawing.Size(107, 62);
             this.btnNewTable.TabIndex = 6;
             this.btnNewTable.Text = "Yeni Masa";
             this.btnNewTable.Click += new System.EventHandler(this.btnNewTable_Click);
@@ -252,7 +248,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmTables";
-            this.Text = "Masaları Yönet | ARWEN";
+            this.Text = "MASALAR";
             this.Load += new System.EventHandler(this.frmTables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

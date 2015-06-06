@@ -40,7 +40,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(246, 138);
+            this.label4.Location = new System.Drawing.Point(16, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 18);
             this.label4.TabIndex = 10;
@@ -106,14 +105,14 @@
             // 
             // nudCapacity
             // 
-            this.nudCapacity.Location = new System.Drawing.Point(328, 132);
+            this.nudCapacity.Location = new System.Drawing.Point(149, 172);
             this.nudCapacity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudCapacity.Name = "nudCapacity";
-            this.nudCapacity.Size = new System.Drawing.Size(72, 26);
+            this.nudCapacity.Size = new System.Drawing.Size(86, 26);
             this.nudCapacity.TabIndex = 11;
             this.nudCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudCapacity.Value = new decimal(new int[] {
@@ -145,33 +144,19 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(12, 175);
+            this.btnSave.Location = new System.Drawing.Point(258, 215);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(187, 47);
+            this.btnSave.Size = new System.Drawing.Size(142, 45);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Tamamla";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(213, 175);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(187, 47);
-            this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "Kapat";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmReservation
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 242);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(433, 282);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbCustomers);
             this.Controls.Add(this.nudCapacity);
@@ -188,7 +173,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReservation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Yeni Rezervasyon Ekle | ARWEN";
+            this.Text = "YENİ REZERVASYON";
             this.Load += new System.EventHandler(this.frmReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacity)).EndInit();
             this.ResumeLayout(false);
@@ -209,6 +194,5 @@
         private System.Windows.Forms.NumericUpDown nudCapacity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbCustomers;
-        private DevExpress.XtraEditors.SimpleButton btnCancel;
     }
 }

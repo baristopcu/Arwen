@@ -11,7 +11,6 @@ using ARWEN.Forms.Settings;
 using ARWEN.Forms.Settings.Bills;
 using ARWEN.Forms.Settings.Reserve;
 using DevExpress.XtraEditors;
-using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -45,8 +44,7 @@ namespace ARWEN.Forms
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            Jarvis j = new Jarvis();
-            j.cozunurlukAyarla(this);
+
         }
 
         private void btnUsers_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

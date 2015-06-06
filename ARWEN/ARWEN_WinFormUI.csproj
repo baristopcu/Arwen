@@ -592,7 +592,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="XRDesignRibbonControllerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -630,126 +629,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel_32x321.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\forward_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cards_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\redo_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\remove_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel_32x322.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\print_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\notes_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\currency_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\customization_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pagesetup_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\barcode_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\build_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\project_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\customer_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tag_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\role_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\team_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\spellcheckasyoutype_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\packageproduct_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sendtoback_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\findcustomers_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\employee_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alignverticalcenter2_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\showtestreport_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\contact_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\convert_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reading_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loadfrom_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loadfrom_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\newcontact_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add_32x321.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add_32x322.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\arwen.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

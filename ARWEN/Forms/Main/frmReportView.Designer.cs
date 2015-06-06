@@ -233,7 +233,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmReportView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Raporlar | ARWEN";
+            this.Text = "RAPORLAR";
             this.Load += new System.EventHandler(this.frmReportView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpDate)).EndInit();
             this.grpDate.ResumeLayout(false);

@@ -80,23 +80,21 @@
             // 
             this.btnNewCustomer.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNewCustomer.Appearance.Options.UseFont = true;
-            this.btnNewCustomer.Image = global::ARWEN.Properties.Resources.newcontact_32x32;
-            this.btnNewCustomer.Location = new System.Drawing.Point(15, 14);
+            this.btnNewCustomer.Location = new System.Drawing.Point(12, 14);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(174, 62);
+            this.btnNewCustomer.Size = new System.Drawing.Size(107, 62);
             this.btnNewCustomer.TabIndex = 9;
             this.btnNewCustomer.Text = "Yeni Müşteri";
             this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // gridViewCustomers
             // 
-            this.gridViewCustomers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridViewCustomers.Location = new System.Drawing.Point(0, 352);
+            this.gridViewCustomers.Location = new System.Drawing.Point(15, 411);
             this.gridViewCustomers.MainView = this.gridView1;
             this.gridViewCustomers.Name = "gridViewCustomers";
             this.gridViewCustomers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnDelete});
-            this.gridViewCustomers.Size = new System.Drawing.Size(1005, 349);
+            this.gridViewCustomers.Size = new System.Drawing.Size(978, 282);
             this.gridViewCustomers.TabIndex = 8;
             this.gridViewCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -116,7 +114,6 @@
             this.gridColumn10,
             this.gridColumn5});
             this.gridView1.GridControl = this.gridViewCustomers;
-            this.gridView1.GroupPanelText = "Müşteriler";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
@@ -234,17 +231,17 @@
             this.groupControl1.Controls.Add(this.btnSave);
             this.groupControl1.Controls.Add(this.txtContactTitle);
             this.groupControl1.Controls.Add(this.txtName);
-            this.groupControl1.Location = new System.Drawing.Point(195, 0);
+            this.groupControl1.Location = new System.Drawing.Point(209, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(810, 322);
+            this.groupControl1.Size = new System.Drawing.Size(784, 403);
             this.groupControl1.TabIndex = 7;
-            this.groupControl1.Text = "MÜŞTERİ";
+            this.groupControl1.Text = "MASA";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(484, 34);
+            this.label8.Location = new System.Drawing.Point(35, 217);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 18);
             this.label8.TabIndex = 16;
@@ -253,11 +250,11 @@
             // txtPostalCode
             // 
             this.txtPostalCode.Enabled = false;
-            this.txtPostalCode.Location = new System.Drawing.Point(487, 60);
+            this.txtPostalCode.Location = new System.Drawing.Point(365, 216);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtPostalCode.Properties.Appearance.Options.UseFont = true;
-            this.txtPostalCode.Size = new System.Drawing.Size(281, 24);
+            this.txtPostalCode.Size = new System.Drawing.Size(323, 24);
             this.txtPostalCode.TabIndex = 17;
             // 
             // label7
@@ -273,11 +270,11 @@
             // txtFax
             // 
             this.txtFax.Enabled = false;
-            this.txtFax.Location = new System.Drawing.Point(167, 188);
+            this.txtFax.Location = new System.Drawing.Point(365, 184);
             this.txtFax.Name = "txtFax";
             this.txtFax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtFax.Properties.Appearance.Options.UseFont = true;
-            this.txtFax.Size = new System.Drawing.Size(281, 24);
+            this.txtFax.Size = new System.Drawing.Size(323, 24);
             this.txtFax.TabIndex = 15;
             // 
             // label6
@@ -293,11 +290,11 @@
             // txtTelephone
             // 
             this.txtTelephone.Enabled = false;
-            this.txtTelephone.Location = new System.Drawing.Point(167, 156);
+            this.txtTelephone.Location = new System.Drawing.Point(365, 152);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTelephone.Properties.Appearance.Options.UseFont = true;
-            this.txtTelephone.Size = new System.Drawing.Size(281, 24);
+            this.txtTelephone.Size = new System.Drawing.Size(323, 24);
             this.txtTelephone.TabIndex = 13;
             // 
             // label5
@@ -313,11 +310,11 @@
             // txtCity
             // 
             this.txtCity.Enabled = false;
-            this.txtCity.Location = new System.Drawing.Point(167, 124);
+            this.txtCity.Location = new System.Drawing.Point(365, 120);
             this.txtCity.Name = "txtCity";
             this.txtCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCity.Properties.Appearance.Options.UseFont = true;
-            this.txtCity.Size = new System.Drawing.Size(281, 24);
+            this.txtCity.Size = new System.Drawing.Size(323, 24);
             this.txtCity.TabIndex = 11;
             // 
             // label4
@@ -333,18 +330,18 @@
             // txtCountry
             // 
             this.txtCountry.Enabled = false;
-            this.txtCountry.Location = new System.Drawing.Point(167, 92);
+            this.txtCountry.Location = new System.Drawing.Point(365, 88);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCountry.Properties.Appearance.Options.UseFont = true;
-            this.txtCountry.Size = new System.Drawing.Size(281, 24);
+            this.txtCountry.Size = new System.Drawing.Size(323, 24);
             this.txtCountry.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(484, 93);
+            this.label3.Location = new System.Drawing.Point(35, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 7;
@@ -353,11 +350,11 @@
             // txtAddress
             // 
             this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(487, 116);
+            this.txtAddress.Location = new System.Drawing.Point(365, 248);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtAddress.Size = new System.Drawing.Size(281, 96);
+            this.txtAddress.Size = new System.Drawing.Size(323, 96);
             this.txtAddress.TabIndex = 2;
             // 
             // label2
@@ -386,10 +383,9 @@
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Image = global::ARWEN.Properties.Resources.cancel_32x32;
-            this.btnCancel.Location = new System.Drawing.Point(641, 229);
+            this.btnCancel.Location = new System.Drawing.Point(581, 350);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(127, 59);
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -399,10 +395,9 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Enabled = false;
-            this.btnSave.Image = global::ARWEN.Properties.Resources.save_32x32;
-            this.btnSave.Location = new System.Drawing.Point(487, 232);
+            this.btnSave.Location = new System.Drawing.Point(468, 350);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(127, 56);
+            this.btnSave.Size = new System.Drawing.Size(107, 36);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Kaydet";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -410,21 +405,21 @@
             // txtContactTitle
             // 
             this.txtContactTitle.Enabled = false;
-            this.txtContactTitle.Location = new System.Drawing.Point(167, 60);
+            this.txtContactTitle.Location = new System.Drawing.Point(365, 56);
             this.txtContactTitle.Name = "txtContactTitle";
             this.txtContactTitle.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtContactTitle.Properties.Appearance.Options.UseFont = true;
-            this.txtContactTitle.Size = new System.Drawing.Size(281, 24);
+            this.txtContactTitle.Size = new System.Drawing.Size(323, 24);
             this.txtContactTitle.TabIndex = 1;
             // 
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(167, 28);
+            this.txtName.Location = new System.Drawing.Point(365, 24);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(281, 24);
+            this.txtName.Size = new System.Drawing.Size(323, 24);
             this.txtName.TabIndex = 0;
             // 
             // frmCustomers
@@ -439,7 +434,7 @@
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCustomers";
-            this.Text = "Müşterileri Yönet | ARWEN";
+            this.Text = "MÜŞTERİLER";
             this.Load += new System.EventHandler(this.frmCustomers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

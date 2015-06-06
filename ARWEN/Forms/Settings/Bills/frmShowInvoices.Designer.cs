@@ -131,9 +131,7 @@
             this.gridColumn10,
             this.gridColumn12});
             this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.GroupPanelText = "Faturalar";
             this.gridView1.Name = "gridView1";
-            this.gridView1.ViewCaption = "Faturalarınız";
             // 
             // gridColumn1
             // 
@@ -251,7 +249,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmShowInvoices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Faturalar | ARWEN";
+            this.Text = "frmShowInvoices";
             this.Load += new System.EventHandler(this.frmShowInvoices_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesks));
-            this.flwDeskChoose = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddReservation = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoveDesk = new DevExpress.XtraEditors.SimpleButton();
-            this.backgroundWorkerDesk = new System.ComponentModel.BackgroundWorker();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flwDeskChoose = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // flwDeskChoose
-            // 
-            this.flwDeskChoose.Location = new System.Drawing.Point(27, 98);
-            this.flwDeskChoose.Name = "flwDeskChoose";
-            this.flwDeskChoose.Size = new System.Drawing.Size(1281, 636);
-            this.flwDeskChoose.TabIndex = 5;
             // 
             // btnAddReservation
             // 
@@ -56,7 +46,7 @@
             // 
             // btnMoveDesk
             // 
-            this.btnMoveDesk.Image = global::ARWEN.Properties.Resources.redo_32x32;
+            this.btnMoveDesk.Image = ((System.Drawing.Image)(resources.GetObject("btnMoveDesk.Image")));
             this.btnMoveDesk.Location = new System.Drawing.Point(396, 21);
             this.btnMoveDesk.Name = "btnMoveDesk";
             this.btnMoveDesk.Size = new System.Drawing.Size(271, 44);
@@ -64,21 +54,18 @@
             this.btnMoveDesk.Text = "MASAYI TAŞI";
             this.btnMoveDesk.Click += new System.EventHandler(this.btnMoveDesk_Click);
             // 
-            // backgroundWorkerDesk
+            // flwDeskChoose
             // 
-            this.backgroundWorkerDesk.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerDesk_DoWork);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.flwDeskChoose.Location = new System.Drawing.Point(31, 74);
+            this.flwDeskChoose.Name = "flwDeskChoose";
+            this.flwDeskChoose.Size = new System.Drawing.Size(1281, 636);
+            this.flwDeskChoose.TabIndex = 5;
             // 
             // frmDesks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 766);
+            this.ClientSize = new System.Drawing.Size(1284, 715);
             this.Controls.Add(this.flwDeskChoose);
             this.Controls.Add(this.btnAddReservation);
             this.Controls.Add(this.btnMoveDesk);
@@ -86,7 +73,7 @@
             this.Name = "frmDesks";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Masalar | ARWEN";
+            this.Text = "MASALAR";
             this.Load += new System.EventHandler(this.frmDesks_Load);
             this.ResumeLayout(false);
 
@@ -97,7 +84,5 @@
         private DevExpress.XtraEditors.SimpleButton btnAddReservation;
         private DevExpress.XtraEditors.SimpleButton btnMoveDesk;
         private System.Windows.Forms.FlowLayoutPanel flwDeskChoose;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerDesk;
-        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -8,7 +8,6 @@ using System.Linq;
 using System.Windows.Forms;
 using ARWEN.DTO.Database;
 using ARWEN.Class;
-using ARWEN.DTO.Class;
 
 namespace ARWEN.Forms
 {
@@ -29,7 +28,6 @@ namespace ARWEN.Forms
         private List<int> productAmounts = new List<int>();
         private string orderType = "";
         long orderNo;
-        Jarvis j = new Jarvis();
 
         public long OrderNo
         {
@@ -102,24 +100,15 @@ namespace ARWEN.Forms
 
         private void UnLockOrder(Int64 orderNo)
         {
-            try
+            using (RestaurantContext dbContext = new RestaurantContext())
             {
-                using (RestaurantContext dbContext = new RestaurantContext())
-                {
-                    // UPDATE OrderHeader SET LockState=0,LockKeeperUserID=NULL WHERE OrderNo=@OrderNo AND LockKeeperUserID=@LockKeeperUserID
+                // UPDATE OrderHeader SET LockState=0,LockKeeperUserID=NULL WHERE OrderNo=@OrderNo AND LockKeeperUserID=@LockKeeperUserID
 
-                    var query = dbContext.OrderHeader.Where(x => (x.OrderNo == OrderNo)).FirstOrDefault(); // LOCKKEEPER -----
-                    query.LockState = false;
-                    query.LockKeeperUserID = GlobalUser.PermissionID; // LOCKKEEPER -------------------------------
-                    dbContext.SaveChanges();
-                }
+                var query = dbContext.OrderHeader.Where(x => (x.OrderNo == OrderNo)).FirstOrDefault(); // LOCKKEEPER -----
+                query.LockState = false;
+                query.LockKeeperUserID = null; // LOCKKEEPER -------------------------------
+                dbContext.SaveChanges();
             }
-            catch (Exception ex)
-            {               
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
-           
 
         }
 
@@ -131,106 +120,97 @@ namespace ARWEN.Forms
             OrderHeader oHeader = new OrderHeader();
             OrderDetail oDetail = new OrderDetail();
 
-            try
+            if (orderType == "New")
             {
-                if (orderType == "New")
+                using (RestaurantContext dbContext = new RestaurantContext())
                 {
-                    using (RestaurantContext dbContext = new RestaurantContext())
+                    oHeader.TableNo = table;
+                    oHeader.CreatorUserID = 1;
+                    oHeader.CreationDatetime = DateTime.Now;
+                    if (GlobalCustomer.Choosed)
                     {
-                        oHeader.TableNo = table;
-                        oHeader.CreatorUserID = 1;
-                        oHeader.CreationDatetime = DateTime.Now;
-                        if (GlobalCustomer.Choosed)
-                        {
-                            oHeader.CustomerID = GlobalCustomer.CustomerID;
-                        }
-                        oHeader.TotalPrice = total;
-                        oHeader.LockState = false;
-                        oHeader.PrintState = false;
-                        oHeader.State = 0;
-                        oHeader.Note = txtOrderNote.Text;
+                        oHeader.CustomerID = GlobalCustomer.CustomerID;
+                    }
+                    oHeader.TotalPrice = total;
+                    oHeader.LockState = false;
+                    oHeader.PrintState = false;
+                    oHeader.State = 0;
+                    oHeader.Note = txtOrderNote.Text;
 
-                        dbContext.OrderHeader.Add(oHeader);
+                    dbContext.OrderHeader.Add(oHeader);
+                    dbContext.SaveChanges();
+
+                    lastId = Convert.ToInt32(oHeader.OrderNo);
+
+                    for (int i = 0; i < dtProducts.Rows.Count; i++)
+                    {
+                        oDetail.OrderNo = lastId;
+                        oDetail.ProductID = ProductIds[i];
+                        oDetail.Amount = productAmounts[i];
+                        oDetail.EditState = 0;
+                        oDetail.NotEditable = false;
+                        oDetail.OrderPrice = OrderPrices[i];
+
+                        dbContext.OrderDetail.Add(oDetail);
                         dbContext.SaveChanges();
 
-                        lastId = Convert.ToInt32(oHeader.OrderNo);
-
-                        for (int i = 0; i < dtProducts.Rows.Count; i++)
-                        {
-                            oDetail.OrderNo = lastId;
-                            oDetail.ProductID = ProductIds[i];
-                            oDetail.Amount = productAmounts[i];
-                            oDetail.EditState = 0;
-                            oDetail.NotEditable = false;
-                            oDetail.OrderPrice = OrderPrices[i];
-
-                            dbContext.OrderDetail.Add(oDetail);
-                            dbContext.SaveChanges();
-
-                        }
-
-                        dbContext.Update_Table_State(table, true);
-                        dbContext.SaveChanges();
-
-                        MessageBox.Show(
-                            "Siparişiniz " + GlobalCustomer.FullName + " " +
-                            "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        eventSucces = true;
-                        this.Close();
                     }
-                }
-                else if (orderType == "Edit")
-                {
-                    var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
-                    if (query != null)
-                    {
-                        query.Note = txtOrderNote.Text;
-                        if (GlobalCustomer.Choosed)
-                        {
-                            query.CustomerID = GlobalCustomer.CustomerID;
-                        }
-                        query.LastEditionDatetime = DateTime.Now;
-                        query.TotalPrice = total;
-                        var oDetailNull = oDetails.FirstOrDefault();
-                        if (oDetailNull == null)
-                        {
-                            dbContext.SaveChanges();
-                        }
-                        else
-                        {
-                            dbContext.OrderDetail.Remove(oDetails.Last());
 
-                            foreach (var item in oDetails)
-                            {
-                                oDetail.OrderNo = orderNo;
-                                oDetail.ProductID = item.ProductID;
-                                oDetail.Amount = item.Amount;
-                                oDetail.EditAmount = item.EditAmount;
-                                oDetail.EditState = 0;
-                                oDetail.NotEditable = false;
-                                oDetail.OrderPrice = item.OrderPrice;
-                                dbContext.OrderDetail.AddOrUpdate(oDetail);
-                                dbContext.SaveChanges();
-                            }
+                    dbContext.Update_Table_State(table, true);
+                    dbContext.SaveChanges();
 
-                        }
-
-
-
-                    }
-                    MessageBox.Show("Siparişiniz başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBox.Show(
+                        "Siparişiniz " + GlobalCustomer.FullName + " " +
+                        "adlı müşterinizle başarıyla ilişkilendirilip kayıt edildi.", "ARWEN", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     eventSucces = true;
                     this.Close();
                 }
             }
-            catch (Exception ex)
+            else if (orderType == "Edit")
             {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var query = DbContext.OrderHeader.Where(x => x.OrderNo == orderNo).FirstOrDefault();
+                if (query != null)
+                {
+                    query.Note = txtOrderNote.Text;
+                    if (GlobalCustomer.Choosed)
+                    {
+                        query.CustomerID = GlobalCustomer.CustomerID;
+                    }
+                    query.LastEditionDatetime = DateTime.Now;
+                    query.TotalPrice = total;
+                    var oDetailNull = oDetails.FirstOrDefault();
+                    if (oDetailNull == null)
+                    {
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        dbContext.OrderDetail.Remove(oDetails.Last());
+
+                        foreach (var item in oDetails)
+                        {
+                            oDetail.OrderNo = orderNo;
+                            oDetail.ProductID = item.ProductID;
+                            oDetail.Amount = item.Amount;
+                            oDetail.EditAmount = item.EditAmount;
+                            oDetail.EditState = 0;
+                            oDetail.NotEditable = false;
+                            oDetail.OrderPrice = item.OrderPrice;
+                            dbContext.OrderDetail.AddOrUpdate(oDetail);
+                            dbContext.SaveChanges();
+                        }
+
+                    }
+
+
+
+                }
+                MessageBox.Show("Siparişiniz başarıyla güncellendi.", "ARWEN", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                eventSucces = true;
+                this.Close();
             }
-         
 
         }
 
@@ -242,62 +222,45 @@ namespace ARWEN.Forms
 
         private void frmOrderComplete_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            
+            if (e.CloseReason == CloseReason.UserClosing && eventSucces == false)
             {
-                if (e.CloseReason == CloseReason.UserClosing && eventSucces == false)
+                DialogResult result = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    DialogResult result = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "ARWEN", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (orderType == "Edit")
                     {
-
-                        if (orderType == "Edit")
-                        {
-                            UnLockOrder(lastId);
-                        }
-                        e.Cancel = false;
+                        UnLockOrder(lastId);
                     }
-                    else
-                    {
-                        e.Cancel = true;
-                    }
+                    e.Cancel = false;
                 }
                 else
                 {
-                    e.Cancel = false;
+                    e.Cancel = true;
                 }
-
             }
-            catch (Exception ex)
+            else
             {
-
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = false;
             }
-         
+
         }
 
         private void frmOrderComplete_Load(object sender, EventArgs e)
         {
-            try
+           
+            lblTable.Text = table;
+            lblTotal.Text = total.ToString("C2");
+            if (orderType == "New")
             {
-                j.cozunurlukAyarla(this);
-                lblTable.Text = table;
-                lblTotal.Text = total.ToString("C2");
-                if (orderType == "New")
-                {
-                    this.Text = "Siparişi Tamamla";
-                }
-                else if (orderType == "Edit")
-                {
-                    this.Text = "Siparişi Güncelle";
+                this.Text = "Siparişi Tamamla";
+            }
+            else if (orderType == "Edit")
+            {
+                this.Text = "Siparişi Güncelle";
 
-                }
             }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString(), "ARWEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-       
+
            
         }
 
